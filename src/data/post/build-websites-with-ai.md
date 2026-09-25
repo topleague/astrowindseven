@@ -1,31 +1,36 @@
 ---
-publishDate: 2026-08-17T00:00:00Z
-title: 'Build a Website with an AI Coding Assistant and Astro'
-excerpt: AstroWind ships an AGENTS.md and skills that teach any AI coding assistant the template. Which requests work well and how to keep the results reviewable.
-image: https://images.unsplash.com/photo-1527430253228-e93688616381?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80
+publishDate: 2026-09-25
+title: Recent Post → Build a Website with an AI Coding Assistant and Astro
+excerpt: AstroWind ships an AGENTS.md and skills that teach any AI coding
+  assistant the template. Which requests work well and how to keep the results
+  reviewable.
+image: /images/0C0D502B-00F3-4061-A743-71D176EA9E1D Background Removed.png
 imageAlt: A blue plastic toy robot
 category: Tutorials
 tags:
   - ai
   - astro
   - tailwind css
+updateDate: 2026-09-25
+draft: false
 ---
-
 Most of the work on a marketing site is not hard, it is long: a new page that looks like the others, a section moved from one page to another, a blog post with the right front matter, a deployment setting nobody remembers. AI coding assistants are good at exactly this kind of work, provided they know the conventions of the project. AstroWind gives them those conventions in two places, so that the same assistant that can [create the project](/get-started-website-with-astro-tailwind-css) can also [rebrand it](/how-to-customize-astrowind-to-your-brand) or [explain how it works](/astrowind-template-in-depth) without guessing.
 
 ## What AstroWind ships for AI coding assistants
 
-**`AGENTS.md`** at the root describes the stack, the directory layout, the commands to run and the rules the code follows. Most coding agents pick up an `AGENTS.md` on their own; check your tool's documentation (a `CLAUDE.md` in this repository simply points to it).
+`**AGENTS.md**` at the root describes the stack, the directory layout, the commands to run and the rules the code follows. Most coding agents pick up an `AGENTS.md` on their own; check your tool's documentation (a `CLAUDE.md` in this repository simply points to it).
 
-**`.agents/skills/`** contains one Markdown file per recurring task, written as a recipe: which files to touch, in which order, what to verify. A few examples:
+`**.agents/skills/**` contains one Markdown file per recurring task, written as a recipe: which files to touch, in which order, what to verify. A few examples:
 
-| Skill                       | What it does                                                |
+
+| Skill | What it does |
 | --------------------------- | ----------------------------------------------------------- |
-| `add-page.md`               | A new page composed of widgets, with metadata.              |
-| `add-blog-post.md`          | A post with the right front matter and image handling.      |
-| `styling.md`                | Colors, fonts and Tailwind tokens.                          |
+| `add-page.md` | A new page composed of widgets, with metadata. |
+| `add-blog-post.md` | A post with the right front matter and image handling. |
+| `styling.md` | Colors, fonts and Tailwind tokens. |
 | `configure-contact-form.md` | Connecting the contact form to a backend or a form service. |
-| `deploy-cloudflare.md`      | Deploying to Cloudflare Pages.                              |
+| `deploy-cloudflare.md` | Deploying to Cloudflare Pages. |
+
 
 …and a dozen more, from the widget catalog to structured data and base-path deployments. `AGENTS.md` tells the assistant to look for a matching skill before doing anything project-specific, so you do not need to mention them. You can also read them yourself: they are short and make a decent manual.
 
