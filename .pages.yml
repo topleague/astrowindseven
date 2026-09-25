@@ -1,0 +1,101 @@
+media:
+  input: public/images
+  output: /images
+
+content:
+
+  - name: posts
+    label: Blog Posts
+    type: collection
+    path: src/data/post
+    filename: "{primary}.md"
+    view:
+      primary: title
+      fields: [title, publishDate, category]
+      sort: publishDate
+      default:
+        sort: publishDate
+        order: desc
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+
+      - name: publishDate
+        label: Publish Date
+        type: date
+
+      - name: updateDate
+        label: Update Date
+        type: date
+
+      - name: draft
+        label: Draft
+        type: boolean
+
+      - name: excerpt
+        label: Excerpt
+        type: text
+
+      - name: image
+        label: Featured Image
+        type: image
+
+      - name: imageAlt
+        label: Image Alt Text
+        type: string
+
+      - name: category
+        label: Category
+        type: string
+
+      - name: tags
+        label: Tags
+        type: string
+        list: true
+
+      - name: author
+        label: Author
+        type: string
+
+      - name: body
+        label: Content
+        type: rich-text
+
+  - name: site
+    label: Site Configuration
+    type: file
+    path: src/config.yaml
+    format: yaml
+    fields:
+      - name: site
+        label: Site
+        type: object
+        fields:
+          - name: name
+            type: string
+          - name: url
+            type: string
+          - name: base
+            type: string
+          - name: trailingSlash
+            type: boolean
+
+      - name: metadata
+        label: SEO Metadata
+        type: object
+        fields:
+          - name: title
+            type: object
+            fields:
+              - name: default
+                type: string
+              - name: template
+                type: string
+          - name: description
+            type: string
+
+settings:
+  content:
+    merge: true
