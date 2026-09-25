@@ -1,6 +1,15 @@
 media:
   input: public/images
   output: /images
+  extensions:
+    - jpg
+    - JPG
+    - jpeg
+    - JPEG
+    - png
+    - PNG
+    - webp
+    - svg
 
 content:
 
