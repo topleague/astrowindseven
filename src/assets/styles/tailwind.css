@@ -159,6 +159,6 @@
 }*/
 
 @layer theme
-:root, :host {
+:root, :host, html {
 --font-sans: Fraunces-Regular, -apple-system, sans-serif!important;
 }
