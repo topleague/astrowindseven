@@ -162,3 +162,12 @@
 :root, :host, html {
 --font-sans: Fraunces-Regular, -apple-system, sans-serif!important;
 }
+
+@layer utilities
+.font-bold {
+font-family: Fraunces-Bold, Fraunces-Regular, -apple-system-ui!important;
+}
+
+.font-bold {
+font-family: Fraunces-Bold, Fraunces-Regular, -apple-system-ui!important;
+}
