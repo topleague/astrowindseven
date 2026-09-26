@@ -152,8 +152,8 @@
 }
 
 /* CUSTOM FONT */
-@layer base {
+/*@layer base {
   body {
     font-family: Fraunces-Regular, -apple-system, sans-serif!important;
   }
-}
+}*/
