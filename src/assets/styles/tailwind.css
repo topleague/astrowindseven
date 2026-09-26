@@ -150,3 +150,10 @@
   color: var(--shiki-dark) !important;
   background-color: var(--shiki-dark-bg) !important;
 }
+
+/* CUSTOM FONT */
+@layer base {
+  body {
+    font-family: Fraunces-Regular, -apple-system, sans-serif;
+  }
+}
