@@ -157,3 +157,8 @@
     font-family: Fraunces-Regular, -apple-system, sans-serif!important;
   }
 }*/
+
+@layer theme
+:root, :host {
+--font-sans: Fraunces-Regular, -apple-system, sans-serif!important;
+}
