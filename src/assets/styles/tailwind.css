@@ -174,7 +174,8 @@ font-family: Fraunces-Regular, -apple-system;
 
 .dark\:prose-invert:where(.dark,.dark *) {
 font-family: Fraunces-Regular, -apple-system;
+}
 
-/*.font-bold {
+.font-bold {
 font-family: Fraunces-Bold, Fraunces-Regular, -apple-system-ui!important;
-}*/
+}
