@@ -1,0 +1,38 @@
+{
+  "hero": {
+    "tagline": "About Top League Tech",
+    "title": "Content that helps businesses get found, understood and remembered.",
+    "subtitle": "Since 2005, Top League Tech has been helping businesses communicate better through SEO content, web copy and digital marketing.",
+    "image": {
+      "src": "/images/about-team.jpg",
+      "alt": "Top League Tech"
+    }
+  },
+
+  "stats": [
+    { "title": "Since", "amount": "2005" },
+    { "title": "Clients", "amount": "300+" },
+    { "title": "Years of experience", "amount": "20+" },
+    { "title": "Core service", "amount": "SEO Content" }
+  ],
+
+  "story": {
+    "title": "Our approach",
+    "subtitle": "Good content should do more than fill a page. It should attract the right people, answer their questions and move them towards action."
+  },
+
+  "values": [
+    {
+      "title": "Useful content",
+      "description": "We focus on content that genuinely helps readers rather than simply producing words for search engines."
+    },
+    {
+      "title": "SEO with purpose",
+      "description": "Search optimization should support the reader and the business—not make the content difficult to read."
+    },
+    {
+      "title": "Clear communication",
+      "description": "We believe good writing is clear, direct and easy for the intended audience to understand."
+    }
+  ]
+}
