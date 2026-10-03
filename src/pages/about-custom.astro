@@ -1,159 +1,148 @@
 ---
-
 import Layout from '~/layouts/PageLayout.astro';
 import HeroText from '~/components/widgets/HeroText.astro';
 import Features3 from '~/components/widgets/Features3.astro';
 import Prices from '~/components/widgets/Pricing.astro';
 
 const metadata = {
-title: 'SEO Article Writing Services',
-description:
-'Professionally crafted SEO articles that resonate with your potential customers.',
+  title: 'SEO Article Writing Services',
+  description: 'Professionally crafted SEO articles that resonate with your potential customers.',
 };
---
+---
 
 <Layout metadata={metadata}>
 
-<HeroText
- tagline="SEO Article Writing"
- title="SEO Article Writing Services"
- subtitle="Professionally crafted SEO articles that resonate with your potential customers."
-/>
+  <HeroText
+    tagline="SEO Article Writing"
+    title="SEO Article Writing Services"
+    subtitle="Professionally crafted SEO articles that resonate with your potential customers."
+  />
 
   <section class="px-6 py-12 sm:px-6 lg:px-8">
     <div class="mx-auto max-w-3xl">
 
-```
-  <p class="text-lg leading-relaxed text-gray-600 dark:text-gray-300">
-    Any SEO professional worth their salt knows it that article writing services aren’t the same as they used to be during the past one decade.
-  </p>
+      <p class="text-lg leading-relaxed text-gray-600 dark:text-gray-300">
+        Any SEO professional worth their salt knows it that article writing services aren’t the same as they used to be during the past one decade.
+      </p>
 
-  <p class="mt-6 text-lg leading-relaxed text-gray-600 dark:text-gray-300">
-    We started writing articles for many businesses back in 2006. Up until 2012, writing article was cake walk as one could get away with writing gibberish.
-  </p>
+      <p class="mt-6 text-lg leading-relaxed text-gray-600 dark:text-gray-300">
+        We started writing articles for many businesses back in 2006. Up until 2012, writing article was cake walk as one could get away with writing gibberish.
+      </p>
 
-  <p class="mt-6 text-lg leading-relaxed text-gray-600 dark:text-gray-300">
-    Not today!
-  </p>
+      <p class="mt-6 text-lg leading-relaxed text-gray-600 dark:text-gray-300">
+        Not today!
+      </p>
 
-  <p class="mt-6 text-lg leading-relaxed text-gray-600 dark:text-gray-300">
-    Your whole website could get penalized for harboring low quality content so you had better be careful about whom you hire for writing articles.
-  </p>
+      <p class="mt-6 text-lg leading-relaxed text-gray-600 dark:text-gray-300">
+        Your whole website could get penalized for harboring low quality content so you had better be careful about whom you hire for writing articles.
+      </p>
 
-  <p class="mt-6 text-lg leading-relaxed text-gray-600 dark:text-gray-300">
-    Since our inception, we have always prioritized writing quality articles for our client regardless of their verticals and budget.
-  </p>
+      <p class="mt-6 text-lg leading-relaxed text-gray-600 dark:text-gray-300">
+        Since our inception, we have always prioritized writing quality articles for our client regardless of their verticals and budget.
+      </p>
 
-  <p class="mt-6 text-lg leading-relaxed text-gray-600 dark:text-gray-300">
-    We obsess over quality content which reflects in our approach to article writing.
-  </p>
+      <p class="mt-6 text-lg leading-relaxed text-gray-600 dark:text-gray-300">
+        We obsess over quality content which reflects in our approach to article writing.
+      </p>
 
-  <h2 class="mt-12 text-3xl font-bold">
-    So, why should you choose our article writing services?
-  </h2>
+      <h2 class="mt-12 text-3xl font-bold">
+        So, why should you choose our article writing services?
+      </h2>
 
-</div>
-```
-
+    </div>
   </section>
 
-<Features3
-title="Unique features & potential benefits"
-subtitle="of our article writing services."
-columns={3}
-items={[
-{
-title: 'Highly Focused',
-description:
-'We tailor the tone of articles based on audience we target, ensuring the articles leave a great deal of impact',
-icon: 'tabler:target',
-},
-{
-title: '100% Original',
-description:
-'Our articles are 100% unique and each of them is tested via Copyscape before final delivery.',
-icon: 'tabler:check',
-},
-{
-title: 'Proofread to Perfection',
-description:
-'We proofread articles to ensure they are free from all kinds of errors, and look professional.',
-icon: 'tabler:writing',
-},
-{
-title: 'Compelling Discounts',
-description:
-'We offer up to 50% discount on our standard pricing when you place order for big package.',
-icon: 'tabler:discount',
-},
-{
-title: 'Free Trial Option',
-description:
-'We offer sample content specifically designed for your project to let you see if we’re a good fit.',
-icon: 'tabler:gift',
-},
-{
-title: 'Customer Satisfaction',
-description:
-'We offer multiple revisions based on your feedback and rework on any article you’re not satisfied with.',
-icon: 'tabler:heart',
-},
-]}
-/>
+  <Features3
+    title="Unique features & potential benefits"
+    subtitle="of our article writing services."
+    columns={3}
+    items={[
+      {
+        title: 'Highly Focused',
+        description: 'We tailor the tone of articles based on audience we target, ensuring the articles leave a great deal of impact.',
+        icon: 'tabler:target',
+      },
+      {
+        title: '100% Original',
+        description: 'Our articles are 100% unique and each of them is tested via Copyscape before final delivery.',
+        icon: 'tabler:check',
+      },
+      {
+        title: 'Proofread to Perfection',
+        description: 'We proofread articles to ensure they are free from all kinds of errors, and look professional.',
+        icon: 'tabler:writing',
+      },
+      {
+        title: 'Compelling Discounts',
+        description: 'We offer up to 50% discount on our standard pricing when you place order for big package.',
+        icon: 'tabler:discount',
+      },
+      {
+        title: 'Free Trial Option',
+        description: 'We offer sample content specifically designed for your project to let you see if we’re a good fit.',
+        icon: 'tabler:gift',
+      },
+      {
+        title: 'Customer Satisfaction',
+        description: 'We offer multiple revisions based on your feedback and rework on any article you’re not satisfied with.',
+        icon: 'tabler:heart',
+      },
+    ]}
+  />
 
-<Prices
-title="Our prices are unbeatable!"
-subtitle="We have a package for every budget."
-prices={[
-{
-title: 'Basic',
-subtitle: '5 SEO articles',
-price: { monthly: 320, yearly: 320 },
-period: { monthly: '5 articles', yearly: '5 articles' },
-items: [
-{ description: '5 Articles' },
-{ description: '2,000 Words Each' },
-{ description: 'ETA: 10 Business Days' },
-],
-callToAction: {
-text: 'Order Now',
-href: 'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=PZXUG9DELUY7N',
-},
-},
-{
-title: 'Standard',
-subtitle: '10 SEO articles',
-price: { monthly: 640, yearly: 640 },
-period: { monthly: '10 articles', yearly: '10 articles' },
-highlight: true,
-items: [
-{ description: '10 Articles' },
-{ description: '2,000 Words Each' },
-{ description: 'ETA: 20 Business Days' },
-],
-callToAction: {
-text: 'Order Now',
-href: 'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=T5YZVB5HYRA62',
-},
-hasRibbon: true,
-ribbonTitle: 'Popular',
-},
-{
-title: 'Premium',
-subtitle: '20 SEO articles',
-price: { monthly: 1280, yearly: 1280 },
-period: { monthly: '20 articles', yearly: '20 articles' },
-items: [
-{ description: '20 Articles' },
-{ description: '2,000 Words Each' },
-{ description: 'ETA: 40 Business Days' },
-],
-callToAction: {
-text: 'Order Now',
-href: 'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=P33VWYGB2VFKG',
-},
-},
-]}
-/>
+  <Prices
+    title="Our prices are unbeatable!"
+    subtitle="We have a package for every budget."
+    prices={[
+      {
+        title: 'Basic',
+        subtitle: '5 SEO articles',
+        price: { monthly: 320, yearly: 320 },
+        period: { monthly: '5 articles', yearly: '5 articles' },
+        items: [
+          { description: '5 Articles' },
+          { description: '2,000 Words Each' },
+          { description: 'ETA: 10 Business Days' },
+        ],
+        callToAction: {
+          text: 'Order Now',
+          href: 'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=PZXUG9DELUY7N',
+        },
+      },
+      {
+        title: 'Standard',
+        subtitle: '10 SEO articles',
+        price: { monthly: 640, yearly: 640 },
+        period: { monthly: '10 articles', yearly: '10 articles' },
+        highlight: true,
+        items: [
+          { description: '10 Articles' },
+          { description: '2,000 Words Each' },
+          { description: 'ETA: 20 Business Days' },
+        ],
+        callToAction: {
+          text: 'Order Now',
+          href: 'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=T5YZVB5HYRA62',
+        },
+        hasRibbon: true,
+        ribbonTitle: 'Popular',
+      },
+      {
+        title: 'Premium',
+        subtitle: '20 SEO articles',
+        price: { monthly: 1280, yearly: 1280 },
+        period: { monthly: '20 articles', yearly: '20 articles' },
+        items: [
+          { description: '20 Articles' },
+          { description: '2,000 Words Each' },
+          { description: 'ETA: 40 Business Days' },
+        ],
+        callToAction: {
+          text: 'Order Now',
+          href: 'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=P33VWYGB2VFKG',
+        },
+      },
+    ]}
+  />
 
 </Layout>
