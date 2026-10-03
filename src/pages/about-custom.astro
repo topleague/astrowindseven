@@ -14,15 +14,11 @@ description:
 
 <Layout metadata={metadata}>
 
-  <!-- Hero -->
-
 <HeroText
  tagline="SEO Article Writing"
  title="SEO Article Writing Services"
  subtitle="Professionally crafted SEO articles that resonate with your potential customers."
 />
-
-  <!-- Introduction -->
 
   <section class="px-6 py-12 sm:px-6 lg:px-8">
     <div class="mx-auto max-w-3xl">
@@ -61,17 +57,15 @@ description:
 
   </section>
 
-  <!-- Features -->
-
 <Features3
 title="Unique features & potential benefits"
-subtitle="Highly researched & keyword-optimized articles act as a backlink-magnet for your campaign."
+subtitle="of our article writing services."
 columns={3}
 items={[
 {
 title: 'Highly Focused',
 description:
-'We tailor the tone of articles based on audience we target, ensuring the articles leave a great deal of impact.',
+'We tailor the tone of articles based on audience we target, ensuring the articles leave a great deal of impact',
 icon: 'tabler:target',
 },
 {
@@ -107,8 +101,6 @@ icon: 'tabler:heart',
 ]}
 />
 
-  <!-- Pricing -->
-
 <Prices
 title="Our prices are unbeatable!"
 subtitle="We have a package for every budget."
@@ -119,15 +111,9 @@ subtitle: '5 SEO articles',
 price: { monthly: 320, yearly: 320 },
 period: { monthly: '5 articles', yearly: '5 articles' },
 items: [
-{
-description: '5 Articles',
-},
-{
-description: '2,000 Words Each',
-},
-{
-description: 'ETA: 10 Business Days',
-},
+{ description: '5 Articles' },
+{ description: '2,000 Words Each' },
+{ description: 'ETA: 10 Business Days' },
 ],
 callToAction: {
 text: 'Order Now',
@@ -141,15 +127,9 @@ price: { monthly: 640, yearly: 640 },
 period: { monthly: '10 articles', yearly: '10 articles' },
 highlight: true,
 items: [
-{
-description: '10 Articles',
-},
-{
-description: '2,000 Words Each',
-},
-{
-description: 'ETA: 20 Business Days',
-},
+{ description: '10 Articles' },
+{ description: '2,000 Words Each' },
+{ description: 'ETA: 20 Business Days' },
 ],
 callToAction: {
 text: 'Order Now',
@@ -164,15 +144,9 @@ subtitle: '20 SEO articles',
 price: { monthly: 1280, yearly: 1280 },
 period: { monthly: '20 articles', yearly: '20 articles' },
 items: [
-{
-description: '20 Articles',
-},
-{
-description: '2,000 Words Each',
-},
-{
-description: 'ETA: 40 Business Days',
-},
+{ description: '20 Articles' },
+{ description: '2,000 Words Each' },
+{ description: 'ETA: 40 Business Days' },
 ],
 callToAction: {
 text: 'Order Now',
@@ -183,8 +157,3 @@ href: 'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=P33V
 />
 
 </Layout>
----
-
-This is deliberately **not a pixel-for-pixel copy of the old WordPress page**. It transfers the actual source content into the AstroWind structure while removing the WordPress-era blog/sidebar material and using AstroWind's existing Hero, Features and Pricing components. The original page's three PayPal destinations were also preserved.
-
-One thing I would **test before we move on** is the pricing component's monthly/yearly presentation, because your old WordPress pricing is a fixed one-time package price, whereas AstroWind's `Pricing.astro` was designed around monthly/yearly values. That is a presentation issue, not a content issue.
