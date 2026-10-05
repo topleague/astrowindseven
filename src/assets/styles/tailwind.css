@@ -212,6 +212,14 @@ font-family: Futura!important;
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'Futura';
+  src: url('/fonts/FuturaLT-ExtraBold.woff') format('woff');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --font-inter: 'Futura', sans-serif;
 }
