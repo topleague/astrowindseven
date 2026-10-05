@@ -179,3 +179,7 @@ font-family: Fraunces-Bold, Fraunces-Regular, -apple-system-ui!important;
 .font-bold {
 /*font-family: Fraunces-Bold, Fraunces-Regular, -apple-system-ui!important;*/
 }
+
+\32 xl\:text-\[20px\].motion-safe\:scroll-smooth {
+font-family: Futura;
+}
