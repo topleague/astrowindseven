@@ -181,11 +181,12 @@ font-family: Fraunces-Bold, Fraunces-Regular, -apple-system-ui!important;
 }
 
 \32 xl\:text-\[20px\].motion-safe\:scroll-smooth {
-font-family: Futura!important;
+font-family: Futura!important; font-stretch: condensed!important;
 }
 
 :root {
 --font-inter: Futura!important;
+  font-stretch: condensed!important;
 }
 
 @font-face {
@@ -246,4 +247,10 @@ font-family: Futura!important;
 
 :root {
   --font-inter: 'Futura', sans-serif;
+  font-stretch: condensed!important;
+}
+
+@layer utilities
+.dark\:text-white:where(.dark,.dark *) {
+font-stretch: condensed!important;
 }
