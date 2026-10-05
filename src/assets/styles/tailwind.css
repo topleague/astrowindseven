@@ -220,6 +220,30 @@ font-family: Futura!important;
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'Futura';
+  src: url('/fonts/FuturaLT-CondensedExtraBold.woff') format('woff');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Futura';
+  src: url('/fonts/FuturaLT-CondensedBold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Futura';
+  src: url('/fonts/FuturaLT-Condensed.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --font-inter: 'Futura', sans-serif;
 }
