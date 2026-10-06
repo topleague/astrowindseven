@@ -214,6 +214,14 @@ font-family: Futura!important; /*font-stretch: condensed!important;*/
 }
 
 @font-face {
+  font-family: 'Futura Bold';
+  src: url('/fonts/FuturaLT-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
   font-family: 'Futura Extra Bold';
   src: url('/fonts/FuturaLT-ExtraBold.woff') format('woff');
   font-weight: 800;
