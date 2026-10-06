@@ -271,6 +271,8 @@ font-family: Futura!important; /*font-stretch: condensed!important;*/
 }
 
 @layer utilities
-.text-heading {
-font-family: Futura Bold, Futura Extra Bold, serif;
+	.text-heading, 
+	h1, h2, h3, h4, h5, h6,
+  .font-bold {
+	font-family: Futura Bold, Futura Extra Bold, serif!important;
 }
