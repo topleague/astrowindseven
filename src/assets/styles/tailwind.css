@@ -181,11 +181,12 @@ font-family: Fraunces-Bold, Fraunces-Regular, -apple-system-ui!important;
 }
 
 \32 xl\:text-\[20px\].motion-safe\:scroll-smooth {
-font-family: Futura!important; /*font-stretch: condensed!important;*/
+font-family: Futura Bold, Futura Extra Bold, serif!important;
 }
 
 :root {
---font-inter: Futura!important;
+/*--font-inter: Futura!important;*/
+  --font-inter: Futura Bold, Futura Extra Bold, serif!important;
   /*font-stretch: condensed!important;*/
 }
 
