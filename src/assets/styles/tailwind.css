@@ -274,11 +274,27 @@
 
 /* CUSTOM CSS */
 
-@layer base {
+/*@layer base {
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Mona Bold Pro Max', 'Futura Bold', sans-serif !important;
     font-weight: 900 !important;
     letter-spacing: -.025em!important;
+  }
+}*/
+
+@layer base {
+  h1, h2, h3, h4, h5, h6 {
+    letter-spacing: -.025em !important;
+  }
+
+  h1 {
+    font-family: 'Mona Bold Pro', sans-serif !important;
+    font-weight: 800 !important;
+  }
+
+  :where(h2, h3, h4, h5, h6) {
+    font-family: 'Mona Bold', sans-serif !important;
+    font-weight: 600 !important;
   }
 }
 
