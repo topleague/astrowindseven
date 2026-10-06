@@ -189,6 +189,8 @@ font-family: Futura!important; /*font-stretch: condensed!important;*/
   /*font-stretch: condensed!important;*/
 }
 
+/* FUTURA NON-CONDENSED */
+
 @font-face {
   font-family: 'Futura';
   src: url('/fonts/FuturaLT-Light.woff') format('woff');
@@ -201,14 +203,6 @@ font-family: Futura!important; /*font-stretch: condensed!important;*/
   font-family: 'Futura Book';
   src: url('/fonts/FuturaLT-Book.woff') format('woff');
   font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Futura Heavy';
-  src: url('/fonts/FuturaLT-Heavy.woff') format('woff');
-  font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
@@ -228,6 +222,17 @@ font-family: Futura!important; /*font-stretch: condensed!important;*/
   font-style: normal;
   font-display: swap;
 }
+
+@font-face {
+  font-family: 'Futura Heavy';
+  src: url('/fonts/FuturaLT-Heavy.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+/* FUTURA CONDENSED (400 + 700 + 800) */
 
 @font-face {
   font-family: 'Futura';
@@ -252,6 +257,8 @@ font-family: Futura!important; /*font-stretch: condensed!important;*/
   font-style: normal;
   font-display: swap;
 }
+
+/* CUSTOM CSS */
 
 :root {
   --font-inter: 'Futura Book', sans-serif;
