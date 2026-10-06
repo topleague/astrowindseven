@@ -152,43 +152,6 @@
 }
 
 /* CUSTOM FONT */
-/*@layer base {
-  body {
-    font-family: Fraunces-Regular, -apple-system, sans-serif!important;
-  }
-}*/
-
-/* @layer theme
-:root, :host, html {
---font-sans: Fraunces-Regular, -apple-system, sans-serif!important;
-}*/
-
-/* @layer utilities
-.font-bold {
-font-family: Fraunces-Bold, Fraunces-Regular, -apple-system-ui!important;
-}*/
-
-.prose {
-/*font-family: Fraunces-Regular, -apple-system;*/
-}
-
-.dark\:prose-invert:where(.dark,.dark *) {
-/*font-family: Fraunces-Regular, -apple-system;*/
-}
-
-.font-bold {
-/*font-family: Fraunces-Bold, Fraunces-Regular, -apple-system-ui!important;*/
-}
-
-\32 xl\:text-\[20px\].motion-safe\:scroll-smooth {
-font-family: Futura Bold, Futura Extra Bold, serif!important;
-}
-
-:root {
-/*--font-inter: Futura!important;*/
-  --font-inter: Futura Bold, Futura Extra Bold, serif!important;
-  /*font-stretch: condensed!important;*/
-}
 
 /* FUTURA NON-CONDENSED */
 
@@ -261,19 +224,9 @@ font-family: Futura Bold, Futura Extra Bold, serif!important;
 
 /* CUSTOM CSS */
 
-:root {
-  --font-inter: 'Futura Book', sans-serif;
-  /*font-stretch: condensed!important;*/
-}
-
-@layer utilities
-.dark\:text-white:where(.dark,.dark *) {
- /*font-stretch: condensed!important;*/
-}
-
-@layer utilities
-	.text-heading, 
-	h1, h2, h3, h4, h5, h6,
-  .font-bold {
-	font-family: Futura Bold, Futura Extra Bold, serif!important;
+@layer base {
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Futura Bold', sans-serif !important;
+    font-weight: 700 !important;
+  }
 }
