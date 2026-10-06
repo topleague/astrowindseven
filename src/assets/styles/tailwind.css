@@ -198,7 +198,7 @@ font-family: Futura!important; /*font-stretch: condensed!important;*/
 }
 
 @font-face {
-  font-family: 'Futura';
+  font-family: 'Futura Book';
   src: url('/fonts/FuturaLT-Book.woff') format('woff');
   font-weight: 400;
   font-style: normal;
@@ -246,7 +246,7 @@ font-family: Futura!important; /*font-stretch: condensed!important;*/
 }
 
 :root {
-  --font-inter: 'Futura', sans-serif;
+  --font-inter: 'Futura Book', sans-serif;
   /*font-stretch: condensed!important;*/
 }
 
