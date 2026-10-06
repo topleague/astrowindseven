@@ -269,3 +269,8 @@ font-family: Futura!important; /*font-stretch: condensed!important;*/
 .dark\:text-white:where(.dark,.dark *) {
  /*font-stretch: condensed!important;*/
 }
+
+@layer utilities
+.text-heading {
+font-family: Futura Bold, Futura Extra Bold, serif;
+}
