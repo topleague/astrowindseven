@@ -206,7 +206,7 @@ font-family: Futura!important; /*font-stretch: condensed!important;*/
 }
 
 @font-face {
-  font-family: 'Futura';
+  font-family: 'Futura Heavy';
   src: url('/fonts/FuturaLT-Heavy.woff') format('woff');
   font-weight: 700;
   font-style: normal;
