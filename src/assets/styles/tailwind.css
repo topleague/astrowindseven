@@ -186,7 +186,7 @@ font-family: Futura!important; font-stretch: condensed!important;
 
 :root {
 --font-inter: Futura!important;
-  font-stretch: condensed!important;
+  /*font-stretch: condensed!important;*/
 }
 
 @font-face {
@@ -247,7 +247,7 @@ font-family: Futura!important; font-stretch: condensed!important;
 
 :root {
   --font-inter: 'Futura', sans-serif;
-  font-stretch: condensed!important;
+  /*font-stretch: condensed!important;*/
 }
 
 @layer utilities
