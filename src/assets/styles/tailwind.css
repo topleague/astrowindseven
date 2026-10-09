@@ -301,3 +301,15 @@
 p {
 font-family: 'Para', Futura Book, serif!important;
 }
+
+/* TAREGET THE TEAM WIDGET */
+/* @media (width >= 48rem) */ /* MODERN SYNTAX*/
+@media (min-width: 768px) 
+{
+  /*#team ul.grid.sm\:grid-cols-2*/ /* MORE SPECIFIC BUT MESSY*/
+  #team > div > ul 
+  {
+    width: 70%;
+    margin-inline: auto;
+  }
+}
