@@ -42,11 +42,23 @@ const metadata = {
   class="tlt-about-hero"
   style="background-image: linear-gradient(to right, #141618, #14161870), url('https://topleaguetech.com/wp-content/uploads/2014/02/Set-up-RSS-to-Email-MailChimp-Campaign-1200x400-900x400.jpg');"
 >
-  <div class="tlt-about-hero__inner">
-    <h1>Crafting Words that Drive Results</h1>
-    <p>Customer-focused approach to deliver the best results possible.</p>
-  </div>
-</section>
+
+<Hero
+    tagline="About us"
+    image={{
+      src: 'https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      alt: 'Caos Image',
+    }}
+  >
+    <Fragment slot="title">
+      Crafting Words that <br />
+      <span class="text-accent dark:text-white"> Drive Results</span>
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      Customer-focused approach to deliver the best results possible.
+    </Fragment>
+  </Hero>
 
 <style>
   .tlt-about-hero {
