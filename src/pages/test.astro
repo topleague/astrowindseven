@@ -1,13 +1,16 @@
+
 ---
 /* PART 1: IMPORTS */
 import Layout from '~/layouts/Layout.astro';
 import Testimonials from '~/components/widgets/Testimonials.astro';
+
 /* PART 2: FRONTMATTER */
 const metadata = {
   title: 'Page Name',
   description: 'Random Page Description.',
 };
 ---
+
 <!-- PART 3: TEMPLATE (PAGE BODY) -->
 <Layout metadata={metadata}>
   <!-- Testimonials Widget -->
@@ -21,15 +24,15 @@ const metadata = {
         name: 'Random Name',
         job: 'Random Business name',
         image: {
-          src: 'Image URL link or hot link',
-          alt: 'Alt Image Text',
+          src: 'https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2040&h=1148&q=80',
+          alt: 'Client testimonial image',
         },
       },
     ]}
     callToAction={{
       target: '_blank',
       text: 'Random CTA',
-      href: 'URL',
+      href: 'https://example.com/',
       icon: 'tabler:chevron-right',
     }}
   />
