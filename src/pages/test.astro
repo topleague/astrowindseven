@@ -1,0 +1,35 @@
+---
+/* PART 1: IMPORTS */
+import Testimonials from '~/components/widgets/Testimonials.astro';
+/* PART 2: FRONTMATTER */
+const metadata = {
+  title: 'Page Name',
+  description: 'Random Page Description.',
+};
+---
+<!-- PART 3: TEMPLATE (PAGE BODY) -->
+<Layout metadata={metadata}>
+  <!-- Testimonials Widget -->
+  <Testimonials
+    title="Words from real customers"
+    testimonials={[
+      {
+        title: 'Random Subtitle!',
+        testimonial: `Random Words from Client..`,
+        rating: 5,
+        name: 'Random Name',
+        job: 'Random Business name',
+        image: {
+          src: 'Image URL link or hot link',
+          alt: 'Alt Image Text',
+        },
+      },
+    ]}
+    callToAction={{
+      target: '_blank',
+      text: 'Random CTA',
+      href: 'URL',
+      icon: 'tabler:chevron-right',
+    }}
+  />
+</Layout>
