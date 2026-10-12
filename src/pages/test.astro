@@ -2,7 +2,9 @@
 ---
 /* PART 1: IMPORTS */
 import Layout from '~/layouts/PageLayout.astro';
+import Features from '~/components/widgets/Features.astro';
 import Testimonials from '~/components/widgets/Testimonials.astro';
+
 
 /* PART 2: FRONTMATTER */
 const metadata = {
@@ -13,7 +15,53 @@ const metadata = {
 
 <!-- PART 3: TEMPLATE (PAGE BODY) -->
 <Layout metadata={metadata}>
-  <!-- Testimonials Widget -->
+
+<!-- Features Widget ************************************************************************************************************************ -->
+
+  <Features
+    id="features"
+    title="Main features of our templates"
+    subtitle="Possess several key characteristics to effectively cater to the needs of startups and entrepreneurs."
+    columns={3}
+    items={[
+      {
+        title: 'Modern and Professional Design',
+        description:
+          'Have a contemporary design that reflects current design trends and gives a professional impression.',
+        icon: 'tabler:artboard',
+      },
+      {
+        title: 'Responsive and Mobile-Friendly',
+        description: 'Adapt seamlessly to different screen sizes and devices to ensure a consistent experience.',
+        icon: 'tabler:picture-in-picture',
+      },
+      {
+        title: 'Customizability',
+        description:
+          'Easily customizable, allowing users to adapt the design, colors, typography, and content to match their brand identity.',
+        icon: 'tabler:adjustments-horizontal',
+      },
+      {
+        title: 'Fast Loading Times',
+        description: 'Optimized for speed to ensure a smooth user experience and favorable search engine rankings.',
+        icon: 'tabler:rocket',
+      },
+      {
+        title: 'Search Engine Optimization (SEO)',
+        description:
+          'Incorporate SEO best practices in template structure and code to improve visibility in search engine results.',
+        icon: 'tabler:arrows-right-left',
+      },
+      {
+        title: 'Compatibility',
+        description: 'The templates work seamlessly across various content management systems and website builders.',
+        icon: 'tabler:plug-connected',
+      },
+    ]}
+  />
+
+
+  <!-- Testimonials Widget ************************************************************************************************************************ -->
   <Testimonials
     title="Words from real customers"
     testimonials={[
