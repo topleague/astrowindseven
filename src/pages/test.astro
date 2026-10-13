@@ -8,6 +8,9 @@ import Features from '~/components/widgets/Features.astro';
 import Testimonials from '~/components/widgets/Testimonials.astro';
 import Quote from '~/components/widgets/Quote.astro';
 
+import Headline from '~/components/ui/Headline.astro';
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+
 
 /* PART 2: FRONTMATTER */
 const metadata = {
@@ -133,15 +136,33 @@ const destination = 'https://github.com/arthelokyo/astrowind';
 
 <!-- 6. Social proof: where real quotes go -->
 
-  <Testimonials
-    id="proof"
+<!-- 6. Proof: constraints and (placeholder) testimonials ************************************************************************************************************************-->
+
+
+<!-- SOCIAL PROOF: heading, featured quote, mini reviews -->
+
+<WidgetWrapper id="proof" containerClass="max-w-6xl mx-auto">
+  <Headline
     tagline="Social proof"
     title="This is where real customer words go"
     subtitle="Placeholders below, on purpose: never publish invented testimonials. Ask three customers for one sentence each and use their real name, role and photo with permission."
+  />
+
+  <Quote
+    quote="One sentence that names the problem the customer had before and the measurable result after. This is a sample: replace it with a real customer’s words, with permission."
+    name="Customer name"
+    job="Role, company (sample testimonial)"
+    rating={5}
+    image={{
+      src: 'https://images.unsplash.com/photo-1618835962148-cf177563c6c0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=930&q=80',
+      alt: 'Portrait placeholder for a customer testimonial',
+    }}
+  />
+
+  <Testimonials
     testimonials={[
       {
-        testimonial:
-          'One sentence that names the problem the customer had before and the result after. Specific numbers make it credible.',
+        testimonial: 'One sentence that names the problem the customer had before and the result after. Specific numbers make it credible.',
         name: 'Customer name',
         job: 'Role, company (sample testimonial)',
         image: {
@@ -150,8 +171,7 @@ const destination = 'https://github.com/arthelokyo/astrowind';
         },
       },
       {
-        testimonial:
-          'A quote that addresses the biggest objection your FAQ also answers: time to value, price, or trust.',
+        testimonial: 'A quote that addresses the biggest objection your FAQ also answers: time to value, price, or trust.',
         name: 'Customer name',
         job: 'Role, company (sample testimonial)',
         image: {
@@ -160,8 +180,7 @@ const destination = 'https://github.com/arthelokyo/astrowind';
         },
       },
       {
-        testimonial:
-          'A short one. Variety in length reads as authentic; three quotes of identical shape read as written by the same person.',
+        testimonial: 'A short one. Variety in length reads as authentic; three quotes of identical shape read as written by the same person.',
         name: 'Customer name',
         job: 'Role, company (sample testimonial)',
         image: {
@@ -171,98 +190,9 @@ const destination = 'https://github.com/arthelokyo/astrowind';
       },
     ]}
   />
+</WidgetWrapper>
 
 
-  <!-- 6. Proof: constraints and (placeholder) testimonials ************************************************************************************************************************-->
-
-  <Quote
-    id="proof"
-    quote="One sentence that names the problem the customer had before and the measurable result after. This is a sample: replace it with a real customer’s words, with permission."
-    name="Customer name"
-    job="Role, company (sample testimonial)"
-    rating={5}
-    image={{
-      src: 'https://images.unsplash.com/photo-1618835962148-cf177563c6c0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=930&q=80',
-      alt: 'Portrait placeholder for a customer testimonial',
-    }}
-  />
-
-  <!-- Combined Custom Testimonials Widget ************************************************************************************************************************ -->
-<!-- SOCIAL PROOF: heading, featured testimonial, mini reviews -->
-
-<Testimonials
-  id="proof"
-  tagline="Social proof"
-  title="This is where real customer words go"
-  subtitle="Placeholders below, on purpose: never publish invented testimonials. Ask three customers for one sentence each and use their real name, role and photo with permission."
-  testimonials={[
-    {
-      testimonial:
-        'One sentence that names the problem the customer had before and the result after. Specific numbers make it credible.',
-      name: 'Customer name',
-      job: 'Role, company (sample testimonial)',
-      image: {
-        src: 'https://images.unsplash.com/photo-1618835962148-cf177563c6c0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=930&q=80',
-        alt: 'Portrait placeholder for a customer testimonial',
-      },
-    },
-    {
-      testimonial:
-        'A quote that addresses the biggest objection your FAQ also answers: time to value, price, or trust.',
-      name: 'Customer name',
-      job: 'Role, company (sample testimonial)',
-      image: {
-        src: 'https://images.unsplash.com/photo-1453738773917-9c3eff1db985?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1320&q=80',
-        alt: 'Portrait placeholder for a customer testimonial',
-      },
-    },
-    {
-      testimonial:
-        'A short one. Variety in length reads as authentic; three quotes of identical shape read as written by the same person.',
-      name: 'Customer name',
-      job: 'Role, company (sample testimonial)',
-      image: {
-        src: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1320&q=80',
-        alt: 'Portrait placeholder for a customer testimonial',
-      },
-    },
-  ]}
->
-  <Quote
-    slot="featured"
-    quote="One sentence that names the problem the customer had before and the measurable result after. This is a sample: replace it with a real customer’s words, with permission."
-    name="Customer name"
-    job="Role, company (sample testimonial)"
-    rating={5}
-    image={{
-      src: 'https://images.unsplash.com/photo-1618835962148-cf177563c6c0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=930&q=80',
-      alt: 'Portrait placeholder for a customer testimonial',
-    }}
-  />
-</Testimonials>
 
 
-  <!-- Testimonials Widget ************************************************************************************************************************ -->
-  <Testimonials
-    title="Words from real customers"
-    testimonials={[
-      {
-        title: 'Random Subtitle!',
-        testimonial: `Random Words from Client..`,
-        rating: 5,
-        name: 'Random Name',
-        job: 'Random Business name',
-        image: {
-          src: 'https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2040&h=1148&q=80',
-          alt: 'Client testimonial image',
-        },
-      },
-    ]}
-    callToAction={{
-      target: '_blank',
-      text: 'Random CTA',
-      href: 'https://example.com/',
-      icon: 'tabler:chevron-right',
-    }}
-  />
 </Layout>
