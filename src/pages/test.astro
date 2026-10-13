@@ -75,47 +75,52 @@ const blogItems = await Promise.all(
 
 <!-- Features Widget ************************************************************************************************************************ -->
 
-  <Content
-    id="preview"
-    isReversed
-    tagline="Our Services"
-    title="Content that Resonates"
-    subtitle="Get More Than Just Words—Experience the Power of Strategic SEO Content That Delivers Results."
-    items={[
-      {
-        title: 'SEO Article Writing',
-        description: "Turn your brand into an authority with our SEO-driven articles. Our expert writers craft compelling blog posts that don't just rank on Google—they build your reputation and engage your audience. Tailored for content marketing and guest blogging, these articles are designed to elevate your online presence.",
-},
-      {
-        title: 'Product Description Writing',
-        description:
-          "Boost your eCommerce game with product descriptions that convert. We specialize in crafting keyword-optimized, customer-centric descriptions that enhance your product's appeal and drive sales. Let us help you turn browsers into buyers with content that speaks directly to your target audience.",
-},
-      {
-        title: 'Website Content Writing',
-        description: "Give your website the voice it deserves. Our team rewrites your content to ensure it’s not only SEO-friendly but also compelling and professional. We focus on creating content that resonates with both search engines and your customers, ensuring higher rankings and better conversion rates. Turn clicks into clients!",
-},
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1531973486364-5fa64260d75b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1674&q=80',
-      alt: 'A developer working at a laptop',
-    }}
+<!-- Features Widget: Our Services ************************ -->
 
-  >
-
-    <!-- REMOVE this piece of content ******************** -->
-    <!-- 
-    <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Content that Resonates</h3>
-      No Fluff. Our Content Speaks Your Audience’s Language and Adheres to SEO Standards.
-    </Fragment>
-    -->
-
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-    </Fragment>
-  </Content>
-
+<Content
+  id="preview"
+  isReversed
+  tagline="Our Services"
+  title="Content that Resonates"
+  subtitle="Get More Than Just Words—Experience the Power of Strategic SEO Content That Delivers Results."
+  items={[
+    {
+      title: 'SEO Article Writing',
+      description:
+        "Build authority and attract organic traffic with SEO-driven articles that engage readers and rank on Google. Ideal for content marketing, blog publishing, and guest posting.",
+      callToAction: {
+        text: 'Explore service →',
+        href: 'https://astrowindy.pages.dev/blog/',
+      },
+    },
+    {
+      title: 'Product Description Writing',
+      description:
+        "Turn browsers into buyers with persuasive, keyword-optimized product descriptions. We highlight your product's value, connect with customers, and help drive sales.",
+      callToAction: {
+        text: 'Explore service →',
+        href: 'https://astrowindy.pages.dev/blog/',
+      },
+    },
+    {
+      title: 'Website Content Writing',
+      description:
+        "Make every page work harder with clear, compelling, SEO-friendly website copy. We help your business communicate its value, engage visitors, and turn clicks into clients.",
+      callToAction: {
+        text: 'Explore service →',
+        href: 'https://astrowindy.pages.dev/blog/',
+      },
+    },
+  ]}
+  image={{
+    src: 'https://images.unsplash.com/photo-1531973486364-5fa64260d75b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1674&q=80',
+    alt: 'A developer working at a laptop',
+  }}
+>
+  <Fragment slot="bg">
+    <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+  </Fragment>
+</Content>
  
 <!-- Features Widget ************************************************************************************************************************ -->
 
