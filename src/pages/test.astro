@@ -6,6 +6,7 @@ import Layout from '~/layouts/PageLayout.astro';
 import Content from '~/components/widgets/Content.astro';
 import Features from '~/components/widgets/Features.astro';
 import Testimonials from '~/components/widgets/Testimonials.astro';
+import Quote from '~/components/widgets/Quote.astro';
 
 
 /* PART 2: FRONTMATTER */
@@ -129,6 +130,19 @@ const destination = 'https://github.com/arthelokyo/astrowind';
     ]}
   />
 
+  <!-- 6. Proof: constraints and (placeholder) testimonials ************************************************************************************************************************-->
+
+  <Quote
+    id="proof"
+    quote="One sentence that names the problem the customer had before and the measurable result after. This is a sample: replace it with a real customer’s words, with permission."
+    name="Customer name"
+    job="Role, company (sample testimonial)"
+    rating={5}
+    image={{
+      src: 'https://images.unsplash.com/photo-1618835962148-cf177563c6c0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=930&q=80',
+      alt: 'Portrait placeholder for a customer testimonial',
+    }}
+  />
 
   <!-- Testimonials Widget ************************************************************************************************************************ -->
   <Testimonials
