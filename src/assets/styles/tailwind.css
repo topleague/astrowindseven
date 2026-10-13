@@ -351,6 +351,10 @@ color: #fff!important;
 background-color: #fff;
 }
 
+.dark #features, .dark #blog {
+background-color: inherit;
+}
+
 /* Footer*/
 footer {
     background: #2753a2!important;
