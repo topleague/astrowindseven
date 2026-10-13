@@ -311,6 +311,17 @@ font-family: 'Para', Futura Book, serif!important;
   background: transparent;
 }
 
+/* Hero Dark Mode */
+dark\:hidden:where(.dark,.dark *) {
+display: inherit;
+}
+.dark #hero, .dark .hero-separator {
+background: #483D8B;
+}
+.dark path {
+fill: #000;
+}
+
 /* TAREGET THE TEAM WIDGET */
 /* @media (width >= 48rem) */ /* MODERN SYNTAX*/
 @media (min-width: 768px) 
