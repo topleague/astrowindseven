@@ -302,6 +302,15 @@ p {
 font-family: 'Para', Futura Book, serif!important;
 }
 
+/* Social Proof: light mode only */
+#proof {
+  background: var(--color-blue-50);
+}
+
+.dark #proof {
+  background: transparent;
+}
+
 /* TAREGET THE TEAM WIDGET */
 /* @media (width >= 48rem) */ /* MODERN SYNTAX*/
 @media (min-width: 768px) 
