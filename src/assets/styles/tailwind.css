@@ -322,6 +322,18 @@ background: #483D8B;
 fill: #000;
 }
 
+/* Hero Light Mode */
+.hero-separator {
+background-color: #6495ED;
+}
+#hero {
+padding-top: 5vh;
+background-color: #6495ED;
+}
+#hero .text-center p, #hero h1 {
+color: #fff!important;
+}
+
 /* TAREGET THE TEAM WIDGET */
 /* @media (width >= 48rem) */ /* MODERN SYNTAX*/
 @media (min-width: 768px) 
