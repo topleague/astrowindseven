@@ -274,6 +274,17 @@
 
 /* CUSTOM CSS */
 
+/* FIX CONTINAER WIDTH ON LARGER DEVICES (current min width is for iMac */
+
+@media (min-width: 2048px) {
+  body {
+    max-width: 1600px;
+    margin-inline: auto;
+    border-inline: 1px solid #dbe5f5;
+    background-color: #F2F2F2;
+  }
+}
+
 /*@layer base {
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Mona Bold Pro Max', 'Futura Bold', sans-serif !important;
