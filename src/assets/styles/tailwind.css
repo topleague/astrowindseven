@@ -347,6 +347,9 @@ color: #fff!important;
 
 /*Header Light*/
 #header {background-color: #6495ED;}
+#features, #blog {
+background-color: #fff;
+}
 
 /* TAREGET THE TEAM WIDGET */
 /* @media (width >= 48rem) */ /* MODERN SYNTAX*/
