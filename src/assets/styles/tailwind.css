@@ -283,6 +283,10 @@
     border-inline: 1px solid #dbe5f5;
     background-color: #F2F2F2;
   }
+
+  .dark body {
+    background-color: #1e293b;
+  }
 }
 
 /*@layer base {
