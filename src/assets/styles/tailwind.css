@@ -273,6 +273,9 @@
 }
 
 /* CUSTOM CSS */
+  .dark body {
+    background-color: #1e293b;
+  }
 
 /* FIX CONTINAER WIDTH ON LARGER DEVICES (current min width is for iMac */
 
