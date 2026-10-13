@@ -312,7 +312,7 @@ font-family: 'Para', Futura Book, serif!important;
 }
 
 /* Hero Dark Mode */
-dark\:hidden:where(.dark,.dark *) {
+.dark\:hidden:where(.dark,.dark *) {
 display: inherit;
 }
 .dark #hero, .dark .hero-separator {
