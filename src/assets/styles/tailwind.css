@@ -345,10 +345,15 @@ background-color: #6495ED;
 color: #fff!important;
 }
 
-/*Header Light*/
+/*Header Light Mode*/
 #header {background-color: #6495ED;}
 #features, #blog {
 background-color: #fff;
+}
+
+/* *Header Dark Mode */
+.dark #header {
+background-color: inherit!important;
 }
 
 .dark #features, .dark #blog {
