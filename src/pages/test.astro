@@ -11,6 +11,11 @@ import Quote from '~/components/widgets/Quote.astro';
 import Headline from '~/components/ui/Headline.astro';
 import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
 
+import Projects from '~/components/widgets/Projects.astro';
+import { findLatestPosts } from '~/utils/blog';
+import { findImage } from '~/utils/images';
+import { getPermalink, getBlogPermalink } from '~/utils/permalinks';
+
 
 /* PART 2: FRONTMATTER */
 const metadata = {
@@ -19,6 +24,29 @@ const metadata = {
 };
 
 const destination = 'https://github.com/arthelokyo/astrowind';
+
+const posts = await findLatestPosts({ count: 3 });
+
+const blogItems = await Promise.all(
+  posts.map(async (post) => {
+    const image = await findImage(post.image);
+
+    return {
+      title: post.title,
+      image: image ? { src: image, alt: post.imageAlt || post.title } : undefined,
+      tags: [
+        post.publishDate.toLocaleDateString('en-IN', {
+          day: 'numeric',
+          month: 'short',
+          year: 'numeric',
+        }),
+        ...(post.category ? [post.category.title] : []),
+      ],
+      href: getPermalink(post.permalink, 'post'),
+      linkText: 'Read More',
+    };
+  })
+);
 
 ---
 
@@ -174,5 +202,20 @@ const destination = 'https://github.com/arthelokyo/astrowind';
       },
     ]}
   />
+
+<!-- Blog Section: Recent Work Style -->
+
+<Projects
+  id="blog"
+  title="Latest articles"
+  subtitle="Explore our latest insights, practical tips, and ideas."
+  columns={3}
+  items={blogItems}
+  callToAction={{
+    text: 'View all posts',
+    href: getBlogPermalink(),
+    variant: 'primary',
+  }}
+/>
 
 </Layout>
