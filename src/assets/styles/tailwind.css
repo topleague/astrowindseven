@@ -351,6 +351,18 @@ color: #fff!important;
 background-color: #fff;
 }
 
+/* Footer*/
+footer {
+    background: #6495ED !important;
+    color: #fff;
+}
+footer a, footer li a {
+color: #fff;
+}
+footer li a {
+    border-bottom: dotted 1px;
+}
+
 /* TAREGET THE TEAM WIDGET */
 /* @media (width >= 48rem) */ /* MODERN SYNTAX*/
 @media (min-width: 768px) 
