@@ -55,23 +55,38 @@ const blogItems = await Promise.all(
 
   <!-- Hero2 Widget ******************* -->
 
-  <Hero
-    id="hero"
-    title="Turn Boring Content into SEO Gold"
-    tagline="The Power of Great Content"
-    actions={[{ variant: 'primary', text: 'Hire me', href:'#' }]}
-  >
-    <Fragment slot="subtitle">
-      Boost your rankings and captivate your audience with SEO-friendly content that converts.
-    </Fragment>
-  </Hero>
 
-<!-- Hero Seperator ************************************************************************************************************************ -->
+  <!-- Custom SEO Article Writing Hero -->
+  <section
+    class="article-hero"
+    aria-labelledby="article-hero-title"
+    style="background-image: linear-gradient(to right, #141618, #14161870), url('https://topleaguetech.com/wp-content/uploads/2015/06/Article-Writing-Services--900x400.png')"
+  >
+    <div class="article-hero-content">
+      <h1 id="article-hero-title">SEO Article Writing Services</h1>
+      <p>
+        Professionally crafted SEO articles that resonate with your
+        potential customers.
+      </p>
+    </div>
+  </section>
+
+  <!-- Existing SVG Curve -->
   <div class="hero-separator dark:hidden" aria-hidden="true">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 120" preserveAspectRatio="none" class="block w-full">
-      <path fill="var(--color-blue-50)" fill-rule="evenodd" d="M0,0 C320,60 640,90 960,90 C1280,90 1600,60 1920,0 L1920,120 L0,120 L0,0 Z" />
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 1920 120"
+      preserveAspectRatio="none"
+      class="block w-full"
+    >
+      <path
+        fill="#fff"
+        fill-rule="evenodd"
+        d="M0,0 C320,60 640,90 960,90 C1280,90 1600,60 1920,0 L1920,120 L0,120 L0,0 Z"
+      />
     </svg>
   </div>
+
 
 <!-- Features Widget ************************************************************************************************************************ -->
 
