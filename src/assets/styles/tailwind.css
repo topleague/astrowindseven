@@ -429,6 +429,15 @@ fill: #1e293b;
 background-image: linear-gradient(to right,#141618,#14161870),url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3…90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2040&h=1148&q=80');
 }
 
+/* SUPER SPECIFIC CUSTOM CSS ____________________________________________________________ */
+.seo-article-writing #about:not(.dark #about), .seo-article-writing .service-pricing:not(.dark .service-pricing) {
+background-color: var(--color-blue-50);
+}
+
+.seo-article-writing #proof:not(.dark #proof) {
+background-color: #fff;
+}
+
 /* ____________________________________________________________ */
 
 /* Footer*/
