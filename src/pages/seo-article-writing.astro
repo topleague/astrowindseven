@@ -275,51 +275,6 @@ const blogItems = await Promise.all(
 
 <!-- Features Widget: Our Services ************************ -->
 
-<Content
-  id="preview"
-  isReversed
-  tagline="Our Services"
-  title="Content that Resonates"
-  subtitle="Get More Than Just Words—Experience the Power of Strategic SEO Content That Delivers Results."
-  items={[
-    {
-      title: 'SEO Article Writing',
-      description:
-        "Build authority and attract organic traffic with SEO-driven articles that engage readers and rank on Google. Ideal for content marketing, blog publishing, and guest posting.",
-      callToAction: {
-        text: 'Explore service →',
-        href: 'https://astrowindy.pages.dev/blog/',
-      },
-    },
-    {
-      title: 'Product Description Writing',
-      description:
-        "Turn browsers into buyers with persuasive, keyword-optimized product descriptions. We highlight your product's value, connect with customers, and help drive sales.",
-      callToAction: {
-        text: 'Explore service →',
-        href: 'https://astrowindy.pages.dev/blog/',
-      },
-    },
-    {
-      title: 'Website Content Writing',
-      description:
-        "Make every page work harder with clear, compelling, SEO-friendly website copy. We help your business communicate its value, engage visitors, and turn clicks into clients.",
-      callToAction: {
-        text: 'Explore service →',
-        href: 'https://astrowindy.pages.dev/blog/',
-      },
-    },
-  ]}
-  image={{
-    src: 'https://images.unsplash.com/photo-1531973486364-5fa64260d75b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1674&q=80',
-    alt: 'A developer working at a laptop',
-  }}
->
-  <Fragment slot="bg">
-    <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-  </Fragment>
-</Content>
-
 <!-- 6. Proof: constraints and (placeholder) testimonials ************************************************************************************************************************-->
 
   <Testimonials
@@ -360,20 +315,5 @@ const blogItems = await Promise.all(
       },
     ]}
   />
-
-<!-- Blog Section: Recent Work Style -->
-
-<Projects
-  id="blog"
-  title="Latest articles"
-  subtitle="Explore our latest insights, practical tips, and ideas."
-  columns={3}
-  items={blogItems}
-  callToAction={{
-    text: 'View all posts',
-    href: getBlogPermalink(),
-    variant: 'primary',
-  }}
-/>
 
 </Layout>
