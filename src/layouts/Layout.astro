@@ -21,9 +21,10 @@ import type { MetaData as MetaDataType } from '~/types';
 
 export interface Props {
   metadata?: MetaDataType;
+  pageClass?: string;
 }
 
-const { metadata = {} } = Astro.props;
+const { metadata = {}, pageClass = '' } = Astro.props;
 const { language, textDirection } = I18N;
 ---
 
@@ -48,7 +49,7 @@ const { language, textDirection } = I18N;
     <slot name="head" />
   </head>
 
-  <body class="antialiased text-default bg-page tracking-tight min-h-screen flex flex-col">
+  <body class:list={['antialiased text-default bg-page tracking-tight min-h-screen flex flex-col', pageClass]}>
     <slot />
 
     <Intersect />
