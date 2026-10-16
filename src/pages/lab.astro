@@ -1,39 +1,17 @@
 ---
-import Layout from '~/layouts/Layout.astro';
+import Layout from '~/layouts/PageLayout.astro';
 
-const title = 'AstroWindy — SEO Content Writing';
-const description =
-  'Strategic, search-friendly articles written around real audiences, meaningful topics and the intent behind every query.';
+const metadata = {
+  title: 'SEO Content Writing',
+  description:
+    'Strategic, search-friendly articles written around real audiences, meaningful topics and search intent.',
+};
 ---
 
-<Layout title={title} description={description}>
+<Layout metadata={metadata} pageClass="lab">
+  <div id="top">
 
-  <div class="topbar">
-    <div class="container">
-      <span>SEO content, written for humans and search engines.</span>
-      <span>Free consultation →</span>
-    </div>
-  </div>
-
-  <header>
-    <div class="container nav">
-      <a class="brand" href="#top">Astro<span>Windy</span><b>.</b></a>
-
-      <nav class="navlinks">
-        <a href="#overview">Overview</a>
-        <a href="#benefits">What you get</a>
-        <a href="#process">Process</a>
-        <a href="#packages">Packages</a>
-        <a href="#proof">Proof</a>
-      </nav>
-
-      <a class="navcta" href="#contact">Start a project</a>
-      <span class="mobile-menu">Menu</span>
-    </div>
-  </header>
-
-  <main id="top">
-
+    <!-- HERO -->
     <section class="hero">
       <div class="container">
         <div class="eyebrow">SEO Article Writing</div>
@@ -48,8 +26,13 @@ const description =
         </p>
 
         <div class="actions">
-          <a class="btn primary" href="#packages">Explore packages</a>
-          <a class="btn ghost" href="#benefits">See what's included</a>
+          <a class="btn primary" href="#packages">
+            Explore packages
+          </a>
+
+          <a class="btn ghost" href="#benefits">
+            See what's included
+          </a>
         </div>
 
         <div class="hero-note">
@@ -58,11 +41,17 @@ const description =
       </div>
     </section>
 
+
+    <!-- OVERVIEW -->
     <section class="section" id="overview">
       <div class="container intro">
+
         <div>
           <div class="kicker">The point isn't more content</div>
-          <h2>It's better content, made to do a job.</h2>
+
+          <h2>
+            It's better content, made to do a job.
+          </h2>
         </div>
 
         <div class="intro-copy">
@@ -78,15 +67,19 @@ const description =
             so every article has a reason to exist.
           </p>
         </div>
+
       </div>
     </section>
 
+
+    <!-- BENEFITS -->
     <section class="section band" id="benefits">
       <div class="container">
 
         <div class="feature-head">
           <div>
             <div class="kicker">What you get</div>
+
             <h2 class="section-title">
               Six things we refuse to compromise on.
             </h2>
@@ -99,65 +92,100 @@ const description =
           </p>
         </div>
 
+
         <div class="features">
 
           <article class="feature">
             <div class="num">01 / Focus</div>
-            <h3>Written around search intent.</h3>
+
+            <h3>
+              Written around search intent.
+            </h3>
+
             <p>
-              We start with the question behind the query, then build the article
-              around the information a reader actually came for.
+              We start with the question behind the query, then build the
+              article around the information a reader actually came for.
             </p>
           </article>
 
+
           <article class="feature">
             <div class="num">02 / Originality</div>
-            <h3>100% original thinking.</h3>
+
+            <h3>
+              100% original thinking.
+            </h3>
+
             <p>
               Every article is written from scratch and shaped to your subject,
               audience and brand voice.
             </p>
           </article>
 
+
           <article class="feature">
             <div class="num">03 / Quality</div>
-            <h3>Proofread to perfection.</h3>
+
+            <h3>
+              Proofread to perfection.
+            </h3>
+
             <p>
               Clear structure, clean language and a final editorial pass before
               anything reaches you.
             </p>
           </article>
 
+
           <article class="feature">
             <div class="num">04 / Conversion</div>
-            <h3>Useful enough to act on.</h3>
+
+            <h3>
+              Useful enough to act on.
+            </h3>
+
             <p>
               We don't write merely to hit a word count. We write to educate,
               reassure and move the reader forward.
             </p>
           </article>
 
+
           <article class="feature">
             <div class="num">05 / Flexibility</div>
-            <h3>Built around your workflow.</h3>
+
+            <h3>
+              Built around your workflow.
+            </h3>
+
             <p>
               One article, a monthly batch or an ongoing content engine —
               choose the level of support that fits.
             </p>
           </article>
 
+
           <article class="feature">
             <div class="num">06 / Confidence</div>
-            <h3>A simpler publishing process.</h3>
+
+            <h3>
+              A simpler publishing process.
+            </h3>
+
             <p>
               Brief, research, writing and refinement are handled in one clear
               workflow, so your team spends less time chasing drafts.
             </p>
           </article>
 
+
           <article class="feature">
             <div class="num">07 / Partnership</div>
-            <h3>Not just another content vendor.</h3>
+
+            <h3>
+              Not just another content vendor.
+            </h3>
+
             <p>
               We learn your priorities and keep improving the system as we learn
               what works for your audience.
@@ -168,22 +196,28 @@ const description =
       </div>
     </section>
 
+
+    <!-- PROCESS -->
     <section class="section" id="process">
       <div class="container process">
 
         <div>
           <div class="kicker">How it works</div>
+
           <h2 class="section-title">
             A calm process for a complicated job.
           </h2>
         </div>
 
+
         <div class="process-list">
 
           <div class="step">
             <span>01</span>
+
             <div>
               <h3>Brief & understand</h3>
+
               <p>
                 We establish the topic, audience, intent, tone and outcome
                 before a word is written.
@@ -191,10 +225,13 @@ const description =
             </div>
           </div>
 
+
           <div class="step">
             <span>02</span>
+
             <div>
               <h3>Research & structure</h3>
+
               <p>
                 We identify the useful angles, supporting questions and
                 structure that give the article substance.
@@ -202,10 +239,13 @@ const description =
             </div>
           </div>
 
+
           <div class="step">
             <span>03</span>
+
             <div>
               <h3>Write & refine</h3>
+
               <p>
                 The first draft is written for humans first, then refined for
                 clarity, SEO and your brand voice.
@@ -213,10 +253,13 @@ const description =
             </div>
           </div>
 
+
           <div class="step">
             <span>04</span>
+
             <div>
               <h3>Review & deliver</h3>
+
               <p>
                 You receive a clean, publication-ready article with room for
                 feedback where needed.
@@ -228,12 +271,16 @@ const description =
       </div>
     </section>
 
+
+    <!-- PACKAGES -->
     <section class="section pricing" id="packages">
       <div class="container">
 
         <div class="pricing-intro">
+
           <div>
             <div class="kicker">Packages</div>
+
             <h2 class="section-title">
               Choose the level of content support you need.
             </h2>
@@ -243,12 +290,15 @@ const description =
             Simple packages for getting started, building momentum or handing
             your ongoing article production to a dedicated content partner.
           </p>
+
         </div>
+
 
         <div class="packages">
 
           <article class="package">
             <div class="tag">For testing the waters</div>
+
             <h3>Starter</h3>
 
             <p class="desc">
@@ -265,11 +315,15 @@ const description =
               <li>Editorial review</li>
             </ul>
 
-            <a class="btn" href="#contact">Choose Starter</a>
+            <a class="btn" href="#contact">
+              Choose Starter
+            </a>
           </article>
+
 
           <article class="package featured">
             <div class="tag">Most popular</div>
+
             <h3>Growth</h3>
 
             <p class="desc">
@@ -286,11 +340,15 @@ const description =
               <li>Priority turnaround</li>
             </ul>
 
-            <a class="btn" href="#contact">Choose Growth</a>
+            <a class="btn" href="#contact">
+              Choose Growth
+            </a>
           </article>
+
 
           <article class="package">
             <div class="tag">For serious scale</div>
+
             <h3>Authority</h3>
 
             <p class="desc">
@@ -307,13 +365,17 @@ const description =
               <li>Dedicated workflow</li>
             </ul>
 
-            <a class="btn" href="#contact">Talk to us</a>
+            <a class="btn" href="#contact">
+              Talk to us
+            </a>
           </article>
 
         </div>
       </div>
     </section>
 
+
+    <!-- PROOF -->
     <section class="section" id="proof">
       <div class="container proof">
 
@@ -321,8 +383,8 @@ const description =
           <div class="kicker">The human part</div>
 
           <p class="quote">
-            “The best SEO content doesn't feel like SEO content.
-            It simply feels like the right answer.”
+            “The best SEO content doesn't feel like SEO content. It simply
+            feels like the right answer.”
 
             <small>
               That is the standard we're designing the service around.
@@ -330,54 +392,81 @@ const description =
           </p>
         </div>
 
+
         <div class="proofcards">
 
           <article class="testimonial">
             <div class="stars">★★★★★</div>
+
             <p>
               “A much easier content process from brief to final draft.
               The writing finally sounds like us.”
             </p>
-            <div class="person">Marketing lead · B2B services</div>
+
+            <div class="person">
+              Marketing lead · B2B services
+            </div>
           </article>
+
 
           <article class="testimonial">
             <div class="stars">★★★★★</div>
+
             <p>
-              “The difference was in the structure. The articles weren't just
-              longer — they were more useful.”
+              “The difference was in the structure. The articles weren't
+              just longer — they were more useful.”
             </p>
-            <div class="person">Founder · Professional services</div>
+
+            <div class="person">
+              Founder · Professional services
+            </div>
           </article>
+
 
           <article class="testimonial">
             <div class="stars">★★★★★</div>
+
             <p>
-              “Consistent quality and far less editing work for our internal team.”
+              “Consistent quality and far less editing work for our internal
+              team.”
             </p>
-            <div class="person">Content manager · Growing brand</div>
+
+            <div class="person">
+              Content manager · Growing brand
+            </div>
           </article>
+
 
           <article class="testimonial">
             <div class="stars">★★★★★</div>
+
             <p>
-              “It feels like having an editorial partner rather than outsourcing
-              a word count.”
+              “It feels like having an editorial partner rather than
+              outsourcing a word count.”
             </p>
-            <div class="person">Growth lead · SaaS</div>
+
+            <div class="person">
+              Growth lead · SaaS
+            </div>
           </article>
 
         </div>
       </div>
     </section>
 
+
+    <!-- CTA -->
     <section class="cta" id="contact">
       <div class="container cta-inner">
 
         <div>
           <div class="kicker">Ready when you are</div>
-          <h2>Let's make your next article worth finding.</h2>
+
+          <h2>
+            Let's make your next article worth finding.
+          </h2>
         </div>
+
 
         <div>
           <p>
@@ -393,606 +482,489 @@ const description =
       </div>
     </section>
 
-  </main>
+  </div>
 
-  <footer>
-    <div class="container foot">
-      <span>© AstroWindy</span>
-      <span>SEO content · strategy · editorial</span>
-    </div>
-  </footer>
 
-</Layout>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
 
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
-
-  :root {
-    --ink: #16202a;
-    --muted: #64717d;
-    --line: #dfe5e8;
-    --paper: #fbfaf7;
-    --soft: #f1f4f2;
-    --accent: #1f5f55;
-    --accent2: #dcebe5;
-    --max: 1180px;
-  }
-
-  * {
-    box-sizing: border-box;
-  }
-
-  html {
-    scroll-behavior: smooth;
-  }
-
-  a {
-    color: inherit;
-    text-decoration: none;
-  }
-
-  .container {
-    max-width: var(--max);
-    margin: auto;
-    padding: 0 28px;
-  }
-
-  .topbar {
-    font-size: 13px;
-    border-bottom: 1px solid rgba(255,255,255,.15);
-    color: #fff;
-    background: #16202a;
-  }
-
-  .topbar .container {
-    height: 38px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .topbar span:last-child {
-    opacity: .72;
-  }
-
-  header {
-    position: sticky;
-    top: 0;
-    z-index: 20;
-    background: rgba(251,250,247,.94);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(22,32,42,.08);
-  }
-
-  .nav {
-    height: 76px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .brand {
-    font-family: 'Space Grotesk';
-    font-weight: 700;
-    letter-spacing: -.04em;
-    font-size: 22px;
-  }
-
-  .brand b {
-    color: var(--accent);
-  }
-
-  .navlinks {
-    display: flex;
-    gap: 30px;
-    font-size: 14px;
-    color: #46515a;
-  }
-
-  .navlinks a:hover {
-    color: var(--accent);
-  }
-
-  .navcta {
-    padding: 11px 18px;
-    border: 1px solid var(--ink);
-    border-radius: 999px;
-    font-weight: 600;
-  }
-
-  .hero {
-    position: relative;
-    min-height: 690px;
-    display: flex;
-    align-items: flex-end;
-    color: #fff;
-    overflow: hidden;
-    background: #1b2a2e;
-  }
-
-  .hero:before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background:
-      linear-gradient(
-        90deg,
-        rgba(9,18,22,.88) 0%,
-        rgba(9,18,22,.62) 48%,
-        rgba(9,18,22,.18) 100%
-      ),
-      url('/hero.avif') center/cover;
-  }
-
-  .hero .container {
-    position: relative;
-    width: 100%;
-    padding-top: 110px;
-    padding-bottom: 78px;
-  }
-
-  .eyebrow {
-    font-size: 12px;
-    text-transform: uppercase;
-    letter-spacing: .16em;
-    font-weight: 700;
-    opacity: .78;
-    margin-bottom: 22px;
-  }
-
-  .hero h1 {
-    font-family: 'Space Grotesk';
-    font-size: clamp(54px,7vw,92px);
-    line-height: .96;
-    letter-spacing: -.055em;
-    max-width: 850px;
-    margin: 0 0 28px;
-  }
-
-  .hero p {
-    font-size: 20px;
-    line-height: 1.5;
-    max-width: 650px;
-    color: rgba(255,255,255,.86);
-    margin: 0 0 34px;
-  }
-
-  .actions {
-    display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
-  }
-
-  .btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 14px 21px;
-    border-radius: 999px;
-    font-weight: 700;
-    font-size: 14px;
-  }
-
-  .btn.primary {
-    background: #fff;
-    color: var(--ink);
-  }
-
-  .btn.ghost {
-    border: 1px solid rgba(255,255,255,.35);
-    color: #fff;
-  }
-
-  .hero-note {
-    margin-top: 46px;
-    font-size: 13px;
-    opacity: .68;
-  }
-
-  .section {
-    padding: 105px 0;
-  }
-
-  .intro {
-    display: grid;
-    grid-template-columns: 1fr 1.35fr;
-    gap: 80px;
-    align-items: start;
-  }
-
-  .kicker {
-    font-size: 12px;
-    text-transform: uppercase;
-    letter-spacing: .14em;
-    color: var(--accent);
-    font-weight: 700;
-  }
-
-  .intro h2,
-  .section-title {
-    font-family: 'Space Grotesk';
-    font-size: clamp(38px,4.5vw,60px);
-    line-height: 1.02;
-    letter-spacing: -.045em;
-    margin: 12px 0 0;
-  }
-
-  .intro-copy {
-    font-size: 21px;
-    color: #43505a;
-    max-width: 680px;
-  }
-
-  .intro-copy p {
-    margin-top: 0;
-  }
-
-  .intro-copy strong {
-    color: var(--ink);
-  }
-
-  .band {
-    background: var(--soft);
-    border-top: 1px solid var(--line);
-    border-bottom: 1px solid var(--line);
-  }
-
-  .feature-head {
-    display: flex;
-    justify-content: space-between;
-    gap: 40px;
-    align-items: end;
-    margin-bottom: 52px;
-  }
-
-  .feature-head p {
-    max-width: 430px;
-    color: var(--muted);
-    margin: 0;
-  }
-
-  .features {
-    display: grid;
-    grid-template-columns: repeat(12,1fr);
-    gap: 1px;
-    background: var(--line);
-    border: 1px solid var(--line);
-  }
-
-  .feature {
-    background: var(--paper);
-    padding: 34px;
-    min-height: 245px;
-  }
-
-  .feature:nth-child(1) {
-    grid-column: span 7;
-  }
-
-  .feature:nth-child(2) {
-    grid-column: span 5;
-  }
-
-  .feature:nth-child(3),
-  .feature:nth-child(4),
-  .feature:nth-child(5) {
-    grid-column: span 4;
-  }
-
-  .feature:nth-child(6),
-  .feature:nth-child(7) {
-    grid-column: span 6;
-  }
-
-  .num {
-    font-family: 'Space Grotesk';
-    font-size: 13px;
-    color: var(--accent);
-    font-weight: 700;
-  }
-
-  .feature h3 {
-    font-family: 'Space Grotesk';
-    font-size: 25px;
-    letter-spacing: -.03em;
-    margin: 45px 0 10px;
-  }
-
-  .feature p {
-    margin: 0;
-    color: var(--muted);
-    font-size: 15px;
-  }
-
-  .process {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 80px;
-  }
-
-  .process-list {
-    border-top: 1px solid var(--line);
-  }
-
-  .step {
-    display: grid;
-    grid-template-columns: 70px 1fr;
-    gap: 20px;
-    padding: 28px 0;
-    border-bottom: 1px solid var(--line);
-  }
-
-  .step span {
-    font-size: 13px;
-    color: var(--accent);
-    font-weight: 700;
-  }
-
-  .step h3 {
-    margin: 0 0 5px;
-    font-family: 'Space Grotesk';
-    font-size: 23px;
-  }
-
-  .step p {
-    margin: 0;
-    color: var(--muted);
-  }
-
-  .pricing {
-    background: #17242b;
-    color: #fff;
-  }
-
-  .pricing .kicker {
-    color: #9cc9bd;
-  }
-
-  .pricing .section-title {
-    color: #fff;
-  }
-
-  .pricing-intro {
-    display: flex;
-    justify-content: space-between;
-    gap: 40px;
-    align-items: end;
-    margin-bottom: 48px;
-  }
-
-  .pricing-intro p {
-    max-width: 440px;
-    color: #aab7bd;
-    margin: 0;
-  }
-
-  .packages {
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    gap: 14px;
-  }
-
-  .package {
-    background: #fff;
-    color: var(--ink);
-    padding: 34px;
-    border-radius: 2px;
-    min-height: 390px;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .package.featured {
-    background: #dcebe5;
-  }
-
-  .package .tag {
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: .13em;
-    color: var(--accent);
-    font-weight: 700;
-  }
-
-  .package h3 {
-    font-family: 'Space Grotesk';
-    font-size: 30px;
-    margin: 14px 0 6px;
-  }
-
-  .package .desc {
-    color: var(--muted);
-    font-size: 14px;
-    min-height: 65px;
-  }
-
-  .price {
-    font-family: 'Space Grotesk';
-    font-size: 44px;
-    letter-spacing: -.04em;
-    margin: 15px 0;
-  }
-
-  .package ul {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 24px;
-    display: grid;
-    gap: 10px;
-    color: #45515a;
-    font-size: 14px;
-  }
-
-  .package li:before {
-    content: '✓';
-    color: var(--accent);
-    font-weight: 700;
-    margin-right: 8px;
-  }
-
-  .package .btn {
-    margin-top: auto;
-    background: var(--ink);
-    color: #fff;
-  }
-
-  .proof {
-    display: grid;
-    grid-template-columns: 1fr 1.4fr;
-    gap: 90px;
-  }
-
-  .quote {
-    font-family: 'Space Grotesk';
-    font-size: clamp(30px,3.5vw,48px);
-    line-height: 1.08;
-    letter-spacing: -.04em;
-    margin: 0;
-  }
-
-  .quote small {
-    display: block;
-    font-family: 'DM Sans';
-    font-size: 14px;
-    line-height: 1.5;
-    letter-spacing: 0;
-    color: var(--muted);
-    margin-top: 28px;
-  }
-
-  .proofcards {
-    display: grid;
-    grid-template-columns: repeat(2,1fr);
-    gap: 14px;
-  }
-
-  .testimonial {
-    border: 1px solid var(--line);
-    padding: 27px;
-    background: #fff;
-  }
-
-  .stars {
-    letter-spacing: .14em;
-    color: var(--accent);
-    font-size: 13px;
-  }
-
-  .testimonial p {
-    font-size: 17px;
-    margin: 20px 0 26px;
-  }
-
-  .person {
-    font-size: 13px;
-    color: var(--muted);
-  }
-
-  .cta {
-    padding: 95px 0 110px;
-    background: var(--accent);
-    color: #fff;
-  }
-
-  .cta-inner {
-    display: flex;
-    align-items: end;
-    justify-content: space-between;
-    gap: 60px;
-  }
-
-  .cta h2 {
-    font-family: 'Space Grotesk';
-    font-size: clamp(42px,5vw,68px);
-    line-height: .98;
-    letter-spacing: -.05em;
-    margin: 10px 0 0;
-    max-width: 720px;
-  }
-
-  .cta p {
-    max-width: 440px;
-    color: rgba(255,255,255,.72);
-  }
-
-  .cta .btn {
-    background: #fff;
-    color: var(--ink);
-  }
-
-  footer {
-    padding: 38px 0;
-    background: #111a1f;
-    color: #aab4b9;
-    font-size: 13px;
-  }
-
-  .foot {
-    display: flex;
-    justify-content: space-between;
-  }
-
-  .mobile-menu {
-    display: none;
-  }
-
-  @media (max-width: 850px) {
-    .navlinks {
-      display: none;
+    :global(html) {
+      scroll-behavior: smooth;
     }
 
-    .mobile-menu {
-      display: block;
+    .container {
+      max-width: 1180px;
+      margin: auto;
+      padding: 0 28px;
     }
 
     .hero {
-      min-height: 620px;
+      position: relative;
+      min-height: 690px;
+      display: flex;
+      align-items: flex-end;
+      color: #fff;
+      overflow: hidden;
+      background: #1b2a2e;
     }
 
-    .intro,
-    .process,
-    .proof {
-      grid-template-columns: 1fr;
+    .hero:before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(
+          90deg,
+          rgba(9,18,22,.88) 0%,
+          rgba(9,18,22,.62) 48%,
+          rgba(9,18,22,.18) 100%
+        ),
+        url('/hero.avif') center/cover;
+    }
+
+    .hero .container {
+      position: relative;
+      width: 100%;
+      padding-top: 110px;
+      padding-bottom: 78px;
+    }
+
+    .eyebrow {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: .16em;
+      font-weight: 700;
+      opacity: .78;
+      margin-bottom: 22px;
+    }
+
+    .hero h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(54px, 7vw, 92px);
+      line-height: .96;
+      letter-spacing: -.055em;
+      max-width: 850px;
+      margin: 0 0 28px;
+    }
+
+    .hero p {
+      font-size: 20px;
+      line-height: 1.5;
+      max-width: 650px;
+      color: rgba(255,255,255,.86);
+      margin: 0 0 34px;
+    }
+
+    .actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 21px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 14px;
+      text-decoration: none;
+    }
+
+    .btn.primary {
+      background: #fff;
+      color: #16202a;
+    }
+
+    .btn.ghost {
+      border: 1px solid rgba(255,255,255,.35);
+      color: #fff;
+    }
+
+    .hero-note {
+      margin-top: 46px;
+      font-size: 13px;
+      opacity: .68;
+    }
+
+    .section {
+      padding: 105px 0;
+    }
+
+    .intro {
+      display: grid;
+      grid-template-columns: 1fr 1.35fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .kicker {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      color: #1f5f55;
+      font-weight: 700;
+    }
+
+    .intro h2,
+    .section-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(38px, 4.5vw, 60px);
+      line-height: 1.02;
+      letter-spacing: -.045em;
+      margin: 12px 0 0;
+    }
+
+    .intro-copy {
+      font-size: 21px;
+      color: #43505a;
+      max-width: 680px;
+    }
+
+    .intro-copy p {
+      margin-top: 0;
+    }
+
+    .intro-copy strong {
+      color: #16202a;
+    }
+
+    .band {
+      background: #f1f4f2;
+      border-top: 1px solid #dfe5e8;
+      border-bottom: 1px solid #dfe5e8;
+    }
+
+    .feature-head {
+      display: flex;
+      justify-content: space-between;
       gap: 40px;
+      align-items: end;
+      margin-bottom: 52px;
     }
 
-    .feature-head,
-    .pricing-intro,
-    .cta-inner {
-      display: block;
-    }
-
-    .feature-head p,
-    .pricing-intro p,
-    .cta p {
-      margin-top: 20px;
+    .feature-head p {
+      max-width: 430px;
+      color: #64717d;
+      margin: 0;
     }
 
     .features {
       display: grid;
-      grid-template-columns: 1fr;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 1px;
+      background: #dfe5e8;
+      border: 1px solid #dfe5e8;
     }
 
-    .feature,
-    .feature:nth-child(n) {
-      grid-column: auto;
+    .feature {
+      background: #fbfaf7;
+      padding: 34px;
+      min-height: 245px;
     }
 
-    .packages,
+    .feature:nth-child(1) {
+      grid-column: span 7;
+    }
+
+    .feature:nth-child(2) {
+      grid-column: span 5;
+    }
+
+    .feature:nth-child(3),
+    .feature:nth-child(4),
+    .feature:nth-child(5) {
+      grid-column: span 4;
+    }
+
+    .feature:nth-child(6),
+    .feature:nth-child(7) {
+      grid-column: span 6;
+    }
+
+    .num {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 13px;
+      color: #1f5f55;
+      font-weight: 700;
+    }
+
+    .feature h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 25px;
+      letter-spacing: -.03em;
+      margin: 45px 0 10px;
+    }
+
+    .feature p {
+      margin: 0;
+      color: #64717d;
+      font-size: 15px;
+    }
+
+    .process {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 80px;
+    }
+
+    .process-list {
+      border-top: 1px solid #dfe5e8;
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: 70px 1fr;
+      gap: 20px;
+      padding: 28px 0;
+      border-bottom: 1px solid #dfe5e8;
+    }
+
+    .step span {
+      font-size: 13px;
+      color: #1f5f55;
+      font-weight: 700;
+    }
+
+    .step h3 {
+      margin: 0 0 5px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 23px;
+    }
+
+    .step p {
+      margin: 0;
+      color: #64717d;
+    }
+
+    .pricing {
+      background: #17242b;
+      color: #fff;
+    }
+
+    .pricing .kicker {
+      color: #9cc9bd;
+    }
+
+    .pricing .section-title {
+      color: #fff;
+    }
+
+    .pricing-intro {
+      display: flex;
+      justify-content: space-between;
+      gap: 40px;
+      align-items: end;
+      margin-bottom: 48px;
+    }
+
+    .pricing-intro p {
+      max-width: 440px;
+      color: #aab7bd;
+      margin: 0;
+    }
+
+    .packages {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .package {
+      background: #fff;
+      color: #16202a;
+      padding: 34px;
+      border-radius: 2px;
+      min-height: 390px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .package.featured {
+      background: #dcebe5;
+    }
+
+    .package .tag {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: .13em;
+      color: #1f5f55;
+      font-weight: 700;
+    }
+
+    .package h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 30px;
+      margin: 14px 0 6px;
+    }
+
+    .package .desc {
+      color: #64717d;
+      font-size: 14px;
+      min-height: 65px;
+    }
+
+    .price {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 44px;
+      letter-spacing: -.04em;
+      margin: 15px 0;
+    }
+
+    .package ul {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 24px;
+      display: grid;
+      gap: 10px;
+      color: #45515a;
+      font-size: 14px;
+    }
+
+    .package li:before {
+      content: '✓';
+      color: #1f5f55;
+      font-weight: 700;
+      margin-right: 8px;
+    }
+
+    .package .btn {
+      margin-top: auto;
+      background: #16202a;
+      color: #fff;
+    }
+
+    .proof {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 90px;
+    }
+
+    .quote {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(30px, 3.5vw, 48px);
+      line-height: 1.08;
+      letter-spacing: -.04em;
+      margin: 0;
+    }
+
+    .quote small {
+      display: block;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      line-height: 1.5;
+      letter-spacing: 0;
+      color: #64717d;
+      margin-top: 28px;
+    }
+
     .proofcards {
-      grid-template-columns: 1fr;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
     }
 
-    .section {
-      padding: 78px 0;
+    .testimonial {
+      border: 1px solid #dfe5e8;
+      padding: 27px;
+      background: #fff;
     }
 
-    .nav {
-      height: 68px;
+    .stars {
+      letter-spacing: .14em;
+      color: #1f5f55;
+      font-size: 13px;
     }
 
-    .hero h1 {
-      font-size: 52px;
+    .testimonial p {
+      font-size: 17px;
+      margin: 20px 0 26px;
     }
-  }
-</style>
+
+    .person {
+      font-size: 13px;
+      color: #64717d;
+    }
+
+    .cta {
+      padding: 95px 0 110px;
+      background: #1f5f55;
+      color: #fff;
+    }
+
+    .cta-inner {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 60px;
+    }
+
+    .cta h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(42px, 5vw, 68px);
+      line-height: .98;
+      letter-spacing: -.05em;
+      margin: 10px 0 0;
+      max-width: 720px;
+    }
+
+    .cta p {
+      max-width: 440px;
+      color: rgba(255,255,255,.72);
+    }
+
+    .cta .btn {
+      background: #fff;
+      color: #16202a;
+    }
+
+    @media (max-width: 850px) {
+      .hero {
+        min-height: 620px;
+      }
+
+      .hero h1 {
+        font-size: 52px;
+      }
+
+      .intro,
+      .process,
+      .proof {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .feature-head,
+      .pricing-intro,
+      .cta-inner {
+        display: block;
+      }
+
+      .feature-head p,
+      .pricing-intro p,
+      .cta p {
+        margin-top: 20px;
+      }
+
+      .features {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+
+      .feature,
+      .feature:nth-child(n) {
+        grid-column: auto;
+      }
+
+      .packages,
+      .proofcards {
+        grid-template-columns: 1fr;
+      }
+
+      .section {
+        padding: 78px 0;
+      }
+    }
+  </style>
+</Layout>
