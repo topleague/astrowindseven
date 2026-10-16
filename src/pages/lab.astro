@@ -1,325 +1,839 @@
-
+```astro
 ---
-/* PART 1: IMPORTS */
-import Hero from '~/components/widgets/Hero.astro';
-import Layout from '~/layouts/PageLayout.astro';
-import Content from '~/components/widgets/Content.astro';
-import Features from '~/components/widgets/Features.astro';
-import Testimonials from '~/components/widgets/Testimonials.astro';
-import Quote from '~/components/widgets/Quote.astro';
+import Layout from '~/layouts/Layout.astro';
 
-import Headline from '~/components/ui/Headline.astro';
-import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
-
-import Projects from '~/components/widgets/Projects.astro';
-import { findLatestPosts } from '~/utils/blog';
-import { findImage } from '~/utils/images';
-import { getPermalink, getBlogPermalink } from '~/utils/permalinks';
-import Prices from '~/components/widgets/Pricing.astro';
-
-
-/* PART 2: FRONTMATTER */
-const metadata = {
-  title: 'Page Name',
-  description: 'Random Page Description.',
-};
-
-const destination = 'https://github.com/arthelokyo/astrowind';
-
-const posts = await findLatestPosts({ count: 3 });
-
-const blogItems = await Promise.all(
-  posts.map(async (post) => {
-    const image = await findImage(post.image);
-
-    return {
-      title: post.title,
-      image: image ? { src: image, alt: post.imageAlt || post.title } : undefined,
-      tags: [
-        post.publishDate.toLocaleDateString('en-IN', {
-          day: 'numeric',
-          month: 'short',
-          year: 'numeric',
-        }),
-        ...(post.category ? [post.category.title] : []),
-      ],
-      href: getPermalink(post.permalink, 'post'),
-      linkText: 'Read More',
-    };
-  })
-);
-
+const title = 'SEO Article Writing';
+const description =
+  'Professionally researched, strategically optimized content that sounds like your brand — not like it came from a content mill.';
 ---
 
-<!-- PART 3: TEMPLATE (PAGE BODY) -->
-<Layout
-  metadata={metadata}
-  pageClass="seo-article-writing"
->
+<Layout {title} {description}>
+  <div class="announce">
+    SEO content that earns attention — and deserves to rank.
+    <span>Our writers research before they write.</span>
+  </div>
 
-  <!-- Hero2 Widget ******************* -->
+  <nav class="nav">
+    <div class="wrap navin">
+      <a class="brand" href="#">
+        <span class="mark"><i></i></span>
+        AstroWindy
+      </a>
 
+      <div class="links">
+        <a href="#why">Why us</a>
+        <a href="#features">What you get</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#proof">Results</a>
+      </div>
 
-<!-- Custom SEO Article Writing Hero -->
-<div class="seo-content-writing">
-  <section
-    class="article-hero"
-    aria-labelledby="article-hero-title"
-    style="background-image: linear-gradient(to right, #141618, #14161870), url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3…90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2040&h=1148&q=80')"
-  >
-    <div class="article-hero-content">
-      <h1 id="article-hero-title">SEO Article Writing Services</h1>
-      <p>
-        Professionally crafted SEO articles that resonate with your
-        potential customers.
-      </p>
+      <a class="navcta" href="#pricing">View packages</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div>
+          <div class="eyebrow hero-eyebrow">SEO article writing</div>
+
+          <h1>
+            Articles people want to read.
+            Search engines want to rank.
+          </h1>
+
+          <p class="hero-lede">
+            Professionally researched, strategically optimized content that
+            sounds like your brand — not like it came from a content mill.
+          </p>
+        </div>
+
+        <div class="hero-note">
+          <strong>Since 2006</strong>
+          Writing useful content for businesses across industries and budgets.
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="intro" id="why">
+    <div class="wrap intro-grid">
+      <div>
+        <div class="eyebrow">The shift</div>
+        <h2>Quality content is no longer optional.</h2>
+      </div>
+
+      <div class="intro-copy">
+        <p>
+          We started writing articles for businesses back in 2006. The web has
+          changed dramatically since then — and so has what it takes to build
+          search visibility.
+        </p>
+
+        <p>
+          Today, publishing another keyword-filled article isn't enough. Your
+          content has to satisfy the searcher, demonstrate expertise and give
+          people a reason to stay, trust you and take the next step.
+        </p>
+
+        <p>
+          That's why we obsess over the fundamentals: research, intent,
+          structure, clarity, originality and a voice that actually sounds
+          human.
+        </p>
+
+        <div class="pull">
+          Every article should earn its place on your website — not simply fill
+          a publishing calendar.
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- Existing SVG Curve -->
-  <div class="hero-separator dark:hidden" aria-hidden="true">
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 1920 120"
-      preserveAspectRatio="none"
-      class="block w-full"
-    >
-      <path
-        fill="#fff"
-        fill-rule="evenodd"
-        d="M0,0 C320,60 640,90 960,90 C1280,90 1600,60 1920,0 L1920,120 L0,120 L0,0 Z"
-      />
-    </svg>
-  </div>
-</div>
+  <section class="features" id="features">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">What you get</div>
+          <h2>A better article from first brief to final draft.</h2>
+        </div>
 
+        <div class="desc">
+          The visual system deliberately mixes open space with a few strong
+          cards. The result feels more editorial and less like a grid of SaaS
+          features.
+        </div>
+      </div>
 
-<!-- Features Widget ************************************************************************************************************************ -->
+      <div class="feature-grid">
+        <article class="feature feature-accent">
+          <div class="num">01 / RESEARCH</div>
+          <h3>Highly focused</h3>
+          <p>
+            We tailor the topic, tone and depth around the audience you're
+            actually trying to reach — and the intent behind the search.
+          </p>
+        </article>
 
+        <article class="feature">
+          <div class="num">02</div>
+          <h3>Original</h3>
+          <p>
+            Every article is written from scratch and checked for originality
+            before delivery.
+          </p>
+        </article>
 
-<!-- Content / Plain Text Widget -->
+        <article class="feature">
+          <div class="num">03</div>
+          <h3>Proofread</h3>
+          <p>
+            Clean structure, grammar and presentation — ready for your editor
+            or CMS.
+          </p>
+        </article>
 
+        <article class="feature">
+          <div class="num">04 / SEO</div>
+          <h3>Keyword-smart</h3>
+          <p>
+            Search terms are incorporated naturally, with headings, entities
+            and internal opportunities considered as part of the brief.
+          </p>
+        </article>
 
+        <article class="feature">
+          <div class="num">05</div>
+          <h3>Useful</h3>
+          <p>
+            Articles designed to answer real questions, demonstrate expertise
+            and move readers toward action.
+          </p>
+        </article>
 
-<!-- Service Introduction / Editorial Text Section -->
-<section id="about" class="px-6 py-16 sm:py-20 lg:py-24">
-  <div class="mx-auto max-w-5xl">
-    <div class="mx-auto max-w-3xl">
-
-      <h2 class="mb-6 text-3xl font-bold leading-tight tracking-tight text-slate-900 dark:text-white sm:text-4xl">
-        Article writing has changed. Quality matters more than ever.
-      </h2>
-
-      <div class="space-y-5 text-base leading-7 text-slate-700 dark:text-slate-300 sm:text-lg sm:leading-8">
-
-        <p>
-          We started writing articles for businesses back in 2006. Until 2012,
-          article writing was relatively easy: you could often get away with
-          publishing poorly written, low-quality content.
-        </p>
-
-        <p>
-          Not anymore. Low-quality content can undermine your website's
-          performance in search results, so choosing the right article writing
-          service matters.
-        </p>
-
-        <p>
-          Since our inception, we have prioritised quality article writing
-          for clients across industries and budgets. We believe every article
-          should offer genuine value to its readers, not simply fill a page
-          with keywords.
-        </p>
-
-        <p>
-          We obsess over quality content, and that commitment shapes our
-          approach to every article we write.
-        </p>
-
-        <p>
-          So, what makes our article writing services the right choice for
-          your business?
-        </p>
-
+        <article class="feature">
+          <div class="num">06</div>
+          <h3>On-brand</h3>
+          <p>
+            Your subject matter, terminology and voice remain recognizably
+            yours.
+          </p>
+        </article>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Features Widget ************************************************************************************************************************ -->
+  <section class="pricing" id="pricing">
+    <div class="wrap">
+      <div class="pricing-intro">
+        <div>
+          <div class="eyebrow">Pricing</div>
+          <h2>Choose the level of content support you need.</h2>
+        </div>
 
-  <Features
-    id="features"
-    title="Unique features & potential benefits of our article writing services."
-    subtitle="Highly researched & keyword-optimized articles act as a backlink-magnet for your campaign."
-    columns={2}
-    items={[
-      {
-        title: 'Highly Focused',
-        description: 'We tailor the tone of articles based on audience we target, ensuring the articles leave a great deal of impact',
-        icon: 'tabler:artboard',
-      },
-      {
-        title: 'Proofread to Perfection',
-        description: 'We proofread articles to ensure they are free from all kinds of errors, and look professional.',
-        icon: 'tabler:picture-in-picture',
-      },
-      {
-        title: 'Free Trial Option',
-        description: 'We offer sample content specifically designed for your project to let you see if we’re a good fit.',
-        icon: 'tabler:adjustments-horizontal',
-      },
-      {
-        title: '100% Original',
-        description: 'Our articles are 100% unique and each of them is tested via Copyscape before final delivery.',
-        icon: 'tabler:rocket',
-      },
-      {
-        title: 'Compelling Discounts',
-        description: 'We offer up to 50% discount on our standard pricing when you place order for big package.',
-        icon: 'tabler:arrows-right-left',
-      },
-      {
-        title: 'Customer Satisfaction',
-        description: 'We offer multiple revisions based on your feedback and rework on any article you’re not satisfied with.',
-        icon: 'tabler:plug-connected',
-      },
-    ]}
-  />
+        <p>
+          Start small or build a consistent publishing engine. Every package
+          includes research, writing, editing and SEO thinking.
+        </p>
+      </div>
 
+      <div class="plans">
+        <article class="plan">
+          <div class="price-top">
+            <div>
+              <div class="eyebrow">Starter</div>
+              <h3>One article</h3>
+            </div>
+          </div>
 
- <!-- Pricing Widget ******************* -->
+          <div class="price">From $250</div>
 
-  <Prices
-    classes={{
-      container: 'service-pricing',
-    }}
-    title="Our prices"
-    subtitle="Only pay for what you need"
-    prices={[
-      {
-        title: 'basic',
-        subtitle: 'Optimal choice for personal use',
-        price: { monthly: 29, yearly: 290 },
-        period: { monthly: 'per month', yearly: 'per year' },
-        items: [
-          {
-            description: 'Etiam in libero, et volutpat',
-          },
-          {
-            description: 'Aenean ac nunc dolor tristique',
-          },
-          {
-            description: 'Cras scelerisque accumsan lib',
-          },
-          {
-            description: 'In hac habitasse',
-          },
-        ],
-        callToAction: {
-          text: 'Get started',
-          href: '#',
-        },
-      },
-      {
-        title: 'standard',
-        subtitle: 'Optimal choice for small teams',
-        price: { monthly: 69, yearly: 690 },
-        period: { monthly: 'per month', yearly: 'per year' },
-        note: 'Two months free on the yearly plan',
-        highlight: true,
-        items: [
-          {
-            description: 'Proin vel laoreet',
-          },
-          {
-            description: 'Ut efficitur habitasse egestas',
-          },
-          {
-            description: 'Volutpat hac curabitur',
-          },
-          {
-            description: 'Pellentesque blandit ut nibh',
-          },
-          {
-            description: 'Donec fringilla sem',
-          },
-        ],
-        callToAction: {
-          text: 'Get started',
-          href: '#',
-        },
-        hasRibbon: true,
-        ribbonTitle: 'popular',
-      },
-      {
-        title: 'premium',
-        subtitle: 'Optimal choice for companies',
-        price: { monthly: 199, yearly: 1990 },
-        period: { monthly: 'per month', yearly: 'per year' },
-        items: [
-          {
-            description: 'Curabitur suscipit risus',
-          },
-          {
-            description: 'Aliquam habitasse malesuada',
-          },
-          {
-            description: 'Suspendisse sit amet blandit',
-          },
-          {
-            description: 'Suspendisse auctor blandit dui',
-          },
-        ],
-        callToAction: {
-          text: 'Get started',
-          href: '#',
-        },
-      },
-    ]}
-  />
+          <p>
+            A focused, professionally researched article for a specific topic
+            or search opportunity.
+          </p>
 
-<!-- Features Widget: Our Services ************************ -->
+          <a class="btn" href="#contact">Get started →</a>
+        </article>
 
-<!-- 6. Proof: constraints and (placeholder) testimonials ************************************************************************************************************************-->
+        <article class="plan featured">
+          <div class="price-top">
+            <div>
+              <div class="eyebrow">Popular</div>
+              <h3>Content batch</h3>
+            </div>
+          </div>
 
-  <Testimonials
-    id="proof"
-    tagline="Social proof"
-    title="This is where real customer words go"
-    subtitle="Placeholders below, on purpose: never publish invented testimonials. Ask three customers for one sentence each and use their real name, role and photo with permission."
-    testimonials={[
-      {
-        testimonial:
-          'One sentence that names the problem the customer had before and the result after. Specific numbers make it credible.',
-        name: 'Customer name',
-        job: 'Role, company (sample testimonial)',
-        image: {
-          src: 'https://images.unsplash.com/photo-1618835962148-cf177563c6c0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=930&q=80',
-          alt: 'Portrait placeholder for a customer testimonial',
-        },
-      },
-      {
-        testimonial:
-          'A quote that addresses the biggest objection your FAQ also answers: time to value, price, or trust.',
-        name: 'Customer name',
-        job: 'Role, company (sample testimonial)',
-        image: {
-          src: 'https://images.unsplash.com/photo-1453738773917-9c3eff1db985?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1320&q=80',
-          alt: 'Portrait placeholder for a customer testimonial',
-        },
-      },
-      {
-        testimonial:
-          'A short one. Variety in length reads as authentic; three quotes of identical shape read as written by the same person.',
-        name: 'Customer name',
-        job: 'Role, company (sample testimonial)',
-        image: {
-          src: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1320&q=80',
-          alt: 'Portrait placeholder for a customer testimonial',
-        },
-      },
-    ]}
-  />
+          <div class="price">From $900</div>
 
+          <p>
+            A coordinated batch of articles built around your broader content
+            and search strategy.
+          </p>
+
+          <a class="btn" href="#contact">Choose this →</a>
+        </article>
+
+        <article class="plan">
+          <div class="price-top">
+            <div>
+              <div class="eyebrow">Ongoing</div>
+              <h3>Content engine</h3>
+            </div>
+          </div>
+
+          <div class="price">Let's talk</div>
+
+          <p>
+            Consistent monthly publishing with an evolving editorial and SEO
+            workflow.
+          </p>
+
+          <a class="btn" href="#contact">Talk to us →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="proof" id="proof">
+    <div class="wrap proof-grid">
+      <div class="proof-head">
+        <div class="eyebrow">Results</div>
+        <h2>Good content should make the rest of marketing easier.</h2>
+      </div>
+
+      <div class="proof-grid-inner">
+        <article class="testimonial">
+          <div class="stars">★★★★★</div>
+          <p>
+            “The articles finally sound like someone who understands our
+            business — not someone who just researched the keywords.”
+          </p>
+          <div class="person">
+            Customer name<br />
+            <span>SEO manager, company</span>
+          </div>
+        </article>
+
+        <article class="testimonial">
+          <div class="stars">★★★★★</div>
+          <p>
+            “The quality of the research made the editing process dramatically
+            easier for our team.”
+          </p>
+          <div class="person">
+            Customer name<br />
+            <span>Marketing director, company</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta" id="contact">
+    <div class="wrap">
+      <div class="cta-box">
+        <div>
+          <div class="eyebrow cta-eyebrow">Ready when you are</div>
+
+          <h2>
+            Give your content calendar something worth publishing.
+          </h2>
+
+          <p>
+            Start with a sample, choose a package, or tell us what you're
+            trying to rank for. We'll help shape the brief.
+          </p>
+        </div>
+
+        <a class="btn" href="#pricing">Explore article packages →</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="wrap footerin">
+      <div>© AstroWindy · SEO Article Writing</div>
+
+      <div class="mini-links">
+        <a href="#">Services</a>
+        <a href="#">Blog</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+      </div>
+    </div>
+  </footer>
 </Layout>
+
+<style>
+  :global(:root) {
+    --ink: #111315;
+    --muted: #656b73;
+    --line: #e7e8eb;
+    --paper: #fbfbfa;
+    --soft: #f2f4f5;
+    --accent: #0f6b5a;
+    --accent2: #dff3ed;
+    --dark: #111716;
+    --max: 1180px;
+  }
+
+  :global(html) {
+    scroll-behavior: smooth;
+  }
+
+  :global(body) {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: system-ui, sans-serif;
+    line-height: 1.65;
+  }
+
+  :global(a) {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .wrap {
+    width: min(calc(100% - 48px), var(--max));
+    margin: auto;
+  }
+
+  .eyebrow {
+    font-size: 12px;
+    line-height: 1;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: system-ui, sans-serif;
+    letter-spacing: -0.035em;
+    line-height: 1.04;
+    margin: 0;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  .announce {
+    height: 38px;
+    background: #121514;
+    color: #dfe7e3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+  }
+
+  .announce span {
+    opacity: 0.7;
+    margin-left: 10px;
+  }
+
+  .nav {
+    height: 78px;
+    background: rgba(251, 251, 250, 0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    position: sticky;
+    top: 0;
+    z-index: 20;
+  }
+
+  .navin {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 700;
+    font-size: 18px;
+  }
+
+  .mark {
+    width: 27px;
+    height: 27px;
+    border: 2px solid var(--ink);
+    border-radius: 8px;
+    display: grid;
+    place-items: center;
+    transform: rotate(-8deg);
+  }
+
+  .mark i {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent);
+    display: block;
+  }
+
+  .links {
+    display: flex;
+    gap: 28px;
+    font-size: 14px;
+    color: #555b60;
+  }
+
+  .links a:hover {
+    color: var(--ink);
+  }
+
+  .navcta {
+    padding: 11px 17px;
+    border: 1px solid #cfd3d4;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 700;
+  }
+
+  .hero {
+    min-height: 690px;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+    color: #fff;
+    background: #111716;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(
+        90deg,
+        rgba(6, 13, 12, 0.9) 0%,
+        rgba(6, 13, 12, 0.55) 55%,
+        rgba(6, 13, 12, 0.2) 100%
+      ),
+      linear-gradient(0deg, rgba(0, 0, 0, 0.6), transparent 60%);
+  }
+
+  .hero .wrap {
+    position: relative;
+    padding-top: 110px;
+    padding-bottom: 78px;
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 280px;
+    gap: 80px;
+    align-items: end;
+  }
+
+  .hero-eyebrow {
+    color: #a8d9ce;
+    margin-bottom: 24px;
+  }
+
+  .hero h1 {
+    font-size: clamp(54px, 7vw, 92px);
+    line-height: 0.96;
+    letter-spacing: -0.055em;
+    max-width: 850px;
+  }
+
+  .hero-lede {
+    font-size: 20px;
+    line-height: 1.5;
+    max-width: 650px;
+    color: rgba(255, 255, 255, 0.86);
+    margin-top: 30px;
+  }
+
+  .hero-note {
+    border-left: 1px solid rgba(255, 255, 255, 0.3);
+    padding-left: 24px;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 14px;
+  }
+
+  .hero-note strong {
+    display: block;
+    color: #fff;
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+
+  .intro,
+  .features,
+  .pricing,
+  .proof {
+    padding: 110px 0;
+  }
+
+  .intro {
+    background: var(--paper);
+  }
+
+  .intro-grid {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 110px;
+  }
+
+  .intro h2,
+  .section-head h2,
+  .pricing-intro h2,
+  .proof-head h2 {
+    font-size: clamp(42px, 5vw, 68px);
+    margin-top: 18px;
+  }
+
+  .intro-copy {
+    font-size: 18px;
+    color: var(--muted);
+  }
+
+  .intro-copy p + p {
+    margin-top: 22px;
+  }
+
+  .pull {
+    margin-top: 40px;
+    padding: 25px 0 25px 25px;
+    border-left: 3px solid var(--accent);
+    color: var(--ink);
+    font-size: 22px;
+    line-height: 1.35;
+    font-weight: 600;
+  }
+
+  .features {
+    background: var(--soft);
+  }
+
+  .section-head,
+  .pricing-intro {
+    display: grid;
+    grid-template-columns: 1fr 0.7fr;
+    gap: 90px;
+    align-items: end;
+    margin-bottom: 65px;
+  }
+
+  .desc,
+  .pricing-intro > p {
+    color: var(--muted);
+    font-size: 16px;
+  }
+
+  .feature-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 14px;
+  }
+
+  .feature {
+    grid-column: span 4;
+    background: #fff;
+    border: 1px solid var(--line);
+    padding: 34px;
+    min-height: 260px;
+  }
+
+  .feature:nth-child(1),
+  .feature:nth-child(4) {
+    grid-column: span 6;
+  }
+
+  .feature-accent {
+    background: var(--accent);
+    color: #fff;
+    border-color: var(--accent);
+  }
+
+  .num {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+    margin-bottom: 55px;
+  }
+
+  .feature-accent .num {
+    color: #a8d9ce;
+  }
+
+  .feature h3 {
+    font-size: 29px;
+    margin-bottom: 13px;
+  }
+
+  .feature p {
+    color: var(--muted);
+    font-size: 15px;
+  }
+
+  .feature-accent p {
+    color: rgba(255, 255, 255, 0.72);
+  }
+
+  .plans {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
+
+  .plan {
+    border: 1px solid var(--line);
+    padding: 35px;
+    display: flex;
+    flex-direction: column;
+    min-height: 360px;
+    background: #fff;
+  }
+
+  .plan.featured {
+    background: var(--accent2);
+    border-color: var(--accent);
+    transform: translateY(-14px);
+  }
+
+  .plan h3 {
+    font-size: 30px;
+    margin-top: 10px;
+  }
+
+  .price {
+    font-size: 42px;
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    margin: 30px 0 15px;
+  }
+
+  .plan p {
+    color: var(--muted);
+    font-size: 15px;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 21px;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 700;
+    margin-top: auto;
+    background: var(--ink);
+    color: #fff;
+    width: fit-content;
+  }
+
+  .proof {
+    background: #fff;
+  }
+
+  .proof-grid {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 90px;
+  }
+
+  .proof-grid-inner {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+
+  .testimonial {
+    border: 1px solid var(--line);
+    padding: 30px;
+  }
+
+  .stars {
+    color: var(--accent);
+    letter-spacing: 0.14em;
+  }
+
+  .testimonial p {
+    font-size: 18px;
+    margin: 22px 0 30px;
+  }
+
+  .person {
+    font-size: 13px;
+    color: var(--muted);
+  }
+
+  .person span {
+    opacity: 0.7;
+  }
+
+  .cta {
+    background: var(--dark);
+    color: #fff;
+    padding: 110px 0;
+  }
+
+  .cta-box {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 70px;
+    align-items: end;
+  }
+
+  .cta-eyebrow {
+    color: #8ad0bf;
+  }
+
+  .cta h2 {
+    font-size: clamp(44px, 5vw, 70px);
+    max-width: 760px;
+    margin-top: 18px;
+  }
+
+  .cta p {
+    color: #b8c3c0;
+    font-size: 17px;
+    max-width: 600px;
+    margin-top: 20px;
+  }
+
+  .cta .btn {
+    background: #fff;
+    color: #111;
+    white-space: nowrap;
+  }
+
+  .footer {
+    padding: 45px 0;
+    border-top: 1px solid var(--line);
+    background: #fff;
+  }
+
+  .footerin {
+    display: flex;
+    justify-content: space-between;
+    color: #747b80;
+    font-size: 13px;
+  }
+
+  .mini-links {
+    display: flex;
+    gap: 22px;
+  }
+
+  @media (max-width: 900px) {
+    .links {
+      display: none;
+    }
+
+    .hero {
+      min-height: 600px;
+    }
+
+    .hero-grid,
+    .intro-grid,
+    .section-head,
+    .pricing-intro,
+    .proof-grid,
+    .cta-box {
+      grid-template-columns: 1fr;
+    }
+
+    .hero-note {
+      display: none;
+    }
+
+    .intro,
+    .features,
+    .pricing,
+    .proof,
+    .cta {
+      padding: 90px 0;
+    }
+
+    .feature:nth-child(n) {
+      grid-column: span 6;
+    }
+
+    .plans,
+    .proof-grid-inner {
+      grid-template-columns: 1fr;
+    }
+
+    .plan.featured {
+      transform: none;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .wrap {
+      width: min(calc(100% - 32px), var(--max));
+    }
+
+    .announce {
+      font-size: 11px;
+    }
+
+    .nav {
+      height: 68px;
+    }
+
+    .hero h1 {
+      font-size: 52px;
+    }
+
+    .feature:nth-child(n) {
+      grid-column: span 12;
+    }
+  }
+</style>
+```
