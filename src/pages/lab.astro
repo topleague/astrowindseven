@@ -1,0 +1,325 @@
+
+---
+/* PART 1: IMPORTS */
+import Hero from '~/components/widgets/Hero.astro';
+import Layout from '~/layouts/PageLayout.astro';
+import Content from '~/components/widgets/Content.astro';
+import Features from '~/components/widgets/Features.astro';
+import Testimonials from '~/components/widgets/Testimonials.astro';
+import Quote from '~/components/widgets/Quote.astro';
+
+import Headline from '~/components/ui/Headline.astro';
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+
+import Projects from '~/components/widgets/Projects.astro';
+import { findLatestPosts } from '~/utils/blog';
+import { findImage } from '~/utils/images';
+import { getPermalink, getBlogPermalink } from '~/utils/permalinks';
+import Prices from '~/components/widgets/Pricing.astro';
+
+
+/* PART 2: FRONTMATTER */
+const metadata = {
+  title: 'Page Name',
+  description: 'Random Page Description.',
+};
+
+const destination = 'https://github.com/arthelokyo/astrowind';
+
+const posts = await findLatestPosts({ count: 3 });
+
+const blogItems = await Promise.all(
+  posts.map(async (post) => {
+    const image = await findImage(post.image);
+
+    return {
+      title: post.title,
+      image: image ? { src: image, alt: post.imageAlt || post.title } : undefined,
+      tags: [
+        post.publishDate.toLocaleDateString('en-IN', {
+          day: 'numeric',
+          month: 'short',
+          year: 'numeric',
+        }),
+        ...(post.category ? [post.category.title] : []),
+      ],
+      href: getPermalink(post.permalink, 'post'),
+      linkText: 'Read More',
+    };
+  })
+);
+
+---
+
+<!-- PART 3: TEMPLATE (PAGE BODY) -->
+<Layout
+  metadata={metadata}
+  pageClass="seo-article-writing"
+>
+
+  <!-- Hero2 Widget ******************* -->
+
+
+<!-- Custom SEO Article Writing Hero -->
+<div class="seo-content-writing">
+  <section
+    class="article-hero"
+    aria-labelledby="article-hero-title"
+    style="background-image: linear-gradient(to right, #141618, #14161870), url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3…90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2040&h=1148&q=80')"
+  >
+    <div class="article-hero-content">
+      <h1 id="article-hero-title">SEO Article Writing Services</h1>
+      <p>
+        Professionally crafted SEO articles that resonate with your
+        potential customers.
+      </p>
+    </div>
+  </section>
+
+  <!-- Existing SVG Curve -->
+  <div class="hero-separator dark:hidden" aria-hidden="true">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 1920 120"
+      preserveAspectRatio="none"
+      class="block w-full"
+    >
+      <path
+        fill="#fff"
+        fill-rule="evenodd"
+        d="M0,0 C320,60 640,90 960,90 C1280,90 1600,60 1920,0 L1920,120 L0,120 L0,0 Z"
+      />
+    </svg>
+  </div>
+</div>
+
+
+<!-- Features Widget ************************************************************************************************************************ -->
+
+
+<!-- Content / Plain Text Widget -->
+
+
+
+<!-- Service Introduction / Editorial Text Section -->
+<section id="about" class="px-6 py-16 sm:py-20 lg:py-24">
+  <div class="mx-auto max-w-5xl">
+    <div class="mx-auto max-w-3xl">
+
+      <h2 class="mb-6 text-3xl font-bold leading-tight tracking-tight text-slate-900 dark:text-white sm:text-4xl">
+        Article writing has changed. Quality matters more than ever.
+      </h2>
+
+      <div class="space-y-5 text-base leading-7 text-slate-700 dark:text-slate-300 sm:text-lg sm:leading-8">
+
+        <p>
+          We started writing articles for businesses back in 2006. Until 2012,
+          article writing was relatively easy: you could often get away with
+          publishing poorly written, low-quality content.
+        </p>
+
+        <p>
+          Not anymore. Low-quality content can undermine your website's
+          performance in search results, so choosing the right article writing
+          service matters.
+        </p>
+
+        <p>
+          Since our inception, we have prioritised quality article writing
+          for clients across industries and budgets. We believe every article
+          should offer genuine value to its readers, not simply fill a page
+          with keywords.
+        </p>
+
+        <p>
+          We obsess over quality content, and that commitment shapes our
+          approach to every article we write.
+        </p>
+
+        <p>
+          So, what makes our article writing services the right choice for
+          your business?
+        </p>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Features Widget ************************************************************************************************************************ -->
+
+  <Features
+    id="features"
+    title="Unique features & potential benefits of our article writing services."
+    subtitle="Highly researched & keyword-optimized articles act as a backlink-magnet for your campaign."
+    columns={2}
+    items={[
+      {
+        title: 'Highly Focused',
+        description: 'We tailor the tone of articles based on audience we target, ensuring the articles leave a great deal of impact',
+        icon: 'tabler:artboard',
+      },
+      {
+        title: 'Proofread to Perfection',
+        description: 'We proofread articles to ensure they are free from all kinds of errors, and look professional.',
+        icon: 'tabler:picture-in-picture',
+      },
+      {
+        title: 'Free Trial Option',
+        description: 'We offer sample content specifically designed for your project to let you see if we’re a good fit.',
+        icon: 'tabler:adjustments-horizontal',
+      },
+      {
+        title: '100% Original',
+        description: 'Our articles are 100% unique and each of them is tested via Copyscape before final delivery.',
+        icon: 'tabler:rocket',
+      },
+      {
+        title: 'Compelling Discounts',
+        description: 'We offer up to 50% discount on our standard pricing when you place order for big package.',
+        icon: 'tabler:arrows-right-left',
+      },
+      {
+        title: 'Customer Satisfaction',
+        description: 'We offer multiple revisions based on your feedback and rework on any article you’re not satisfied with.',
+        icon: 'tabler:plug-connected',
+      },
+    ]}
+  />
+
+
+ <!-- Pricing Widget ******************* -->
+
+  <Prices
+    classes={{
+      container: 'service-pricing',
+    }}
+    title="Our prices"
+    subtitle="Only pay for what you need"
+    prices={[
+      {
+        title: 'basic',
+        subtitle: 'Optimal choice for personal use',
+        price: { monthly: 29, yearly: 290 },
+        period: { monthly: 'per month', yearly: 'per year' },
+        items: [
+          {
+            description: 'Etiam in libero, et volutpat',
+          },
+          {
+            description: 'Aenean ac nunc dolor tristique',
+          },
+          {
+            description: 'Cras scelerisque accumsan lib',
+          },
+          {
+            description: 'In hac habitasse',
+          },
+        ],
+        callToAction: {
+          text: 'Get started',
+          href: '#',
+        },
+      },
+      {
+        title: 'standard',
+        subtitle: 'Optimal choice for small teams',
+        price: { monthly: 69, yearly: 690 },
+        period: { monthly: 'per month', yearly: 'per year' },
+        note: 'Two months free on the yearly plan',
+        highlight: true,
+        items: [
+          {
+            description: 'Proin vel laoreet',
+          },
+          {
+            description: 'Ut efficitur habitasse egestas',
+          },
+          {
+            description: 'Volutpat hac curabitur',
+          },
+          {
+            description: 'Pellentesque blandit ut nibh',
+          },
+          {
+            description: 'Donec fringilla sem',
+          },
+        ],
+        callToAction: {
+          text: 'Get started',
+          href: '#',
+        },
+        hasRibbon: true,
+        ribbonTitle: 'popular',
+      },
+      {
+        title: 'premium',
+        subtitle: 'Optimal choice for companies',
+        price: { monthly: 199, yearly: 1990 },
+        period: { monthly: 'per month', yearly: 'per year' },
+        items: [
+          {
+            description: 'Curabitur suscipit risus',
+          },
+          {
+            description: 'Aliquam habitasse malesuada',
+          },
+          {
+            description: 'Suspendisse sit amet blandit',
+          },
+          {
+            description: 'Suspendisse auctor blandit dui',
+          },
+        ],
+        callToAction: {
+          text: 'Get started',
+          href: '#',
+        },
+      },
+    ]}
+  />
+
+<!-- Features Widget: Our Services ************************ -->
+
+<!-- 6. Proof: constraints and (placeholder) testimonials ************************************************************************************************************************-->
+
+  <Testimonials
+    id="proof"
+    tagline="Social proof"
+    title="This is where real customer words go"
+    subtitle="Placeholders below, on purpose: never publish invented testimonials. Ask three customers for one sentence each and use their real name, role and photo with permission."
+    testimonials={[
+      {
+        testimonial:
+          'One sentence that names the problem the customer had before and the result after. Specific numbers make it credible.',
+        name: 'Customer name',
+        job: 'Role, company (sample testimonial)',
+        image: {
+          src: 'https://images.unsplash.com/photo-1618835962148-cf177563c6c0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=930&q=80',
+          alt: 'Portrait placeholder for a customer testimonial',
+        },
+      },
+      {
+        testimonial:
+          'A quote that addresses the biggest objection your FAQ also answers: time to value, price, or trust.',
+        name: 'Customer name',
+        job: 'Role, company (sample testimonial)',
+        image: {
+          src: 'https://images.unsplash.com/photo-1453738773917-9c3eff1db985?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1320&q=80',
+          alt: 'Portrait placeholder for a customer testimonial',
+        },
+      },
+      {
+        testimonial:
+          'A short one. Variety in length reads as authentic; three quotes of identical shape read as written by the same person.',
+        name: 'Customer name',
+        job: 'Role, company (sample testimonial)',
+        image: {
+          src: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1320&q=80',
+          alt: 'Portrait placeholder for a customer testimonial',
+        },
+      },
+    ]}
+  />
+
+</Layout>
