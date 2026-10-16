@@ -438,6 +438,34 @@ background-color: var(--color-blue-50);
 background-color: #fff;
 }
 
+/* CSS that belongs to LAB template only */
+/* Lab Header (dark mode compliant) */
+.lab #header {
+background-color: #fff;
+}
+
+/* Lab Hero (dark mode compliant) */
+.lab .hero {
+background-color: #1f5f55;
+}
+
+/* Lab Overview (dark mode compliant) */
+.dark #overview p,  .dark #overview a {
+color: #fff;
+}
+
+.dark .lab .band {
+background-color: inherit!important;
+}
+
+.dark .lab .band h3 {
+color: #000;
+}
+
+.dark .proofcards {
+color: #333;
+}
+
 /* ____________________________________________________________ */
 
 /* Footer*/
