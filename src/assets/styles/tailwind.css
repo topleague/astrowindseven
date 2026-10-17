@@ -466,6 +466,10 @@ color: #000;
 color: #333;
 }
 
+dark .product-description-writing .proofcards {
+color: #fff;
+}
+
 /* LAB SPECIFIC CUSTOM CSS ____________________________________________________________ */
 
 /* GLOBAL CSS _______________________________*/
