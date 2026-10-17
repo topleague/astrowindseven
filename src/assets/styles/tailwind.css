@@ -878,9 +878,11 @@ box-shadow: 0 0 0 60px rgba(255,255,255,.035),0 0 0 120px rgba(255,255,255,.025)
 }
 
 /* MIS CSS ____________________________________________________________ */
-.product-description-writing p {
-  margin: revert;
-}
+.product-description-writing p {margin: revert;}
+
+.product-description-writing #proof:not(.dark #proof) {background-color: #fff;}
+.product-description-writing .cta:not(.dark .cta) {background-color: #f1f4f2;}
+.dark .product-description-writing .cta {background-color: #000;}
 
 /* ____________________________________________________________ */
 
