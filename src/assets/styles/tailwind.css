@@ -722,6 +722,63 @@ color: #333;
     .intro, .process, .proof {grid-template-columns: 1fr; gap: 40px;}
 }
 
+/* PACKAGES _______________________________*/
+/* PACKAGES */
+  .pricing {background: #17242b; color: #fff;}
+  .pricing .kicker {color: #9cc9bd;}
+  .pricing .section-title {color: #fff;}
+
+  .pricing-intro {
+    display: flex; justify-content: space-between; gap: 40px;
+    align-items: end; margin-bottom: 48px;
+  }
+
+  .pricing-intro p {max-width: 440px; color: #aab7bd; margin: 0;}
+  .packages {display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px;}
+
+  .package {
+    background: #fff; color: #16202a; padding: 34px;
+    border-radius: 2px; min-height: 390px; display: flex;
+    flex-direction: column;
+  }
+
+  .package.featured {background: #dcebe5;}
+
+  .package .tag {
+    font-size: 11px; text-transform: uppercase; letter-spacing: .13em;
+    color: #1f5f55; font-weight: 700;
+  }
+
+  .package h3 {
+    font-family: 'Space Grotesk', sans-serif; font-size: 30px;
+    margin: 14px 0 6px;
+  }
+
+  .package .desc {color: #64717d; font-size: 14px; min-height: 65px;}
+
+  .price {
+    font-family: 'Space Grotesk', sans-serif; font-size: 44px;
+    letter-spacing: -.04em; margin: 15px 0;}
+
+  .package ul {
+    list-style: none; padding: 0; margin: 0 0 24px;
+    display: grid; gap: 10px; color: #45515a;
+    font-size: 14px;}
+
+  .package li:before {
+    content: '✓'; color: #1f5f55; font-weight: 700;
+    margin-right: 8px;}
+
+  .package .btn {margin-top: auto; background: #16202a; color: #fff;}
+
+/* PACKAGES (DARK MODE) */
+
+
+/* PACKAGES (RESPONSIVE) */
+ @media (max-width: 850px) {
+.packages, .proofcards {grid-template-columns: 1fr;}
+}
+
 /* ____________________________________________________________ */
 
 /* Footer*/
