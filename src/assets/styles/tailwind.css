@@ -468,7 +468,7 @@ color: #333;
 
 /* LAB SPECIFIC CUSTOM CSS ____________________________________________________________ */
 
-/* GLOBAL CSS */
+/* GLOBAL CSS _______________________________*/
   .container {
     max-width: 1180px; margin: auto; padding: 0 28px;
   }
@@ -531,7 +531,7 @@ color: #333;
     margin-top: 46px; font-size: 13px; opacity: .68;
   }
 
-/* OVERVIEW CSS */
+/* OVERVIEW CSS _______________________________*/
 .section {
     padding: 105px 0;
   }
@@ -565,8 +565,7 @@ color: #333;
     color: #16202a;
   }
 
-/* BENEFITS CSS */
-/* BENEFITS */
+/* BENEFITS CSS _______________________________*/
 
  .band {
     background: #f1f4f2; border-top: 1px solid #dfe5e8; border-bottom: 1px solid #dfe5e8;
@@ -691,6 +690,36 @@ color: #333;
       grid-column: auto;
     }
 
+}
+
+/* PROCESS _______________________________*/
+.process {display: grid; grid-template-columns: 1fr 2fr; gap: 80px;}
+.process-list {border-top: 1px solid #dfe5e8;}
+
+.step {
+    display: grid; grid-template-columns: 70px 1fr; gap: 20px;
+    padding: 28px 0; border-bottom: 1px solid #dfe5e8;
+  }
+
+ .step span {font-size: 13px; color: #1f5f55; font-weight: 700;}
+
+ .step h3 {
+    margin: 0 0 5px; font-family: 'Space Grotesk', sans-serif;
+    font-size: 23px;
+  }
+
+.step p {margin: 0; color: #64717d;}
+
+/* PROCESS (DARK MODE) */
+.dark .process-list {border-top-color: #66737f;}
+.dark .step {border-bottom-color: #66737f;}
+.dark .step span {color: #2f8f7e;}
+.dark .step h3 {color: #f4f7f6;}
+.dark .step p {color: #8f9ca5;}
+
+/* PROCESS (RESPONSIVE) */
+ @media (max-width: 850px) {
+    .intro, .process, .proof {grid-template-columns: 1fr; gap: 40px;}
 }
 
 /* ____________________________________________________________ */
