@@ -565,6 +565,134 @@ color: #333;
     color: #16202a;
   }
 
+/* BENEFITS CSS */
+/* BENEFITS */
+
+ .band {
+    background: #f1f4f2; border-top: 1px solid #dfe5e8; border-bottom: 1px solid #dfe5e8;
+  }
+
+ .feature-head {
+    display: flex;  justify-content: space-between; gap: 60px;
+    align-items: flex-start; margin-bottom: 64px;
+  }
+
+.feature-head p {
+    max-width: 430px; color: #64717d; margin: 8px 0 0;
+    font-size: 17px; line-height: 1.55;
+  }
+
+.features {
+    display: grid; grid-template-columns: repeat(12, 1fr); gap: 18px;
+    background: transparent; border: 0;
+  }
+
+ .feature {
+    background: #fff; color: #16202a; padding: 34px;
+    min-height: 245px; border: 1px solid #dfe5e8; border-radius: 22px;
+    display: flex; flex-direction: column;  justify-content: space-between;
+  }
+
+ .feature:nth-child(1) {
+    grid-column: span 7; background: #101817; color: #fff;
+    border-color: #101817; min-height: 285px;
+  }
+
+.feature:nth-child(2) {
+    grid-column: span 5;
+  }
+
+.feature:nth-child(3), .feature:nth-child(4), .feature:nth-child(5) {
+    grid-column: span 4;
+  }
+
+ .feature:nth-child(6), .feature:nth-child(7) {
+    grid-column: span 6;
+  }
+
+.num {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 13px; color: #1f5f55; font-weight: 700;
+  }
+
+.feature h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 27px; line-height: 1.08; letter-spacing: -.035em;
+    margin: 48px 0 12px;
+  }
+
+ .feature p {
+    margin: 0; color: #64717d; font-size: 15px;
+    line-height: 1.55;
+  }
+
+.feature:nth-child(1) .num {
+    color: #9cc9bd;
+  }
+
+.feature:nth-child(1) p {
+    color: rgba(255,255,255,.72);
+  }
+
+ /* BENEFITS -- DARK MODE */
+
+.dark .band {
+    background: #111a19; border-top-color: #263331; border-bottom-color: #263331;
+  }
+
+.dark .feature-head p {
+    color: #aab7b4;
+  }
+
+ .dark .feature {
+    background: #182220; color: #f4f7f6; border-color: #2d3a37;
+  }
+
+.dark .feature:nth-child(1) {
+    background: #0b1211; color: #fff; border-color: #34443f;
+  }
+
+.dark .num {
+    color: #8fc5b8;
+  }
+
+.dark .feature p {
+    color: #aab7b4;
+  }
+
+.dark .feature:nth-child(1) .num {
+    color: #9cc9bd;
+  }
+
+  .dark .feature:nth-child(1) p {
+    color: rgba(255,255,255,.72);
+  }
+
+ /* BENEFITS —Responsive CSS */
+
+@media (max-width: 850px) {
+.feature-head {
+      display: block; margin-bottom: 44px;
+    }
+
+ .feature-head p {
+      margin-top: 20px;
+    }
+
+ .features {
+      grid-template-columns: 1fr;
+    }
+
+.feature,
+    .feature:nth-child(1), .feature:nth-child(2),
+    .feature:nth-child(3), .feature:nth-child(4),
+    .feature:nth-child(5), .feature:nth-child(6),
+    .feature:nth-child(7) {
+      grid-column: auto;
+    }
+
+}
+
 /* ____________________________________________________________ */
 
 /* Footer*/
