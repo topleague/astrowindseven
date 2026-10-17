@@ -780,6 +780,44 @@ color: #333;
 .pricing-intro {display: block;}
 }
 
+/* PROOF _______________________________*/
+  .proof {display: grid; grid-template-columns: 1fr 1.4fr; gap: 90px;}
+ 
+ .quote {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(30px, 3.5vw, 48px); line-height: 1.08;
+    letter-spacing: -.04em; margin: 0;
+  }
+
+  .quote small {
+    display: block; font-family: 'DM Sans', sans-serif;
+    font-size: 14px; line-height: 1.5; letter-spacing: 0;
+    color: #64717d; margin-top: 28px;
+  }
+
+.proofcards {display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px;}
+.testimonial {border: 1px solid #dfe5e8; padding: 27px; background: #fff;}
+.stars {letter-spacing: .14em; color: #1f5f55; font-size: 13px;}
+.testimonial p {font-size: 17px; margin: 20px 0 26px;}
+.person {font-size: 13px; color: #64717d;}
+
+/* PROOF (DARK MODE) */
+.dark .quote small {color: #8f9ca5;}
+
+.dark .testimonial {
+  border-color: #2d3a37;
+  background: #182220;
+}
+
+.dark .stars {color: #8fc5b8;}
+.dark .testimonial p {color: #f4f7f6;}
+.dark .person {color: #8f9ca5;}
+
+/* PROOF (RESPONSIVE) */
+ @media (max-width: 850px) {
+.intro,  .process, .proof {grid-template-columns: 1fr; gap: 40px;}
+}
+
 /* ____________________________________________________________ */
 
 /* Footer*/
