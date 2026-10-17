@@ -884,6 +884,8 @@ box-shadow: 0 0 0 60px rgba(255,255,255,.035),0 0 0 120px rgba(255,255,255,.025)
 .product-description-writing .cta:not(.dark .cta) {background-color: #f1f4f2;}
 .dark .product-description-writing .cta {background-color: #000;}
 
+.product-description-writing .quote {font-family: Mona Bold, serif!important; letter-spacing: inherit;}
+
 /* ____________________________________________________________ */
 
 /* Footer*/
