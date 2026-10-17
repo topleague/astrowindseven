@@ -818,7 +818,7 @@ color: #333;
 .intro,  .process, .proof {grid-template-columns: 1fr; gap: 40px;}
 }
 
-/* CTA _______________________________*/
+/* CTA ONE  _______________________________*/
   .cta {padding: 95px 0 110px; background: #1f5f55; color: #fff;}
 
   .cta-inner {
@@ -841,6 +841,36 @@ color: #333;
  @media (max-width: 850px) {
     .feature-head, .pricing-intro, .cta-inner {display: block;}
     .feature-head p, .pricing-intro p, .cta p {margin-top: 20px;}
+}
+
+/* CTA TWO _______________________________*/
+/* CTA */
+.wrap {max-width: 1150px; margin: auto;}
+.cta {color: #fff; background-color: #1f5f55; padding: 95px 0 110px;}
+
+.cta-box {
+background-color: #111716; color: #fff;
+border-radius: 28px; padding: 70px;
+display: grid; grid-template-columns: 1.4fr .6fr;
+gap: 50px; align-items: end;
+overflow: hidden; position: relative;
+}
+
+.cta-box:after {
+content: ""; position: absolute;
+width: 320px; height: 320px;
+border-radius: 50%;
+border: 1px solid rgba(255,255,255,.14);
+right: -80px; top: -110px;
+box-shadow: 0 0 0 60px rgba(255,255,255,.035),0 0 0 120px rgba(255,255,255,.025);
+}
+
+/* CTA (RESPONSIVE) */
+ @media (max-width: 850px) {
+.cta-box {padding: 42px 28px; grid-template-columns: 1fr;}
+.cta .btn {justify-self: start;}
+.cta {padding: 90px 0;}
+.wrap {margin: 0 2vh;}
 }
 
 /* ____________________________________________________________ */
