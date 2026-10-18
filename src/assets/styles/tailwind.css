@@ -316,8 +316,12 @@
   }
 
   h1 {
-    font-family: 'Mona Bold', sans-serif !important;
-    font-weight: 600 !important;
+    /*font-family: 'Mona Bold', sans-serif !important;*/
+    /*font-weight: 600 !important;*/
+    font-family: Frog, Mona Bold, sans-serif!important;
+    font-weight: 400;
+    text-wrap: balance;
+    max-width: fit-content;
   }
 
   :where(h2, h3, h4, h5, h6) {
@@ -897,7 +901,7 @@ box-shadow: 0 0 0 60px rgba(255,255,255,.035),0 0 0 120px rgba(255,255,255,.025)
 .product-description-writing .quote {font-family: Mona Bold, serif!important; letter-spacing: inherit;}
 .hero h1 span {display: block; color:#ADFF2F;}
 
-.product-description-writing .hero h1 {font-family: Frog, Mona Bold, sans-serif!important;}
+/*.product-description-writing .hero h1 {font-family: Frog, Mona Bold, sans-serif!important;}*/
 
 /* ____________________________________________________________ */
 
