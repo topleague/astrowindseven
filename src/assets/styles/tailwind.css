@@ -343,9 +343,9 @@
   }
 
   h1 {
-    /*font-family: 'Mona Bold', sans-serif !important;*/
+    font-family: 'Mona Bold Pro', sans-serif !important;
     /*font-weight: 600 !important;*/
-    font-family: FCEB,FCB,FC, Frog, Mona Bold, sans-serif!important;
+    /*font-family: FCEB,FCB,FC, Frog, Mona Bold, sans-serif!important;/*
     font-weight: 400;
     text-wrap: balance;
     /*max-width: fit-content;*/
