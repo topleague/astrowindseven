@@ -282,6 +282,33 @@
   font-display: swap;
 }
 
+
+/* Futural CFONT  */
+
+@font-face {
+  font-family: 'FC';
+  src: url('/fonts/Futura Condensed.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'FCB';
+  src: url('/fonts/Futura Condensed Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'FCEB';
+  src: url('/fonts/Futura Condensed Extra Bold.woff2') format('woff2');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* CUSTOM CSS */
   .dark body {
     background-color: #1e293b;
