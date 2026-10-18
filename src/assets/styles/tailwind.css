@@ -897,6 +897,8 @@ box-shadow: 0 0 0 60px rgba(255,255,255,.035),0 0 0 120px rgba(255,255,255,.025)
 .product-description-writing .quote {font-family: Mona Bold, serif!important; letter-spacing: inherit;}
 .hero h1 span {display: block; color:#ADFF2F;}
 
+.product-description-writing .hero h1 {font-family: Frog, Mona Bold, sans-serif!important;}
+
 /* ____________________________________________________________ */
 
 /* Footer*/
