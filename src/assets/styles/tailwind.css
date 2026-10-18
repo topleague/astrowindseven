@@ -903,6 +903,7 @@ box-shadow: 0 0 0 60px rgba(255,255,255,.035),0 0 0 120px rgba(255,255,255,.025)
 
  @media (max-width: 480px) {
 .hero h1 {max-width: auto!important;}
+.hero h1 span {display: auto!important; margin-left: 1vh; text-wrap: balance;}
 }
 
 /*.product-description-writing .hero h1 {font-family: Frog, Mona Bold, sans-serif!important;}*/
