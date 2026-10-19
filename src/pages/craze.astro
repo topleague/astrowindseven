@@ -4,23 +4,23 @@ import Layout from '~/layouts/PageLayout.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import Note from '~/components/widgets/Note.astro';
 import Features from '~/components/widgets/Features.astro';
+import QuickStart from '~/components/widgets/QuickStart.astro';
 import Features2 from '~/components/widgets/Features2.astro';
+import Timeline from '~/components/widgets/Timeline.astro';
 import Steps from '~/components/widgets/Steps.astro';
 import Content from '~/components/widgets/Content.astro';
+import BlogHighlightedPosts from '~/components/widgets/BlogHighlightedPosts.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 import Stats from '~/components/widgets/Stats.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 import SocialProof from '~/components/widgets/SocialProof.astro';
 import StructuredData from '~/components/common/StructuredData.astro';
-
 import { SITE, METADATA, I18N } from 'astrowind:config';
 import favIconSvg from '~/assets/favicons/favicon.svg';
 
 const metadata = {
   title: 'Top League — Build Your Online Presence, Not Just Another Website',
   ignoreTitleTemplate: true,
-  description:
-    'Top League helps small businesses build and manage their online presence with websites, content, SEO, social media, analytics and ongoing support.',
 };
 
 const organizationId = `${SITE?.site}/#organization`;
@@ -43,9 +43,7 @@ const structuredData = [
     url: SITE?.site,
     logo: new URL(favIconSvg.src, SITE?.site).toString(),
     ...(METADATA?.twitter?.handle
-      ? {
-          sameAs: [`https://x.com/${METADATA.twitter.handle.replace(/^@/, '')}`],
-        }
+      ? { sameAs: [`https://x.com/${METADATA.twitter.handle.replace(/^@/, '')}`] }
       : {}),
   },
 ];
@@ -54,146 +52,140 @@ const structuredData = [
 <Layout metadata={metadata}>
   <StructuredData slot="head" schema={structuredData} />
 
-  <!-- HERO ********************************************************************** -->
+  <!-- HERO -->
 
-  <Hero
-    tagline="Digital partner for small businesses"
-    title="Build Your Online Presence, Not Just Another Website."
-    subtitle="A website is a means to an end. We help you build the presence around it — and stay involved after launch."
-    callToAction={{
-      variant: 'primary',
-      text: 'Tell us what you need',
-      href: '#contact',
-      icon: 'tabler:arrow-right',
-    }}
-    callToAction2={{
-      text: 'See how we work',
-      href: '#handled',
-    }}
-  />
+  <section class="hero">
+    <div class="container">
 
-  <!-- QUIET PROOF *************************************************************** -->
+      <div class="eyebrow">
+        <span class="dot"></span>
+        Digital partner for small businesses
+      </div>
 
-  <SocialProof
-    id="proof"
+      <h1>
+        Build Your Online Presence,
+        <span>Not Just Another Website.</span>
+      </h1>
+
+      <p>
+        We build, strengthen and support the digital presence your business needs —
+        from your website and content to SEO, social media and everything in between.
+      </p>
+
+      <div class="actions">
+        <a class="btn primary" href="#what-we-do">
+          See what we handle
+        </a>
+
+        <a class="btn ghost" href="#contact">
+          Start a conversation
+        </a>
+      </div>
+
+      <div class="hero-note">
+        Websites · Content · SEO · Social · Analytics · Ongoing support
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PROOF BAR -->
+
+  <div class="proofbar">
+    <div class="wrap proofgrid">
+
+      <div class="proof">
+        <strong>16 years</strong>
+        <span>in digital</span>
+      </div>
+
+      <div class="proof">
+        <strong>30+</strong>
+        <span>websites built recently</span>
+      </div>
+
+      <div class="proof">
+        <strong>20</strong>
+        <span>websites currently maintained</span>
+      </div>
+
+      <div class="proof">
+        <strong>10 countries</strong>
+        <span>clients served</span>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- THE PROBLEM -->
+
+  <Features
+    id="why"
+    tagline="Why it matters"
+    title="A website is a means to an end, not an end in itself."
+    subtitle="Your domain, brand, content, search visibility and social presence all shape what happens after the website goes live."
     items={[
       {
-        value: '16 yrs',
-        label: 'in business since 2010',
-        icon: 'tabler:calendar-check',
-        color: 'text-sky-500',
+        title: 'The right foundation',
+        description:
+          'A domain, hosting and technology choices can affect your brand and your future long after the website launches.',
+        icon: 'tabler:building-community',
       },
       {
-        value: '20',
-        label: 'websites maintained today',
-        icon: 'tabler:heart-handshake',
-        color: 'text-emerald-500',
+        title: 'A presence that connects',
+        description:
+          'Your website should work with your content, search and social presence — not sit apart from them.',
+        icon: 'tabler:hierarchy-2',
       },
       {
-        value: '10',
-        label: 'countries with clients',
-        icon: 'tabler:world',
-        color: 'text-amber-500',
-      },
-      {
-        value: '4–8 hrs',
-        label: 'typical email response',
-        icon: 'tabler:clock-bolt',
-        color: 'text-violet-500',
+        title: 'A plan beyond launch',
+        description:
+          'Publishing, SEO, campaigns, analytics and maintenance are what keep an online presence useful after launch day.',
+        icon: 'tabler:route',
       },
     ]}
   />
 
-  <!-- OWNERSHIP **************************************************************** -->
 
-  <Features2
-    id="handled"
-    tagline="What having someone own it means"
-    title="You ask. We handle it."
-    subtitle="The website is only one part of the job. The useful part is having someone who keeps the whole thing moving."
-    columns={3}
-    items={[
-      {
-        title: '“Here’s our new blog post. Please publish it.”',
-        description:
-          'We format it, optimise it, publish it and send you the link.',
-        icon: 'tabler:article',
-      },
-      {
-        title: '“We have a campaign next month.”',
-        description:
-          'We create the landing page and get it ready to use, usually within a few days.',
-        icon: 'tabler:rocket',
-      },
-      {
-        title: '“Here’s some raw content. Make it social.”',
-        description:
-          'We turn it into posts, graphics or reels and help get it published.',
-        icon: 'tabler:brand-instagram',
-      },
-      {
-        title: '“Our domain is expiring.”',
-        description:
-          'Domains, hosting, plugins, updates and the technical details stay on our radar.',
-        icon: 'tabler:shield-check',
-      },
-      {
-        title: '“What’s happening with our SEO?”',
-        description:
-          'You get understandable reporting and a clear explanation of what is happening.',
-        icon: 'tabler:chart-line',
-      },
-      {
-        title: '“We need a website.”',
-        description:
-          'Most WordPress sites are ready in 10–14 days. Serious custom work takes longer.',
-        icon: 'tabler:world-www',
-      },
-    ]}
-  />
-
-  <!-- CLIENT FEELING *********************************************************** -->
-
-  <Note
-    title="The feeling we aim for:"
-    description="“I don’t have to worry about anything anymore.”"
-  />
-
-  <!-- WHY A WEBSITE ALONE IS NOT ENOUGH *************************************** -->
+  <!-- THE IDEA -->
 
   <Content
-    tagline="Start with the business"
-    title="A website is a means to an end, not an end in itself."
+    isReversed
+    tagline="Think beyond the website"
+    title="Build the pieces together. Let them work together."
     items={[
       {
-        title: 'Your domain affects your brand',
+        title: 'Brand → Website',
         description:
-          'A rushed domain choice can create branding problems later. We think about the name, positioning and practical implications before everything is locked in.',
+          'Your website should reflect what your business stands for and where you want to take it.',
       },
       {
-        title: 'Your website needs a job',
+        title: 'Website → Content',
         description:
-          'Is it supposed to generate enquiries, explain your services, support sales, attract search traffic or establish credibility? The answer shapes what we build.',
+          'The pages, articles and campaigns around your website give people reasons to find and trust you.',
       },
       {
-        title: 'Your online presence has more than one moving part',
+        title: 'Content → Search & Social',
         description:
-          'Website, content, search, social and measurement should support the same business objective instead of becoming disconnected activities.',
+          'What you publish should support how people discover you — through search, social and other channels.',
+      },
+      {
+        title: 'Everything → Business',
+        description:
+          'The goal is not more digital activity. It is a digital presence that serves the business.',
       },
     ]}
     image={{
       src: 'https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1600&q=80',
-      alt: 'People discussing a business project',
+      alt: 'People working together around a table',
     }}
   >
     <Fragment slot="content">
       <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
-        Think beyond the website.
+        One direction. Many touchpoints.
       </h3>
-      <p>
-        We start by understanding the business, audience, goals and budget.
-        Then we work out what the digital presence actually needs.
-      </p>
+      A website becomes much more useful when the things around it are planned with the same purpose.
     </Fragment>
 
     <Fragment slot="bg">
@@ -201,190 +193,45 @@ const structuredData = [
     </Fragment>
   </Content>
 
-  <!-- THE REAL STORY *********************************************************** -->
+
+  <!-- REAL CLIENT STORY -->
 
   <Content
-    isReversed
-    tagline="A lesson we learned with a client"
-    title="The expensive mistake can happen before the website goes live."
+    isAfterContent
+    tagline="A real client story"
+    title="Sometimes the expensive mistake happens before the website."
     items={[
       {
-        title: 'The domain and logo looked right',
+        title: 'The domain was already chosen',
         description:
-          'The client had chosen the name and identity they wanted and the website was built around them.',
+          'So was the logo. The website was designed and launched around both.',
       },
       {
-        title: 'Then came a trademark problem',
+        title: 'Then came a trademark conflict',
         description:
-          'After launch, they received notice that the name conflicted with an existing trademark.',
+          'Another business was already operating under the same name and domain.',
       },
       {
         title: 'The brand had to change',
         description:
-          'The domain and logo had to be abandoned, creating unnecessary cost, work and confusion.',
+          'The client had to abandon the domain and logo — after already investing in the website.',
       },
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1600&q=80',
-      alt: 'Business documents and planning',
-    }}
-  >
-    <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
-        Good digital work starts before the pixels.
-      </h3>
-      <p>
-        The point is not to make every decision complicated. It is to make the
-        important decisions early, when changing them is still easy.
-      </p>
-    </Fragment>
-
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-    </Fragment>
-  </Content>
-
-  <!-- HOW WE WORK ************************************************************* -->
-
-  <Steps
-    id="how"
-    tagline="How it starts"
-    title="From idea to online, without the runaround."
-    subtitle="You stay in the driver's seat. We do the work and explain what matters."
-    items={[
       {
-        title: 'Step 1: <span class="font-medium">Tell us the business, goal and budget</span>',
+        title: 'The lesson',
         description:
-          'We ask the questions that matter instead of starting with a giant technical proposal.',
-        icon: 'tabler:message-circle',
-      },
-      {
-        title: 'Step 2: <span class="font-medium">We shape what you actually need</span>',
-        description:
-          'Website, content, SEO, social or ongoing support — only the pieces that make sense for the business.',
-        icon: 'tabler:package',
-      },
-      {
-        title: 'Step 3: <span class="font-medium">We build and publish</span>',
-        description:
-          'Most WordPress websites are live in 10–14 days when feedback keeps pace.',
-        icon: 'tabler:bolt',
-      },
-      {
-        title: 'Step 4: <span class="font-medium">We stay involved</span>',
-        description:
-          'Maintenance, publishing, SEO, campaigns, analytics and the inevitable small fixes continue when you need them.',
-        icon: 'tabler:refresh',
-      },
-    ]}
-  />
-
-  <!-- CAPABILITIES ************************************************************ -->
-
-  <Features
-    id="capabilities"
-    tagline="What sits behind the work"
-    title="The skills that make “handled” possible."
-    subtitle="You do not have to hire a separate person for every part of your online presence."
-    columns={4}
-    items={[
-      {
-        title: 'Websites',
-        description:
-          'WordPress websites built to be useful, maintainable and ready to grow.',
-        icon: 'tabler:layout-dashboard',
-      },
-      {
-        title: 'Content',
-        description:
-          'More than 1,000 pieces of website content written across different businesses and markets.',
-        icon: 'tabler:pencil',
-      },
-      {
-        title: 'SEO',
-        description:
-          'Long experience adapting to how search works. One site returned from page four to page one in about two weeks.',
-        icon: 'tabler:search',
-      },
-      {
-        title: 'Social & reporting',
-        description:
-          'Campaigns across Facebook, Instagram and X, with analytics explained in plain language.',
-        icon: 'tabler:chart-bar',
-      },
-    ]}
-  />
-
-  <!-- OWNERSHIP NOTE ********************************************************** -->
-
-  <Note
-    title="One team. One point of responsibility."
-    description="You should not have to figure out which vendor is responsible for the thing that went wrong."
-  />
-
-  <!-- EXPERIENCE **************************************************************** -->
-
-  <Stats
-    id="experience"
-    tagline="Experience, in numbers"
-    title="Sixteen years of doing the work."
-    subtitle="The strongest proof is that clients keep coming back."
-    countUp
-    stats={[
-      {
-        amount: '16 yrs',
-        title: 'in business since 2010',
-      },
-      {
-        amount: '30+',
-        title: 'websites built in recent years',
-      },
-      {
-        amount: '20',
-        title: 'websites currently maintained',
-      },
-      {
-        amount: '7 yrs',
-        title: 'with our longest-serving client',
-      },
-    ]}
-  />
-
-  <!-- CLIENT WORDS ************************************************************ -->
-
-  <Content
-    tagline="What clients notice"
-    title="Good work is useful. Good support is memorable."
-    items={[
-      {
-        title: '“They understood what I was trying to do.”',
-        description:
-          'Understanding the business before building the website is part of the work.',
-      },
-      {
-        title: '“You guys respond incredibly quickly.”',
-        description:
-          'Most emails get a response within 4–8 hours.',
-      },
-      {
-        title: '“The website was delivered surprisingly quickly.”',
-        description:
-          'Speed matters when you are trying to get a business online and moving.',
+          'Some digital decisions deserve attention before a single page of the website is designed.',
       },
     ]}
     image={{
       src: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1600&q=80',
-      alt: 'Business team working together',
+      alt: 'Business discussion and planning',
     }}
   >
     <Fragment slot="content">
       <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
-        Personal service is not a slogan.
+        The website wasn't the problem.
       </h3>
-      <p>
-        It means the people you speak to understand the work, know the context
-        and are still around when the site has been live for years.
-      </p>
+      The decisions made around it were.
     </Fragment>
 
     <Fragment slot="bg">
@@ -392,62 +239,181 @@ const structuredData = [
     </Fragment>
   </Content>
 
-  <!-- FAQ ************************************************************************ -->
+
+  <!-- WHAT WE HANDLE -->
+
+  <Features2
+    id="what-we-do"
+    tagline="What we handle"
+    title="Everything your online presence needs to keep moving."
+    subtitle="You don't need six different specialists to keep your digital presence running."
+    items={[
+      {
+        title: 'Websites',
+        description:
+          'WordPress websites and custom builds designed around your business.',
+        icon: 'tabler:world-www',
+      },
+      {
+        title: 'Content',
+        description:
+          'Website copy, blogs, campaigns and content that gives your presence substance.',
+        icon: 'tabler:writing',
+      },
+      {
+        title: 'SEO',
+        description:
+          'Search strategy and execution built around how people actually find your business.',
+        icon: 'tabler:search',
+      },
+      {
+        title: 'Social media',
+        description:
+          'Content and campaigns that keep your business visible beyond your website.',
+        icon: 'tabler:brand-instagram',
+      },
+      {
+        title: 'Analytics',
+        description:
+          'Reporting that tells you what is happening without drowning you in data.',
+        icon: 'tabler:chart-line',
+      },
+      {
+        title: 'Ongoing support',
+        description:
+          'Domains, hosting, updates, publishing, maintenance and the things that simply need handling.',
+        icon: 'tabler:settings',
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Features2>
+
+
+  <!-- HOW WE WORK -->
+
+  <Steps
+    title="Start with the business. Then build what it needs."
+    items={[
+      {
+        title: 'Step 1: <span class="font-medium">Understand</span>',
+        description:
+          'We look at your business, audience, goals and budget before recommending what you actually need.',
+        icon: 'tabler:messages',
+      },
+      {
+        title: 'Step 2: <span class="font-medium">Plan</span>',
+        description:
+          'We work out what should happen now, what can wait and how the different pieces should connect.',
+        icon: 'tabler:route',
+      },
+      {
+        title: 'Step 3: <span class="font-medium">Build</span>',
+        description:
+          'We execute the plan — website, content, SEO, campaigns or whatever the business requires.',
+        icon: 'tabler:hammer',
+      },
+      {
+        title: 'Step 4: <span class="font-medium">Keep it moving</span>',
+        description:
+          'After launch, we remain involved with publishing, maintenance, SEO, analytics and ongoing digital work.',
+        icon: 'tabler:refresh',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1600&q=80',
+      alt: 'Team discussing a business plan',
+    }}
+  />
+
+
+  <!-- PROOF / TESTIMONIAL -->
+
+  <Note
+    title="Six years. One client relationship."
+    description="“Over the last six years, Top League have exceeded my expectations and delighted me with their personalized service in maintaining my professional and other websites.” — Prof. Uday Damodaran, Faculty, IIM Udaipur"
+  />
+
+
+  <!-- EXPERIENCE -->
+
+  <Stats
+    id="experience"
+    countUp
+    stats={[
+      { title: 'Years in digital', amount: '16' },
+      { title: 'Websites built recently', amount: '30+' },
+      { title: 'Websites maintained', amount: '20' },
+      { title: 'Countries served', amount: '10' },
+    ]}
+  />
+
+
+  <!-- FAQ -->
 
   <FAQs
     id="faqs"
-    tagline="Fair questions"
-    title="What founders usually want to know."
-    subtitle="Straight answers before you decide whether we are the right fit."
+    tagline="Before you get started"
+    title="What careful business owners usually want to know."
+    subtitle="A few straightforward answers before you decide whether we're the right fit."
     schema
     items={[
       {
-        title: 'Will I have to chase you?',
+        title: 'Do I need all of these services?',
         description:
-          'Most emails get a response within 4–8 hours. If we need something from you, we will tell you clearly.',
+          'No. We start with what your business actually needs. Sometimes that is a website. Sometimes it is SEO, content or ongoing support around an existing website.',
       },
       {
-        title: 'What if I only need a website?',
+        title: 'What happens if I only need a website?',
         description:
-          'That is fine. We will build the website. You can add maintenance, content, SEO or other support later if it makes sense.',
+          'We can build the website. But we will also consider the foundations around it so that what you build today does not unnecessarily limit what you want to do tomorrow.',
       },
       {
-        title: 'Do you disappear after launch?',
+        title: 'Do you stay involved after the website launches?',
         description:
-          'No. We currently maintain about 20 websites, and our longest client relationship has lasted seven years.',
-      },
-      {
-        title: 'Can you handle domains, hosting and updates?',
-        description:
-          'Yes. Domain renewals, hosting, plugin updates, maintenance and fixes can all be handled by us.',
+          'Yes. Many of our clients continue with us for maintenance, publishing, SEO, content, campaigns, analytics and other ongoing digital work.',
       },
       {
         title: 'Are you a large agency?',
         description:
-          'No. We are deliberately lean. That means direct communication, founder involvement and fewer layers between you and the work.',
+          'No. We are a lean, experienced team based in Bhubaneswar, with the founder directly involved in the work and client relationships.',
       },
       {
-        title: 'How do I know what is working?',
+        title: 'How quickly do you respond?',
         description:
-          'We provide straightforward reporting and can explain the numbers rather than simply sending a dashboard full of jargon.',
+          'Our typical email response time is within 4–8 hours.',
       },
-    ]}
-  />
-
-  <!-- FINAL CTA **************************************************************** -->
-
-  <CallToAction
-    id="contact"
-    layout="banner"
-    title="Tell us what you need. We’ll tell you what makes sense."
-    subtitle="Start with your business, your goal and your budget. We’ll reply within a few hours."
-    actions={[
       {
-        variant: 'primary',
-        text: 'Start a conversation',
-        href: 'mailto:hello@topleaguetech.com',
-        icon: 'tabler:mail',
+        title: 'How long have you been doing this?',
+        description:
+          'Top League Technologies was incorporated in 2010. We have worked with businesses, professionals and organisations in India and around the world since then.',
       },
     ]}
   />
+
+
+  <!-- CTA -->
+
+  <CallToAction id="contact">
+    <Fragment slot="title">
+      Build the right online presence.<br />
+      <span class="sm:whitespace-nowrap">Not just another website.</span>
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      Tell us what your business needs. We'll help you work out what makes sense.
+    </Fragment>
+
+    <Fragment slot="actions">
+      <a
+        class="btn primary"
+        href="/contact"
+      >
+        Start a conversation
+      </a>
+    </Fragment>
+  </CallToAction>
+
 </Layout>
