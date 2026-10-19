@@ -951,6 +951,27 @@ background-image: url(https://topleaguetech.com/wp-content/uploads/2024/08/wavy-
 }
 /*.product-description-writing .hero h1 {font-family: Frog, Mona Bold, sans-serif!important;}*/
 
+/* HOME PAGE HERO PROOF BAR ____________________________________________________________ */
+.proofbar {
+background-color: #172126; color: white; padding: 24px 0;
+}
+
+.proof strong {
+display: block; font-size: 25px; letter-spacing: -.04em;
+}
+
+.proof span {
+display: block; color: #aeb8ba; font-size: 12px; margin-top: 3px;
+}
+
+.proofgrid {
+display: grid; grid-template-columns: repeat(4,1fr); gap: 20px;
+}
+
+@media (max-width:800px) {
+.proofgrid, .cards {grid-template-columns: 1fr 1fr;}
+}
+
 /* ____________________________________________________________ */
 
 /* Footer*/
