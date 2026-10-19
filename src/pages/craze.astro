@@ -1,24 +1,19 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
-
-import HeroText from '~/components/widgets/HeroText.astro';
-import SocialProof from '~/components/widgets/SocialProof.astro';
-import Features2 from '~/components/widgets/Features2.astro';
+import Note from '~/components/widgets/Note.astro';
+import Features from '~/components/widgets/Features.astro';
 import Content from '~/components/widgets/Content.astro';
-import Steps from '~/components/widgets/Steps.astro';
-import Quote from '~/components/widgets/Quote.astro';
-import Stats from '~/components/widgets/Stats.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
+import Stats from '~/components/widgets/Stats.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 import StructuredData from '~/components/common/StructuredData.astro';
 import { SITE, METADATA, I18N } from 'astrowind:config';
 import favIconSvg from '~/assets/favicons/favicon.svg';
 
 const metadata = {
-  title: 'Top League — Build Your Online Presence, Not Just Another Website',
-  ignoreTitleTemplate: true,
+  title: 'Top League Technologies — Build Your Online Presence, Not Just Another Website',
   description:
-    'Before you buy a domain, a hosting plan or a theme, talk to Top League. We plan, build and look after your whole online presence: website, content, SEO and social.',
+    'Top League helps small businesses build and manage their online presence through websites, content, SEO, social media and ongoing support.',
 };
 
 const organizationId = `${SITE?.site}/#organization`;
@@ -40,7 +35,11 @@ const structuredData = [
     name: SITE?.name,
     url: SITE?.site,
     logo: new URL(favIconSvg.src, SITE?.site).toString(),
-    ...(METADATA?.twitter?.handle ? { sameAs: [`https://x.com/${METADATA.twitter.handle.replace(/^@/, '')}`] } : {}),
+    ...(METADATA?.twitter?.handle
+      ? {
+          sameAs: [`https://x.com/${METADATA.twitter.handle.replace(/^@/, '')}`],
+        }
+      : {}),
   },
 ];
 ---
@@ -48,111 +47,139 @@ const structuredData = [
 <Layout metadata={metadata}>
   <StructuredData slot="head" schema={structuredData} />
 
-  <!-- 1. HERO: the promise ************************************************** -->
+  <!-- HERO ******************************************************************** -->
 
-  <HeroText
-    tagline="Digital partner for small businesses"
-    callToAction={{
-      variant: 'primary',
-      text: 'Start a conversation',
-      href: '/contact',
-      icon: 'tabler:arrow-right',
-    }}
-    callToAction2={{ text: 'See what we handle', href: '#what-we-do' }}
-  >
-    <Fragment slot="title">
-      Build your online presence,
-      <span class="text-accent dark:text-white">not just another website.</span>
-    </Fragment>
+  <section class="hero">
+    <div class="container">
+      <div class="eyebrow">
+        <span class="dot"></span>
+        Digital partner for small businesses
+      </div>
 
-    <Fragment slot="subtitle">
-      A website is only the start. We plan, build and look after your whole online presence, from domain and hosting to
-      content, SEO and social, so every decision supports where your business is going.
-    </Fragment>
-  </HeroText>
+      <h1>
+        Build Your Online Presence,
+        <span>Not Just Another Website.</span>
+      </h1>
 
-  <!-- 2. QUIET PROOF: who is saying this ************************************ -->
+      <p>
+        Your website, content, SEO and social presence should work together.
+        We help you plan it, build it and keep it moving — with one team
+        taking responsibility for the whole thing.
+      </p>
 
-  <SocialProof
-    id="proof"
-    items={[
-      { value: '16 yrs', label: 'in business, since 2010', icon: 'tabler:calendar-check', color: 'text-sky-500' },
-      { value: '10', label: 'countries our clients are in', icon: 'tabler:world', color: 'text-emerald-500' },
-      { value: '20', label: 'websites we look after today', icon: 'tabler:heart-handshake', color: 'text-amber-500' },
-      { value: '4–8 hrs', label: 'typical email reply time', icon: 'tabler:clock-bolt', color: 'text-violet-500' },
-    ]}
+      <div class="actions">
+        <a class="btn primary" href="#contact">
+          Tell us what you're building
+        </a>
+
+        <a class="btn ghost" href="#work">
+          See our work
+        </a>
+      </div>
+
+      <div class="hero-note">
+        Founder-led · WordPress · Ongoing support · 16 years in digital
+      </div>
+    </div>
+  </section>
+
+  <!-- PROOF BAR **************************************************************** -->
+
+  <div class="proofbar">
+    <div class="wrap proofgrid">
+      <div class="proof">
+        <strong>16 years</strong>
+        <span>in digital</span>
+      </div>
+
+      <div class="proof">
+        <strong>30+</strong>
+        <span>websites built recently</span>
+      </div>
+
+      <div class="proof">
+        <strong>20</strong>
+        <span>websites maintained</span>
+      </div>
+
+      <div class="proof">
+        <strong>10 countries</strong>
+        <span>clients served</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- THE OUTCOME ************************************************************* -->
+
+  <Note
+    title="The goal isn't to give you another thing to manage."
+    description="It's to get your online presence working — and give you someone you can turn to when something needs to be done."
   />
 
-  <!-- 3. THE PROBLEM: four decisions that hurt when made blind **************** -->
+  <!-- WHAT THAT ACTUALLY LOOKS LIKE ******************************************* -->
 
-  <Features2
-    id="why"
-    tagline="Why “just a website” is a risky plan"
-    title="Before the website, there are four decisions that can cost you."
-    subtitle="An agency whose only skill is building websites will ask you to make every one of them. Most are hard to undo once you have paid."
-    columns={2}
+  <Features
+    id="ownership"
+    tagline="What ownership looks like"
+    title="You shouldn't have to worry about your online presence."
+    subtitle="Send us the request. We figure out what needs to happen and take it from there."
     items={[
       {
-        title: '1. Which domain name?',
-        description:
-          'Which name, which extension, and does it match your business name and brand without clashing with someone else’s trademark? It looks like a five-minute purchase. It can follow your brand for years.',
+        title: '“We have a new blog post.”',
+        description: 'Send it over. We publish it and make sure it is properly presented.',
+        icon: 'tabler:article',
+      },
+      {
+        title: '“We need a landing page.”',
+        description: 'Tell us what the campaign is about. We build the page around it.',
+        icon: 'tabler:layout-landing',
+      },
+      {
+        title: '“What is happening with our SEO?”',
+        description: 'We look at the data, explain what matters and tell you what to do next.',
+        icon: 'tabler:chart-line',
+      },
+      {
+        title: '“Our domain is expiring.”',
+        description: 'You shouldn't have to remember. We handle the important details.',
         icon: 'tabler:world-www',
       },
-      {
-        title: '2. Which hosting plan?',
-        description:
-          'Every provider is different and the plans are written for engineers. Pick wrongly and you are tied to an annual plan that was never built for you, plus costs you did not expect.',
-        icon: 'tabler:server',
-      },
-      {
-        title: '3. Which theme and framework?',
-        description:
-          'Standard theme or custom? CMS or static HTML? These choices need real technical judgement. A wrong one costs you money, and time you cannot get back.',
-        icon: 'tabler:layout-grid',
-      },
-      {
-        title: '4. A website with no plan behind it',
-        description:
-          'Your pages, content and images should be mapped to the keywords you want to rank for, and to your social presence and brand. Decide that late and you pay for it in rework.',
-        icon: 'tabler:target-arrow',
-      },
     ]}
   />
 
-  <!-- 4. PROOF THE PROBLEM IS REAL: the client story ************************** -->
+  <!-- THE PROBLEM ************************************************************* -->
 
   <Content
-    isAfterContent
-    tagline="A real client story"
-    title="Sometimes the expensive mistake happens before the website."
+    id="why"
+    tagline="Before you build"
+    title="A website is a means to an end, not an end in itself."
     items={[
       {
-        title: 'The domain and the logo were already chosen',
-        description: 'The website was then designed and launched around both.',
+        title: 'The decisions start before the website does.',
+        description:
+          'Your domain, hosting, brand, content, search terms and social presence all influence what you build — and how much it costs to change later.',
       },
       {
-        title: 'Then the trademark email arrived',
-        description: 'Another business in the same line of trade was already operating under that name.',
+        title: 'We start with the business.',
+        description:
+          'We talk about what you do, who you want to reach, what you are trying to achieve and what makes sense for your budget.',
       },
       {
-        title: 'The brand had to change',
-        description: 'The client gave up the domain and the logo, after already paying for the website.',
-      },
-      {
-        title: 'The lesson',
-        description: 'Some decisions need attention before a single page is designed.',
+        title: 'Then we build accordingly.',
+        description:
+          'You understand where the money is going and why. You stay in the driver’s seat; we take care of the execution.',
       },
     ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1600&q=80',
-      alt: 'Business discussion and planning',
-    }}
   >
     <Fragment slot="content">
       <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
-        The website wasn't the problem.
+        Start with the business. Not the website.
       </h3>
-      The decisions made around it were. We've seen stories like this, and we know where the traps are.
+
+      <p>
+        The earlier you think about the whole online presence, the fewer
+        expensive decisions you have to undo later.
+      </p>
     </Fragment>
 
     <Fragment slot="bg">
@@ -160,224 +187,272 @@ const structuredData = [
     </Fragment>
   </Content>
 
-  <!-- 5. THE IDEA: build the pieces together ********************************** -->
+  <!-- THE STORY **************************************************************** -->
 
   <Content
     isReversed
-    tagline="Think beyond the website"
-    title="Decide the pieces together, and they work together."
+    tagline="A real example"
+    title="One client learned this the hard way."
     items={[
       {
-        title: 'Brand → Website',
-        description: 'Your website should reflect what your business stands for and where you want to take it.',
-      },
-      {
-        title: 'Website → Content',
-        description: 'Pages, articles and campaigns give people reasons to find you and reasons to trust you.',
-      },
-      {
-        title: 'Content → Search & Social',
+        title: 'The website was ready. Then came the problem.',
         description:
-          'What you publish should be planned around the keywords you want to win and the way you show up on social.',
+          'The client had chosen a domain and logo before we built the website. After launch, they received a trademark violation notice.',
       },
       {
-        title: 'Everything → Business',
-        description: 'The goal is not more digital activity. It is a presence that serves the business.',
+        title: 'The domain and logo had to go.',
+        description:
+          'The website itself was not the issue. But an early branding decision meant starting over with the domain and identity.',
+      },
+      {
+        title: 'The lesson?',
+        description:
+          'Some digital decisions are expensive to undo. Thinking about the whole presence first can save a lot of trouble later.',
       },
     ]}
     image={{
-      src: 'https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1600&q=80',
-      alt: 'People working together around a table',
+      src: 'https://lh3.googleusercontent.com/pw/AP1GczMZPdz6rBhGolu4Sup_uaM-RQEmY71hy9A5NZ95vMCW3bVWe1RJnjCbV1uuNGDa3u12FEwkVCno33Jk4ePoZoN9WSONXsFiE5vta479W1em0XrGM6DVQ9_iFsosElqYgPwC9k2OznU4hK_rCFMIl3vH=w1100-h1280-s-no?authuser=2',
+      alt: 'Website designed and developed by Top League',
     }}
   >
     <Fragment slot="content">
       <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
-        One direction. Many touchpoints.
+        Good digital work starts before the first line of code.
       </h3>
-      The sooner you picture the whole presence, the less you lose to indecision later.
+
+      <p>
+        That is why we look at the bigger picture before recommending a
+        particular platform, theme, domain or approach.
+      </p>
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
     </Fragment>
   </Content>
 
-  <!-- 6. WHAT WE HANDLE: capabilities as support, not the headline ************ -->
+  <!-- WORK ******************************************************************** -->
 
-  <Features2
-    id="what-we-do"
-    tagline="What we handle"
-    title="Everything your online presence needs to keep moving."
-    subtitle="You don't need six different specialists. One team that understands the whole picture is enough."
+  <Content
+    id="work"
+    isAfterContent
+    tagline="Recent work"
+    title="Built around the business. Not around a template."
     items={[
       {
-        title: 'Websites',
-        description: 'WordPress websites and custom builds, designed around your business and your plan.',
+        title: 'Purbaghat Masala',
+        description:
+          'A custom WordPress child theme built around the brand, with close page-by-page collaboration and carefully selected imagery.',
+      },
+      {
+        title: 'A digital presence that feels like the business.',
+        description:
+          'The objective was not simply to fill a template. It was to create a website that represented the business properly and gave it room to grow.',
+      },
+    ]}
+    image={{
+      src: 'https://lh3.googleusercontent.com/pw/AP1GczO2mF7OkWlBFsndCMBQPCNfaNwbaDcRPSllAoTBgjFix7Ri07eXyPEcZz06baPwopTQ2MzbjaApAlmDAgXMcMhSULVSEc0tRLmpjlfJlfzdjy7HocnspeX4inLoyuNtIjE1hyOSVafxCGeOczwoMVBl=w2055-h2332-s-no?authuser=2',
+      alt: 'Purbaghat Masala website designed by Top League',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        See more of our work
+      </h3>
+
+      <a
+        href="https://topleague.website/work/"
+        class="font-semibold hover:underline"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Browse our website portfolio →
+      </a>
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <!-- WHAT WE HANDLE ********************************************************** -->
+
+  <Features
+    tagline="What we handle"
+    title="One team across the pieces."
+    subtitle="You don't need to coordinate a web developer, content writer, SEO person and social media manager. We can handle the connected work."
+    items={[
+      {
+        title: 'Website',
+        description:
+          'WordPress websites and landing pages built around your goals, audience and brand.',
         icon: 'tabler:world-www',
       },
       {
         title: 'Content',
-        description: 'Website copy, blog posts and campaigns that give your presence substance.',
+        description:
+          'Website copy, blog content and social content that sounds like your business.',
         icon: 'tabler:writing',
       },
       {
         title: 'SEO',
-        description: 'Search strategy and execution, built by people who have watched SEO change for years.',
+        description:
+          'From keyword strategy and on-page work to ongoing improvement and reporting.',
         icon: 'tabler:search',
       },
       {
-        title: 'Social media',
-        description: 'Posts, graphics, reels and campaigns that keep you visible beyond your website.',
+        title: 'Social',
+        description:
+          'Content and campaigns across the social channels that matter to your audience.',
         icon: 'tabler:brand-instagram',
       },
       {
         title: 'Analytics',
-        description: 'Plain-language reports, in spreadsheets you can open, so you know what is working.',
-        icon: 'tabler:chart-line',
+        description:
+          'Clear reporting that helps you understand what is happening and what to do next.',
+        icon: 'tabler:chart-dots',
       },
       {
         title: 'Ongoing support',
-        description: 'Domains, hosting, updates, publishing and maintenance: the things that simply need handling.',
-        icon: 'tabler:settings',
+        description:
+          'Hosting, domains, maintenance, updates, publishing and the everyday things that keep it moving.',
+        icon: 'tabler:headset',
+      },
+    ]}
+  />
+
+  <!-- TESTIMONIALS ************************************************************ -->
+
+  <Note
+    title="“I've been incredibly impressed with Top League's website development services.”"
+    description="“They were affordable, professional, and delivered exactly what I needed. They also provided excellent support throughout the entire process, and I continue to rely on them for ongoing maintenance.”"
+  />
+
+  <Note
+    title="“What distinguishes them is their rapid support.”"
+    description="“Any inquiries or challenges we encountered were promptly resolved, keeping our project on schedule. We wholeheartedly recommend Top League to anyone seeking to enhance their online presence with a skilled and attentive team.”"
+  />
+
+  <!-- PROOF / RESULTS ********************************************************* -->
+
+  <Stats
+    id="results"
+    stats={[
+      { title: 'Years in digital', amount: '16' },
+      { title: 'Websites built recently', amount: '30+' },
+      { title: 'Websites maintained', amount: '20' },
+      { title: 'Countries served', amount: '10' },
+    ]}
+  />
+
+  <Content
+    isReversed
+    tagline="Results"
+    title="When something needs fixing, we stay with it."
+    items={[
+      {
+        title: 'Page 4 → Page 1',
+        description:
+          'One website that had dropped to Google page 4 returned to page 1 in about two weeks through focused SEO work.',
+      },
+      {
+        title: 'Long-term relationships',
+        description:
+          'Our oldest continuing client relationship is seven years — and many clients stay because they know there is someone to call.',
+      },
+      {
+        title: 'Fast answers',
+        description:
+          'Typical email response time is 4–8 hours. When something needs attention, you should not have to chase us.',
       },
     ]}
   >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        The real value is what happens after launch.
+      </h3>
+
+      <p>
+        A website can be launched in a few weeks. Your online presence needs
+        someone looking after it for much longer.
+      </p>
+    </Fragment>
+
     <Fragment slot="bg">
       <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
     </Fragment>
-  </Features2>
+  </Content>
 
-  <!-- 7. HOW WE WORK: you are in the driver's seat **************************** -->
+  <!-- FOUNDER / RELATIONSHIP ************************************************** -->
 
-  <Steps
-    tagline="You’re in the driver’s seat"
-    title="You set the direction. We handle the execution."
-    items={[
-      {
-        title: 'Step 1: <span class="font-medium">Understand</span>',
-        description:
-          'We talk through your business, your audience, your goals (short and long term) and your budget before recommending anything.',
-        icon: 'tabler:messages',
-      },
-      {
-        title: 'Step 2: <span class="font-medium">Plan</span>',
-        description:
-          'We design a plan that fits your business and your budget, so you know where your money is going and why.',
-        icon: 'tabler:route',
-      },
-      {
-        title: 'Step 3: <span class="font-medium">Build</span>',
-        description:
-          'We execute it: a WordPress website typically in 10–14 days, a landing page in 3–5, content in about a week.',
-        icon: 'tabler:hammer',
-      },
-      {
-        title: 'Step 4: <span class="font-medium">Keep it moving</span>',
-        description:
-          'After launch we stay involved with publishing, maintenance, SEO and reporting. You stay in control.',
-        icon: 'tabler:refresh',
-      },
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1600&q=80',
-      alt: 'Team discussing a business plan',
-    }}
+  <Note
+    title="Founder-led. Personally involved."
+    description="Top League is a lean, founder-led team. That means the people involved in understanding your business are close to the work, the decisions and the communication — not hidden behind layers of account management."
   />
 
-  <!-- 8. A CLIENT'S OWN WORDS ************************************************* -->
-
-  <Quote
-    id="client"
-    quote="Over the last six years, Top League have exceeded my expectations and delighted me with their personalized service in maintaining my professional and other websites."
-    name="Prof. Uday Damodaran"
-    job="Faculty, IIM Udaipur · client for six years"
-    rating={5}
-  />
-
-  <!-- 9. TRACK RECORD ********************************************************* -->
-
-  <Stats
-    id="experience"
-    tagline="The track record"
-    title="Clients stay. That's the number we care about most."
-    countUp
-    stats={[
-      { title: 'Years with our longest-standing client', amount: '7' },
-      { title: 'Websites built in the last couple of years', amount: '30+' },
-      { title: 'Pieces of website content written', amount: '1,000+' },
-      { title: 'Long-term client relationships', amount: '~10' },
-    ]}
-  />
-
-  <!-- 10. FAQ: the careful buyer's worries ************************************ -->
+  <!-- FAQ ********************************************************************* -->
 
   <FAQs
     id="faqs"
-    tagline="Before you get started"
-    title="What careful business owners usually ask first."
-    subtitle="A few straightforward answers before you decide whether we're the right fit."
+    title="Questions before you start"
+    subtitle="A few practical answers for business owners considering a new website or a broader online presence."
+    tagline="FAQs"
     schema
-    defaultOpen={-1}
     items={[
       {
-        title: 'Should I buy my domain and hosting before I talk to you?',
+        title: 'How long does a typical website take?',
         description:
-          'Please talk to us first. The right domain, hosting plan and technology depend on your brand and your plans, and they are the hardest decisions to undo once you have paid.',
+          'A typical WordPress website takes around 10–14 days. More serious custom work can take around a month. A focused landing page can usually be completed in 3–5 days when feedback is timely.',
       },
       {
-        title: 'Do I need all of these services?',
+        title: 'Do you only build websites?',
         description:
-          'No. We start with what your business actually needs. Sometimes that is a website. Sometimes it is SEO, content or ongoing support around a website you already have.',
+          'No. The website is one part of what we do. We also work across content, SEO, social media, analytics and ongoing maintenance so the different parts of your online presence can work together.',
       },
       {
-        title: 'What if I only need a website?',
+        title: 'Do you provide ongoing support?',
         description:
-          'We can build it. We will also look at the foundations around it so that what you build today does not limit what you want to do tomorrow.',
+          'Yes. Clients can rely on us for things such as domain renewal, hosting, plugin maintenance, publishing blog posts, graphics and social posts, SEO, campaigns and analytics reporting.',
       },
       {
-        title: 'How long does it take?',
+        title: 'Who do you typically work with?',
         description:
-          'A typical WordPress website takes 10–14 days. A project with substantial custom requirements takes about a month. Landing pages usually take 3–5 days, provided feedback comes back promptly.',
+          'We primarily work with small businesses, founders, entrepreneurs, professionals, NGOs and educational or professional institutions — especially where the owner or founder is directly involved in the decision.',
       },
       {
-        title: 'Do you stay involved after the website launches?',
+        title: 'Do I need to know exactly what I want before contacting you?',
         description:
-          'Yes. Many of our clients continue with us for maintenance, publishing, SEO, content, campaigns and reporting.',
-      },
-      {
-        title: 'Are you a large agency?',
-        description:
-          'No. We are a lean, experienced team based in Bhubaneswar. The founder is directly involved in the work and in client relationships, so you speak to the people doing it.',
+          'No. Tell us what you are trying to achieve, what you already have and what you are unsure about. We can help you work out what actually needs to be built.',
       },
       {
         title: 'How quickly do you respond?',
-        description: 'Our typical email response time is within 4–8 hours.',
-      },
-      {
-        title: 'How long have you been doing this?',
         description:
-          'Top League Technologies was incorporated in 2010. Since then we have worked with businesses, professionals and organisations in India and around the world.',
+          'Our typical email response time is 4–8 hours. Response time can vary depending on the request, but you should not have to wait days to hear from us.',
       },
     ]}
   />
 
-  <!-- 11. CALL TO ACTION ****************************************************** -->
+  <!-- CTA ********************************************************************* -->
 
-  <CallToAction
-    id="contact"
-    actions={[
-      {
-        variant: 'primary',
-        text: 'Start a conversation',
-        href: '/contact',
-        icon: 'tabler:arrow-right',
-      },
-    ]}
-  >
+  <CallToAction id="contact">
     <Fragment slot="title">
-      Build the right online presence.<br />
-      <span class="sm:whitespace-nowrap">Not just another website.</span>
+      Have an idea?<br class="block sm:hidden" />
+      <span class="sm:whitespace-nowrap">Tell us what you're building.</span>
     </Fragment>
 
     <Fragment slot="subtitle">
-      Before you buy a domain, a hosting plan or a theme, tell us what your business needs. We'll help you work out what
-      makes sense.
+      Tell us what you are trying to achieve. We'll tell you what we'd do —
+      and what we wouldn't. <br class="hidden md:inline" />
+      Typical response within 4–8 hours.
+    </Fragment>
+
+    <Fragment slot="actions">
+      <a
+        href="/contact/"
+        class="btn primary"
+      >
+        Tell us about your project
+      </a>
     </Fragment>
   </CallToAction>
 </Layout>
