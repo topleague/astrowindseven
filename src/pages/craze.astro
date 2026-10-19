@@ -123,7 +123,7 @@ const structuredData = [
   <Features
     id="why"
     tagline="Why it matters"
-    title="A website is a means to an end, not an end in itself."
+    title="Your website matters only when every other aspects are done right."
     subtitle="Your domain, brand, content, search visibility and social presence all shape what happens after the website goes live."
     items={[
       {
@@ -149,49 +149,36 @@ const structuredData = [
 
 
   <!-- THE IDEA -->
+<!-- 4. What is coming: three cards -->
 
-  <Content
-    isReversed
-    tagline="Think beyond the website"
-    title="Build the pieces together. Let them work together."
+  <Features2
+    id="coming"
+    tagline="Why it matters"
+    title="our website matters only when every other aspects are done right."
+    subtitle="Your domain, brand, content, search visibility and social presence all shape what happens after the website goes live."
+    columns={3}
     items={[
       {
-        title: 'Brand → Website',
+        title: 'The right foundation',
         description:
-          'Your website should reflect what your business stands for and where you want to take it.',
+          'A domain, hosting and technology choices can affect your brand and your future long after the website launches.',
+        icon: 'tabler:rocket',
       },
       {
-        title: 'Website → Content',
+        title: 'A presence that connects',
         description:
-          'The pages, articles and campaigns around your website give people reasons to find and trust you.',
+          'Your website should work with your content, search and social presence — not sit apart from them.',
+        icon: 'tabler:calendar-event',
       },
       {
-        title: 'Content → Search & Social',
+        title: 'A plan beyond launcht',
         description:
-          'What you publish should support how people discover you — through search, social and other channels.',
-      },
-      {
-        title: 'Everything → Business',
-        description:
-          'The goal is not more digital activity. It is a digital presence that serves the business.',
+          'Eublishing, SEO, campaigns, analytics and maintenance are what keep an online presence useful after launch day.',
+        icon: 'tabler:gift',
       },
     ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1600&q=80',
-      alt: 'People working together around a table',
-    }}
-  >
-    <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
-        One direction. Many touchpoints.
-      </h3>
-      A website becomes much more useful when the things around it are planned with the same purpose.
-    </Fragment>
+  />
 
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-    </Fragment>
-  </Content>
 
 
   <!-- REAL CLIENT STORY -->
