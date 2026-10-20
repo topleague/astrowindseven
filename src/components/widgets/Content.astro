@@ -61,9 +61,11 @@ const aspectSize = {
       ...((classes?.headline as Record<string, string>) ?? {}),
     }}
   />
+
   <div class="mx-auto max-w-7xl px-0 py-4 md:px-2">
     <div class={`md:flex ${isReversed ? 'md:flex-row-reverse' : ''} md:gap-16`}>
       <div class="md:basis-1/2 self-center">
+
         {content && <div class="mb-12 text-lg dark:text-slate-400" set:html={content} />}
 
         {
@@ -81,23 +83,33 @@ const aspectSize = {
                 <div class="intersect-once motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade">
                   <div class="flex flex-row max-w-none">
                     <div class="flex justify-center">
+
                       <Icon
                         name={icon || 'tabler:check'}
-                        class="flex h-7 w-7 items-center justify-center rounded-full bg-green-600 dark:bg-green-700 text-gray-50 p-1 mr-2 rtl:mr-0 rtl:ml-2"
+                        class:list={[
+                          'flex h-7 w-7 items-center justify-center rounded-full text-gray-50 p-1 mr-2 rtl:mr-0 rtl:ml-2',
+                          icon === 'tabler:x'
+                            ? 'bg-red-600 dark:bg-red-700'
+                            : 'bg-green-600 dark:bg-green-700',
+                        ]}
                       />
+
                     </div>
+
                     <div class="mt-0.5">
                       {itemTitle && (
                         <h3 class="text-lg font-medium leading-6 dark:text-white ml-2 rtl:ml-0 rtl:mr-2">
                           {itemTitle}
                         </h3>
                       )}
+
                       {description && (
                         <p
                           class:list={[{ 'mt-3': itemTitle }, 'text-muted dark:text-slate-400 ml-2 rtl:ml-0 rtl:mr-2']}
                           set:html={description}
                         />
                       )}
+
                       {callToAction && (
                         <div
                           class:list={[
@@ -115,7 +127,9 @@ const aspectSize = {
             </div>
           )
         }
+
       </div>
+
       <div class="mt-10 md:mt-0 md:basis-1/2">
         {
           image && (
@@ -138,6 +152,7 @@ const aspectSize = {
           )
         }
       </div>
+
     </div>
   </div>
 </WidgetWrapper>
