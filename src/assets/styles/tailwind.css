@@ -987,6 +987,15 @@ background-color: rgb(185, 219, 28); display: inline-flex; margin-right: 0.35vw;
 background-color: #DF4242;
 }
 
+.comparison-dot {
+  width: 7px; height: 7px; min-width: 7px;
+  margin-top: 0.55rem; border-radius: 50%;
+  display: inline-flex;
+}
+
+.comparison-dot-usual {background-color: #cd5c5c;}
+.comparison-dot-top-league {background-color: #84a800;}
+
 /* ____________________________________________________________ */
 
 /* Footer*/
