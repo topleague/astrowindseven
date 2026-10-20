@@ -49,6 +49,68 @@ const structuredData = [
     ...(METADATA?.twitter?.handle ? { sameAs: [`https://x.com/${METADATA.twitter.handle.replace(/^@/, '')}`] } : {}),
   },
 ];
+
+// COMPARISION TABLE 
+const usualWay = [
+  {
+    title: 'Start with the website',
+    description:
+      '“What kind of website do you want?” becomes the starting point instead of understanding the business first.',
+  },
+  {
+    title: 'Treat requirements as the strategy',
+    description:
+      'The client supplies a list of pages and features. The deeper business goals and expectations remain unexplored.',
+  },
+  {
+    title: 'Pick what is familiar',
+    description:
+      'Domain, hosting and technology choices are often made by habit, convenience or price alone.',
+  },
+  {
+    title: 'Build first. Think about SEO later.',
+    description:
+      'Pages are designed and written first, while search intent, content requirements and site structure are considered afterwards.',
+  },
+  {
+    title: 'Launch and move on',
+    description:
+      'Security, speed, social presence, content and ongoing improvements become someone else’s problem after launch.',
+  },
+];
+
+const topLeagueWay = [
+  {
+    title: 'Understand the business first',
+    description:
+      'We start by understanding the business, audience, goals, expectations and what success actually means to the client.',
+  },
+  {
+    title: 'Work within the real budget',
+    description:
+      'The budget is part of the conversation from the beginning, so the solution is practical rather than unnecessarily expensive.',
+  },
+  {
+    title: 'Make the foundational decisions carefully',
+    description:
+      'Domain, hosting and CMS, platform or framework are selected according to the business requirement — not simply because that is what we usually use.',
+  },
+  {
+    title: 'Plan SEO before building pages',
+    description:
+      'Search intent, keywords, site structure and the pages required to compete are considered before the website is built.',
+  },
+  {
+    title: 'Build the content and assets around the plan',
+    description:
+      'Content, imagery and other assets are prepared with the business, audience and SEO requirements in mind before the pages are assembled.',
+  },
+  {
+    title: 'Build for what happens after launch',
+    description:
+      'Performance, security, social alignment, analytics, maintenance and future content are considered as part of the wider online presence.',
+  },
+];
 ---
 
 <Layout metadata={metadata}>
@@ -465,6 +527,91 @@ const structuredData = [
             </div>
           </div>
 
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- EXPREIMENT ENDS ************************************************************************************************************************************************ -->
+
+<!-- EXPREIMENT ************************************************************************************************************************************************ -->
+<!-- The Usual Way vs The Correct Way **************** -->
+
+<section class="relative comparison-section">
+  <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+
+  <div class="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+
+    <!-- Section heading -->
+    <div class="mx-auto mb-12 max-w-3xl text-center">
+      <p class="mb-3 text-sm font-semibold uppercase tracking-wider text-primary">
+        The Top League Difference
+      </p>
+
+      <h2 class="text-4xl font-bold tracking-tight font-heading sm:text-5xl dark:text-white">
+        A website is only as good as the thinking behind it.
+      </h2>
+
+      <p class="mt-4 text-xl text-muted dark:text-slate-400">
+        Here’s what we do differently before we build, while we build, and after we launch.
+      </p>
+    </div>
+
+    <!-- Two columns -->
+    <div class="grid gap-10 md:grid-cols-2">
+
+      <!-- LEFT: The Usual Way -->
+      <div>
+        <h3 class="mb-8 flex items-center text-2xl font-bold tracking-tight dark:text-white">
+          <Icon
+            name="tabler:x"
+            class="mr-3 h-7 w-7 shrink-0 rounded-full bg-red-600 p-1 text-gray-50"
+          />
+          The Usual Way
+        </h3>
+
+        <div class="grid gap-8">
+          {usualWay.map((item) => (
+            <div class="comparison-item flex items-start">
+              <span class="comparison-dot comparison-dot-usual"></span>
+              <div class="ml-3">
+                <h4 class="font-semibold dark:text-white">
+                  {item.title}
+                </h4>
+                <p class="mt-2 text-muted dark:text-slate-400">
+                  {item.description}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- RIGHT: The Correct Way -->
+      <div>
+        <h3 class="mb-8 flex items-center text-2xl font-bold tracking-tight dark:text-white">
+          <Icon
+            name="tabler:check"
+            class="mr-3 h-7 w-7 shrink-0 rounded-full bg-green-600 p-1 text-gray-50"
+          />
+          The Top League Approach
+        </h3>
+
+        <div class="grid gap-8">
+          {topLeagueWay.map((item) => (
+            <div class="comparison-item flex items-start">
+              <span class="comparison-dot comparison-dot-top-league"></span>
+              <div class="ml-3">
+                <h4 class="font-semibold dark:text-white">
+                  {item.title}
+                </h4>
+                <p class="mt-2 text-muted dark:text-slate-400">
+                  {item.description}
+                </p>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
 
