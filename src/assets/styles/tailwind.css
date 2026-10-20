@@ -979,7 +979,7 @@ display: block;
 /* HERO SECTIon */
 .dot {
 width: 8px; height: 8px; border-radius: 50%;
-background-color: rgb(185, 219, 28); display: inline-flex;
+background-color: rgb(185, 219, 28); display: inline-flex; margin-right: 0.35vw;
 }
 
 /* Comparison Icon Color */
