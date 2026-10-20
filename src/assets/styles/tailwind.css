@@ -981,6 +981,12 @@ display: block;
 width: 8px; height: 8px; border-radius: 50%;
 background-color: rgb(185, 219, 28); display: inline-flex;
 }
+
+/* Comparison Icon Color */
+.bg-red-600 {
+background-color: #DF4242;
+}
+
 /* ____________________________________________________________ */
 
 /* Footer*/
