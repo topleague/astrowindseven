@@ -998,8 +998,7 @@ background-color: #DF4242;
 
 /* THIS BELONGS TO SECOND SECTION OF https://astrowindy.pages.dev/home_draft */
 .coming-section {
-max-width: 1180px;
-margin: auto;
+max-width: 1180px; margin: auto; padding-inline: 0;
 }
 
 /* ____________________________________________________________ */
