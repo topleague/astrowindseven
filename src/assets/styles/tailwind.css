@@ -996,6 +996,12 @@ background-color: #DF4242;
 .comparison-dot-usual {background-color: #cd5c5c;}
 .comparison-dot-top-league {background-color: #84a800;}
 
+/* THIS BELONGS TO SECOND SECTION OF https://astrowindy.pages.dev/home_draft */
+.coming-section {
+max-width: 1180px;
+margin: auto;
+}
+
 /* ____________________________________________________________ */
 
 /* Footer*/
