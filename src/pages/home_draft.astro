@@ -246,6 +246,7 @@ const topLeagueWay = [
       <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
     </Fragment>
   </Content>
+<!-- END OF CLIENT STORY 🔴🟢 🔴🟢 🔴🟢  **************** -->
 
 <!-- EXPREIMENT ************************************************************************************************************************************************ -->
 <!-- The Usual Way vs The Correct Way **************** -->
@@ -340,35 +341,40 @@ const topLeagueWay = [
   <!-- Steps Widget ****************** -->
 
   <Steps
-    title="Get your dream website up and running in no time with AstroWind."
+ isReversed
+    tagline="Based on a Real Client Story."
+    title="What an Expensive Mistake Looks Like!"
     items={[
       {
-        title: 'Step 1: <span class="font-medium">Download</span>',
+        title: 'Domain + logo',
         description:
-          "Kickstart with GitHub! Either fork the AstroWind template or simply click 'Use this template'. Your canvas awaits, ready for your digital masterpiece. In just a few clicks, you've already set the foundation.",
-        icon: 'tabler:package',
+          'Benefiting from the performance and developer-friendly features of this modern static site generator.',
+        icon: 'tabler:x',
       },
       {
-        title: 'Step 2: <span class="font-medium">Add content</span>',
+        title: 'Trademark conflict',
         description:
-          "Pour your vision into it. Add images, text, and all that jazz to breathe life into your digital space. Remember, it's the content that tells your story, so make it captivating.",
-        icon: 'tabler:letter-case',
+          'Facilitating rapid design and consistent styling with this highly popular utility-first CSS framework.',
       },
       {
-        title: 'Step 3: <span class="font-medium">Customize styles</span>',
+        title: 'Domain + logo abandoned',
         description:
-          'Give it your personal touch. Tailor colors, fonts, and layouts until it feels just right. Your unique flair, amplified by AstroWind! Precision in design ensures a seamless user experience.',
-        icon: 'tabler:paint',
-      },
-      {
-        title: 'Ready!',
-        icon: 'tabler:check',
+          'Ensure your website looks and functions consistently across various web browsers, delivering a seamless experience to all users.',
       },
     ]}
     image={{
-      src: 'https://images.unsplash.com/photo-1616198814651-e71f960c3180?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80',
-      alt: 'Steps image',
+      src: 'https://images.unsplash.com/photo-1758874572670-63042c5448c6?q=80&w=3840&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D',
+      alt: 'Colorful Image',
     }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Based on a Real Client Story.</h3>
+      A client came to us with a domain and logo already chosen. After the website was ready, a trademark conflict forced a change of name, domain and logo. Bummer.
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
   />
 
   <!-- Features2 Widget ************** -->
