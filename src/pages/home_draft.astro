@@ -117,6 +117,28 @@ const topLeagueWay = [
       'We build for speed and security from the start, keep social aligned with the site, and stay on for updates, analytics and new content.',
   },
 ];
+
+
+const comparison = (usual, top) => `
+  <div class="difference-panel">
+    <div class="difference-usual">
+      <div class="difference-label difference-label-usual">
+        <span class="difference-icon difference-icon-usual">×</span>
+        The Usual Way
+      </div>
+      <h3>${usual.title}</h3>
+      <p>${usual.description}</p>
+    </div>
+    <div class="difference-top">
+      <div class="difference-label difference-label-top">
+        <span class="difference-icon difference-icon-top">✓</span>
+        The Top League Approach
+      </div>
+      <h3>${top.title}</h3>
+      <p>${top.description}</p>
+    </div>
+  </div>
+`;
 ---
 
 <!-- //THIS IS A CUSTOM BODY CLASS CODE 🔴🟢🔴🟢🔴🟢🔴🟢🔴🟢 -->
@@ -345,64 +367,22 @@ const topLeagueWay = [
 
   <!-- Content Widget **************** -->
 <FeatureTabs
-  id="difference-test"
+  id="difference"
   tagline="The Top League Difference"
   title="A website is only as good as the thinking behind it."
   subtitle="Here’s what we do differently before we build, while we build, and after we launch."
   items={[
-    {
-      title: 'Starting point',
-      description: '',
-      icon: 'tabler:flag',
-      image: `
-        <div class="difference-panel">
-          <div class="difference-usual">
-            <div class="difference-label difference-label-usual">
-              <span class="difference-icon difference-icon-usual">×</span>
-              The Usual Way
-            </div>
-            <h3>Start with the website</h3>
-            <p>A list of pages and features becomes the plan, and the business comes second.</p>
-          </div>
-
-          <div class="difference-top">
-            <div class="difference-label difference-label-top">
-              <span class="difference-icon difference-icon-top">✓</span>
-              The Top League Approach
-            </div>
-            <h3>Start with the business</h3>
-            <p>We begin with your audience, goals and what success means before choosing pages.</p>
-          </div>
-        </div>
-      `,
-    },
-    {
-      title: 'Budget',
-      description: '',
-      icon: 'tabler:coin',
-      image: `
-        <div class="difference-panel">
-          <div class="difference-usual">
-            <div class="difference-label difference-label-usual">
-              <span class="difference-icon difference-icon-usual">×</span>
-              The Usual Way
-            </div>
-            <h3>Treat requirements as the strategy</h3>
-            <p>A quote follows the feature list; the real budget surfaces later, usually as compromise.</p>
-          </div>
-
-          <div class="difference-top">
-            <div class="difference-label difference-label-top">
-              <span class="difference-icon difference-icon-top">✓</span>
-              The Top League Approach
-            </div>
-            <h3>Plan around the real budget</h3>
-            <p>Budget is part of the first conversation, keeping the plan practical and focused.</p>
-          </div>
-        </div>
-      `,
-    },
-  ]}
+    ['Starting point', 'tabler:flag'],
+    ['Budget', 'tabler:coin'],
+    ['Foundations', 'tabler:stack-2'],
+    ['SEO', 'tabler:search'],
+    ['Content', 'tabler:writing'],
+    ['After launch', 'tabler:rocket'],
+  ].map(([title, icon], i) => ({
+    title,
+    icon,
+    image: comparison(usualWay[i], topLeagueWay[i]),
+  }))}
 />
 
   <!-- Steps Widget ****************** -->
