@@ -1011,6 +1011,33 @@ background: radial-gradient(60% 55% at 15% 20%,#818cf847,#0000 65%),radial-gradi
 .my-custom-class .not-prose {max-width: 1180px; margin: auto; background-color: #FAEBD7;}
 .my-custom-class {background-color: #FAEBD7;}
 
+/* THE TOP LEAGUE DIFFERENCE */
+#difference-test [role='tab'][aria-selected='true'] { background:var(--aw-color-primary); border-color:var(--aw-color-primary); color:white; }
+#difference-test [role='tab'][aria-selected='true'] svg { color:white; }
+#difference-test .difference-panel { overflow:hidden; border-radius:.75rem; }
+#difference-test .difference-usual { padding:2rem 2.5rem 2.25rem; background:#f1f5f9; }
+#difference-test .difference-top { padding:2.25rem 2.5rem 2.5rem; background:#fff; border-top:1px solid #e2e8f0; }
+#difference-test .difference-label { display:flex; align-items:center; gap:.65rem; margin-bottom:.7rem; font-size:.95rem; font-weight:700; }
+#difference-test .difference-label-usual { color:#dc2626; }
+#difference-test .difference-label-top { color:#16a34a; }
+#difference-test .difference-icon { display:inline-flex; width:1.5rem; height:1.5rem; align-items:center; justify-content:center; flex:0 0 auto; border-radius:9999px; color:white; font-size:1rem; font-weight:700; line-height:1; }
+#difference-test .difference-icon-usual { background:#ef4444; }
+#difference-test .difference-icon-top { background:#16a34a; }
+#difference-test .difference-usual h3 { margin:0; color:#64748b; font-size:1.5rem; line-height:1.25; font-weight:600; text-decoration:line-through; text-decoration-color:#df4242; text-decoration-thickness:2px; }
+#difference-test .difference-top h3 { margin:0; color:var(--aw-color-text-heading); font-size:1.8rem; line-height:1.25; font-weight:700; }
+#difference-test .difference-usual p,
+#difference-test .difference-top p { margin:.7rem 0 0; max-width:52rem; color:var(--aw-color-text-muted); font-size:1rem; line-height:1.55; }
+.dark #difference-test .difference-usual { background:#172033; }
+.dark #difference-test .difference-top { background:#0f172a; border-color:#334155; }
+.dark #difference-test .difference-usual h3 { color:#94a3b8; }
+
+@media (max-width:640px) {
+  #difference-test .difference-usual { padding:1.5rem; }
+  #difference-test .difference-top { padding:1.75rem 1.5rem 2rem; }
+  #difference-test .difference-usual h3,
+  #difference-test .difference-top h3 { font-size:1.35rem; }
+}
+
 /* ____________________________________________________________ */
 
 /* Footer*/
