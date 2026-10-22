@@ -349,7 +349,6 @@ const topLeagueWay = [
   tagline="The Top League Difference"
   title="A website is only as good as the thinking behind it."
   subtitle="Here’s what we do differently before we build, while we build, and after we launch."
-  classes={{ container: 'difference-tabs' }}
   items={[
     {
       title: 'Starting point',
@@ -406,132 +405,128 @@ const topLeagueWay = [
   ]}
 />
 
-<style>
-  .difference-tabs [role='tab'][aria-selected='true'] {
-    background-color: var(--aw-color-primary);
+<style is:global>
+  #difference-test [role='tab'][aria-selected='true'] {
+    background: var(--aw-color-primary);
     border-color: var(--aw-color-primary);
     color: white;
   }
 
-  .difference-tabs [role='tab'][aria-selected='true'] svg {
+  #difference-test [role='tab'][aria-selected='true'] svg {
     color: white;
   }
 
-  .difference-panel {
+  #difference-test .difference-panel {
     overflow: hidden;
     border-radius: 0.75rem;
   }
 
-  .difference-usual,
-  .difference-top {
-    padding: 2rem;
+  #difference-test .difference-usual {
+    padding: 2rem 2.5rem 2.25rem;
+    background: #f1f5f9;
   }
 
-  .difference-usual {
-    background: rgb(248 250 252);
+  #difference-test .difference-top {
+    padding: 2.25rem 2.5rem 2.5rem;
+    background: #ffffff;
+    border-top: 1px solid #e2e8f0;
   }
 
-  .difference-top {
-    background: white;
-  }
-
-  .difference-label {
+  #difference-test .difference-label {
     display: flex;
     align-items: center;
     gap: 0.65rem;
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.7rem;
     font-size: 0.95rem;
     font-weight: 700;
   }
 
-  .difference-label-usual {
+  #difference-test .difference-label-usual {
     color: #dc2626;
   }
 
-  .difference-label-top {
+  #difference-test .difference-label-top {
     color: #16a34a;
   }
 
-  .difference-icon {
+  #difference-test .difference-icon {
     display: inline-flex;
-    width: 1.45rem;
-    height: 1.45rem;
+    width: 1.5rem;
+    height: 1.5rem;
     align-items: center;
     justify-content: center;
+    flex: 0 0 auto;
     border-radius: 9999px;
     color: white;
     font-size: 1rem;
+    font-weight: 700;
     line-height: 1;
   }
 
-  .difference-icon-usual {
+  #difference-test .difference-icon-usual {
     background: #ef4444;
   }
 
-  .difference-icon-top {
+  #difference-test .difference-icon-top {
     background: #16a34a;
   }
 
-  .difference-usual h3 {
+  #difference-test .difference-usual h3 {
     margin: 0;
     color: #64748b;
     font-size: 1.5rem;
+    line-height: 1.25;
     font-weight: 600;
-    text-decoration-line: line-through;
+    text-decoration: line-through;
     text-decoration-color: #df4242;
     text-decoration-thickness: 2px;
   }
 
-  .difference-top h3 {
+  #difference-test .difference-top h3 {
     margin: 0;
     color: var(--aw-color-text-heading);
-    font-size: 1.75rem;
+    font-size: 1.8rem;
+    line-height: 1.25;
     font-weight: 700;
   }
 
-  .difference-usual p,
-  .difference-top p {
-    margin: 0.75rem 0 0;
+  #difference-test .difference-usual p,
+  #difference-test .difference-top p {
+    margin: 0.7rem 0 0;
+    max-width: 52rem;
     color: var(--aw-color-text-muted);
     font-size: 1rem;
-    line-height: 1.6;
+    line-height: 1.55;
   }
 
-  .difference-top {
-    border-top: 1px solid rgb(226 232 240);
+  .dark #difference-test .difference-usual {
+    background: #172033;
   }
 
-  @media (prefers-color-scheme: dark) {
-    .difference-usual {
-      background: rgb(30 41 59 / 0.6);
-    }
+  .dark #difference-test .difference-top {
+    background: #0f172a;
+    border-color: #334155;
+  }
 
-    .difference-top {
-      background: rgb(15 23 42);
-    }
-
-    .difference-usual h3 {
-      color: rgb(148 163 184);
-    }
-
-    .difference-top {
-      border-color: rgb(51 65 85);
-    }
+  .dark #difference-test .difference-usual h3 {
+    color: #94a3b8;
   }
 
   @media (max-width: 640px) {
-    .difference-usual,
-    .difference-top {
+    #difference-test .difference-usual {
       padding: 1.5rem;
     }
 
-    .difference-usual h3,
-    .difference-top h3 {
+    #difference-test .difference-top {
+      padding: 1.75rem 1.5rem 2rem;
+    }
+
+    #difference-test .difference-usual h3,
+    #difference-test .difference-top h3 {
       font-size: 1.35rem;
     }
   }
 </style>
-
 
   <!-- Steps Widget ****************** -->
 
