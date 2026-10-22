@@ -345,51 +345,192 @@ const topLeagueWay = [
 
   <!-- Content Widget **************** -->
 <FeatureTabs
-  id="test-tabs"
-  tagline="Test"
-  title="Can we put custom content inside FeatureTabs?"
-  subtitle="Two tabs, using the existing FeatureTabs component."
+  id="difference-test"
+  tagline="The Top League Difference"
+  title="A website is only as good as the thinking behind it."
+  subtitle="Here’s what we do differently before we build, while we build, and after we launch."
+  classes={{ container: 'difference-tabs' }}
   items={[
     {
       title: 'Starting point',
-      description: 'Where we begin.',
+      description: '',
       icon: 'tabler:flag',
       image: `
-        <div class="p-8 bg-white dark:bg-slate-900">
-          <div class="mb-8">
-            <p class="mb-2 text-sm font-semibold text-red-600">THE USUAL WAY</p>
-            <h3 class="text-2xl font-bold">Start with the website</h3>
-            <p class="mt-3 text-muted">The website becomes the starting point instead of the business.</p>
+        <div class="difference-panel">
+          <div class="difference-usual">
+            <div class="difference-label difference-label-usual">
+              <span class="difference-icon difference-icon-usual">×</span>
+              The Usual Way
+            </div>
+            <h3>Start with the website</h3>
+            <p>A list of pages and features becomes the plan, and the business comes second.</p>
           </div>
-          <div class="border-t pt-8">
-            <p class="mb-2 text-sm font-semibold text-green-600">THE TOP LEAGUE APPROACH</p>
-            <h3 class="text-2xl font-bold">Start with the business</h3>
-            <p class="mt-3 text-muted">We begin with the business, audience and goals before deciding what the website needs.</p>
+
+          <div class="difference-top">
+            <div class="difference-label difference-label-top">
+              <span class="difference-icon difference-icon-top">✓</span>
+              The Top League Approach
+            </div>
+            <h3>Start with the business</h3>
+            <p>We begin with your audience, goals and what success means before choosing pages.</p>
           </div>
         </div>
       `,
     },
     {
       title: 'Budget',
-      description: 'How we plan around it.',
+      description: '',
       icon: 'tabler:coin',
       image: `
-        <div class="p-8 bg-white dark:bg-slate-900">
-          <div class="mb-8">
-            <p class="mb-2 text-sm font-semibold text-red-600">THE USUAL WAY</p>
-            <h3 class="text-2xl font-bold">Treat requirements as the strategy</h3>
-            <p class="mt-3 text-muted">The feature list becomes the plan.</p>
+        <div class="difference-panel">
+          <div class="difference-usual">
+            <div class="difference-label difference-label-usual">
+              <span class="difference-icon difference-icon-usual">×</span>
+              The Usual Way
+            </div>
+            <h3>Treat requirements as the strategy</h3>
+            <p>A quote follows the feature list; the real budget surfaces later, usually as compromise.</p>
           </div>
-          <div class="border-t pt-8">
-            <p class="mb-2 text-sm font-semibold text-green-600">THE TOP LEAGUE APPROACH</p>
-            <h3 class="text-2xl font-bold">Plan around the real budget</h3>
-            <p class="mt-3 text-muted">The real budget shapes the plan from the beginning.</p>
+
+          <div class="difference-top">
+            <div class="difference-label difference-label-top">
+              <span class="difference-icon difference-icon-top">✓</span>
+              The Top League Approach
+            </div>
+            <h3>Plan around the real budget</h3>
+            <p>Budget is part of the first conversation, keeping the plan practical and focused.</p>
           </div>
         </div>
       `,
     },
   ]}
 />
+
+<style>
+  .difference-tabs [role='tab'][aria-selected='true'] {
+    background-color: var(--aw-color-primary);
+    border-color: var(--aw-color-primary);
+    color: white;
+  }
+
+  .difference-tabs [role='tab'][aria-selected='true'] svg {
+    color: white;
+  }
+
+  .difference-panel {
+    overflow: hidden;
+    border-radius: 0.75rem;
+  }
+
+  .difference-usual,
+  .difference-top {
+    padding: 2rem;
+  }
+
+  .difference-usual {
+    background: rgb(248 250 252);
+  }
+
+  .difference-top {
+    background: white;
+  }
+
+  .difference-label {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    margin-bottom: 0.75rem;
+    font-size: 0.95rem;
+    font-weight: 700;
+  }
+
+  .difference-label-usual {
+    color: #dc2626;
+  }
+
+  .difference-label-top {
+    color: #16a34a;
+  }
+
+  .difference-icon {
+    display: inline-flex;
+    width: 1.45rem;
+    height: 1.45rem;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9999px;
+    color: white;
+    font-size: 1rem;
+    line-height: 1;
+  }
+
+  .difference-icon-usual {
+    background: #ef4444;
+  }
+
+  .difference-icon-top {
+    background: #16a34a;
+  }
+
+  .difference-usual h3 {
+    margin: 0;
+    color: #64748b;
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-decoration-line: line-through;
+    text-decoration-color: #df4242;
+    text-decoration-thickness: 2px;
+  }
+
+  .difference-top h3 {
+    margin: 0;
+    color: var(--aw-color-text-heading);
+    font-size: 1.75rem;
+    font-weight: 700;
+  }
+
+  .difference-usual p,
+  .difference-top p {
+    margin: 0.75rem 0 0;
+    color: var(--aw-color-text-muted);
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .difference-top {
+    border-top: 1px solid rgb(226 232 240);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .difference-usual {
+      background: rgb(30 41 59 / 0.6);
+    }
+
+    .difference-top {
+      background: rgb(15 23 42);
+    }
+
+    .difference-usual h3 {
+      color: rgb(148 163 184);
+    }
+
+    .difference-top {
+      border-color: rgb(51 65 85);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .difference-usual,
+    .difference-top {
+      padding: 1.5rem;
+    }
+
+    .difference-usual h3,
+    .difference-top h3 {
+      font-size: 1.35rem;
+    }
+  }
+</style>
 
 
   <!-- Steps Widget ****************** -->
