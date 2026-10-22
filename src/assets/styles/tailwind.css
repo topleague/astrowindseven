@@ -1005,6 +1005,8 @@ max-width: 1180px; margin: auto; /* padding-inline: 0; */
 background: radial-gradient(60% 55% at 15% 20%,#818cf847,#0000 65%),radial-gradient(50% 50% at 85% 25%,#f472b638,#0000 65%);
 }
 
+.proofgrid.wrap {padding-inline: 24px;}
+
 /* ____________________________________________________________ */
 
 /* Footer*/
