@@ -1008,8 +1008,8 @@ background: radial-gradient(60% 55% at 15% 20%,#818cf847,#0000 65%),radial-gradi
 .proofgrid.wrap {margin: auto; padding-inline: calc(var(--spacing) * 4);}
 
 /* BASED ON A REAL CLIENT STORY. */
-.my-custom-class .not-prose {max-width: 1180px; margin: auto; background-color: #FAEBD7;}
-.my-custom-class {background-color: #FAEBD7;}
+.my-custom-class .not-prose {max-width: 1180px; margin: auto;}
+.my-custom-class {background-color: #e0d7fa;}
 
 /* THE TOP LEAGUE DIFFERENCE */
 /* THE TOP LEAGUE DIFFERENCE */
