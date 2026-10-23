@@ -238,7 +238,7 @@ const comparison = (usual, top) => `
 
 <div class="my-custom-class real bg-white">
   <Steps
- isReversed
+    isReversed
     classes="my-custom-class bg-white"
     tagline="Based on a Real Client Story."
     title="What an Expensive Mistake Looks Like!"
@@ -268,14 +268,17 @@ const comparison = (usual, top) => `
     }}
   >
     <Fragment slot="tagline">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Based on a Real Client Story.</h3>
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        Based on a Real Client Story.
+      </h3>
       A client came to us with a domain and logo already chosen. After the website was ready, a trademark conflict forced a change of name, domain and logo. Bummer.
     </Fragment>
 
     <Fragment slot="bg">
       <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
     </Fragment>
-/>
+
+  </Steps> <!-- FIXED: changed /> to </Steps> because Steps contains Fragment child elements -->
 </div>
   
 <!-- END OF CLIENT STORY 🔴🟢 🔴🟢 🔴🟢  **************** -->
@@ -349,7 +352,7 @@ const comparison = (usual, top) => `
       src: 'https://images.unsplash.com/photo-1616198814651-e71f960c3180?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80',
       alt: 'Steps image',
     }}
-  /Steps>
+  />
 </div>
 
 <!-- 6. Proof: constraints and (placeholder) testimonials 🔴🟢 🔴🟢 🔴🟢  ************************************************************************************************************************-->
