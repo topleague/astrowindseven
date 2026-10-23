@@ -343,7 +343,8 @@
   }
 
   h1 {
-    font-family: FC, Frog, "Mona Bold Pro", sans-serif !important; 
+    /*font-family: FC, Frog, "Mona Bold Pro", sans-serif !important;*/
+    font-family:  "Mona Bold Pro Max",FC, Frog, "Mona Bold Pro", sans-serif !important; 
     /*font-weight: 600 !important;*/
     /*font-family: FCEB,FCB,FC, Frog, Mona Bold, sans-serif!important;/*
     font-weight: 400;
@@ -522,14 +523,20 @@ color: #fff;
   }
 
 /* HERO CSS */
+
 .hero {
   color: #fff; background-color: #212d65;
   align-items: flex-end; min-height: 690px;
   display: flex; position: relative; overflow: hidden;
+}
+
+/* THIS IS THE PLUS PATTERNE ONLY ON FRONT PAGE */
+.home-draft .hero {
   background-image: url(https://topleague.website/wp-content/uploads/2026/02/plus-pattern-white.png);
   background-size: 20px; background-position: center; background-repeat: repeat;
 }
 
+/* THIS IS THE HALF CIRCLE ON HERO */
 .hero:after {
   content: ""; position: absolute;
   width: 320px;height: 320px; border-radius: 50%;
