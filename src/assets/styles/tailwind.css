@@ -309,6 +309,32 @@
   font-display: swap;
 }
 
+/* FONTS FROM LEAGUE WP */
+@font-face {
+  font-family: 'Rose';
+  src: url('/fonts/Rose.woff2') format('woff2');
+  font-weight: 200 900; font-style: normal; font-display: swap;
+}
+
+@font-face {
+  font-family: 'IV';
+  src: url('/fonts/Inter-VariableFont_slnt,wght.woff2') format('woff2');
+  font-weight: 100 900;font-style: normal;font-display: swap;
+}
+
+@font-face {
+  font-family: 'Cardo';
+  src: url('/fonts/cardo_normal_400.woff2') format('woff2');
+  font-weight: 400; font-style: normal;font-display: swap;
+}
+
+
+@font-face {
+  font-family: 'Cardy';
+  src: url('/fonts/cardo_italic_400.woff2') format('woff2');
+  font-weight: 400; font-style: italic;font-display: swap;
+}
+
 /* CUSTOM CSS */
   .dark body {
     background-color: #1e293b;
