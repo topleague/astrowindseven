@@ -523,10 +523,19 @@ color: #fff;
 
 /* HERO CSS */
 .hero {
-    position: relative; min-height: 690px; display: flex;
-    align-items: flex-end; color: #fff; overflow: hidden;
-    background: #1b2a2e;
-  }
+  color: #fff; background-color: #212d65;
+  align-items: flex-end; min-height: 690px;
+  display: flex; position: relative; overflow: hidden;
+  background-image: url(https://topleague.website/wp-content/uploads/2026/02/plus-pattern-white.png);
+  background-size: 20px; background-position: center; background-repeat: repeat;
+}
+
+.hero:after {
+  content: ""; position: absolute;
+  width: 320px;height: 320px; border-radius: 50%;
+  border: 1px solid rgba(255,255,255,.14); right: -80px; top: -110px;
+  box-shadow: 0 0 0 60px rgba(255,255,255,.035),0 0 0 120px rgba(255,255,255,.025);
+}
 
 .hero:before {
     content: ""; position: absolute; inset: 0;
@@ -544,8 +553,8 @@ color: #fff;
   }
 
 .hero h1 {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: clamp(54px, 7vw, 92px); line-height: .96;
+    font-family: Mona Bold Pro Max,sans-serif!important;
+    font-size: clamp(54px, 7vw, 92px); line-height: 1.1;
     letter-spacing: -.055em; max-width: 850px; margin: 0 0 28px;
   }
 
@@ -1012,6 +1021,9 @@ background: radial-gradient(60% 55% at 15% 20%,#818cf847,#0000 65%),radial-gradi
 .my-custom-class.bg-white {background-color: #e0d7fa;}
 .dark .my-custom-class.bg-white {background-color: rgba(11, 10, 10, 0.07)!important;}
 /*.my-custom-class {background-color: #e0d7fa;}*/
+
+
+/* HERO EXTRA */
 
 /* THE TOP LEAGUE DIFFERENCE */
 /* THE TOP LEAGUE DIFFERENCE */
