@@ -1101,6 +1101,9 @@ background: radial-gradient(60% 55% at 15% 20%,#818cf847,#0000 65%),radial-gradi
 /* WHY: The four home page sections get a new BG color (in Dark Mode) */
 .dark .home-draft :is(#proof, #howdy, #difference, #reality) {background-color: rgb(34, 54, 48);}
 
+/* WHY: The image is sqared off */
+.home-draft #howdy img, .home-draft #reality img {aspect-ratio: 1;}
+
 /* ____________________________________________________________ */
 
 /* Footer*/
