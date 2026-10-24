@@ -1090,6 +1090,19 @@ background: radial-gradient(60% 55% at 15% 20%,#818cf847,#0000 65%),radial-gradi
 @media (max-width:640px){#difference .difference-usual{padding:1.5rem}#difference .difference-top{padding:1.75rem 1.5rem 2rem}#difference .difference-usual h3,#difference .difference-top h3{font-size:1.35rem}}
 /* ____________________________________________________________ */
 
+/* ____________________________________________________________ */
+/* WHY: The following home page sections are reset (Shortened) */
+.home-draft :is(#reality, #difference, #howdy, #proof) {all: revert;}
+/* WHY: The four home page sections get a new BG color */
+.home-draft #reality {background-color: #f1dbc0;}
+.home-draft #difference {background-color: #d4e6e8;}
+.home-draft #howdy {background-color: #f1dbc0;}
+.home-draft #proof {background-color: var(--color-blue-50);}
+/* WHY: The four home page sections get a new BG color (in Dark Mode) */
+.dark .home-draft :is(#proof, #howdy, #difference, #reality) {background-color: rgb(34, 54, 48);}
+
+/* ____________________________________________________________ */
+
 /* Footer*/
 footer {
     background: #2753a2!important;
