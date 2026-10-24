@@ -1113,6 +1113,7 @@ background: radial-gradient(60% 55% at 15% 20%,#818cf847,#0000 65%),radial-gradi
 .home-draft  .cta p {position: relative; z-index: 1; color: #b6c0c2; max-width: 620px; font-size: 19px; margin: 25px 0 32px;}
 .home-draft  .button {display: inline-flex; align-items: center; justify-content: center; padding: 14px 20px; border-radius: 999px; font-weight: 800; font-size: 14px; border: 1px solid #172126;}
 .home-draft  .cta .button.primary {position: relative; z-index: 1; background-color: #d9ff43; color: #172126; border-color: #d9ff43;}
+.home-draft .cta:after {content: "";border: 1px solid #ffffff24; border-radius: 50%; width: 320px; height: 320px; position: absolute; top: -110px; right: -80px; box-shadow: 0 0 0 60px #ffffff09,0 0 0 120px #ffffff06;}
 
 /* Footer*/
 footer {
