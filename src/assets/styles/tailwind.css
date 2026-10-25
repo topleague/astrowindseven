@@ -1128,6 +1128,10 @@ background-color: rgb(250, 235, 215);
 .home-draft .footerbrand {color: white; font-weight: 850;}
 .home-draft footer.not-prose {display: none;}
 
+.dark :is(#coming, #reality, #howdy, #difference, .stepy, #proof){
+all:revert; background-color: #1f5f55; background: #1f5f55;
+}
+
 /* Footer*/
 footer {
     background: #2753a2!important;
