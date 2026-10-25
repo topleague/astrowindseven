@@ -1054,7 +1054,8 @@ max-width: 1180px; margin: auto; /* padding-inline: 0; */
 }
 
 #coming {
-background: radial-gradient(60% 55% at 15% 20%,#818cf847,#0000 65%),radial-gradient(50% 50% at 85% 25%,#f472b638,#0000 65%);
+/*background: radial-gradient(60% 55% at 15% 20%,#818cf847,#0000 65%),radial-gradient(50% 50% at 85% 25%,#f472b638,#0000 65%);*/
+background-color: rgb(250, 235, 215);
 }
 
 .proofgrid.wrap {margin: auto; padding-inline: calc(var(--spacing) * 4);}
@@ -1084,6 +1085,7 @@ background: radial-gradient(60% 55% at 15% 20%,#818cf847,#0000 65%),radial-gradi
 #difference .difference-usual h3{margin:0;color:#64748b;font-size:1.5rem;line-height:1.25;font-weight:600;text-decoration:line-through;text-decoration-color:#df4242;text-decoration-thickness:2px}
 #difference .difference-top h3{margin:0;color:var(--aw-color-text-heading);font-size:1.8rem;line-height:1.25;font-weight:700}
 #difference .difference-usual p,#difference .difference-top p{margin:.7rem 0 0;max-width:52rem;color:var(--aw-color-text-muted);font-size:1rem;line-height:1.55}
+#difference [role='tab'][aria-selected='true'] .text-heading {color: #fff;}
 .dark #difference .difference-usual{background:#172033}
 .dark #difference .difference-top{background:#0f172a;border-color:#334155}
 .dark #difference .difference-usual h3{color:#94a3b8}
@@ -1093,10 +1095,16 @@ background: radial-gradient(60% 55% at 15% 20%,#818cf847,#0000 65%),radial-gradi
 /* ____________________________________________________________ */
 /* WHY: The following home page sections are reset (Shortened) */
 .home-draft :is(#reality, #difference, #howdy, #proof) {all: revert;}
+/* WHY: Narrow the Inner Wrapper */
+.home-draft #reality {max-width: 1180px; margin: auto;}
+.home-draft #difference .relative {max-width: 1180px;}
+.home-draft #howdy {max-width: 1180px;margin: auto;}
 /* WHY: The four home page sections get a new BG color */
-.home-draft #reality {background-color: #f1dbc0;}
+/*.home-draft #reality {background-color: #f1dbc0;}*/
+/* WHY: Wrapper Background Color in Real Client Story Section */
+.my-custom-class.bg-white.real {background-color: #F0F8FF;}
 .home-draft #difference {background-color: #d4e6e8;}
-.home-draft #howdy {background-color: #f1dbc0;}
+.home-draft .stepy {background-color: #F0F8FF;}
 .home-draft #proof {background-color: var(--color-blue-50);}
 /* WHY: The four home page sections get a new BG color (in Dark Mode) */
 .dark .home-draft :is(#proof, #howdy, #difference, #reality) {background-color: rgb(34, 54, 48);}
