@@ -1136,6 +1136,8 @@ all:revert; background-color: #1f5f55; background: #1f5f55;
 .home-draft #proof .flex.intersect-once {border: solid #bbb 1px; border-radius: 5px;}
 /* Separator Border Color of Proof Section */
 .home-draft #proof .border-slate-200 {border-color: #bbb;}
+/* Box Shadow Removal of Proof Section */
+.home-draft #proof .shadow-xl {box-shadow: none;}
 
 /* Footer*/
 footer {
