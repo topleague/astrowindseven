@@ -1157,6 +1157,9 @@ all:revert; background-color: #1f5f55; background: #1f5f55;
     position: absolute; box-shadow: 0 0 0 60px #ffffff09,0 0 0 120px #ffffff06; top: 70px; right: -180px;
   }
 
+  .product-description-page #coming {background-color: #fff;}
+  .dark .product-description-page #coming {background-color: #0B0B0B;}
+
 /* Footer*/
 footer {
     background: #2753a2!important;
