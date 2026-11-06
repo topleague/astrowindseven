@@ -1,5 +1,6 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
+import Features2 from '~/components/widgets/Features2.astro';
 
 const metadata = {
   title: 'Product Description Writing Services | Top League',
@@ -39,6 +40,38 @@ const metadata = {
 
     </div>
   </section>
+
+<!-- THE IDEA // WHY IT MATTERS -->
+<!-- 4. What is coming: three cards -->
+
+  <Features2
+    id="coming"
+    classes={{container: 'coming-section', headline: {container: 'max-w-3xl !mx-0 !text-left',},}}// THIS IS A CUSTOM CLASS CODE 🔴🟢🔴🟢🔴🟢🔴🟢🔴🟢     
+    tagline="Why it matters"
+    title="Good product descriptions make the value obvious."
+    subtitle="The right words connect what a product does with what a customer actually cares about."
+    columns={3}
+    items={[
+      {
+        title: 'Features need meaning',
+        description:
+          'Features tell shoppers what a product has. Benefits help them understand what it can do for them. We bring the two together through clear, compelling writing.',
+        icon: 'tabler:rocket',
+      },
+      {
+        title: 'Buyers need answers',
+        description:
+          'We consider your target audience, their priorities and the questions they’re likely to ask before putting words on the page.',
+        icon: 'tabler:calendar-event',
+      },
+      {
+        title: 'Products need visibility',
+        description:
+          'We incorporate relevant search keywords naturally, without compromising readability or turning your descriptions into keyword lists.',
+        icon: 'tabler:gift',
+      },
+    ]}
+  />
 
 
 <style>
