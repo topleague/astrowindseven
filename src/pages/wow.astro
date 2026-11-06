@@ -1,6 +1,4 @@
-from pathlib import Path
-
-astro = r'''---
+---
 import Layout from '~/layouts/PageLayout.astro';
 import FeatureTabs from '~/components/widgets/FeatureTabs.astro';
 
@@ -478,7 +476,3 @@ const comparison = (usual, top) => `
     </div>
   </footer>
 </Layout>
-'''
-path = Path("/mnt/data/product-description-writing.astro")
-path.write_text(astro, encoding="utf-8")
-print(f"Created {path} ({path.stat().st_size:,} bytes)")
