@@ -368,7 +368,8 @@
     letter-spacing: -.025em !important;
   }
 
-  .home-draft .hero h1 {
+  /* HERO TITLE for HOME and PRDUCT PAGE */
+  .home-draft .hero h1, .product-description-page .pdw-hero h1 {
     letter-spacing: -0.055em; max-width: 850px;
     margin: 0px 0px 28px; font-size: clamp(54px, 7vw, 92px);
     line-height: 1.1;
