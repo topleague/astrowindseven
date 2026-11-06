@@ -1140,6 +1140,23 @@ all:revert; background-color: #1f5f55; background: #1f5f55;
 /* Box Shadow Removal of Proof Section */
 .home-draft #proof .shadow-xl {box-shadow: none;}
 
+/* PRDUCT DESCRIPTION PAGE ____________________________________________________________ */
+  .product-description-page .hero {color: #fff; background: linear-gradient(110deg, #17242b, #26383f 65%, #34484e);}
+  .hero h1 {margin: 0 0 28px;letter-spacing: -.055em;max-width: 850px;font-size: clamp(54px,7vw,92px);line-height: 1.1;}
+
+  .product-description-page .hero {
+    background: linear-gradient(110deg,#17242b,#26383f 65%,#34484e);
+  }
+
+  .product-description-page .hero:before {
+    background-image: none!important;
+  }
+
+  .product-description-page .hero:after {
+    content: ""; pointer-events: none; border: 1px solid #ffffff18; border-radius: 50%; width: 500px; height: 500px;
+    position: absolute; box-shadow: 0 0 0 60px #ffffff09,0 0 0 120px #ffffff06; top: 70px; right: -180px;
+  }
+
 /* Footer*/
 footer {
     background: #2753a2!important;
