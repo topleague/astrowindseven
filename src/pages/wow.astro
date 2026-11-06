@@ -1,0 +1,484 @@
+from pathlib import Path
+
+astro = r'''---
+import Layout from '~/layouts/PageLayout.astro';
+import FeatureTabs from '~/components/widgets/FeatureTabs.astro';
+
+const metadata = {
+  title: 'Product Description Writing Services | Top League',
+  description:
+    'Persuasive, research-driven and SEO-friendly product descriptions that help shoppers understand your products and feel confident buying them.',
+};
+
+// Comparison content for the FeatureTabs widget.
+const usualWay = [
+  {
+    title: 'Describe the product, not its value',
+    description:
+      'The copy repeats specifications and features but leaves shoppers to work out why any of them should matter.',
+  },
+  {
+    title: 'Write for everyone',
+    description:
+      'Generic language tries to appeal to every possible buyer, so it rarely speaks convincingly to the person most likely to purchase.',
+  },
+  {
+    title: 'Treat keywords as the whole SEO strategy',
+    description:
+      'Search terms are inserted wherever they fit, even when the result sounds repetitive or unnatural.',
+  },
+  {
+    title: 'Copy information from the catalogue',
+    description:
+      'Manufacturer descriptions and technical details are reused with little thought about the questions your own customers may have.',
+  },
+  {
+    title: 'Make every product sound the same',
+    description:
+      'Descriptions follow one formula, leaving little room for the product’s distinctive qualities or your brand’s personality.',
+  },
+  {
+    title: 'Publish without a proper review',
+    description:
+      'Descriptions go live without enough attention to accuracy, clarity, readability or consistency across the catalogue.',
+  },
+];
+
+const topLeagueWay = [
+  {
+    title: 'Connect features with real benefits',
+    description:
+      'We explain what the product does and why that matters, helping shoppers recognise its value in terms they understand.',
+  },
+  {
+    title: 'Understand the intended buyer',
+    description:
+      'We consider your audience, their priorities and the questions they are likely to ask before shaping the copy.',
+  },
+  {
+    title: 'Use relevant keywords naturally',
+    description:
+      'We incorporate search terms where they make sense, keeping the writing useful and readable for people.',
+  },
+  {
+    title: 'Research before writing',
+    description:
+      'We examine product information, intended uses and distinguishing qualities instead of simply rewording a catalogue entry.',
+  },
+  {
+    title: 'Keep the brand voice consistent',
+    description:
+      'We adapt the tone to your business and product range while maintaining a recognisable voice across your catalogue.',
+  },
+  {
+    title: 'Write, review and refine',
+    description:
+      'We review the copy for accuracy, clarity, readability and SEO considerations before delivering the finished descriptions.',
+  },
+];
+
+const comparison = (usual, top) => `
+  <div class="difference-panel">
+    <div class="difference-usual">
+      <div class="difference-label difference-label-usual">
+        <span class="difference-icon difference-icon-usual">×</span>
+        The Usual Way
+      </div>
+      <h3>${usual.title}</h3>
+      <p>${usual.description}</p>
+    </div>
+    <div class="difference-top">
+      <div class="difference-label difference-label-top">
+        <span class="difference-icon difference-icon-top">✓</span>
+        The Top League Approach
+      </div>
+      <h3>${top.title}</h3>
+      <p>${top.description}</p>
+    </div>
+  </div>
+`;
+---
+
+<Layout metadata={metadata} pageClass="home-draft">
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <div class="eyebrow"><span class="dot"></span> Product description writing</div>
+
+      <h1>
+        Your Product Deserves More Than a Description,
+        <span>It Deserves to Be Chosen.</span>
+      </h1>
+
+      <p>
+        We turn product features into meaningful reasons to buy, with persuasive,
+        research-driven and SEO-friendly product descriptions.
+      </p>
+
+      <div class="actions">
+        <a class="btn primary" href="#packages">Explore packages</a>
+        <a class="btn ghost" href="#benefits">See what's included</a>
+      </div>
+
+      <div class="hero-note">
+        Original writing · Research-led · SEO-aware · Human-edited
+      </div>
+    </div>
+  </section>
+
+  <!-- PROOF / SERVICE PRINCIPLES BAR -->
+  <div class="proofbar">
+    <div class="wrap proofgrid">
+      <div class="proof"><strong>Original</strong><span>Product-focused writing</span></div>
+      <div class="proof"><strong>Research-led</strong><span>Audience and product understanding</span></div>
+      <div class="proof"><strong>SEO-aware</strong><span>Keywords used naturally</span></div>
+      <div class="proof"><strong>Human-edited</strong><span>Reviewed before delivery</span></div>
+    </div>
+  </div>
+
+  <!-- THE STORY / WHY IT MATTERS -->
+  <section class="section" id="story">
+    <div class="wrap intro">
+      <div>
+        <div class="kicker">A familiar shopping moment</div>
+        <h2>Someone is interested in your product. But are they convinced?</h2>
+      </div>
+
+      <div class="intro-copy">
+        <p>Imagine someone browsing your online store.</p>
+
+        <p>
+          They find a product that looks promising. The photographs are appealing.
+          The price seems reasonable. They scroll down to learn a little more.
+        </p>
+
+        <p>And then they find a description that tells them almost nothing.</p>
+
+        <p>
+          A list of specifications. A few generic sentences. Perhaps some technical
+          details copied straight from the manufacturer's catalogue.
+        </p>
+
+        <p>
+          The shopper still has questions. Will it solve their problem? Is it worth
+          the price? What makes it different from the dozens of alternatives
+          available online?
+        </p>
+
+        <p>
+          They hesitate. They open another tab. And your product becomes just
+          another option they considered.
+        </p>
+
+        <p class="story-pivot">
+          <strong>
+            The problem isn't necessarily your product. Sometimes, it's the way
+            your product is presented.
+          </strong>
+        </p>
+
+        <p>
+          A good product description closes that gap. It helps shoppers understand
+          what they're looking at, imagine how it fits into their lives and
+          recognise why it might be the right choice.
+        </p>
+
+        <p><strong>That's what we believe product writing should accomplish.</strong></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- BENEFITS -->
+  <section class="section band" id="benefits">
+    <div class="wrap">
+      <div class="feature-head">
+        <div>
+          <div class="kicker">Why it matters</div>
+          <h2 class="section-title">
+            Good product descriptions do more than describe. They make the value obvious.
+          </h2>
+        </div>
+        <p>
+          The right words connect what a product does with what a customer actually
+          cares about. Here's what we bring to your product pages.
+        </p>
+      </div>
+
+      <div class="features">
+        <article class="feature">
+          <div class="num">01 — PERSUASION</div>
+          <div>
+            <h3>Features need meaning</h3>
+            <p>
+              Features tell shoppers what a product has. Benefits help them
+              understand what it can do for them. We bring the two together through
+              clear, compelling and naturally persuasive writing.
+            </p>
+          </div>
+        </article>
+
+        <article class="feature">
+          <div class="num">02 — CUSTOMER</div>
+          <div>
+            <h3>Buyers need answers</h3>
+            <p>
+              We consider your target audience, their priorities and the questions
+              they're likely to ask before putting words on the page.
+            </p>
+          </div>
+        </article>
+
+        <article class="feature">
+          <div class="num">03 — DISCOVERY</div>
+          <div>
+            <h3>Products need to be found</h3>
+            <p>
+              We incorporate relevant search keywords naturally, without
+              compromising readability or turning descriptions into keyword lists.
+            </p>
+          </div>
+        </article>
+
+        <article class="feature">
+          <div class="num">04 — SEARCH DETAILS</div>
+          <div>
+            <h3>More than body copy</h3>
+            <p>
+              We also provide SEO titles and meta descriptions alongside your
+              product descriptions, helping each product page make a stronger
+              first impression in search.
+            </p>
+          </div>
+        </article>
+
+        <article class="feature">
+          <div class="num">05 — CONSISTENCY</div>
+          <div>
+            <h3>A recognisable brand voice</h3>
+            <p>
+              Whether you have a handful of products or hundreds, your catalogue
+              should communicate a consistent brand personality.
+            </p>
+          </div>
+        </article>
+
+        <article class="feature">
+          <div class="num">06 — BULK VALUE</div>
+          <div>
+            <h3>Better value on bulk orders</h3>
+            <p>
+              Have a large catalogue to populate? We offer discounts of up to 50%
+              on qualifying bulk orders.
+            </p>
+          </div>
+        </article>
+
+        <article class="feature">
+          <div class="num">07 — FREE SAMPLE</div>
+          <div>
+            <h3>Try before you commit</h3>
+            <p>
+              Not sure whether our writing is right for your business? Request up
+              to three free samples before choosing a package.
+            </p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE TOP LEAGUE DIFFERENCE -->
+  <div class="my-custom-class tab bg-white">
+    <FeatureTabs
+      id="difference"
+      tagline="The Top League Difference"
+      title="Your product may be excellent. Your description should make that obvious."
+      subtitle="Here's how we approach product writing differently."
+      items={[
+        ['Product value', 'tabler:bulb'],
+        ['The buyer', 'tabler:users'],
+        ['SEO', 'tabler:search'],
+        ['Research', 'tabler:book-search'],
+        ['Brand voice', 'tabler:message-circle'],
+        ['Quality review', 'tabler:checklist'],
+      ].map(([title, icon], i) => ({
+        title,
+        icon,
+        image: comparison(usualWay[i], topLeagueWay[i]),
+      }))}
+    />
+  </div>
+
+  <!-- OUR PROCESS -->
+  <section class="section" id="process">
+    <div class="wrap process">
+      <div>
+        <div class="kicker">How we work</div>
+        <h2 class="section-title">
+          Before we write about your product, we need to understand it.
+        </h2>
+        <p>
+          Good product descriptions don't begin with a writing template. They
+          begin with understanding.
+        </p>
+      </div>
+
+      <div class="process-list">
+        <article class="step">
+          <span>01</span>
+          <div>
+            <h3>Understand the product</h3>
+            <p>
+              We examine its features, specifications, intended uses and
+              distinguishing qualities. We identify what a prospective customer
+              needs to know.
+            </p>
+          </div>
+        </article>
+
+        <article class="step">
+          <span>02</span>
+          <div>
+            <h3>Understand the buyer</h3>
+            <p>
+              Who is likely to purchase this product? What matters to them? What
+              concerns might prevent them from buying? These questions shape the
+              direction of the copy.
+            </p>
+          </div>
+        </article>
+
+        <article class="step">
+          <span>03</span>
+          <div>
+            <h3>Find the right words</h3>
+            <p>
+              We identify relevant keywords and translate product information into
+              clear, benefit-oriented language that speaks to your intended
+              audience.
+            </p>
+          </div>
+        </article>
+
+        <article class="step">
+          <span>04</span>
+          <div>
+            <h3>Write, review and refine</h3>
+            <p>
+              We review the copy for clarity, accuracy, readability and SEO
+              considerations, then refine the final descriptions before delivery.
+            </p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- PACKAGES -->
+  <section class="section pricing" id="packages">
+    <div class="wrap">
+      <div class="pricing-intro">
+        <div>
+          <div class="kicker">Writing packages</div>
+          <h2 class="section-title">Start small. Scale when you're ready.</h2>
+        </div>
+        <p>
+          Whether you're testing the waters or building an entire catalogue,
+          there's a package to get you moving. Need a larger order? Ask us about
+          bulk pricing.
+        </p>
+      </div>
+
+      <div class="packages">
+        <article class="package">
+          <div class="tag">Basic</div>
+          <h3>A practical starting point</h3>
+          <p class="desc">
+            For businesses looking to experience our product description writing
+            before placing a larger order.
+          </p>
+          <div class="price">Let's talk</div>
+          <ul>
+            <li>Product-focused descriptions</li>
+            <li>Research-led writing</li>
+            <li>SEO-aware copy</li>
+          </ul>
+          <a class="btn" href="#contact">Discuss your requirements</a>
+        </article>
+
+        <article class="package featured">
+          <div class="tag">Standard</div>
+          <h3>For growing catalogues</h3>
+          <p class="desc">
+            A larger content requirement for online stores improving product
+            content across their catalogue.
+          </p>
+          <div class="price">Let's talk</div>
+          <ul>
+            <li>Consistent catalogue voice</li>
+            <li>Product and audience research</li>
+            <li>SEO titles and meta descriptions</li>
+          </ul>
+          <a class="btn" href="#contact">Discuss your requirements</a>
+        </article>
+
+        <article class="package">
+          <div class="tag">Premium</div>
+          <h3>For larger catalogues</h3>
+          <p class="desc">
+            For businesses with a substantial number of products that need
+            consistent descriptions at scale.
+          </p>
+          <div class="price">Let's talk</div>
+          <ul>
+            <li>Bulk-order planning</li>
+            <li>Consistent writing standards</li>
+            <li>Volume-based discounts</li>
+          </ul>
+          <a class="btn" href="#contact">Discuss your requirements</a>
+        </article>
+      </div>
+
+      <p class="hero-note">
+        Package scope and pricing depend on product volume, research requirements
+        and the information supplied. Contact us for a quote.
+      </p>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section id="contact" class="cta">
+    <div class="wrap">
+      <div class="kicker">Let's talk</div>
+      <div class="cta-inner">
+        <div>
+          <h2>Your products are ready to be discovered. Let's give people a reason to choose them.</h2>
+          <p>
+            You've already invested in your products, your store and the
+            experience you want to offer customers. Don't let an overlooked
+            product description become the weakest link.
+          </p>
+        </div>
+        <div>
+          <a
+            class="button primary"
+            href="mailto:hello@topleaguetech.com?subject=Product%20description%20writing%20sample"
+          >
+            Request your free sample →
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap footerrow">
+      <div><span class="footerbrand">TOP LEAGUE</span> · Bhubaneswar, India</div>
+      <div>Product description writing · Content that helps customers choose.</div>
+    </div>
+  </footer>
+</Layout>
+'''
+path = Path("/mnt/data/product-description-writing.astro")
+path.write_text(astro, encoding="utf-8")
+print(f"Created {path} ({path.stat().st_size:,} bytes)")
