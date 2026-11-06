@@ -1,478 +1,541 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
-import FeatureTabs from '~/components/widgets/FeatureTabs.astro';
 
 const metadata = {
   title: 'Product Description Writing Services | Top League',
   description:
     'Persuasive, research-driven and SEO-friendly product descriptions that help shoppers understand your products and feel confident buying them.',
 };
-
-// Comparison content for the FeatureTabs widget.
-const usualWay = [
-  {
-    title: 'Describe the product, not its value',
-    description:
-      'The copy repeats specifications and features but leaves shoppers to work out why any of them should matter.',
-  },
-  {
-    title: 'Write for everyone',
-    description:
-      'Generic language tries to appeal to every possible buyer, so it rarely speaks convincingly to the person most likely to purchase.',
-  },
-  {
-    title: 'Treat keywords as the whole SEO strategy',
-    description:
-      'Search terms are inserted wherever they fit, even when the result sounds repetitive or unnatural.',
-  },
-  {
-    title: 'Copy information from the catalogue',
-    description:
-      'Manufacturer descriptions and technical details are reused with little thought about the questions your own customers may have.',
-  },
-  {
-    title: 'Make every product sound the same',
-    description:
-      'Descriptions follow one formula, leaving little room for the product’s distinctive qualities or your brand’s personality.',
-  },
-  {
-    title: 'Publish without a proper review',
-    description:
-      'Descriptions go live without enough attention to accuracy, clarity, readability or consistency across the catalogue.',
-  },
-];
-
-const topLeagueWay = [
-  {
-    title: 'Connect features with real benefits',
-    description:
-      'We explain what the product does and why that matters, helping shoppers recognise its value in terms they understand.',
-  },
-  {
-    title: 'Understand the intended buyer',
-    description:
-      'We consider your audience, their priorities and the questions they are likely to ask before shaping the copy.',
-  },
-  {
-    title: 'Use relevant keywords naturally',
-    description:
-      'We incorporate search terms where they make sense, keeping the writing useful and readable for people.',
-  },
-  {
-    title: 'Research before writing',
-    description:
-      'We examine product information, intended uses and distinguishing qualities instead of simply rewording a catalogue entry.',
-  },
-  {
-    title: 'Keep the brand voice consistent',
-    description:
-      'We adapt the tone to your business and product range while maintaining a recognisable voice across your catalogue.',
-  },
-  {
-    title: 'Write, review and refine',
-    description:
-      'We review the copy for accuracy, clarity, readability and SEO considerations before delivering the finished descriptions.',
-  },
-];
-
-const comparison = (usual, top) => `
-  <div class="difference-panel">
-    <div class="difference-usual">
-      <div class="difference-label difference-label-usual">
-        <span class="difference-icon difference-icon-usual">×</span>
-        The Usual Way
-      </div>
-      <h3>${usual.title}</h3>
-      <p>${usual.description}</p>
-    </div>
-    <div class="difference-top">
-      <div class="difference-label difference-label-top">
-        <span class="difference-icon difference-icon-top">✓</span>
-        The Top League Approach
-      </div>
-      <h3>${top.title}</h3>
-      <p>${top.description}</p>
-    </div>
-  </div>
-`;
 ---
 
-<Layout metadata={metadata} pageClass="home-draft">
-  <!-- HERO -->
-  <section class="hero">
-    <div class="container">
-      <div class="eyebrow"><span class="dot"></span> Product description writing</div>
-
-      <h1>
-        Your Product Deserves More Than a Description,
-        <span>It Deserves to Be Chosen.</span>
-      </h1>
-
-      <p>
-        We turn product features into meaningful reasons to buy, with persuasive,
-        research-driven and SEO-friendly product descriptions.
-      </p>
-
-      <div class="actions">
-        <a class="btn primary" href="#packages">Explore packages</a>
-        <a class="btn ghost" href="#benefits">See what's included</a>
-      </div>
-
-      <div class="hero-note">
-        Original writing · Research-led · SEO-aware · Human-edited
-      </div>
-    </div>
-  </section>
-
-  <!-- PROOF / SERVICE PRINCIPLES BAR -->
-  <div class="proofbar">
-    <div class="wrap proofgrid">
-      <div class="proof"><strong>Original</strong><span>Product-focused writing</span></div>
-      <div class="proof"><strong>Research-led</strong><span>Audience and product understanding</span></div>
-      <div class="proof"><strong>SEO-aware</strong><span>Keywords used naturally</span></div>
-      <div class="proof"><strong>Human-edited</strong><span>Reviewed before delivery</span></div>
-    </div>
-  </div>
-
-  <!-- THE STORY / WHY IT MATTERS -->
-  <section class="section" id="story">
-    <div class="wrap intro">
-      <div>
-        <div class="kicker">A familiar shopping moment</div>
-        <h2>Someone is interested in your product. But are they convinced?</h2>
-      </div>
-
-      <div class="intro-copy">
-        <p>Imagine someone browsing your online store.</p>
-
-        <p>
-          They find a product that looks promising. The photographs are appealing.
-          The price seems reasonable. They scroll down to learn a little more.
+<Layout metadata={metadata} pageClass="product-description-page">
+  <div class="pdw-page" id="top">
+    <!-- HERO -->
+    <section class="pdw-hero">
+      <div class="pdw-wrap">
+        <nav class="pdw-anchor-nav" aria-label="On this page">
+          <a href="#why">Why it matters</a>
+          <a href="#difference">Our approach</a>
+          <a href="#process">How we work</a>
+          <a href="#packages">Packages</a>
+        </nav>
+        <div class="pdw-eyebrow">Product description writing</div>
+        <h1>
+          Your product deserves more than a description.
+          <em>It deserves to be chosen.</em>
+        </h1>
+        <p class="pdw-lead">
+          We turn product features into meaningful reasons to buy, with persuasive,
+          research-driven and SEO-friendly product descriptions.
         </p>
-
-        <p>And then they find a description that tells them almost nothing.</p>
-
-        <p>
-          A list of specifications. A few generic sentences. Perhaps some technical
-          details copied straight from the manufacturer's catalogue.
-        </p>
-
-        <p>
-          The shopper still has questions. Will it solve their problem? Is it worth
-          the price? What makes it different from the dozens of alternatives
-          available online?
-        </p>
-
-        <p>
-          They hesitate. They open another tab. And your product becomes just
-          another option they considered.
-        </p>
-
-        <p class="story-pivot">
-          <strong>
-            The problem isn't necessarily your product. Sometimes, it's the way
-            your product is presented.
-          </strong>
-        </p>
-
-        <p>
-          A good product description closes that gap. It helps shoppers understand
-          what they're looking at, imagine how it fits into their lives and
-          recognise why it might be the right choice.
-        </p>
-
-        <p><strong>That's what we believe product writing should accomplish.</strong></p>
-      </div>
-    </div>
-  </section>
-
-  <!-- BENEFITS -->
-  <section class="section band" id="benefits">
-    <div class="wrap">
-      <div class="feature-head">
-        <div>
-          <div class="kicker">Why it matters</div>
-          <h2 class="section-title">
-            Good product descriptions do more than describe. They make the value obvious.
-          </h2>
+        <div class="pdw-actions">
+          <a class="pdw-btn" href="#contact">Request a free sample <span aria-hidden="true">↗</span></a>
+          <a class="pdw-btn pdw-btn-outline" href="#why">See what’s included <span aria-hidden="true">↓</span></a>
         </div>
-        <p>
-          The right words connect what a product does with what a customer actually
-          cares about. Here's what we bring to your product pages.
-        </p>
+        <p class="pdw-hero-note">No obligation. Just good product writing for you to evaluate.</p>
       </div>
+    </section>
 
-      <div class="features">
-        <article class="feature">
-          <div class="num">01 — PERSUASION</div>
-          <div>
+    <!-- WHY IT MATTERS -->
+    <section class="pdw-section" id="why">
+      <div class="pdw-wrap">
+        <div class="pdw-section-head">
+          <div class="pdw-eyebrow">Why it matters</div>
+          <h2>Good product descriptions do more than describe. They make the value obvious.</h2>
+          <p class="pdw-lead">
+            The right words connect what a product does with what a customer actually cares about.
+          </p>
+        </div>
+
+        <div class="pdw-cards pdw-cards-three">
+          <article class="pdw-card">
+            <div class="pdw-number">01 <span>— PERSUASION</span></div>
             <h3>Features need meaning</h3>
-            <p>
-              Features tell shoppers what a product has. Benefits help them
-              understand what it can do for them. We bring the two together through
-              clear, compelling and naturally persuasive writing.
-            </p>
-          </div>
-        </article>
-
-        <article class="feature">
-          <div class="num">02 — CUSTOMER</div>
-          <div>
+            <p>Features tell shoppers what a product has. Benefits help them understand what it can do for them. We bring the two together through clear, compelling writing.</p>
+          </article>
+          <article class="pdw-card">
+            <div class="pdw-number">02 <span>— CUSTOMER</span></div>
             <h3>Buyers need answers</h3>
-            <p>
-              We consider your target audience, their priorities and the questions
-              they're likely to ask before putting words on the page.
-            </p>
-          </div>
-        </article>
-
-        <article class="feature">
-          <div class="num">03 — DISCOVERY</div>
-          <div>
+            <p>We consider your target audience, their priorities and the questions they’re likely to ask before putting words on the page.</p>
+          </article>
+          <article class="pdw-card">
+            <div class="pdw-number">03 <span>— DISCOVERY</span></div>
             <h3>Products need to be found</h3>
-            <p>
-              We incorporate relevant search keywords naturally, without
-              compromising readability or turning descriptions into keyword lists.
-            </p>
-          </div>
-        </article>
-
-        <article class="feature">
-          <div class="num">04 — SEARCH DETAILS</div>
-          <div>
-            <h3>More than body copy</h3>
-            <p>
-              We also provide SEO titles and meta descriptions alongside your
-              product descriptions, helping each product page make a stronger
-              first impression in search.
-            </p>
-          </div>
-        </article>
-
-        <article class="feature">
-          <div class="num">05 — CONSISTENCY</div>
-          <div>
-            <h3>A recognisable brand voice</h3>
-            <p>
-              Whether you have a handful of products or hundreds, your catalogue
-              should communicate a consistent brand personality.
-            </p>
-          </div>
-        </article>
-
-        <article class="feature">
-          <div class="num">06 — BULK VALUE</div>
-          <div>
-            <h3>Better value on bulk orders</h3>
-            <p>
-              Have a large catalogue to populate? We offer discounts of up to 50%
-              on qualifying bulk orders.
-            </p>
-          </div>
-        </article>
-
-        <article class="feature">
-          <div class="num">07 — FREE SAMPLE</div>
-          <div>
-            <h3>Try before you commit</h3>
-            <p>
-              Not sure whether our writing is right for your business? Request up
-              to three free samples before choosing a package.
-            </p>
-          </div>
-        </article>
+            <p>We incorporate relevant search keywords naturally, without compromising readability or turning your descriptions into keyword lists.</p>
+          </article>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- THE TOP LEAGUE DIFFERENCE -->
-  <div class="my-custom-class tab bg-white">
-    <FeatureTabs
-      id="difference"
-      tagline="The Top League Difference"
-      title="Your product may be excellent. Your description should make that obvious."
-      subtitle="Here's how we approach product writing differently."
-      items={[
-        ['Product value', 'tabler:bulb'],
-        ['The buyer', 'tabler:users'],
-        ['SEO', 'tabler:search'],
-        ['Research', 'tabler:search'],
-        ['Brand voice', 'tabler:message-circle'],
-        ['Quality review', 'tabler:checklist'],
-      ].map(([title, icon], i) => ({
-        title,
-        icon,
-        image: comparison(usualWay[i], topLeagueWay[i]),
-      }))}
-    />
+    <!-- THE SHOPPING MOMENT -->
+    <section class="pdw-section pdw-soft" id="story">
+      <div class="pdw-wrap pdw-story">
+        <aside class="pdw-story-aside">
+          <div class="pdw-eyebrow">A familiar shopping moment</div>
+          <div class="pdw-story-index" aria-hidden="true">01</div>
+        </aside>
+        <div class="pdw-story-copy">
+          <h2>Someone is interested in your product. But are they convinced?</h2>
+          <p>Imagine someone browsing your online store.</p>
+          <p>They find a product that looks promising. The photographs are appealing. The price seems reasonable. They scroll down to learn a little more.</p>
+          <p>And then they find a description that tells them almost nothing.</p>
+          <p>A list of specifications. A few generic sentences. Perhaps some technical details copied straight from the manufacturer’s catalogue.</p>
+          <p>The shopper still has questions. Will it solve their problem? Is it worth the price? What makes it different from the dozens of alternatives available online?</p>
+          <p>They hesitate. They open another tab. And your product becomes just another option they considered.</p>
+          <p class="pdw-pivot">The problem isn’t necessarily your product. Sometimes, it’s the way your product is presented.</p>
+          <p>A good product description closes that gap. It helps shoppers understand what they’re looking at, imagine how it fits into their lives and recognise why it might be the right choice.</p>
+          <p><strong>That’s what we believe product writing should accomplish.</strong></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- THE TOP LEAGUE APPROACH -->
+    <section class="pdw-section" id="difference">
+      <div class="pdw-wrap">
+        <div class="pdw-section-head">
+          <div class="pdw-eyebrow">The Top League approach</div>
+          <h2>Your product may be excellent. Your description should make that obvious.</h2>
+          <p class="pdw-lead">Effective product copy doesn’t need to be complicated. It needs to communicate the right things in the right way.</p>
+        </div>
+
+        <div class="pdw-difference">
+          <article class="pdw-difference-card">
+            <div class="pdw-eyebrow">× The usual way</div>
+            <h3>Descriptions that get in the way</h3>
+            <ul>
+              <li>Long lists of unexplained specifications</li>
+              <li>Generic claims that could describe any product</li>
+              <li>Keyword-heavy sentences that are hard to read</li>
+              <li>Pushy language and exaggerated promises</li>
+            </ul>
+          </article>
+          <article class="pdw-difference-card pdw-difference-card-dark">
+            <div class="pdw-eyebrow">✓ The Top League approach</div>
+            <h3>Copy that helps customers decide</h3>
+            <ul>
+              <li>Clear information that answers real questions</li>
+              <li>Meaningful benefits connected to product features</li>
+              <li>Natural keywords and readable copy</li>
+              <li>Persuasion grounded in the product’s actual value</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW WE WORK -->
+    <section class="pdw-section pdw-soft" id="process">
+      <div class="pdw-wrap">
+        <div class="pdw-section-head">
+          <div class="pdw-eyebrow">How we work</div>
+          <h2>Before we write about your product, we need to understand it.</h2>
+          <p class="pdw-lead">Good product descriptions don’t begin with a writing template. They begin with understanding.</p>
+        </div>
+
+        <div class="pdw-steps">
+          <article class="pdw-step">
+            <div class="pdw-number">STEP 01</div>
+            <h3>Understand the product</h3>
+            <p>We examine its features, specifications, intended uses and distinguishing qualities. We identify what a prospective customer needs to know.</p>
+          </article>
+          <article class="pdw-step">
+            <div class="pdw-number">STEP 02</div>
+            <h3>Understand the buyer</h3>
+            <p>Who is likely to purchase this product? What matters to them? What concerns might prevent them from buying?</p>
+          </article>
+          <article class="pdw-step">
+            <div class="pdw-number">STEP 03</div>
+            <h3>Find the right words</h3>
+            <p>We identify relevant keywords and translate product information into clear, benefit-oriented language.</p>
+          </article>
+          <article class="pdw-step">
+            <div class="pdw-number">STEP 04</div>
+            <h3>Write, review and refine</h3>
+            <p>We review the copy for clarity, accuracy, readability and SEO considerations before delivery.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHAT'S INCLUDED -->
+    <section class="pdw-section" id="included">
+      <div class="pdw-wrap">
+        <div class="pdw-section-head">
+          <div class="pdw-eyebrow">What’s included</div>
+          <h2>Everything your product page needs to make a stronger impression.</h2>
+        </div>
+
+        <div class="pdw-cards pdw-cards-four">
+          <article class="pdw-card">
+            <div class="pdw-number">04 <span>— SEARCH</span></div>
+            <h3>SEO titles and meta descriptions</h3>
+            <p>We provide SEO titles and meta descriptions alongside your product descriptions, helping each product page make a stronger first impression in search.</p>
+          </article>
+          <article class="pdw-card">
+            <div class="pdw-number">05 <span>— CONSISTENCY</span></div>
+            <h3>A consistent catalogue</h3>
+            <p>Whether you have a handful of products or hundreds, your catalogue should communicate a consistent brand personality.</p>
+          </article>
+          <article class="pdw-card">
+            <div class="pdw-number">06 <span>— BULK VALUE</span></div>
+            <h3>Better value on bulk orders</h3>
+            <p>Have a large catalogue to populate? Ask us about volume-based pricing for qualifying bulk orders.</p>
+          </article>
+          <article class="pdw-card">
+            <div class="pdw-number">07 <span>— FREE SAMPLE</span></div>
+            <h3>Try before you commit</h3>
+            <p>Not sure whether our writing is right for your business? Get in touch to discuss a sample before choosing a package.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PACKAGES -->
+    <section class="pdw-section pdw-soft" id="packages">
+      <div class="pdw-wrap">
+        <div class="pdw-pricing-head">
+          <div class="pdw-section-head">
+            <div class="pdw-eyebrow">Writing packages</div>
+            <h2>Start small. Scale when you’re ready.</h2>
+            <p class="pdw-lead">Whether you’re testing the waters or building an entire catalogue, there’s a package to get you moving.</p>
+          </div>
+          <p class="pdw-side-note">Need a larger order? <a href="#contact">Talk to us about bulk pricing.</a></p>
+        </div>
+
+        <div class="pdw-pricing-grid">
+          <article class="pdw-price-card">
+            <div class="pdw-tier">Basic</div>
+            <h3>A practical starting point</h3>
+            <p>For businesses looking to experience our product description writing before placing a larger order.</p>
+            <ul>
+              <li>Product-focused descriptions</li>
+              <li>Research-led writing</li>
+              <li>SEO-aware copy</li>
+            </ul>
+            <a class="pdw-btn pdw-btn-dark" href="#contact">Discuss your requirements ↗</a>
+          </article>
+          <article class="pdw-price-card pdw-price-popular">
+            <div class="pdw-tier">Standard</div>
+            <h3>For growing catalogues</h3>
+            <p>For online stores improving product content across a growing catalogue.</p>
+            <ul>
+              <li>Consistent catalogue voice</li>
+              <li>Product and audience research</li>
+              <li>SEO titles and meta descriptions</li>
+            </ul>
+            <a class="pdw-btn pdw-btn-dark" href="#contact">Discuss your requirements ↗</a>
+          </article>
+          <article class="pdw-price-card">
+            <div class="pdw-tier">Premium</div>
+            <h3>For larger catalogues</h3>
+            <p>For businesses with substantial product ranges that need consistent descriptions at scale.</p>
+            <ul>
+              <li>Bulk-order planning</li>
+              <li>Consistent writing standards</li>
+              <li>Volume-based pricing</li>
+            </ul>
+            <a class="pdw-btn pdw-btn-dark" href="#contact">Discuss your requirements ↗</a>
+          </article>
+        </div>
+        <p class="pdw-fine">Package scope and pricing depend on product volume, research requirements and the information supplied. Contact us for a quote.</p>
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="pdw-cta" id="contact">
+      <div class="pdw-wrap">
+        <div class="pdw-eyebrow">Let’s talk</div>
+        <h2>Your products are ready to be discovered. Let’s give people a reason to choose them.</h2>
+        <p class="pdw-lead">You’ve already invested in your products, your store and the experience you want to offer customers. Don’t let an overlooked product description become the weakest link.</p>
+        <a class="pdw-btn" href="mailto:hello@topleaguetech.com?subject=Product%20description%20writing%20sample">Request your free sample <span aria-hidden="true">↗</span></a>
+        <p class="pdw-cta-note">No obligation. Just good product writing for you to evaluate.</p>
+      </div>
+    </section>
+
   </div>
 
-  <!-- OUR PROCESS -->
-  <section class="section" id="process">
-    <div class="wrap process">
-      <div>
-        <div class="kicker">How we work</div>
-        <h2 class="section-title">
-          Before we write about your product, we need to understand it.
-        </h2>
-        <p>
-          Good product descriptions don't begin with a writing template. They
-          begin with understanding.
-        </p>
-      </div>
-
-      <div class="process-list">
-        <article class="step">
-          <span>01</span>
-          <div>
-            <h3>Understand the product</h3>
-            <p>
-              We examine its features, specifications, intended uses and
-              distinguishing qualities. We identify what a prospective customer
-              needs to know.
-            </p>
-          </div>
-        </article>
-
-        <article class="step">
-          <span>02</span>
-          <div>
-            <h3>Understand the buyer</h3>
-            <p>
-              Who is likely to purchase this product? What matters to them? What
-              concerns might prevent them from buying? These questions shape the
-              direction of the copy.
-            </p>
-          </div>
-        </article>
-
-        <article class="step">
-          <span>03</span>
-          <div>
-            <h3>Find the right words</h3>
-            <p>
-              We identify relevant keywords and translate product information into
-              clear, benefit-oriented language that speaks to your intended
-              audience.
-            </p>
-          </div>
-        </article>
-
-        <article class="step">
-          <span>04</span>
-          <div>
-            <h3>Write, review and refine</h3>
-            <p>
-              We review the copy for clarity, accuracy, readability and SEO
-              considerations, then refine the final descriptions before delivery.
-            </p>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- PACKAGES -->
-  <section class="section pricing" id="packages">
-    <div class="wrap">
-      <div class="pricing-intro">
-        <div>
-          <div class="kicker">Writing packages</div>
-          <h2 class="section-title">Start small. Scale when you're ready.</h2>
-        </div>
-        <p>
-          Whether you're testing the waters or building an entire catalogue,
-          there's a package to get you moving. Need a larger order? Ask us about
-          bulk pricing.
-        </p>
-      </div>
-
-      <div class="packages">
-        <article class="package">
-          <div class="tag">Basic</div>
-          <h3>A practical starting point</h3>
-          <p class="desc">
-            For businesses looking to experience our product description writing
-            before placing a larger order.
-          </p>
-          <div class="price">Let's talk</div>
-          <ul>
-            <li>Product-focused descriptions</li>
-            <li>Research-led writing</li>
-            <li>SEO-aware copy</li>
-          </ul>
-          <a class="btn" href="#contact">Discuss your requirements</a>
-        </article>
-
-        <article class="package featured">
-          <div class="tag">Standard</div>
-          <h3>For growing catalogues</h3>
-          <p class="desc">
-            A larger content requirement for online stores improving product
-            content across their catalogue.
-          </p>
-          <div class="price">Let's talk</div>
-          <ul>
-            <li>Consistent catalogue voice</li>
-            <li>Product and audience research</li>
-            <li>SEO titles and meta descriptions</li>
-          </ul>
-          <a class="btn" href="#contact">Discuss your requirements</a>
-        </article>
-
-        <article class="package">
-          <div class="tag">Premium</div>
-          <h3>For larger catalogues</h3>
-          <p class="desc">
-            For businesses with a substantial number of products that need
-            consistent descriptions at scale.
-          </p>
-          <div class="price">Let's talk</div>
-          <ul>
-            <li>Bulk-order planning</li>
-            <li>Consistent writing standards</li>
-            <li>Volume-based discounts</li>
-          </ul>
-          <a class="btn" href="#contact">Discuss your requirements</a>
-        </article>
-      </div>
-
-      <p class="hero-note">
-        Package scope and pricing depend on product volume, research requirements
-        and the information supplied. Contact us for a quote.
-      </p>
-    </div>
-  </section>
-
-  <!-- FINAL CTA -->
-  <section id="contact" class="cta">
-    <div class="wrap">
-      <div class="kicker">Let's talk</div>
-      <div class="cta-inner">
-        <div>
-          <h2>Your products are ready to be discovered. Let's give people a reason to choose them.</h2>
-          <p>
-            You've already invested in your products, your store and the
-            experience you want to offer customers. Don't let an overlooked
-            product description become the weakest link.
-          </p>
-        </div>
-        <div>
-          <a
-            class="button primary"
-            href="mailto:hello@topleaguetech.com?subject=Product%20description%20writing%20sample"
-          >
-            Request your free sample →
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <div class="wrap footerrow">
-      <div><span class="footerbrand">TOP LEAGUE</span> · Bhubaneswar, India</div>
-      <div>Product description writing · Content that helps customers choose.</div>
+  <footer slot="footer" class="pdw-footer">
+    <div class="pdw-wrap">
+      <span>© Top League Technologies Pvt. Ltd.</span>
+      <span>Product description writing · Bhubaneswar, India</span>
     </div>
   </footer>
+
+  <style>
+    :global(html) { scroll-behavior: smooth; }
+
+    /* Keep the existing AstroWindy site header, but visually connect it to this page's hero. */
+    :global(body.product-description-page #header) {
+      color: #fff;
+      background: #17242b !important;
+      border-bottom: 1px solid rgb(255 255 255 / 12%);
+    }
+    :global(body.product-description-page #header > div:first-child),
+    :global(body.product-description-page #header.scroll > div:first-child) {
+      background: #17242b !important;
+      box-shadow: none !important;
+      backdrop-filter: none !important;
+    }
+    :global(body.product-description-page #header a),
+    :global(body.product-description-page #header button) { color: #e1e7e7 !important; }
+    :global(body.product-description-page #header a:hover) { color: #fff !important; }
+    :global(body.product-description-page #header .text-gray-900) { color: #fff !important; }
+
+    .pdw-page {
+      --pdw-ink: #17242b;
+      --pdw-muted: #647178;
+      --pdw-paper: #fff;
+      --pdw-soft: #f5f7f7;
+      --pdw-line: #e2e8e8;
+      --pdw-accent: #b34a43;
+      width: 100%;
+      overflow: hidden;
+      background: var(--pdw-paper);
+      color: var(--pdw-ink);
+      font-family: Inter, var(--aw-font-sans, Arial), sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+    }
+    .pdw-page *, .pdw-page *::before, .pdw-page *::after { box-sizing: border-box; }
+    .pdw-page h1, .pdw-page h2, .pdw-page h3, .pdw-page p { margin-top: 0; }
+    .pdw-page h1, .pdw-page h2, .pdw-page h3 {
+      color: inherit;
+      font-weight: 800;
+      line-height: 1.14;
+      letter-spacing: -.045em;
+    }
+    .pdw-wrap { width: calc(100% - 48px); max-width: 1160px; margin: 0 auto; }
+    .pdw-eyebrow {
+      margin-bottom: 14px;
+      color: var(--pdw-accent);
+      font-size: .76rem;
+      font-weight: 800;
+      letter-spacing: .12em;
+      line-height: 1.4;
+      text-transform: uppercase;
+    }
+    .pdw-lead { max-width: 720px; color: var(--pdw-muted); font-size: clamp(1.03rem, 1.5vw, 1.2rem); line-height: 1.65; }
+
+    .pdw-hero {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(76px, 9vw, 112px) 0 82px;
+      background: linear-gradient(110deg, #17242b 0%, #26383f 65%, #34484e 100%);
+      color: #fff;
+    }
+    .pdw-hero::after {
+      position: absolute;
+      top: 80px;
+      right: -160px;
+      width: 560px;
+      height: 560px;
+      border: 1px solid rgb(255 255 255 / 8%);
+      border-radius: 50%;
+      box-shadow: 0 0 0 65px rgb(255 255 255 / 4%), 0 0 0 130px rgb(255 255 255 / 2.5%);
+      content: '';
+      pointer-events: none;
+    }
+    .pdw-hero .pdw-wrap { position: relative; z-index: 1; }
+    .pdw-anchor-nav {
+      display: flex;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+      gap: 24px;
+      margin: 0 0 48px;
+      padding-bottom: 17px;
+      border-bottom: 1px solid rgb(255 255 255 / 16%);
+      color: #d1dddd;
+      font-size: .78rem;
+    }
+    .pdw-anchor-nav a { color: inherit; text-decoration: none; transition: color .2s ease; }
+    .pdw-anchor-nav a:hover { color: #fff; }
+    .pdw-hero .pdw-eyebrow { color: #f0a197; }
+    .pdw-hero h1 {
+      max-width: 900px;
+      margin: 18px 0 22px;
+      color: #fff;
+      font-size: clamp(2.8rem, 5.6vw, 5.3rem);
+      font-weight: 800;
+      line-height: 1.04;
+      letter-spacing: -.06em;
+    }
+    .pdw-hero h1 em { color: #f0a197; font-style: normal; }
+    .pdw-hero .pdw-lead { max-width: 690px; color: #d3dddd; }
+    .pdw-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+    .pdw-btn {
+      display: inline-flex;
+      min-height: 48px;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      padding: 12px 20px;
+      border: 1px solid var(--pdw-accent);
+      border-radius: 2px;
+      background: var(--pdw-accent);
+      color: #fff !important;
+      font-size: .88rem;
+      font-weight: 750;
+      line-height: 1.3;
+      text-decoration: none !important;
+      transition: background .2s ease, border-color .2s ease, transform .2s ease;
+    }
+    .pdw-btn:hover { transform: translateY(-2px); border-color: #963d37; background: #963d37; }
+    .pdw-btn-outline { border-color: rgb(255 255 255 / 50%); background: transparent; color: #fff !important; }
+    .pdw-btn-outline:hover { border-color: #fff; background: rgb(255 255 255 / 10%); }
+    .pdw-hero-note { margin: 18px 0 0; color: #b8c5c5; font-size: .8rem; }
+
+    .pdw-section { padding: 94px 0; background: var(--pdw-paper); scroll-margin-top: 88px; }
+    .pdw-soft { background: var(--pdw-soft); }
+    .pdw-section-head { max-width: 760px; margin-bottom: 42px; }
+    .pdw-section-head h2 { margin-bottom: 18px; font-size: clamp(2.1rem, 4vw, 3.5rem); }
+    .pdw-section-head .pdw-lead { margin-bottom: 0; }
+    .pdw-cards { display: grid; gap: 18px; }
+    .pdw-cards-three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .pdw-cards-four { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .pdw-card {
+      min-height: 220px;
+      padding: 28px;
+      border: 1px solid var(--pdw-line);
+      background: var(--pdw-paper);
+    }
+    .pdw-number {
+      margin-bottom: 22px;
+      color: var(--pdw-accent);
+      font-size: .75rem;
+      font-weight: 800;
+      letter-spacing: .12em;
+    }
+    .pdw-number span { color: var(--pdw-muted); }
+    .pdw-card h3 { margin-bottom: 10px; font-size: 1.3rem; }
+    .pdw-card p { margin-bottom: 0; color: var(--pdw-muted); font-size: .93rem; line-height: 1.65; }
+
+    .pdw-story { display: grid; grid-template-columns: .72fr 1.28fr; gap: 9%; align-items: start; }
+    .pdw-story-aside { padding-top: 10px; }
+    .pdw-story-index { color: #e4eaea; font-size: clamp(5rem, 10vw, 7rem); font-weight: 850; line-height: 1; letter-spacing: -.09em; }
+    .pdw-story-copy { max-width: 740px; }
+    .pdw-story-copy h2 { margin-bottom: 28px; font-size: clamp(2.1rem, 3.7vw, 3.25rem); }
+    .pdw-story-copy p { margin-bottom: 18px; color: #58666c; }
+    .pdw-story-copy strong { color: var(--pdw-ink); }
+    .pdw-story-copy .pdw-pivot {
+      margin: 30px 0;
+      color: var(--pdw-ink);
+      font-size: clamp(1.6rem, 2.8vw, 2.4rem);
+      font-weight: 800;
+      line-height: 1.25;
+      letter-spacing: -.045em;
+    }
+
+    .pdw-difference { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+    .pdw-difference-card { padding: 32px; border: 1px solid var(--pdw-line); background: #fff; }
+    .pdw-difference-card .pdw-eyebrow { color: #a34b45; }
+    .pdw-difference-card h3 { margin-bottom: 10px; font-size: 1.65rem; }
+    .pdw-difference-card ul { margin: 16px 0 0; padding-left: 20px; color: var(--pdw-muted); }
+    .pdw-difference-card li { padding: 5px 0; }
+    .pdw-difference-card-dark { border-color: #17242b; background: #17242b; color: #fff; }
+    .pdw-difference-card-dark .pdw-eyebrow { color: #f0a197; }
+    .pdw-difference-card-dark ul { color: #d3dddd; }
+
+    .pdw-steps { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; }
+    .pdw-step { padding-top: 20px; border-top: 1px solid #bfcaca; }
+    .pdw-step .pdw-number { margin-bottom: 20px; }
+    .pdw-step h3 { margin-bottom: 10px; font-size: 1.25rem; }
+    .pdw-step p { margin-bottom: 0; color: var(--pdw-muted); font-size: .92rem; }
+
+    .pdw-pricing-head { display: flex; align-items: end; justify-content: space-between; gap: 25px; margin-bottom: 38px; }
+    .pdw-pricing-head .pdw-section-head { margin: 0; }
+    .pdw-side-note { max-width: 300px; margin: 0 0 5px; color: var(--pdw-muted); font-size: .9rem; }
+    .pdw-side-note a { color: var(--pdw-accent); text-decoration: underline; text-underline-offset: 3px; }
+    .pdw-pricing-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; align-items: stretch; }
+    .pdw-price-card {
+      position: relative;
+      display: flex;
+      min-height: 390px;
+      flex-direction: column;
+      padding: 30px;
+      border: 1px solid var(--pdw-line);
+      background: #fff;
+      color: var(--pdw-ink);
+    }
+    .pdw-price-popular { border: 2px solid var(--pdw-accent); }
+    .pdw-tier { color: var(--pdw-accent); font-size: .74rem; font-weight: 850; letter-spacing: .13em; text-transform: uppercase; }
+    .pdw-price-card h3 { margin: 13px 0; font-size: 1.65rem; }
+    .pdw-price-card > p { color: var(--pdw-muted); font-size: .9rem; }
+    .pdw-price-card ul { margin: 8px 0 24px; padding: 18px 0 0; border-top: 1px solid var(--pdw-line); color: #526067; font-size: .9rem; list-style: none; }
+    .pdw-price-card li { padding: 4px 0; }
+    .pdw-price-card li::before { margin-right: 10px; color: var(--pdw-accent); content: '✓'; font-weight: 850; }
+    .pdw-btn-dark { margin-top: auto; border-color: var(--pdw-ink); background: var(--pdw-ink); }
+    .pdw-btn-dark:hover { border-color: #34484e; background: #34484e; }
+    .pdw-fine { margin: 18px 0 0; color: var(--pdw-muted); font-size: .8rem; }
+
+    .pdw-cta { scroll-margin-top: 88px; position: relative; overflow: hidden; padding: 92px 0; background: #17242b; color: #fff; text-align: center; }
+    .pdw-cta::before {
+      position: absolute;
+      bottom: -320px;
+      left: -180px;
+      width: 500px;
+      height: 500px;
+      border: 1px solid rgb(255 255 255 / 8%);
+      border-radius: 50%;
+      box-shadow: 0 0 0 55px rgb(255 255 255 / 4%), 0 0 0 110px rgb(255 255 255 / 2.5%);
+      content: '';
+      pointer-events: none;
+    }
+    .pdw-cta .pdw-wrap { position: relative; z-index: 1; }
+    .pdw-cta .pdw-btn { display: table; width: auto; max-width: 100%; margin: 0 auto; }
+    .pdw-cta .pdw-eyebrow { color: #f0a197; }
+    .pdw-cta h2 { max-width: 850px; margin: 18px auto 20px; color: #fff; font-size: clamp(2.1rem, 4vw, 3.5rem); }
+    .pdw-cta .pdw-lead { max-width: 760px; margin: 0 auto 28px; color: #c8d3d3; }
+    .pdw-cta-note { margin: 16px 0 0; color: #b8c5c5; font-size: .8rem; }
+    .pdw-footer { padding: 25px 0; background: #111b20; color: #aab8b9; font-size: .78rem; }
+    .pdw-footer .pdw-wrap { display: flex; justify-content: space-between; gap: 15px; }
+
+    :global(.dark) .pdw-page {
+      --pdw-ink: #edf3f3;
+      --pdw-muted: #aab8bd;
+      --pdw-paper: #10191d;
+      --pdw-soft: #172328;
+      --pdw-line: #304047;
+    }
+    :global(.dark) .pdw-story-index { color: #26373d; }
+    :global(.dark) .pdw-story-copy p { color: #b4c0c3; }
+    :global(.dark) .pdw-story-copy strong { color: #fff; }
+    :global(.dark) .pdw-story-copy .pdw-pivot { color: #fff; }
+    :global(.dark) .pdw-card { background: #172328; }
+    :global(.dark) .pdw-difference-card { border-color: #304047; background: #172328; color: #edf3f3; }
+    :global(.dark) .pdw-difference-card ul { color: #b4c0c3; }
+    :global(.dark) .pdw-difference-card-dark { border-color: #26373d; background: #0b1215; }
+    :global(.dark) .pdw-step { border-top-color: #405158; }
+    :global(.dark) .pdw-price-card { border-color: #304047; background: #172328; color: #edf3f3; }
+    :global(.dark) .pdw-price-card ul { border-top-color: #304047; color: #b4c0c3; }
+    :global(.dark) .pdw-price-popular { border-color: #b34a43; }
+
+    @media (max-width: 850px) {
+      .pdw-section { padding: 76px 0; }
+      .pdw-story { grid-template-columns: 1fr; gap: 10px; }
+      .pdw-story-index { font-size: 4.5rem; }
+      .pdw-cards-three { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .pdw-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .pdw-pricing-head { display: block; }
+      .pdw-side-note { margin-top: 20px; }
+      .pdw-pricing-grid { grid-template-columns: 1fr; }
+      .pdw-price-card { min-height: 0; }
+    }
+    @media (max-width: 600px) {
+      .pdw-wrap { width: calc(100% - 36px); }
+      .pdw-hero { padding: 38px 0 64px; }
+      .pdw-anchor-nav { justify-content: flex-start; gap: 17px; margin-bottom: 36px; overflow-x: auto; flex-wrap: nowrap; white-space: nowrap; }
+      .pdw-hero h1 { font-size: clamp(2.65rem, 12vw, 3.3rem); }
+      .pdw-section { padding: 66px 0; }
+      .pdw-cards-three, .pdw-cards-four, .pdw-difference, .pdw-steps { grid-template-columns: 1fr; }
+      .pdw-card { min-height: 0; padding: 24px; }
+      .pdw-section-head { margin-bottom: 32px; }
+      .pdw-story-copy p { font-size: .96rem; }
+      .pdw-story-copy .pdw-pivot { font-size: 1.75rem; }
+      .pdw-difference-card { padding: 26px; }
+      .pdw-cta { padding: 72px 0; }
+      .pdw-footer .pdw-wrap { display: block; }
+      .pdw-footer .pdw-wrap span { display: block; }
+      .pdw-footer .pdw-wrap span + span { margin-top: 5px; }
+    }
+  </style>
 </Layout>
