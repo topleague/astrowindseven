@@ -1176,6 +1176,10 @@ all:revert; background-color: #1f5f55; background: #1f5f55;
     font-family: Mona Bold,sans-serif!important;
   }
 
+  .product-description-page #difference .feature-head,.product-description-page #difference .feature-head p {
+    max-width: 760px; margin-bottom: 44px;
+  }
+
 /* Footer*/
 footer {
     background: #2753a2!important;
