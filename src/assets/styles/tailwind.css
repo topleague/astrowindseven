@@ -1185,6 +1185,13 @@ all:revert; background-color: #1f5f55; background: #1f5f55;
     grid-template-columns: repeat(auto-fit, minmax(clamp(50% - 24px, (600px - 100vw) * 1000, 100%), 1fr));
   }
 
+.product-description-page #included .features .feature {grid-column: revert;}
+.product-description-page #included .features {grid-template-columns: 1fr 1fr;}
+.product-description-page #included .features {grid-template-columns: repeat(auto-fit,minmax(clamp(50% - 24px,600000px - 100000vw,100%),1fr));}
+.product-description-page #included .container .feature-head {max-width: 760px;margin-bottom: 44px;}
+.product-description-page #included .features .feature:first-child {background-color: revert; color: #000;border: #dfe5e8 1px solid;}
+.product-description-page #included .features .feature:first-child p {color: #64717d;}
+
 /* Footer*/
 footer {
     background: #2753a2!important;
