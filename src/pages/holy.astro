@@ -1,6 +1,7 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
 import Features2 from '~/components/widgets/Features2.astro';
+import Prices from '~/components/widgets/Pricing.astro';
 
 const metadata = {
   title: 'Product Description Writing Services | Top League',
@@ -308,5 +309,98 @@ const metadata = {
 
   </div>
 </section>
+
+<!-- /*___________________________________🟢 ¯\_(ツ)_/¯ 🟢 ___________________________________*/ -->
+<!-- Pricing Widget ******************* -->
+
+  <Prices
+    classes={{
+      container: 'service-pricing',
+    }}
+    title="Our prices"
+    subtitle="Only pay for what you need"
+    prices={[
+      {
+        title: 'basic',
+        subtitle: 'Optimal choice for personal use',
+        price: { monthly: 29, yearly: 290 },
+        period: { monthly: 'per month', yearly: 'per year' },
+        items: [
+          {
+            description: 'Etiam in libero, et volutpat',
+          },
+          {
+            description: 'Aenean ac nunc dolor tristique',
+          },
+          {
+            description: 'Cras scelerisque accumsan lib',
+          },
+          {
+            description: 'In hac habitasse',
+          },
+        ],
+        callToAction: {
+          text: 'Get started',
+          href: '#',
+        },
+      },
+      {
+        title: 'standard',
+        subtitle: 'Optimal choice for small teams',
+        price: { monthly: 69, yearly: 690 },
+        period: { monthly: 'per month', yearly: 'per year' },
+        note: 'Two months free on the yearly plan',
+        highlight: true,
+        items: [
+          {
+            description: 'Proin vel laoreet',
+          },
+          {
+            description: 'Ut efficitur habitasse egestas',
+          },
+          {
+            description: 'Volutpat hac curabitur',
+          },
+          {
+            description: 'Pellentesque blandit ut nibh',
+          },
+          {
+            description: 'Donec fringilla sem',
+          },
+        ],
+        callToAction: {
+          text: 'Get started',
+          href: '#',
+        },
+        hasRibbon: true,
+        ribbonTitle: 'popular',
+      },
+      {
+        title: 'premium',
+        subtitle: 'Optimal choice for companies',
+        price: { monthly: 199, yearly: 1990 },
+        period: { monthly: 'per month', yearly: 'per year' },
+        items: [
+          {
+            description: 'Curabitur suscipit risus',
+          },
+          {
+            description: 'Aliquam habitasse malesuada',
+          },
+          {
+            description: 'Suspendisse sit amet blandit',
+          },
+          {
+            description: 'Suspendisse auctor blandit dui',
+          },
+        ],
+        callToAction: {
+          text: 'Get started',
+          href: '#',
+        },
+      },
+    ]}
+  />
+
   
 </Layout>
