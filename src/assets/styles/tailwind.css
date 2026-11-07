@@ -1176,8 +1176,13 @@ all:revert; background-color: #1f5f55; background: #1f5f55;
     font-family: Mona Bold,sans-serif!important;
   }
 
-  .product-description-page #difference .feature-head,.product-description-page #difference .feature-head p {
+  .product-description-page #process .feature-head, .product-description-page #difference .feature-head, .product-description-page #difference .feature-head p {
     max-width: 760px; margin-bottom: 44px;
+  }
+
+  .product-description-page #process .process {
+    display: grid; gap: 24px; max-width: 850px;
+    grid-template-columns: repeat(auto-fit, minmax(clamp(50% - 24px, (600px - 100vw) * 1000, 100%), 1fr));
   }
 
 /* Footer*/
