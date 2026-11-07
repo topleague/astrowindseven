@@ -1167,7 +1167,8 @@ all:revert; background-color: #1f5f55; background: #1f5f55;
   .intro-copy strong {
     color: #17242b; letter-spacing: -.045em;
     margin: 30px 0; font-size: clamp(1.6rem,2.8vw,2.4rem);
-    font-weight: 800; line-height: 1.25;
+    font-weight: 500; line-height: 1.25;
+    font-family: Mona Reg,Mona Bold,sans-serif!important;
   }
 
   .num {
