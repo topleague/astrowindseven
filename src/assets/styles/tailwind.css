@@ -1192,6 +1192,16 @@ all:revert; background-color: #1f5f55; background: #1f5f55;
 .product-description-page #included .features .feature:first-child {background-color: revert; color: #000;border: #dfe5e8 1px solid;}
 .product-description-page #included .features .feature:first-child p {color: #64717d;}
 
+.product-description-page #packages .container .pricing-grid .price-card {
+background-color: #fff; border: 1px solid #e2e8e8; padding: 30px; display: flex;
+flex-direction: column; min-height: 390px; position: relative;
+}
+
+.product-description-page #packages .container .pricing-grid {
+  display: grid; gap: 18px; grid-template-columns: repeat(auto-fit, minmax(clamp(33.33% - 18px, (900px - 100vw) * 1000, clamp(50% - 18px, (600px - 100vw) * 1000, 100%)), 1fr));
+}
+
+
 /* Footer*/
 footer {
     background: #2753a2!important;
