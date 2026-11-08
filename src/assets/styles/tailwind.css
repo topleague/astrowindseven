@@ -1219,11 +1219,11 @@ color: #647178; font-size: .9rem;
 }
 
 #packages .container .pricing-grid .price-card li:before {
-content: "✓"; color: #647178; margin-right: 10px;
+content: "✓"; color: #b34a43; margin-right: 10px;
 }
 
 #packages .container .pricing-grid .price-card ul {
-border-top: 1px solid #e2e8e8; margin: 8px 0 24px; padding: 18px 0 0; list-style: none;
+border-top: 1px solid #647178; margin: 8px 0 24px; padding: 18px 0 0; list-style: none;
 }
 
 
