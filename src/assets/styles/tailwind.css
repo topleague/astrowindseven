@@ -1202,6 +1202,8 @@ flex-direction: column; min-height: 390px; position: relative;
 }
 
 /* Final Touches for Description Page */
+#packages .container .feature-head {max-width: 760px;}
+
 #packages .container .pricing-grid .price-card .kicker {
 color: #b34a43; letter-spacing: .13em; text-transform: uppercase; font-size: .74rem; font-weight: 850;
 }
