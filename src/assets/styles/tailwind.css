@@ -1208,6 +1208,10 @@ flex-direction: column; min-height: 390px; position: relative;
 color: #b34a43; letter-spacing: .13em; text-transform: uppercase; font-size: .74rem; font-weight: 850;
 }
 
+.product-description-page #packages .container .pricing-grid .price-popular {
+border: solid #b34a43 2px;
+}
+
 #packages .container .pricing-grid .price-card .btn.primary {
 background-color: #000; padding: 12px 20px; font-size: .88rem; font-weight: 750; color: #fff!important;
 }
