@@ -1233,7 +1233,18 @@ border-top: 1px solid #647178; margin: 8px 0 24px; padding: 18px 0 0; list-style
 }
 
 .product-description-page #contact.cta {background-color: #17242b;}
+.product-description-page #contact.cta h2 {margin-block: 2.5vw;}
 
+.product-description-page #contact .kicker {
+color: #f0a197; letter-spacing: .12em; margin-bottom: 1.75em; font-size: .76rem;
+font-family: Mona Reg,Mona Bold,sans-serif!important; font-weight: 500;
+}
+
+.product-description-page .cta .primary.button {
+border: 1px solid #b34a43; background-color: #b34a43; border-radius: 999px; gap: 12px;
+min-height: 48px; padding: 12px 20px; font-size: .88rem; font-weight: 750; display: inline-flex; color: #fff!important;
+text-decoration: none!important; margin-block: 3em;
+}
 
 
 /* Footer*/
