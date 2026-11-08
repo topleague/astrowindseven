@@ -1250,6 +1250,9 @@ content: ""; pointer-events: none; border: 1px solid #ffffff18; border-radius: 5
 box-shadow: 0 0 0 60px #ffffff09,0 0 0 120px #ffffff06; left: -280px;
 }
 
+/* PRE FOOTER SECTION HIDDEN */
+.product-description-page .pre-footer {content-visibility: hidden; padding: 0; margin: 0; border: 0;}
+
 
 /* Footer*/
 footer {
