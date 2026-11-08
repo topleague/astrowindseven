@@ -1232,6 +1232,8 @@ content: "✓"; color: #b34a43; margin-right: 10px;
 border-top: 1px solid #647178; margin: 8px 0 24px; padding: 18px 0 0; list-style: none; color: #647178; font-family: Para,Futura Book,serif!important;
 }
 
+.product-description-page #contact.cta {background-color: #17242b;}
+
 
 
 /* Footer*/
