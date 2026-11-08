@@ -1201,6 +1201,32 @@ flex-direction: column; min-height: 390px; position: relative;
   display: grid; gap: 18px; grid-template-columns: repeat(auto-fit, minmax(clamp(33.33% - 18px, (900px - 100vw) * 1000, clamp(50% - 18px, (600px - 100vw) * 1000, 100%)), 1fr));
 }
 
+/* Final Touches for Description Page */
+#packages .container .pricing-grid .price-card .kicker {
+color: #b34a43; letter-spacing: .13em; text-transform: uppercase; font-size: .74rem; font-weight: 850;
+}
+
+#packages .container .pricing-grid .price-card .btn.primary {
+background-color: #000; padding: 12px 20px; font-size: .88rem; font-weight: 750; color: #fff!important;
+}
+
+#packages .container .pricing-grid .price-card h3 {
+font-size: 1.65rem; margin-block: 13px;
+}
+
+#packages .container .pricing-grid .price-card p {
+color: #647178; font-size: .9rem;
+}
+
+#packages .container .pricing-grid .price-card li:before {
+content: "✓"; color: #647178; margin-right: 10px;
+}
+
+#packages .container .pricing-grid .price-card ul {
+border-top: 1px solid #e2e8e8; margin: 8px 0 24px; padding: 18px 0 0; list-style: none;
+}
+
+
 
 /* Footer*/
 footer {
