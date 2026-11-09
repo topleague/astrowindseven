@@ -1237,6 +1237,11 @@ flex-direction: column; min-height: 390px; position: relative;
 }
 
 /* Final Touches for Description Page */
+.product-description-page .text-center {max-width: 760px; margin-bottom: 44px;}
+.product-description-page .text-center h2 {font-size: clamp(38px,4.5vw,60px);}
+.text-center p {color: #647178;}
+
+
 #packages .container .feature-head {max-width: 760px;}
 
 #packages .container .pricing-grid .price-card .kicker {
