@@ -1173,7 +1173,7 @@ all:revert; background-color: #1f5f55; background: #1f5f55;
   .dark .product-description-page #coming {background-color: #0B0B0B;}
 
 
-  .intro-copy h2, .feature-head h2 {margin-bottom: 28px; color: #0B0B0B;}
+  .intro-copy h2, .feature-head h2 {margin-bottom: 24px; color: #0B0B0B;}
   .intro-copy p {margin-top: 0; margin: 0 0 18px;}
 
   .intro-copy strong {
@@ -1200,13 +1200,13 @@ all:revert; background-color: #1f5f55; background: #1f5f55;
   }
 
   .product-description-page #process .container p {color: #647178;}
-  .product-description-page #process h3 {font-size: 1.3rem;}
+  .product-description-page #process h3 {font-size: 1.3rem; margin-bottom: 10px;}
 
   .product-description-page #process .container .feature-head p {
     font-size: clamp(1.03rem,1.5vw,1.2rem); max-width: 720px; line-height: 1.65;
   }
 
-  .product-description-page .kicker {color: #b34a43;}
+  .product-description-page .kicker {color: #b34a43; margin-bottom: 20px;}
 
 .product-description-page #included .features .feature {grid-column: revert;}
 .product-description-page #included .features {grid-template-columns: 1fr 1fr;}
