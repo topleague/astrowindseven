@@ -1214,7 +1214,7 @@ all:revert; background-color: #1f5f55; background: #1f5f55;
   .product-description-page #difference .feature:last-child {color: #fff; background: #101817;}
   .product-description-page .kicker {color: #b34a43; margin-bottom: 20px; font-size: 16px;}
   .product-description-page #difference .feature h3 {margin-block: 0;}
-  .product-description-page #difference .feature ul li {line-height: 40px;}
+  .product-description-page #difference .feature ul li {line-height: normal; margin-block: 15px;}
   .product-description-page #difference .feature ul {margin-block: 20px;}
 
 
