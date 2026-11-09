@@ -1071,6 +1071,10 @@ max-width: 1180px; margin: auto; /* padding-inline: 0; */
 background-color: rgb(250, 235, 215);
 }
 
+.product-description-page .coming-section .text-secondary {
+color: #b34a43; font-size: 12px; font-weight: 700; letter-spacing: .14em; margin-bottom: 20px;
+}
+
 .proofgrid.wrap {margin: auto; padding-inline: calc(var(--spacing) * 4);}
 
 /* BASED ON A REAL CLIENT STORY. */
