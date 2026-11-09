@@ -1198,6 +1198,12 @@ all:revert; background-color: #1f5f55; background: #1f5f55;
   }
 
   .product-description-page #difference .feature-head {margin-block: 0;}
+  .product-description-page #difference article li {font-size: 17px; font-family: Para, sans-serif; line-height: 36px;}
+  .product-description-page #difference article ul {list-style: none; padding-left: 0;}
+  .product-description-page #difference article li::before {color: #b34a43; margin-right: 10px;}
+  .product-description-page #difference article:first-of-type li::before {content: "×"; text-decoration: none; display: inline-block;}
+  .product-description-page #difference article:first-of-type li {text-decoration: line-through #b34a43;}
+  .product-description-page #difference article:last-of-type li::before {content: "✓";}
 
   .product-description-page #process .process {
     display: grid; gap: 24px; max-width: 850px;
