@@ -1205,6 +1205,19 @@ all:revert; background-color: #1f5f55; background: #1f5f55;
   .product-description-page #difference article:first-of-type li {text-decoration: line-through #b34a43;}
   .product-description-page #difference article:last-of-type li::before {content: "✓";}
 
+  
+  .product-description-page .features .feature:first-child {grid-column: auto!important;}
+  .product-description-page .feature:nth-child(2) {grid-column: auto!important;}
+  .product-description-page #difference .features {grid-template-columns: repeat(auto-fit, minmax(clamp(calc(50% - 12px), (850px - 100vw) * 1000, 100%), 1fr));}
+
+  .product-description-page #difference .feature:first-child {color: revert; background-color: revert;}
+  .product-description-page #difference .feature:last-child {color: #fff; background: #101817;}
+  .product-description-page .kicker {color: #b34a43; margin-bottom: 20px; font-size: 16px;}
+  .product-description-page #difference .feature h3 {margin-block: 0;}
+  .product-description-page #difference .feature ul li {line-height: 40px;}
+  .product-description-page #difference .feature ul {margin-block: 20px;}
+
+
   .product-description-page #process .process {
     display: grid; gap: 24px; max-width: 850px;
     grid-template-columns: repeat(auto-fit, minmax(clamp(50% - 24px, (600px - 100vw) * 1000, 100%), 1fr));
