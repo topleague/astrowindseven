@@ -1249,6 +1249,9 @@ flex-direction: column; min-height: 390px; position: relative;
   display: grid; gap: 18px; grid-template-columns: repeat(auto-fit, minmax(clamp(33.33% - 18px, (900px - 100vw) * 1000, clamp(50% - 18px, (600px - 100vw) * 1000, 100%)), 1fr));
 }
 
+.product-description-page #difference .feature-head p, #packages .container .feature-head p {
+font-size: clamp(1.03rem,1.5vw,1.2rem); max-width: revert;}
+
 /* Final Touches for Description Page */
 .product-description-page .coming-section .grid .flex {box-shadow: none; border: 1px solid #e2e8e8; padding: 28px;}
 .product-description-page .text-center {max-width: 760px; margin-bottom: 44px;}
