@@ -1398,6 +1398,41 @@ box-shadow: 0 0 0 60px #ffffff09,0 0 0 120px #ffffff06; left: -280px;
 
 /*___________________________________🟢 ¯\_(ツ)_/¯ 🟢 ___________________________________*/
 
+/* PRODUCT DESCRIPTION PAGE — TOP LEAGUE APPROACH: DARK MODE */
+
+.dark .product-description-page #difference {  background: linear-gradient(145deg, #121e2d 0%, #19283a 100%);}
+
+/* Section heading */
+.dark .product-description-page #difference .feature-head h2 {  color: #f8fafc;}
+
+/* Section label */
+.dark .product-description-page #difference .feature-head .kicker {  color: #f0a197;}
+
+/* Introductory paragraph */
+.dark .product-description-page #difference .feature-head p {  color: #cbd5e1;}
+
+/* Comparison cards — shared styling */
+.dark .product-description-page #difference .feature {  border: 1px solid #475569;  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);}
+
+/* The Usual Way — restrained charcoal */
+.dark .product-description-page #difference .feature:nth-child(1) {  background: #202b3b;  border-color: #465365;  color: #f8fafc;}
+
+/* The Top League Approach — subtle green undertone */
+.dark .product-description-page #difference .feature:nth-child(2) {  background: #203a38;  border-color: #3b625b;  color: #f8fafc;}
+
+/* Card labels */
+.dark .product-description-page #difference .feature:nth-child(1) .kicker {  color: #e6a09a;}
+
+.dark .product-description-page #difference .feature:nth-child(2) .kicker {  color: #9bd4c2;}
+
+/* Card headings */
+.dark .product-description-page #difference .feature h3 {  color: #f8fafc;}
+
+/* Comparison list */
+.dark .product-description-page #difference .feature li {  color: #cbd5e1;}
+
+/*___________________________________🟢 ¯\_(ツ)_/¯ 🟢 ___________________________________*/
+
 /* Footer*/
 footer {
     background: #2753a2!important;
