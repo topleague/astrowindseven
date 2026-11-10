@@ -1339,6 +1339,10 @@ box-shadow: 0 0 0 60px #ffffff09,0 0 0 120px #ffffff06; left: -280px;
 /* Dropdown links */
 #header .dropdown-menu a:hover {  background-color: #354B55;  color: #FFFFFF !important;}
 
+/* KEEP HEADER BACKGROUND CONSISTENT ON SCROLL */
+#header.scroll > div:first-child {  background-color: #17242B !important;}
+
+
 /*___________________________________🟢 ¯\_(ツ)_/¯ 🟢 ___________________________________*/
 /* DARK MODE CSS FOR PRODUCT DESCRIPTION PAGE */
 
