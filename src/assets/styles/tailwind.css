@@ -1323,6 +1323,22 @@ box-shadow: 0 0 0 60px #ffffff09,0 0 0 120px #ffffff06; left: -280px;
 .product-description-page .pre-footer {content-visibility: hidden; padding: 0; margin: 0; border: 0;}
 
 
+/* Header */
+#header {  background-color: #17242B !important;  color: #E1E7E7;}
+
+/* Header links and buttons */
+#header a, #header button {  color: #E1E7E7 !important;}
+
+/* Main navigation hover */
+#header a:hover, #header button:hover { background-color: #354B55; color: #FFFFFF !important;}
+
+/* Dropdown background */
+#header .dropdown-menu {  background-color: #263943;}
+
+/* Dropdown links */
+#header .dropdown-menu a:hover {  background-color: #354B55;  color: #FFFFFF !important;}
+
+
 /* Footer*/
 footer {
     background: #2753a2!important;
