@@ -1074,10 +1074,9 @@ background-color: #DF4242;
 max-width: 1180px; margin: auto; /* padding-inline: 0; */
 }
 
-#coming {
-/*background: radial-gradient(60% 55% at 15% 20%,#818cf847,#0000 65%),radial-gradient(50% 50% at 85% 25%,#f472b638,#0000 65%);*/
-background-color: rgb(250, 235, 215);
-}
+/* WHAT HAPPENED - Optimized the CSS speccitifify trying to remove conflict */
+/* #coming {background-color: rgb(250, 235, 215);} */
+.home-draft #coming {  background-color: rgb(250, 235, 215);}
 
 .product-description-page .coming-section .text-secondary {
 color: #b34a43; font-size: 12px; font-weight: 700; letter-spacing: .14em; margin-bottom: 20px;
@@ -1153,9 +1152,10 @@ color: #b34a43; font-size: 12px; font-weight: 700; letter-spacing: .14em; margin
 .home-draft .footerbrand {color: white; font-weight: 850;}
 .home-draft footer.not-prose {display: none;}
 
-.dark :is(#coming, #reality, #howdy, #difference, .stepy, #proof){
-all:revert; background-color: #1f5f55; background: #1f5f55;
-}
+
+/* WHAT HAPPENED - Optimized the CSS speccitifify trying to remove conflict */
+/* .dark :is(#coming, #reality, #howdy, #difference, .stepy, #proof){all:revert; background-color: #1f5f55; background: #1f5f55;} */
+.dark .home-draft :is(#coming, #reality, #howdy, #difference, .stepy, #proof) {  background-color: #1f5f55;}
 
 /* Card Border Color of Proof Section */
 .home-draft #proof .flex.intersect-once {border: solid #bbb 1px; border-radius: 5px;}
@@ -1262,11 +1262,12 @@ flex-direction: column; min-height: 390px; position: relative;
 .product-description-page #difference .feature-head p, #packages .container .feature-head p {
 font-size: clamp(1.03rem,1.5vw,1.2rem); max-width: revert;}
 
+/*___________________________________🟢 ¯\_(ツ)_/¯ 🟢 ___________________________________*/
 /* Final Touches for Description Page */
 .product-description-page .coming-section .grid .flex {box-shadow: none; border: 1px solid #e2e8e8; padding: 28px;}
 .product-description-page .text-center {max-width: 760px; margin-bottom: 44px;}
 .product-description-page .text-center h2 {font-size: clamp(38px,4.5vw,60px);}
-.text-center p {color: #647178;}
+.product-description-page #coming .text-center p {color: #647178;}
 
 
 #packages .container .feature-head {max-width: 760px;}
@@ -1322,7 +1323,7 @@ box-shadow: 0 0 0 60px #ffffff09,0 0 0 120px #ffffff06; left: -280px;
 /* PRE FOOTER SECTION HIDDEN */
 .product-description-page .pre-footer {content-visibility: hidden; padding: 0; margin: 0; border: 0;}
 
-
+/*___________________________________🟢 ¯\_(ツ)_/¯ 🟢 ___________________________________*/
 /* Header */
 #header {  background-color: #17242B !important;  color: #E1E7E7;}
 
@@ -1338,6 +1339,35 @@ box-shadow: 0 0 0 60px #ffffff09,0 0 0 120px #ffffff06; left: -280px;
 /* Dropdown links */
 #header .dropdown-menu a:hover {  background-color: #354B55;  color: #FFFFFF !important;}
 
+/*___________________________________🟢 ¯\_(ツ)_/¯ 🟢 ___________________________________*/
+/* DARK MODE CSS FOR PRODUCT DESCRIPTION PAGE */
+
+/* PRODUCT DESCRIPTION PAGE — WHY IT MATTERS: DARK MODE */
+
+.dark .product-description-page #coming {  background: linear-gradient(145deg, #111827 0%, #172033 100%);}
+
+/* Section heading */
+.dark .product-description-page #coming .text-center h2 {  color: #f8fafc;}
+
+/* Section tagline */
+.dark .product-description-page #coming .text-secondary {  color: #f0a197;}
+
+/* Section subtitle */
+.dark .product-description-page #coming .text-center p {  color: #cbd5e1;}
+
+/* Feature cards */
+.dark .product-description-page #coming .coming-section .grid .flex {  background-color: #1e293b;  border: 1px solid #475569;  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);}
+
+/* Card headings */
+.dark .product-description-page #coming .coming-section .grid .flex h3 {  color: #f8fafc;}
+
+/* Card descriptions */
+.dark .product-description-page #coming .coming-section .grid .flex p {  color: #cbd5e1;}
+
+/* Card icons */
+.dark .product-description-page #coming .coming-section .grid .flex > svg {  color: #e6a09a;}
+
+/*___________________________________🟢 ¯\_(ツ)_/¯ 🟢 ___________________________________*/
 
 /* Footer*/
 footer {
