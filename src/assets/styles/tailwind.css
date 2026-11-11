@@ -350,6 +350,8 @@ background-color: inherit!important;
 background-color: inherit;
 }
 
+#header .site-title {color: #fff;}
+
 /* ____________________________________________________________ */
 /* HERO */
 .seo-content-writing .article-hero {
