@@ -1321,7 +1321,9 @@ box-shadow: 0 0 0 60px #ffffff09,0 0 0 120px #ffffff06; left: -280px;
 }
 
 /* PRE FOOTER SECTION HIDDEN */
-.product-description-page .pre-footer {content-visibility: hidden; padding: 0; margin: 0; border: 0;}
+/* .product-description-page .pre-footer {content-visibility: hidden; padding: 0; margin: 0; border: 0;} */
+.product-description-page .pre-footer { display:none;}
+.product-description-page .site-footer .pre-footer + div {padding-block: 1rem;}
 
 /*___________________________________🟢 ¯\_(ツ)_/¯ 🟢 ___________________________________*/
 /* Header */
