@@ -1055,7 +1055,8 @@ max-width: 1180px; margin: auto; /* padding-inline: 0; */
 
 /* HERO */
 .product-description-page .hero {color: #fff; background: linear-gradient(110deg, #17242b, #26383f 65%, #34484e);}
-.product-description-page .hero h1 {max-width: 850px;}
+.product-description-page .hero h1 {max-width: 850px; font-family: Mona Bold Pro Max,sans-serif!important;
+font-size: clamp(54px, 7vw, 92px);line-height: 1.1; letter-spacing: -.055em; margin: 0 0 28px;}
 /* REDUNDANT: duplicate of the background declaration consolidated into the rule above. */
 /*___________________________________🟢 REDUDANT  ¯\_(ツ)_/¯ CSS LINES (STARTS) 🟢 ___________________________________*/
 /*___________________________________🟢 REDUDANT  ¯\_(ツ)_/¯ CSS LINES (ENDS) 🟢 ___________________________________*/
