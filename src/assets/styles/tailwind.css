@@ -337,6 +337,10 @@ color: #fff!important;
 background-color: #fff;
 }
 
+#header .bg-black {
+  background-color: #fff;
+}
+
 /* *Header Dark Mode */
 .dark #header {
 background-color: inherit!important;
