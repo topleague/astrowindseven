@@ -153,74 +153,7 @@
 
 /* CUSTOM FONT */
 
-/* FUTURA NON-CONDENSED */
-
-@font-face {
-  font-family: 'Futura Light';
-  src: url('/fonts/FuturaLT-Light.woff') format('woff');
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Futura Book';
-  src: url('/fonts/FuturaLT-Book.woff') format('woff');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Futura Bold';
-  src: url('/fonts/FuturaLT-Bold.woff') format('woff');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Futura Extra Bold';
-  src: url('/fonts/FuturaLT-ExtraBold.woff') format('woff');
-  font-weight: 800;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Futura Heavy';
-  src: url('/fonts/FuturaLT-Heavy.woff') format('woff');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-
 /* FUTURA CONDENSED (400 + 700 + 800) */
-
-@font-face {
-  font-family: 'Futura';
-  src: url('/fonts/FuturaLT-CondensedExtraBold.woff') format('woff');
-  font-weight: 800;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Futura';
-  src: url('/fonts/FuturaLT-CondensedBold.woff') format('woff');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Futura Con';
-  src: url('/fonts/FuturaLT-Condensed.woff') format('woff');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
 
 /* TLT Fonts */
 
@@ -236,14 +169,6 @@
   font-family: 'CB';
   src: url('/fonts/CB.woff2') format('woff2');
   font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Inter';
-  src: url('/fonts/Inter-ExtraBold.woff2') format('woff2');
-  font-weight: 800;
   font-style: normal;
   font-display: swap;
 }
@@ -281,67 +206,8 @@
 }
 
 /* FROGIE FONT  */
-
-@font-face {
-  font-family: 'Frog';
-  src: url('/fonts/Frogie.woff2') format('woff2');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-
 /* Futural CFONT  */
-
-@font-face {
-  font-family: 'FC';
-  src: url('/fonts/Futura Condensed.woff2') format('woff2');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'FCB';
-  src: url('/fonts/Futura Condensed Bold.woff2') format('woff2');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'FCEB';
-  src: url('/fonts/Futura Condensed Extra Bold.woff2') format('woff2');
-  font-weight: 800;
-  font-style: normal;
-  font-display: swap;
-}
-
 /* FONTS FROM LEAGUE WP */
-@font-face {
-  font-family: 'Rose';
-  src: url('/fonts/Rose.woff2') format('woff2');
-  font-weight: 200 900; font-style: normal; font-display: swap;
-}
-
-@font-face {
-  font-family: 'IV';
-  src: url('/fonts/Inter-VariableFont_slnt,wght.woff2') format('woff2');
-  font-weight: 100 900;font-style: normal;font-display: swap;
-}
-
-@font-face {
-  font-family: 'Cardo';
-  src: url('/fonts/cardo_normal_400.woff2') format('woff2');
-  font-weight: 400; font-style: normal;font-display: swap;
-}
-
-
-@font-face {
-  font-family: 'Cardy';
-  src: url('/fonts/cardo_italic_400.woff2') format('woff2');
-  font-weight: 400; font-style: italic;font-display: swap;
-}
 
 @font-face {
   font-family: 'RecoMed';
@@ -376,39 +242,26 @@
   }
 }
 
-/*@layer base {
-  h1, h2, h3, h4, h5, h6 {
-    font-family: 'Mona Bold Pro Max', 'Futura Bold', sans-serif !important;
-    font-weight: 900 !important;
-    letter-spacing: -.025em!important;
-  }
-}*/
-
 @layer base {
   h1, h2, h3, h4, h5, h6 {
     letter-spacing: -.025em !important;
   }
 
-  /* HERO TITLE for HOME and PRDUCT PAGE */
-  .home-draft .hero h1, .product-description-page .pdw-hero h1 {
+  /* HOME PAGE HERO TITLE */
+  .home-draft .hero h1 {
     letter-spacing: -0.055em; max-width: 850px;
     margin: 0px 0px 28px; font-size: clamp(54px, 7vw, 92px);
     line-height: 1.1;
   }
 
   h1 {
-    /*font-family: FC, Frog, "Mona Bold Pro", sans-serif !important;*/
-    /*font-family:  "Rose",FC, Frog, "Mona Bold Pro", sans-serif !important;*/
     font-family: RecoMed, 'Mona Reg', Mona Bold,sans-serif!important;
     font-weight: 400!important;
-    /*font-family: FCEB,FCB,FC, Frog, Mona Bold, sans-serif!important;*/
     font-weight: 400;
     text-wrap: balance;
-    /*max-width: fit-content;*/
   }
 
   :where(h2, h3, h4, h5, h6) {
-    /*font-family: 'Mona Bold', sans-serif !important;*/
     font-family: Reco, 'Mona Reg', Mona Bold,sans-serif!important;
     font-weight: 400!important; 
   }
@@ -1078,10 +931,6 @@ max-width: 1180px; margin: auto; /* padding-inline: 0; */
 /* #coming {background-color: rgb(250, 235, 215);} */
 .home-draft #coming {  background-color: rgb(250, 235, 215);}
 
-.product-description-page .coming-section .text-secondary {
-color: #b34a43; font-size: 12px; font-weight: 700; letter-spacing: .14em; margin-bottom: 20px;
-}
-
 .proofgrid.wrap {margin: auto; padding-inline: calc(var(--spacing) * 4);}
 
 /* BASED ON A REAL CLIENT STORY. */
@@ -1164,410 +1013,216 @@ color: #b34a43; font-size: 12px; font-weight: 700; letter-spacing: .14em; margin
 /* Box Shadow Removal of Proof Section */
 .home-draft #proof .shadow-xl {box-shadow: none;}
 
-/* PRDUCT DESCRIPTION PAGE ____________________________________________________________ */
-  .product-description-page .hero {color: #fff; background: linear-gradient(110deg, #17242b, #26383f 65%, #34484e);}
-  .hero h1 {margin: 0 0 28px;letter-spacing: -.055em;max-width: 850px;font-size: clamp(54px,7vw,92px);line-height: 1.1;}
+/*___________________________________🟢 PRODUCT ¯\_(ツ)_/¯ DESC TEMPLATE CSS 🟢 ___________________________________*/
 
-  .product-description-page .hero {
-    background: linear-gradient(110deg,#17242b,#26383f 65%,#34484e);
-  }
+/* HEADER */
+.product-description-page #header {background-color: #17242b !important; color: #e1e7e7;}
+.product-description-page #header a, .product-description-page #header button {color: #e1e7e7 !important;}
+.product-description-page #header a:hover, .product-description-page #header button:hover {background-color: #354b55; color: #fff !important;}
+.product-description-page #header .dropdown-menu {background-color: #263943;}
+.product-description-page #header .dropdown-menu a:hover {background-color: #354b55; color: #fff !important;}
+.product-description-page #header.scroll > div:first-child {background-color: #17242b !important;}
+.product-description-page #header > div.relative {max-width: 1180px; padding-inline: 16px;}
+.dark .product-description-page #header {background-color: #17242b !important; color: #e1e7e7;}
 
-  .product-description-page .hero:before {
-    background-image: none!important;
-  }
-
-  .product-description-page .hero:after {
-    content: ""; pointer-events: none; border: 1px solid #ffffff18; border-radius: 50%; width: 500px; height: 500px;
-    position: absolute; box-shadow: 0 0 0 60px #ffffff09,0 0 0 120px #ffffff06; top: 70px; right: -180px;
-  }
-
-  .product-description-page #coming {background-color: #fff;}
-  .dark .product-description-page #coming {background-color: #0B0B0B;}
-
-
-  .product-description-page #process .feature-head, .product-description-page #difference .feature-head, .product-description-page #difference .feature-head p {
-    max-width: 760px; margin-bottom: 44px;
-  }
-
-  .product-description-page #difference .feature-head {margin-block: 0;}
-  .product-description-page #difference article li {font-size: 17px; font-family: Para, sans-serif; line-height: 36px;}
-  .product-description-page #difference article ul {list-style: none; padding-left: 0;}
-  .product-description-page #difference article li::before {color: #b34a43; margin-right: 10px;}
-  .product-description-page #difference article:first-of-type li::before {content: "×"; text-decoration: none; display: inline-block;}
-  .product-description-page #difference article:first-of-type li {text-decoration: line-through #b34a43;}
-  .product-description-page #difference article:last-of-type li::before {content: "✓";}
-
-  
-  .product-description-page .features .feature:first-child {grid-column: auto!important;}
-  .product-description-page .feature:nth-child(2) {grid-column: auto!important;}
-  .product-description-page #difference .features {grid-template-columns: repeat(auto-fit, minmax(clamp(calc(50% - 12px), (850px - 100vw) * 1000, 100%), 1fr));}
-
-  .product-description-page #difference .feature:first-child {color: revert; background-color: revert;}
-  .product-description-page #difference .feature:last-child {color: #fff; background: #101817;}
-  .product-description-page .kicker {color: #b34a43; margin-bottom: 20px; font-size: 16px;}
-  .product-description-page #difference .feature h3 {margin-block: 0;}
-  .product-description-page #difference .feature ul li {line-height: normal; margin-block: 15px;}
-  .product-description-page #difference .feature ul {margin-block: 20px;}
-
-
-  .product-description-page #process .process {
-    display: grid; gap: 24px; max-width: 850px;
-    grid-template-columns: repeat(auto-fit, minmax(clamp(50% - 24px, (600px - 100vw) * 1000, 100%), 1fr));
-    border-top: 1px solid #bfcaca; padding-top: 20px;
-  }
-
-  .product-description-page #process .container p {color: #647178;}
-  .product-description-page #process h3 {font-size: 1.3rem; margin-bottom: 10px;}
-
-  .product-description-page #process .container .feature-head p {
-    font-size: clamp(1.03rem,1.5vw,1.2rem); max-width: 720px; line-height: 1.65;
-  }
-
-  .product-description-page .kicker {color: #b34a43; margin-bottom: 20px;}
-
-.product-description-page #included .features .feature {grid-column: revert;}
-.product-description-page #included .features {grid-template-columns: 1fr 1fr;}
-.product-description-page #included .features {grid-template-columns: repeat(auto-fit,minmax(clamp(50% - 24px,600000px - 100000vw,100%),1fr));}
-.product-description-page #included .container .feature-head {max-width: 760px;margin-bottom: 44px;}
-.product-description-page #included .features .feature:first-child {background-color: revert; color: #000;border: #dfe5e8 1px solid;}
-.product-description-page #included .features .feature:first-child p {color: #64717d;}
-
-.product-description-page #packages .container .pricing-grid .price-card {
-background-color: #fff; border: 1px solid #e2e8e8; padding: 30px; display: flex;
-flex-direction: column; min-height: 390px; position: relative;
+/* HERO */
+.product-description-page .hero {color: #fff; background: linear-gradient(110deg, #17242b, #26383f 65%, #34484e);}
+/* REDUNDANT: duplicate of the background declaration consolidated into the rule above. */
+/*___________________________________🟢 REDUDANT  ¯\_(ツ)_/¯ CSS LINES (STARTS) 🟢 ___________________________________*/
+/*___________________________________🟢 REDUDANT  ¯\_(ツ)_/¯ CSS LINES (ENDS) 🟢 ___________________________________*/
+.product-description-page .hero:before {background-image: none !important;}
+.product-description-page .hero:after {
+  content: ""; position: absolute; pointer-events: none; border: 1px solid #ffffff18;
+  border-radius: 50%; width: 500px; height: 500px; top: 70px; right: -180px;
+  box-shadow: 0 0 0 60px #ffffff09, 0 0 0 120px #ffffff06;
 }
 
-.product-description-page #packages .container .pricing-grid {
-  display: grid; gap: 18px; grid-template-columns: repeat(auto-fit, minmax(clamp(33.33% - 18px, (900px - 100vw) * 1000, clamp(50% - 18px, (600px - 100vw) * 1000, 100%)), 1fr));
+/* REDUNDANT: the generic .hero h1 rule already supplies these declarations. */
+/*___________________________________🟢 REDUDANT  ¯\_(ツ)_/¯ CSS LINES (STARTS) 🟢 ___________________________________*/
+/*___________________________________🟢 REDUDANT  ¯\_(ツ)_/¯ CSS LINES (ENDS) 🟢 ___________________________________*/
+
+/* WHY IT MATTERS */
+.product-description-page #coming {background-color: #fff;}
+.product-description-page .coming-section .text-secondary {
+  color: #b34a43; font-size: 12px; font-weight: 700; letter-spacing: .14em; margin-bottom: 20px;
 }
-
-.product-description-page #packages .price-card .btn {margin-top: auto;}
-
-.product-description-page #difference .feature-head p, .product-description-page #packages .container .feature-head p {
-font-size: clamp(1.03rem,1.5vw,1.2rem); max-width: revert;}
-
-/*___________________________________🟢 ¯\_(ツ)_/¯ 🟢 ___________________________________*/
-/* Final Touches for Description Page */
 .product-description-page .coming-section .grid .flex {box-shadow: none; border: 1px solid #e2e8e8; padding: 28px;}
 .product-description-page .text-center {max-width: 760px; margin-bottom: 44px;}
-.product-description-page .text-center h2 {font-size: clamp(38px,4.5vw,60px);}
+.product-description-page .text-center h2 {font-size: clamp(38px, 4.5vw, 60px);}
 .product-description-page #coming .text-center p {color: #647178;}
+.dark .product-description-page #coming {background: linear-gradient(145deg, #111827 0%, #172033 100%);}
+.dark .product-description-page #coming .text-center h2 {color: #f8fafc;}
+.dark .product-description-page #coming .text-secondary {color: #f0a197;}
+.dark .product-description-page #coming .text-center p {color: #cbd5e1;}
+.dark .product-description-page #coming .coming-section .grid .flex {
+  background-color: #1e293b; border: 1px solid #475569; box-shadow: 0 10px 30px rgba(0, 0, 0, .18);
+}
+.dark .product-description-page #coming .coming-section .grid .flex h3 {color: #f8fafc;}
+.dark .product-description-page #coming .coming-section .grid .flex p {color: #cbd5e1;}
+.dark .product-description-page #coming .coming-section .grid .flex > svg {color: #e6a09a;}
 
+/* REDUNDANT: replaced by the gradient background immediately below in the dark-mode section. */
+/*___________________________________🟢 REDUDANT  ¯\_(ツ)_/¯ CSS LINES (STARTS) 🟢 ___________________________________*/
+/*___________________________________🟢 REDUDANT  ¯\_(ツ)_/¯ CSS LINES (ENDS) 🟢 ___________________________________*/
 
+/* A FAMILIAR SHOPPING MOMENT */
+.product-description-page #story {position: relative; padding-block: clamp(4.5rem, calc(3rem + 5vw), 7.5rem);}
+.dark .product-description-page #story {background: linear-gradient(145deg, #182536 0%, #202d3d 100%); border-color: #334155;}
+
+/* REDUNDANT: current holy.astro still uses .intro, .intro-copy and .num, not these revised story classes. */
+/*___________________________________🟢 REDUDANT  ¯\_(ツ)_/¯ CSS LINES (STARTS) 🟢 ___________________________________*/
+/*___________________________________🟢 REDUDANT  ¯\_(ツ)_/¯ CSS LINES (ENDS) 🟢 ___________________________________*/
+
+/* THE TOP LEAGUE APPROACH */
+.product-description-page #difference .feature-head,
+.product-description-page #difference .feature-head p {max-width: 760px; margin-bottom: 44px;}
+.product-description-page #difference .feature-head {margin-block: 0;}
+.product-description-page #difference .features {
+  grid-template-columns: repeat(auto-fit, minmax(clamp(calc(50% - 12px), (850px - 100vw) * 1000, 100%), 1fr));
+}
+.product-description-page .features .feature:first-child,
+.product-description-page .feature:nth-child(2) {grid-column: auto !important;}
+.product-description-page #difference .feature:first-child {color: revert; background-color: revert;}
+.product-description-page #difference .feature:last-child {color: #fff; background: #101817;}
+.product-description-page #difference article li {font-size: 17px; font-family: Para, sans-serif; line-height: 36px;}
+.product-description-page #difference article ul {list-style: none; padding-left: 0; margin-block: 20px;}
+.product-description-page #difference article li::before {color: #b34a43; margin-right: 10px;}
+.product-description-page #difference article:first-of-type li::before {content: "×"; text-decoration: none; display: inline-block;}
+.product-description-page #difference article:first-of-type li {text-decoration: line-through #b34a43;}
+.product-description-page #difference article:last-of-type li::before {content: "✓";}
+.product-description-page #difference .feature h3 {margin-block: 0;}
+.product-description-page #difference .feature ul li {line-height: normal; margin-block: 15px;}
+.product-description-page .kicker {color: #b34a43; margin-bottom: 20px; font-size: 16px;}
+/* REDUNDANT: repeats the colour and margin already declared in the rule above. */
+/*___________________________________🟢 REDUDANT  ¯\_(ツ)_/¯ CSS LINES (STARTS) 🟢 ___________________________________*/
+/*___________________________________🟢 REDUDANT  ¯\_(ツ)_/¯ CSS LINES (ENDS) 🟢 ___________________________________*/
+.product-description-page #difference .feature-head p,
+.product-description-page #packages .container .feature-head p {font-size: clamp(1.03rem, 1.5vw, 1.2rem); max-width: revert;}
+.dark .product-description-page #difference {background: linear-gradient(145deg, #121e2d 0%, #19283a 100%);}
+.dark .product-description-page #difference .feature-head h2 {color: #f8fafc;}
+.dark .product-description-page #difference .feature-head .kicker {color: #f0a197;}
+.dark .product-description-page #difference .feature-head p {color: #cbd5e1;}
+.dark .product-description-page #difference .feature {border: 1px solid #475569; box-shadow: 0 12px 30px rgba(0, 0, 0, .18);}
+.dark .product-description-page #difference .feature:nth-child(1) {background: #202b3b; border-color: #465365; color: #f8fafc;}
+.dark .product-description-page #difference .feature:nth-child(2) {background: #203a38; border-color: #3b625b; color: #f8fafc;}
+.dark .product-description-page #difference .feature:nth-child(1) .kicker {color: #e6a09a;}
+.dark .product-description-page #difference .feature:nth-child(2) .kicker {color: #9bd4c2;}
+.dark .product-description-page #difference .feature h3 {color: #f8fafc;}
+.dark .product-description-page #difference .feature li {color: #cbd5e1;}
+
+/* HOW WE WORK */
+.product-description-page #process .feature-head {max-width: 760px; margin-bottom: 44px;}
+.product-description-page #process .process {
+  display: grid; gap: 24px; max-width: 850px;
+  grid-template-columns: repeat(auto-fit, minmax(clamp(50% - 24px, (600px - 100vw) * 1000, 100%), 1fr));
+  border-top: 1px solid #bfcaca; padding-top: 20px;
+}
+.product-description-page #process .container p {color: #647178;}
+.product-description-page #process h3 {font-size: 1.3rem; margin-bottom: 10px;}
+.product-description-page #process .container .feature-head p {
+  font-size: clamp(1.03rem, 1.5vw, 1.2rem); max-width: 720px; line-height: 1.65;
+}
+
+/* WHAT'S INCLUDED */
+.product-description-page #included .features .feature {grid-column: revert;}
+.product-description-page #included .features {grid-template-columns: repeat(auto-fit, minmax(clamp(50% - 24px, 600000px - 100000vw, 100%), 1fr));}
+.product-description-page #included .container .feature-head {max-width: 760px; margin-bottom: 44px;}
+.product-description-page #included .features .feature:first-child {background-color: revert; color: #000; border: 1px solid #dfe5e8;}
+.product-description-page #included .features .feature:first-child p {color: #64717d;}
+.dark .product-description-page #included {background: linear-gradient(145deg, #111827 0%, #172033 100%);}
+.dark .product-description-page #included .feature-head h2 {color: #f8fafc;}
+.dark .product-description-page #included .feature-head .kicker {color: #f0a197;}
+.dark .product-description-page #included .features .feature {
+  background: #1e293b; color: #f8fafc; border: 1px solid #475569;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, .18);
+}
+.dark .product-description-page #included .features .feature:nth-child(1) {background: #203a38; border-color: #3b625b;}
+.dark .product-description-page #included .feature .kicker {color: #9bd4c2;}
+.dark .product-description-page #included .feature h3 {color: #f8fafc;}
+.dark .product-description-page #included .feature p {color: #cbd5e1;}
+
+/* REDUNDANT: the auto-fit declaration immediately below supersedes this fixed two-column declaration. */
+/*___________________________________🟢 REDUDANT  ¯\_(ツ)_/¯ CSS LINES (STARTS) 🟢 ___________________________________*/
+/*___________________________________🟢 REDUDANT  ¯\_(ツ)_/¯ CSS LINES (ENDS) 🟢 ___________________________________*/
+
+/* WRITING PACKAGES */
 .product-description-page #packages .container .feature-head {max-width: 760px;}
-
+.product-description-page #packages .container .pricing-grid {
+  display: grid; gap: 18px;
+  grid-template-columns: repeat(auto-fit, minmax(clamp(33.33% - 18px, (900px - 100vw) * 1000, clamp(50% - 18px, (600px - 100vw) * 1000, 100%)), 1fr));
+}
+.product-description-page #packages .container .pricing-grid .price-card {
+  background-color: #fff; border: 2px solid #ccc; border-radius: 5px; padding: 30px;
+  display: flex; flex-direction: column; min-height: 390px; position: relative;
+}
+/* REDUNDANT: merged into the price-card rule above; safe to remove manually. */
+/*___________________________________🟢 REDUDANT  ¯\_(ツ)_/¯ CSS LINES (STARTS) 🟢 ___________________________________*/
+/*___________________________________🟢 REDUDANT  ¯\_(ツ)_/¯ CSS LINES (ENDS) 🟢 ___________________________________*/
+.product-description-page #packages .container .pricing-grid .price-popular {border: 2px solid #b34a43 !important;}
+.product-description-page #packages .price-card .btn {margin-top: auto;}
 .product-description-page #packages .container .pricing-grid .price-card .kicker {
-color: #b34a43; letter-spacing: .13em; text-transform: uppercase; font-size: .74rem; font-weight: 850;
+  color: #b34a43; letter-spacing: .13em; text-transform: uppercase; font-size: .74rem; font-weight: 850;
 }
-
-.product-description-page #packages .container .pricing-grid .price-card {border: #ccc solid 2px; border-radius: 5px;}
-.product-description-page #packages .container .pricing-grid .price-popular {border: 2px solid #b34a43!important;}
-
 .product-description-page #packages .container .pricing-grid .price-card .btn.primary {
-background-color: #000; padding: 12px 20px; font-size: .88rem; font-weight: 750; color: #fff!important;
+  background-color: #000; padding: 12px 20px; font-size: .88rem; font-weight: 750; color: #fff !important;
 }
-
-.product-description-page #packages .container .pricing-grid .price-card h3 {
-font-size: 1.65rem; margin-block: 13px;
-}
-
-.product-description-page #packages .container .pricing-grid .price-card p {
-color: #647178; font-size: .9rem;
-}
-
-.product-description-page #packages .container .pricing-grid .price-card li:before {
-content: "✓"; color: #b34a43; margin-right: 10px;
-}
-
+.product-description-page #packages .container .pricing-grid .price-card h3 {font-size: 1.65rem; margin-block: 13px;}
+.product-description-page #packages .container .pricing-grid .price-card p {color: #647178; font-size: .9rem;}
+.product-description-page #packages .container .pricing-grid .price-card li::before {content: "✓"; color: #b34a43; margin-right: 10px;}
 .product-description-page #packages .container .pricing-grid .price-card ul {
-border-top: 1px solid #647178; margin: 8px 0 24px; padding: 18px 0 0; list-style: none; color: #647178; font-family: CB,Para,Futura Book,serif!important;
+  border-top: 1px solid #647178; margin: 8px 0 24px; padding: 18px 0 0;
+  list-style: none; color: #647178; font-family: CB, Para, Futura Book, serif !important;
 }
-
 .product-description-page #packages .container .pricing-grid .price-card ul li {padding: 4px 0;}
+.dark .product-description-page #packages {background: linear-gradient(145deg, #111827 0%, #172033 100%); border-color: #334155;}
+.dark .product-description-page #packages .feature-head h2 {color: #f8fafc;}
+.dark .product-description-page #packages .feature-head .kicker {color: #f0a197;}
+.dark .product-description-page #packages .feature-head p {color: #cbd5e1;}
+.dark .product-description-page #packages .pricing-grid .price-card {
+  background: #1e293b; color: #f8fafc; border: 1px solid #475569;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, .18);
+}
+.dark .product-description-page #packages .pricing-grid .price-popular {background: #203a38; border: 2px solid #c77b72 !important;}
+.dark .product-description-page #packages .price-card .kicker {color: #f0a197;}
+.dark .product-description-page #packages .price-popular .kicker {color: #9bd4c2;}
+.dark .product-description-page #packages .price-card h3 {color: #f8fafc;}
+.dark .product-description-page #packages .price-card p,
+.dark .product-description-page #packages .price-card ul {color: #cbd5e1;}
+.dark .product-description-page #packages .price-card ul {border-top-color: #475569;}
+.dark .product-description-page #packages .price-card li::before {color: #9bd4c2;}
+.dark .product-description-page #packages .price-card .btn.primary {
+  background: #b34a43; color: #fff !important; border: 1px solid #b34a43;
+}
+.dark .product-description-page #packages .price-card .btn.primary:hover {background: #c45b53; border-color: #c45b53;}
 
+/* CONTACT / LET'S TALK */
 .product-description-page #contact.cta {background-color: #17242b;}
 .product-description-page #contact.cta h2 {margin-block: 2.5vw;}
-
 .product-description-page #contact .kicker {
-color: #f0a197; letter-spacing: .12em; margin-bottom: 1.75em; font-size: .76rem;
-font-family: Mona Reg,Mona Bold,sans-serif!important; font-weight: 500;
+  color: #f0a197; letter-spacing: .12em; margin-bottom: 1.75em; font-size: .76rem;
+  font-family: Mona Reg, Mona Bold, sans-serif !important; font-weight: 500;
 }
-
 .product-description-page .cta .primary.button {
-border: 1px solid #b34a43; background-color: #b34a43; border-radius: 999px; gap: 12px;
-min-height: 48px; padding: 12px 20px; font-size: .88rem; font-weight: 750; display: inline-flex; color: #fff!important;
-text-decoration: none!important; margin-block: 3em;
+  border: 1px solid #b34a43; background-color: #b34a43; border-radius: 999px; gap: 12px;
+  min-height: 48px; padding: 12px 20px; font-size: .88rem; font-weight: 750;
+  display: inline-flex; color: #fff !important; text-decoration: none !important; margin-block: 3em;
 }
-
 .product-description-page #contact.cta:before {
-content: ""; pointer-events: none; border: 1px solid #ffffff18; border-radius: 50%; width: 500px; height: 500px; position: absolute;
-box-shadow: 0 0 0 60px #ffffff09,0 0 0 120px #ffffff06; left: -280px;
+  content: ""; pointer-events: none; border: 1px solid #ffffff18; border-radius: 50%;
+  width: 500px; height: 500px; position: absolute; left: -280px;
+  box-shadow: 0 0 0 60px #ffffff09, 0 0 0 120px #ffffff06;
 }
 
-/* PRE FOOTER SECTION HIDDEN */
-/* .product-description-page .pre-footer {content-visibility: hidden; padding: 0; margin: 0; border: 0;} */
-.product-description-page .pre-footer { display:none;}
+/* FOOTER */
+.product-description-page .pre-footer {display: none;}
 .product-description-page .site-footer .pre-footer + div {padding-block: 1rem;}
+.product-description-page .site-footer > div.relative {max-width: 1180px; padding-inline: 16px;}
 
-/*___________________________________🟢 ¯\_(ツ)_/¯ 🟢 ___________________________________*/
-/* Header */
-#header {  background-color: #17242B !important;  color: #E1E7E7;}
+/* REDUNDANT: the following old selector targets .pdw-hero, but holy.astro uses .hero. */
+/*___________________________________🟢 REDUDANT  ¯\_(ツ)_/¯ CSS LINES (STARTS) 🟢 ___________________________________*/
+/*___________________________________🟢 REDUDANT  ¯\_(ツ)_/¯ CSS LINES (ENDS) 🟢 ___________________________________*/
 
-/* Header links and buttons */
-#header a, #header button {  color: #E1E7E7 !important;}
-
-/* Main navigation hover */
-#header a:hover, #header button:hover { background-color: #354B55; color: #FFFFFF !important;}
-
-/* Dropdown background */
-#header .dropdown-menu {  background-color: #263943;}
-
-/* Dropdown links */
-#header .dropdown-menu a:hover {  background-color: #354B55;  color: #FFFFFF !important;}
-
-/* KEEP HEADER BACKGROUND CONSISTENT ON SCROLL */
-#header.scroll > div:first-child {  background-color: #17242B !important;}
-
-/* PRODUCT DESCRIPTION PAGE — HEADER & FOOTER ALIGNMENT */
-/* Header inner wrapper */
-.product-description-page #header > div.relative {  max-width: 1180px;   padding-inline: 16px;}
-/* Footer inner wrapper */
-.product-description-page .site-footer > div.relative {  max-width: 1180px;   padding-inline: 16px;}
-
-
-/*___________________________________🟢 ¯\_(ツ)_/¯ 🟢 ___________________________________*/
-/* DARK MODE CSS FOR PRODUCT DESCRIPTION PAGE */
-
-/* PRODUCT DESCRIPTION PAGE — WHY IT MATTERS: DARK MODE */
-
-.dark .product-description-page #coming {  background: linear-gradient(145deg, #111827 0%, #172033 100%);}
-
-/* Section heading */
-.dark .product-description-page #coming .text-center h2 {  color: #f8fafc;}
-
-/* Section tagline */
-.dark .product-description-page #coming .text-secondary {  color: #f0a197;}
-
-/* Section subtitle */
-.dark .product-description-page #coming .text-center p {  color: #cbd5e1;}
-
-/* Feature cards */
-.dark .product-description-page #coming .coming-section .grid .flex {  background-color: #1e293b;  border: 1px solid #475569;  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);}
-
-/* Card headings */
-.dark .product-description-page #coming .coming-section .grid .flex h3 {  color: #f8fafc;}
-
-/* Card descriptions */
-.dark .product-description-page #coming .coming-section .grid .flex p {  color: #cbd5e1;}
-
-/* Card icons */
-.dark .product-description-page #coming .coming-section .grid .flex > svg {  color: #e6a09a;}
-
-/*___________________________________🟢 ¯\_(ツ)_/¯ 🟢 ___________________________________*/
-
-
-/* PRODUCT DESCRIPTION PAGE — SHOPPING MOMENT: DARK MODE */
-
-/*___________________________________🟢 ¯\_(ツ)_/¯ 🟢 ___________________________________*/
-
-/* PRODUCT DESCRIPTION PAGE — TOP LEAGUE APPROACH: DARK MODE */
-
-.dark .product-description-page #difference {  background: linear-gradient(145deg, #121e2d 0%, #19283a 100%);}
-
-/* Section heading */
-.dark .product-description-page #difference .feature-head h2 {  color: #f8fafc;}
-
-/* Section label */
-.dark .product-description-page #difference .feature-head .kicker {  color: #f0a197;}
-
-/* Introductory paragraph */
-.dark .product-description-page #difference .feature-head p {  color: #cbd5e1;}
-
-/* Comparison cards — shared styling */
-.dark .product-description-page #difference .feature {  border: 1px solid #475569;  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);}
-
-/* The Usual Way — restrained charcoal */
-.dark .product-description-page #difference .feature:nth-child(1) {  background: #202b3b;  border-color: #465365;  color: #f8fafc;}
-
-/* The Top League Approach — subtle green undertone */
-.dark .product-description-page #difference .feature:nth-child(2) {  background: #203a38;  border-color: #3b625b;  color: #f8fafc;}
-
-/* Card labels */
-.dark .product-description-page #difference .feature:nth-child(1) .kicker {  color: #e6a09a;}
-
-.dark .product-description-page #difference .feature:nth-child(2) .kicker {  color: #9bd4c2;}
-
-/* Card headings */
-.dark .product-description-page #difference .feature h3 {  color: #f8fafc;}
-
-/* Comparison list */
-.dark .product-description-page #difference .feature li {  color: #cbd5e1;}
-
-/*___________________________________🟢 ¯\_(ツ)_/¯ 🟢 ___________________________________*/
-
-
-/* PRODUCT DESCRIPTION PAGE — WHAT'S INCLUDED: DARK MODE */
-
-.dark .product-description-page #included {  background: linear-gradient(145deg, #111827 0%, #172033 100%);}
-
-/* Section heading */
-.dark .product-description-page #included .feature-head h2 {  color: #f8fafc;}
-
-/* Section label */
-.dark .product-description-page #included .feature-head .kicker {  color: #f0a197;}
-
-/* Shared card styling */
-.dark .product-description-page #included .features .feature {
-  background: #1e293b;
-  color: #f8fafc;
-  border: 1px solid #475569;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
-}
-
-/* First card — subtle teal highlight */
-.dark .product-description-page #included .features .feature:nth-child(1) {  background: #203a38;  border-color: #3b625b;}
-
-/* Card category labels */
-.dark .product-description-page #included .feature .kicker {  color: #9bd4c2;}
-
-/* Card headings */
-.dark .product-description-page #included .feature h3 {  color: #f8fafc;}
-
-/* Card descriptions */
-.dark .product-description-page #included .feature p {  color: #cbd5e1;}
-
-/*___________________________________🟢 ¯\_(ツ)_/¯ 🟢 ___________________________________*/
-
-
-/* PRODUCT DESCRIPTION PAGE — WRITING PACKAGES: DARK MODE */
-
-.dark .product-description-page #packages {
-  background: linear-gradient(145deg, #111827 0%, #172033 100%);
-  border-color: #334155;
-}
-
-/* Section heading */
-.dark .product-description-page #packages .feature-head h2 {
-  color: #f8fafc;
-}
-
-/* Section label */
-.dark .product-description-page #packages .feature-head .kicker {
-  color: #f0a197;
-}
-
-/* Introductory paragraph */
-.dark .product-description-page #packages .feature-head p {
-  color: #cbd5e1;
-}
-
-/* All package cards */
-.dark .product-description-page #packages .pricing-grid .price-card {
-  background: #1e293b;
-  color: #f8fafc;
-  border: 1px solid #475569;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
-}
-
-/* Featured — Standard package */
-.dark .product-description-page #packages .pricing-grid .price-popular {
-  background: #203a38;
-  border: 2px solid #c77b72;
-}
-
-/* Package labels */
-.dark .product-description-page #packages .price-card .kicker {
-  color: #f0a197;
-}
-
-/* Featured package label */
-.dark .product-description-page #packages .price-popular .kicker {
-  color: #9bd4c2;
-}
-
-/* Package headings */
-.dark .product-description-page #packages .price-card h3 {
-  color: #f8fafc;
-}
-
-/* Package descriptions */
-.dark .product-description-page #packages .price-card p {
-  color: #cbd5e1;
-}
-
-/* Package feature list */
-.dark .product-description-page #packages .price-card ul {
-  color: #cbd5e1;
-  border-top-color: #475569;
-}
-
-/* Feature list checkmarks */
-.dark .product-description-page #packages .price-card li::before {
-  color: #9bd4c2;
-}
-
-/* Package buttons */
-.dark .product-description-page #packages .price-card .btn.primary {
-  background: #b34a43;
-  color: #fff !important;
-  border: 1px solid #b34a43;
-}
-
-/* Button hover */
-.dark .product-description-page #packages .price-card .btn.primary:hover {
-  background: #c45b53;
-  border-color: #c45b53;
-}
-
-/*___________________________________🟢 ¯\_(ツ)_/¯ 🟢 ___________________________________*/
-
-
-/* PRODUCT DESCRIPTION PAGE — SHOPPING MOMENT */
-/* Section */
-.product-description-page #story {  position: relative; padding-block: clamp(4.5rem, calc(3rem + 5vw), 7.5rem);}
-/* Layout */
-.product-description-page #story .story-layout {  position: relative;  isolation: isolate;}
-
-/* Oversized decorative number */
-.product-description-page #story .story-number {
-  position: absolute;  z-index: -1;  top: clamp(-65px, calc(-25px - 2vw), -42px);
-  left: clamp(0px, calc(8px - 1vw), 8px);  font-family: 'Space Grotesk', sans-serif;
-  font-size: clamp(9rem, calc(6rem + 10vw), 14.375rem);  font-weight: 700;  line-height: 1;
-  letter-spacing: -.09em;  color: rgba(31, 95, 85, 0.10);  pointer-events: none;  user-select: none;
-}
-
-/* Story content */
-.product-description-page #story .story-content {  position: relative;  max-width: 900px;}
-/* Section label */
-.product-description-page #story .story-content .kicker {  margin-bottom: clamp(1rem, calc(.7rem + .5vw), 1.25rem);  color: #1f5f55;}
-
-/* Heading */
-.product-description-page #story .story-content h2 {
-  max-width: 820px;
-  margin: 0 0 clamp(1.5rem, calc(1rem + 1vw), 1.875rem);  font-family: Reco, FC, Frog, "Mona Bold Pro", sans-serif !important;
-  font-size: clamp(2.25rem, calc(1.5rem + 2.5vw), 3.75rem);  line-height: 1.02;  letter-spacing: -.045em;  color: #16202a;
-}
-
-/* Paragraphs */
-.product-description-page #story .story-content p {
-  max-width: 800px;
-  margin: 0 0 clamp(.9rem, calc(.7rem + .3vw), 1.125rem);  font-size: clamp(1rem, calc(.95rem + .15vw), 1.0625rem);
-  line-height: 1.75;  color: #43505a;
-}
-
-/* Emphasis */
-.product-description-page #story .story-content strong {  color: #16202a;  font-weight: 700;}
-
-/* DARK MODE */
-.dark .product-description-page #story {  background: linear-gradient(145deg, #182536 0%, #202d3d 100%);  border-color: #334155;}
-.dark .product-description-page #story .story-number {  color: rgba(155, 212, 194, 0.09);}
-.dark .product-description-page #story .story-content .kicker {  color: #f0a197;}
-.dark .product-description-page #story .story-content h2 {  color: #f8fafc;}
-.dark .product-description-page #story .story-content p {  color: #cbd5e1;}
-.dark .product-description-page #story .story-content strong {  color: #f0a197;}
-
-
-/*___________________________________🟢 ¯\_(ツ)_/¯ 🟢 ___________________________________*/
+/*___________________________________🟢 PRODUCT TEMPLATE CSS ENDS 🟢 ___________________________________*/
 
 /* Footer*/
 footer {
