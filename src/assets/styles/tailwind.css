@@ -1185,22 +1185,6 @@ color: #b34a43; font-size: 12px; font-weight: 700; letter-spacing: .14em; margin
   .dark .product-description-page #coming {background-color: #0B0B0B;}
 
 
-  .product-description-page #story .intro-copy h2 {margin-bottom: 24px; color: #0B0B0B;}
-  .product-description-page #story .intro-copy p {margin-top: 0; margin: 0 0 18px;}
-
-  .product-description-page #story .intro-copy strong {
-    color: #17242b; letter-spacing: -.045em;
-    margin: 30px 0; font-size: clamp(1.6rem,2.8vw,2.4rem);
-    font-weight: 500; line-height: 1.25;
-    font-family: CB, Mona Reg,Mona Bold,sans-serif!important;
-  }
-
- .product-description-page #story .num {
-    color: #e4eaea; font-size: clamp(5rem,10vw,7rem);
-    font-weight: 850; line-height: 1;
-    font-family: Mona Bold,sans-serif!important;
-  }
-
   .product-description-page #process .feature-head, .product-description-page #difference .feature-head, .product-description-page #difference .feature-head p {
     max-width: 760px; margin-bottom: 44px;
   }
@@ -1383,26 +1367,6 @@ box-shadow: 0 0 0 60px #ffffff09,0 0 0 120px #ffffff06; left: -280px;
 
 
 /* PRODUCT DESCRIPTION PAGE — SHOPPING MOMENT: DARK MODE */
-
-.dark .product-description-page #story {
-  background: linear-gradient(145deg, #182536 0%, #202d3d 100%);
-  border-top-color: #334155; border-bottom-color: #334155;
-}
-
-/* Section label */
-.dark .product-description-page #story .kicker {  color: #f0a197;}
-
-/* Large section number */
-.dark .product-description-page #story .num {  color: #475569;}
-
-/* Main heading */
-.dark .product-description-page #story .intro-copy h2 {  color: #f8fafc;}
-
-/* Story paragraphs */
-.dark .product-description-page #story .intro-copy p {  color: #cbd5e1;}
-
-/* Emphasised statement */
-.dark .product-description-page #story .intro-copy strong {  color: #f0a197;}
 
 /*___________________________________🟢 ¯\_(ツ)_/¯ 🟢 ___________________________________*/
 
