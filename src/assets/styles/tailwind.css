@@ -1284,7 +1284,7 @@ font-size: clamp(54px, 7vw, 92px);line-height: 1.1; letter-spacing: -.055em; mar
 
 /* Footer*/
 footer {
-    background: #2753a2!important;
+    background: oklch(27.9% .041 260.031);
     color: #fff;
 }
 footer a, footer li a {
