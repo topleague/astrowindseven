@@ -1344,6 +1344,12 @@ box-shadow: 0 0 0 60px #ffffff09,0 0 0 120px #ffffff06; left: -280px;
 /* KEEP HEADER BACKGROUND CONSISTENT ON SCROLL */
 #header.scroll > div:first-child {  background-color: #17242B !important;}
 
+/* PRODUCT DESCRIPTION PAGE — HEADER & FOOTER ALIGNMENT */
+/* Header inner wrapper */
+.product-description-page #header > div.relative {  max-width: 1180px;   padding-inline: 16px;}
+/* Footer inner wrapper */
+.product-description-page .site-footer > div.relative {  max-width: 1180px;   padding-inline: 16px;}
+
 
 /*___________________________________🟢 ¯\_(ツ)_/¯ 🟢 ___________________________________*/
 /* DARK MODE CSS FOR PRODUCT DESCRIPTION PAGE */
