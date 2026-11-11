@@ -1259,7 +1259,7 @@ flex-direction: column; min-height: 390px; position: relative;
 
 .product-description-page #packages .price-card .btn {margin-top: auto;}
 
-.product-description-page #difference .feature-head p, #packages .container .feature-head p {
+.product-description-page #difference .feature-head p, .product-description-page #packages .container .feature-head p {
 font-size: clamp(1.03rem,1.5vw,1.2rem); max-width: revert;}
 
 /*___________________________________🟢 ¯\_(ツ)_/¯ 🟢 ___________________________________*/
@@ -1270,36 +1270,36 @@ font-size: clamp(1.03rem,1.5vw,1.2rem); max-width: revert;}
 .product-description-page #coming .text-center p {color: #647178;}
 
 
-#packages .container .feature-head {max-width: 760px;}
+.product-description-page #packages .container .feature-head {max-width: 760px;}
 
-#packages .container .pricing-grid .price-card .kicker {
+.product-description-page #packages .container .pricing-grid .price-card .kicker {
 color: #b34a43; letter-spacing: .13em; text-transform: uppercase; font-size: .74rem; font-weight: 850;
 }
 
 .product-description-page #packages .container .pricing-grid .price-card {border: #ccc solid 2px; border-radius: 5px;}
 .product-description-page #packages .container .pricing-grid .price-popular {border: 2px solid #b34a43!important;}
 
-#packages .container .pricing-grid .price-card .btn.primary {
+.product-description-page #packages .container .pricing-grid .price-card .btn.primary {
 background-color: #000; padding: 12px 20px; font-size: .88rem; font-weight: 750; color: #fff!important;
 }
 
-#packages .container .pricing-grid .price-card h3 {
+.product-description-page #packages .container .pricing-grid .price-card h3 {
 font-size: 1.65rem; margin-block: 13px;
 }
 
-#packages .container .pricing-grid .price-card p {
+.product-description-page #packages .container .pricing-grid .price-card p {
 color: #647178; font-size: .9rem;
 }
 
-#packages .container .pricing-grid .price-card li:before {
+.product-description-page #packages .container .pricing-grid .price-card li:before {
 content: "✓"; color: #b34a43; margin-right: 10px;
 }
 
-#packages .container .pricing-grid .price-card ul {
+.product-description-page #packages .container .pricing-grid .price-card ul {
 border-top: 1px solid #647178; margin: 8px 0 24px; padding: 18px 0 0; list-style: none; color: #647178; font-family: CB,Para,Futura Book,serif!important;
 }
 
-#packages .container .pricing-grid .price-card ul li {padding: 4px 0;}
+.product-description-page #packages .container .pricing-grid .price-card ul li {padding: 4px 0;}
 
 .product-description-page #contact.cta {background-color: #17242b;}
 .product-description-page #contact.cta h2 {margin-block: 2.5vw;}
@@ -1463,6 +1463,89 @@ box-shadow: 0 0 0 60px #ffffff09,0 0 0 120px #ffffff06; left: -280px;
 
 /* Card descriptions */
 .dark .product-description-page #included .feature p {  color: #cbd5e1;}
+
+/*___________________________________🟢 ¯\_(ツ)_/¯ 🟢 ___________________________________*/
+
+
+/* PRODUCT DESCRIPTION PAGE — WRITING PACKAGES: DARK MODE */
+
+.dark .product-description-page #packages {
+  background: linear-gradient(145deg, #111827 0%, #172033 100%);
+  border-color: #334155;
+}
+
+/* Section heading */
+.dark .product-description-page #packages .feature-head h2 {
+  color: #f8fafc;
+}
+
+/* Section label */
+.dark .product-description-page #packages .feature-head .kicker {
+  color: #f0a197;
+}
+
+/* Introductory paragraph */
+.dark .product-description-page #packages .feature-head p {
+  color: #cbd5e1;
+}
+
+/* All package cards */
+.dark .product-description-page #packages .pricing-grid .price-card {
+  background: #1e293b;
+  color: #f8fafc;
+  border: 1px solid #475569;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+}
+
+/* Featured — Standard package */
+.dark .product-description-page #packages .pricing-grid .price-popular {
+  background: #203a38;
+  border: 2px solid #c77b72;
+}
+
+/* Package labels */
+.dark .product-description-page #packages .price-card .kicker {
+  color: #f0a197;
+}
+
+/* Featured package label */
+.dark .product-description-page #packages .price-popular .kicker {
+  color: #9bd4c2;
+}
+
+/* Package headings */
+.dark .product-description-page #packages .price-card h3 {
+  color: #f8fafc;
+}
+
+/* Package descriptions */
+.dark .product-description-page #packages .price-card p {
+  color: #cbd5e1;
+}
+
+/* Package feature list */
+.dark .product-description-page #packages .price-card ul {
+  color: #cbd5e1;
+  border-top-color: #475569;
+}
+
+/* Feature list checkmarks */
+.dark .product-description-page #packages .price-card li::before {
+  color: #9bd4c2;
+}
+
+/* Package buttons */
+.dark .product-description-page #packages .price-card .btn.primary {
+  background: #b34a43;
+  color: #fff !important;
+  border: 1px solid #b34a43;
+}
+
+/* Button hover */
+.dark .product-description-page #packages .price-card .btn.primary:hover {
+  background: #c45b53;
+  border-color: #c45b53;
+}
 
 /*___________________________________🟢 ¯\_(ツ)_/¯ 🟢 ___________________________________*/
 
