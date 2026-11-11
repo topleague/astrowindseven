@@ -1557,6 +1557,124 @@ box-shadow: 0 0 0 60px #ffffff09,0 0 0 120px #ffffff06; left: -280px;
 
 /*___________________________________🟢 ¯\_(ツ)_/¯ 🟢 ___________________________________*/
 
+/* PRODUCT DESCRIPTION PAGE — SHOPPING MOMENT */
+
+/* Section */
+.product-description-page #story {
+  position: relative;
+  padding-block: clamp(80px, 10vw, 120px);
+}
+
+/* Layout */
+.product-description-page #story .story-layout {
+  position: relative;
+  isolation: isolate;
+}
+
+/* Oversized decorative number */
+.product-description-page #story .story-number {
+  position: absolute;
+  z-index: -1;
+  top: -65px;
+  left: -8px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(150px, 22vw, 230px);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -.09em;
+  color: rgba(31, 95, 85, 0.10);
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Story content */
+.product-description-page #story .story-content {
+  position: relative;
+  max-width: 900px;
+}
+
+/* Section label */
+.product-description-page #story .story-content .kicker {
+  margin-bottom: 20px;
+  color: #1f5f55;
+}
+
+/* Heading */
+.product-description-page #story .story-content h2 {
+  max-width: 820px;
+  margin: 0 0 30px;
+  font-family: Reco, FC, Frog, "Mona Bold Pro", sans-serif !important;
+  font-size: clamp(38px, 4.5vw, 60px);
+  line-height: 1.02;
+  letter-spacing: -.045em;
+  color: #16202a;
+}
+
+/* Paragraphs */
+.product-description-page #story .story-content p {
+  max-width: 800px;
+  margin: 0 0 18px;
+  font-size: 17px;
+  line-height: 1.75;
+  color: #43505a;
+}
+
+/* Emphasis */
+.product-description-page #story .story-content strong {
+  color: #16202a;
+  font-weight: 700;
+}
+
+/* DARK MODE */
+.dark .product-description-page #story {
+  background: linear-gradient(145deg, #182536 0%, #202d3d 100%);
+  border-color: #334155;
+}
+
+.dark .product-description-page #story .story-number {
+  color: rgba(155, 212, 194, 0.09);
+}
+
+.dark .product-description-page #story .story-content .kicker {
+  color: #f0a197;
+}
+
+.dark .product-description-page #story .story-content h2 {
+  color: #f8fafc;
+}
+
+.dark .product-description-page #story .story-content p {
+  color: #cbd5e1;
+}
+
+.dark .product-description-page #story .story-content strong {
+  color: #f0a197;
+}
+
+/* MOBILE */
+@media (max-width: 640px) {
+  .product-description-page #story {
+    padding-block: 75px;
+  }
+
+  .product-description-page #story .story-number {
+    top: -42px;
+    left: 0;
+    font-size: 145px;
+  }
+
+  .product-description-page #story .story-content h2 {
+    font-size: clamp(36px, 9vw, 44px);
+  }
+
+  .product-description-page #story .story-content p {
+    font-size: 16px;
+    line-height: 1.7;
+  }
+}
+
+/*___________________________________🟢 ¯\_(ツ)_/¯ 🟢 ___________________________________*/
+
 /* Footer*/
 footer {
     background: #2753a2!important;
