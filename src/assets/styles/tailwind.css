@@ -1433,6 +1433,39 @@ box-shadow: 0 0 0 60px #ffffff09,0 0 0 120px #ffffff06; left: -280px;
 
 /*___________________________________🟢 ¯\_(ツ)_/¯ 🟢 ___________________________________*/
 
+
+/* PRODUCT DESCRIPTION PAGE — WHAT'S INCLUDED: DARK MODE */
+
+.dark .product-description-page #included {  background: linear-gradient(145deg, #111827 0%, #172033 100%);}
+
+/* Section heading */
+.dark .product-description-page #included .feature-head h2 {  color: #f8fafc;}
+
+/* Section label */
+.dark .product-description-page #included .feature-head .kicker {  color: #f0a197;}
+
+/* Shared card styling */
+.dark .product-description-page #included .features .feature {
+  background: #1e293b;
+  color: #f8fafc;
+  border: 1px solid #475569;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+}
+
+/* First card — subtle teal highlight */
+.dark .product-description-page #included .features .feature:nth-child(1) {  background: #203a38;  border-color: #3b625b;}
+
+/* Card category labels */
+.dark .product-description-page #included .feature .kicker {  color: #9bd4c2;}
+
+/* Card headings */
+.dark .product-description-page #included .feature h3 {  color: #f8fafc;}
+
+/* Card descriptions */
+.dark .product-description-page #included .feature p {  color: #cbd5e1;}
+
+/*___________________________________🟢 ¯\_(ツ)_/¯ 🟢 ___________________________________*/
+
 /* Footer*/
 footer {
     background: #2753a2!important;
