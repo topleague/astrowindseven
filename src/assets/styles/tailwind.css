@@ -153,6 +153,14 @@
 
 /* CUSTOM FONT */
 
+@font-face {
+  font-family: 'Futura Book';
+  src: url('/fonts/FuturaLT-Book.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* FUTURA CONDENSED (400 + 700 + 800) */
 
 /* TLT Fonts */
@@ -206,7 +214,27 @@
 }
 
 /* FROGIE FONT  */
+
+@font-face {
+  font-family: 'Frog';
+  src: url('/fonts/Frogie.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+
 /* Futural CFONT  */
+
+@font-face {
+  font-family: 'FC';
+  src: url('/fonts/Futura Condensed.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+
 /* FONTS FROM LEAGUE WP */
 
 @font-face {
@@ -1027,6 +1055,7 @@ max-width: 1180px; margin: auto; /* padding-inline: 0; */
 
 /* HERO */
 .product-description-page .hero {color: #fff; background: linear-gradient(110deg, #17242b, #26383f 65%, #34484e);}
+.product-description-page .hero h1 {max-width: 850px;}
 /* REDUNDANT: duplicate of the background declaration consolidated into the rule above. */
 /*___________________________________🟢 REDUDANT  ¯\_(ツ)_/¯ CSS LINES (STARTS) 🟢 ___________________________________*/
 /*___________________________________🟢 REDUDANT  ¯\_(ツ)_/¯ CSS LINES (ENDS) 🟢 ___________________________________*/
@@ -1069,9 +1098,31 @@ max-width: 1180px; margin: auto; /* padding-inline: 0; */
 .product-description-page #story {position: relative; padding-block: clamp(4.5rem, calc(3rem + 5vw), 7.5rem);}
 .dark .product-description-page #story {background: linear-gradient(145deg, #182536 0%, #202d3d 100%); border-color: #334155;}
 
-/* REDUNDANT: current holy.astro still uses .intro, .intro-copy and .num, not these revised story classes. */
-/*___________________________________🟢 REDUDANT  ¯\_(ツ)_/¯ CSS LINES (STARTS) 🟢 ___________________________________*/
-/*___________________________________🟢 REDUDANT  ¯\_(ツ)_/¯ CSS LINES (ENDS) 🟢 ___________________________________*/
+.product-description-page #story .story-layout {position: relative; isolation: isolate;}
+.product-description-page #story .story-number {
+  position: absolute; z-index: -1; top: clamp(-65px, calc(-25px - 2vw), -42px);
+  left: clamp(0px, calc(8px - 1vw), 8px); font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(9rem, calc(6rem + 10vw), 14.375rem); font-weight: 700; line-height: 1;
+  letter-spacing: -.09em; color: rgba(31, 95, 85, .10); pointer-events: none; user-select: none;
+}
+.product-description-page #story .story-content {position: relative; max-width: 900px;}
+.product-description-page #story .story-content .kicker {margin-bottom: clamp(1rem, calc(.7rem + .5vw), 1.25rem); color: #1f5f55;}
+.product-description-page #story .story-content h2 {
+  max-width: 820px; margin: 0 0 clamp(1.5rem, calc(1rem + 1vw), 1.875rem);
+  font-family: Reco, FC, Frog, "Mona Bold Pro", sans-serif !important;
+  font-size: clamp(2.25rem, calc(1.5rem + 2.5vw), 3.75rem); line-height: 1.02;
+  letter-spacing: -.045em; color: #16202a;
+}
+.product-description-page #story .story-content p {
+  max-width: 800px; margin: 0 0 clamp(.9rem, calc(.7rem + .3vw), 1.125rem);
+  font-size: clamp(1rem, calc(.95rem + .15vw), 1.0625rem); line-height: 1.75; color: #43505a;
+}
+.product-description-page #story .story-content strong {color: #16202a; font-weight: 700;}
+.dark .product-description-page #story .story-number {color: rgba(155, 212, 194, .09);}
+.dark .product-description-page #story .story-content .kicker {color: #f0a197;}
+.dark .product-description-page #story .story-content h2 {color: #f8fafc;}
+.dark .product-description-page #story .story-content p {color: #cbd5e1;}
+.dark .product-description-page #story .story-content strong {color: #f0a197;}
 
 /* THE TOP LEAGUE APPROACH */
 .product-description-page #difference .feature-head,
