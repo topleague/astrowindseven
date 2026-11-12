@@ -1047,6 +1047,11 @@ max-width: 1180px; margin: auto; /* padding-inline: 0; */
 /* Box Shadow Removal of Proof Section */
 .home-draft #proof .shadow-xl {box-shadow: none;}
 
+
+/* GENERIC CSS // added to remove inconsistencies in spaces inside the cards */
+#included .feature {  justify-content: flex-start;}
+#included .feature h3 {  margin-top: 0;}
+
 /*___________________________________🟢 PRODUCT ¯\_(ツ)_/¯ DESC TEMPLATE CSS 🟢 ___________________________________*/
 
 /* HEADER */
