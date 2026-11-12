@@ -1169,7 +1169,7 @@ font-size: clamp(54px, 7vw, 92px);line-height: 1.1; letter-spacing: -.055em; mar
 .dark .product-description-page #difference .feature li {color: #cbd5e1;}
 
 /* HOW WE WORK */
-.product-description-page #process .feature-head {max-width: 760px; margin-bottom: 44px;}
+.product-description-page #process .feature-head {max-width: 760px; margin-bottom: 44px; display:block;}
 .product-description-page #process .process {
   display: grid; gap: 24px; max-width: 850px;
   grid-template-columns: repeat(auto-fit, minmax(clamp(50% - 24px, (600px - 100vw) * 1000, 100%), 1fr));
@@ -1184,7 +1184,7 @@ font-size: clamp(54px, 7vw, 92px);line-height: 1.1; letter-spacing: -.055em; mar
 /* WHAT'S INCLUDED */
 .product-description-page #included .features .feature {grid-column: revert;}
 .product-description-page #included .features {grid-template-columns: repeat(auto-fit, minmax(clamp(50% - 24px, 600000px - 100000vw, 100%), 1fr));}
-.product-description-page #included .container .feature-head {max-width: 760px; margin-bottom: 44px;}
+.product-description-page #included .container .feature-head {max-width: 760px; margin-bottom: 44px; display:block;}
 .product-description-page #included .features .feature:first-child {background-color: revert; color: #000; border: 1px solid #dfe5e8;}
 .product-description-page #included .features .feature:first-child p {color: #64717d;}
 .dark .product-description-page #included {background: linear-gradient(145deg, #111827 0%, #172033 100%);}
