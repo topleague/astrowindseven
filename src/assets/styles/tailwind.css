@@ -1278,6 +1278,9 @@ font-size: clamp(54px, 7vw, 92px);line-height: 1.1; letter-spacing: -.055em; mar
 
 /* REDUNDANT: the following old selector targets .pdw-hero, but holy.astro uses .hero. */
 /*___________________________________🟢 REDUDANT  ¯\_(ツ)_/¯ CSS LINES (STARTS) 🟢 ___________________________________*/
+
+.product-description-page #why .feature-head,  .product-description-page #packages .feature-head {max-width: 760px; margin-bottom: 44px; display: block;}
+
 /*___________________________________🟢 REDUDANT  ¯\_(ツ)_/¯ CSS LINES (ENDS) 🟢 ___________________________________*/
 
 /*___________________________________🟢 PRODUCT TEMPLATE CSS ENDS 🟢 ___________________________________*/
