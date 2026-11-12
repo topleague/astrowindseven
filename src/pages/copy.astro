@@ -1,0 +1,152 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import { Icon } from 'astro-icon/components';
+
+const metadata = {
+  title: 'SEO Copywriting Services | Top League',
+  description:
+    'Website copy that connects with your audience, communicates your value and encourages action.',
+};
+
+const enquiryLink =
+  'mailto:hello@topleaguetech.com?subject=SEO%20Copywriting%20Enquiry';
+---
+
+<Layout metadata={metadata} pageClass="product-description-page">
+  <section class="hero">
+    <div class="container">
+      <div class="eyebrow"><span class="dot"></span> SEO copywriting</div>
+      <h1>Website copy that <span>moves people.</span></h1>
+      <p>Website copy that connects with your audience, communicates your value and encourages action.</p>
+      <div class="actions">
+        <a class="btn primary" href="#packages">Explore packages ↗</a>
+        <a class="btn ghost" href="#process">See how we work ↓</a>
+      </div>
+      <div class="hero-note">Industry experience since 2006 · Top League established in 2010</div>
+    </div>
+  </section>
+
+  <section class="section" id="story">
+    <div class="container story-layout">
+      <span class="story-number" aria-hidden="true">01</span>
+      <div class="story-content">
+        <div class="kicker">The message matters</div>
+        <h2>Visitors are landing on your website. Are your words giving them a reason to stay?</h2>
+        <p>Your website might have a great design, a useful product and a competitive offer. But if your message doesn't connect with visitors, you could be losing potential customers.</p>
+        <p>Confusing headlines, generic descriptions and weak calls to action make it harder for people to understand why they should choose you.</p>
+        <p><strong>We help you get your message across.</strong> We combine persuasive writing with SEO-aware content structure to make your website clearer, more relevant and more compelling.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section band" id="included">
+    <div class="container">
+      <div class="feature-head">
+        <div class="kicker">What we write</div>
+        <h2>Every page has a purpose. Your copy should reflect it.</h2>
+        <p>Website copy shaped around what each page needs to communicate—and what you want visitors to do next.</p>
+      </div>
+      <div class="features">
+        <article class="feature">
+          <Icon name="tabler:home" class="mb-4 w-9 h-9 text-primary" />
+          <div><h3>Homepage copy</h3><p>Communicate what your business does, who it serves and why visitors should care.</p></div>
+        </article>
+        <article class="feature">
+          <Icon name="tabler:file-text" class="mb-4 w-9 h-9 text-primary" />
+          <div><h3>Service page copy</h3><p>Explain your services, highlight their benefits and encourage potential customers to get in touch.</p></div>
+        </article>
+        <article class="feature">
+          <Icon name="tabler:layout" class="mb-4 w-9 h-9 text-primary" />
+          <div><h3>Landing page copy</h3><p>Build focused messages around a particular offer, campaign or audience.</p></div>
+        </article>
+        <article class="feature">
+          <Icon name="tabler:users" class="mb-4 w-9 h-9 text-primary" />
+          <div><h3>About Us pages</h3><p>Tell your business story, communicate your values and give visitors reasons to trust you.</p></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="process">
+    <div class="container">
+      <div class="feature-head">
+        <div class="kicker">Our approach</div>
+        <h2>Good copy doesn't happen by accident.</h2>
+        <p>A straightforward process that turns what you know about your business into a clear message for your customers.</p>
+      </div>
+      <div class="process">
+        <article><Icon name="tabler:briefcase" class="mb-3 w-7 h-7 text-primary" /><div class="kicker">STEP 01</div><h3>Understand your business</h3><p>We learn about your business, audience, offerings and objectives.</p></article>
+        <article><Icon name="tabler:search" class="mb-3 w-7 h-7 text-primary" /><div class="kicker">STEP 02</div><h3>Find the right message</h3><p>We identify your selling points, customer concerns and the messages your website needs to communicate.</p></article>
+        <article><Icon name="tabler:pencil" class="mb-3 w-7 h-7 text-primary" /><div class="kicker">STEP 03</div><h3>Write persuasive copy</h3><p>We develop clear, engaging content with meaningful headlines, natural keyword integration and purposeful calls to action.</p></article>
+        <article><Icon name="tabler:check" class="mb-3 w-7 h-7 text-primary" /><div class="kicker">STEP 04</div><h3>Review and refine</h3><p>We polish the copy, incorporate agreed feedback and deliver content ready for your website.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section band" id="why">
+    <div class="container">
+      <div class="feature-head">
+        <div class="kicker">Why Top League</div>
+        <h2>Words matter. Experience makes a difference.</h2>
+        <p>Thoughtful copy, a practical understanding of SEO and a team that takes the time to understand your business.</p>
+      </div>
+      <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+        <article class="rounded-xl border border-slate-200 bg-white p-7 dark:border-slate-700 dark:bg-slate-900">
+          <Icon name="tabler:clock" class="mb-4 h-9 w-9 text-primary" />
+          <h3 class="mb-2 text-xl font-semibold">Industry experience since 2006</h3>
+          <p class="text-muted">We've been working with business content since 2006. Top League Technologies was established in 2010.</p>
+        </article>
+        <article class="rounded-xl border border-slate-200 bg-white p-7 dark:border-slate-700 dark:bg-slate-900">
+          <Icon name="tabler:target" class="mb-4 h-9 w-9 text-primary" />
+          <h3 class="mb-2 text-xl font-semibold">Persuasion with SEO awareness</h3>
+          <p class="text-muted">We write for people first while keeping search intent and on-page SEO considerations in mind.</p>
+        </article>
+        <article class="rounded-xl border border-slate-200 bg-white p-7 dark:border-slate-700 dark:bg-slate-900">
+          <Icon name="tabler:message-circle" class="mb-4 h-9 w-9 text-primary" />
+          <h3 class="mb-2 text-xl font-semibold">Your business, your voice</h3>
+          <p class="text-muted">We understand your offerings and communicate them in a way that reflects your brand.</p>
+        </article>
+        <article class="rounded-xl border border-slate-200 bg-white p-7 dark:border-slate-700 dark:bg-slate-900">
+          <Icon name="tabler:users" class="mb-4 h-9 w-9 text-primary" />
+          <h3 class="mb-2 text-xl font-semibold">A hands-on team</h3>
+          <p class="text-muted">Work directly with an experienced, approachable team instead of being another order in a content production pipeline.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="proof">
+    <div class="container proof">
+      <div><div class="kicker">Client feedback</div><h2 class="quote">“They followed our direction very closely.”<small>Jason Hamblin · Senior Executive, L2T Media</small></h2></div>
+      <article class="testimonial">
+        <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <p>“Top League did a great job writing content for our website. They followed our direction very closely and were readily available for every stage of the project. I would highly recommend their writing skills and will be utilizing their services again. Great Job!”</p>
+        <div class="person">Jason Hamblin · Senior Executive, L2T Media</div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section band" id="packages">
+    <div class="container">
+      <div class="feature-head">
+        <div class="kicker">Copywriting packages</div>
+        <h2>Professional website copy. Straightforward packages.</h2>
+        <p>Each page includes up to 300 words of website copy. Choose the package that fits your website.</p>
+      </div>
+      <div class="pricing-grid">
+        <article class="price-card"><div class="kicker">Basic</div><h3>For a smaller website</h3><div class="price">$299</div><ul><li>5 website pages</li><li>Up to 300 words per page</li><li>5 business days</li></ul><a class="btn primary" href="mailto:hello@topleaguetech.com?subject=Basic%20SEO%20Copywriting%20Package">Discuss this package ↗</a></article>
+        <article class="price-card price-popular"><div class="kicker">Standard</div><h3>For a growing website</h3><div class="price">$449</div><ul><li>10 website pages</li><li>Up to 300 words per page</li><li>10 business days</li></ul><a class="btn primary" href="mailto:hello@topleaguetech.com?subject=Standard%20SEO%20Copywriting%20Package">Discuss this package ↗</a></article>
+        <article class="price-card"><div class="kicker">Premium</div><h3>For a larger website</h3><div class="price">$599</div><ul><li>20 website pages</li><li>Up to 300 words per page</li><li>20 business days</li></ul><a class="btn primary" href="mailto:hello@topleaguetech.com?subject=Premium%20SEO%20Copywriting%20Package">Discuss this package ↗</a></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="cta">
+    <div class="wrap">
+      <div class="kicker">Let's talk</div>
+      <h2>Your website deserves better words.</h2>
+      <p>Let's make your message clearer, your value easier to understand and your website more persuasive.</p>
+      <a class="button" href={enquiryLink}>Discuss your project ↗</a>
+    </div>
+  </section>
+</Layout>
