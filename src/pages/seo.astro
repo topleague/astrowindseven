@@ -1,0 +1,483 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import { Icon } from 'astro-icon/components';
+
+const metadata = {
+  title: 'SEO Services | Top League Technologies',
+  description:
+    'SEO built into your website from the start. We plan, build and prepare websites with search visibility in mind.',
+};
+
+const enquiryLink =
+  'mailto:hello@topleaguetech.com?subject=SEO%20Services%20Enquiry';
+---
+
+<Layout metadata={metadata} pageClass="seo-services-page">
+  <!-- 01 · HERO -->
+  <section class="hero seo-hero">
+    <div class="container">
+      <div class="eyebrow"><span class="dot"></span> SEO for website development</div>
+      <h1>A Good Website Isn't Enough. <span>It Needs SEO Built In.</span></h1>
+      <p>We build SEO into your website from the planning stage. Already have a website? We'll identify what's holding it back and help put it right.</p>
+      <div class="actions">
+        <a class="btn primary" href={enquiryLink}>Free consultation ↗</a>
+        <a class="btn ghost" href="#approach">See how we do it ↓</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 · THE SEO REALITY -->
+  <section class="seo-reality section" id="reality">
+    <div class="container">
+      <header class="seo-section-head">
+        <div class="kicker">The SEO reality</div>
+        <h2>Poor SEO affecting your website?</h2>
+        <p>Your website may look great, but poor SEO can make it harder for potential customers to find you, understand what you offer and take action.</p>
+      </header>
+
+      <div class="seo-problems">
+        <article class="seo-problem">
+          <div class="seo-problem-icon"><Icon name="tabler:search" /></div>
+          <div class="seo-problem-copy">
+            <span class="seo-problem-number">01</span>
+            <h3>Hard to find</h3>
+            <p>Weak keyword targeting, poor indexing and technical issues can keep your pages out of relevant search results.</p>
+          </div>
+        </article>
+
+        <article class="seo-problem">
+          <div class="seo-problem-icon"><Icon name="tabler:hierarchy-2" /></div>
+          <div class="seo-problem-copy">
+            <span class="seo-problem-number">02</span>
+            <h3>Hard to understand</h3>
+            <p>Poor page structure, unclear service descriptions and weak internal links make it harder for visitors and search engines to understand your business.</p>
+          </div>
+        </article>
+
+        <article class="seo-problem">
+          <div class="seo-problem-icon"><Icon name="tabler:target" /></div>
+          <div class="seo-problem-copy">
+            <span class="seo-problem-number">03</span>
+            <h3>Hard to convert</h3>
+            <p>Even when visitors arrive, weak content, poor user experience and misplaced calls to action can cost you enquiries.</p>
+          </div>
+        </article>
+      </div>
+
+      <p class="seo-reality-close">And these problems aren't always visible on the surface.</p>
+    </div>
+  </section>
+
+  <!-- 03 · OUR APPROACH -->
+  <section class="seo-approach section band" id="approach">
+    <div class="container">
+      <header class="seo-section-head">
+        <div class="kicker">Our approach</div>
+        <h2>SEO starts before your website goes live.</h2>
+        <p>A website shouldn't be built first and optimised as an afterthought. We bring SEO into the decisions that shape it — from what your pages say to how the whole site is put together.</p>
+      </header>
+
+      <div class="seo-journey">
+        <article class="seo-stage">
+          <div class="seo-art seo-art-research">
+            <span class="seo-art-number">01</span>
+            <svg viewBox="0 0 240 190" role="img" aria-label="Researching customer searches">
+              <circle cx="122" cy="96" r="66" fill="#dceae5" />
+              <path d="M63 139c13-23 32-34 59-34s47 11 59 34" fill="none" stroke="#1f5f55" stroke-width="1.5" stroke-dasharray="3 6" />
+              <rect x="57" y="45" width="126" height="92" rx="3" fill="#17242b" transform="rotate(-5 120 90)" />
+              <rect x="51" y="39" width="126" height="92" rx="3" fill="#fff" stroke="#17242b" stroke-width="2" transform="rotate(-5 114 85)" />
+              <g transform="rotate(-5 114 85)" fill="none" stroke="#17242b" stroke-width="1.6" stroke-linecap="round">
+                <path d="M66 59h83M66 74h54M66 89h69M66 104h40" />
+                <circle cx="151" cy="105" r="13" fill="#f7e9e6" stroke="#17242b" />
+                <path d="m160 115 11 11M143 105h16m-8-8v16" stroke="#b34a43" stroke-width="2" />
+              </g>
+              <path d="M32 56c8-9 15-9 22 0M187 54c8-9 15-9 22 0" fill="none" stroke="#1f5f55" stroke-width="2.2" stroke-linecap="round" />
+            </svg>
+          </div>
+          <div class="seo-stage-copy">
+            <span class="seo-stage-label">01 · Understand</span>
+            <h3>Research before design</h3>
+            <p>We learn what your customers search for, what they need to know and which pages your business actually needs.</p>
+          </div>
+        </article>
+
+        <article class="seo-stage">
+          <div class="seo-art seo-art-structure">
+            <span class="seo-art-number">02</span>
+            <svg viewBox="0 0 240 190" role="img" aria-label="Planning the website structure">
+              <circle cx="121" cy="95" r="69" fill="#f2d9d4" />
+              <path d="M120 56v25M78 112V92h84v20M120 81v31" fill="none" stroke="#17242b" stroke-width="2" />
+              <rect x="88" y="35" width="64" height="25" rx="2" fill="#fff" stroke="#17242b" stroke-width="2" />
+              <rect x="47" y="111" width="62" height="29" rx="2" fill="#e8f0ed" stroke="#17242b" stroke-width="2" />
+              <rect x="131" y="111" width="62" height="29" rx="2" fill="#f7e9e6" stroke="#17242b" stroke-width="2" />
+              <path d="M57 122h42m-42 7h28M141 122h42m-42 7h29" fill="none" stroke="#17242b" stroke-width="1.4" />
+              <path d="M77 153h86" fill="none" stroke="#b34a43" stroke-width="2.2" stroke-linecap="round" />
+              <circle cx="77" cy="153" r="3" fill="#b34a43" /><circle cx="163" cy="153" r="3" fill="#b34a43" />
+              <g fill="#657078" font-size="7" font-weight="700" text-anchor="middle"><text x="120" y="51">HOME</text><text x="78" y="128">SERVICE</text><text x="162" y="128">ABOUT</text></g>
+            </svg>
+          </div>
+          <div class="seo-stage-copy">
+            <span class="seo-stage-label">02 · Structure</span>
+            <h3>Plan pages with purpose</h3>
+            <p>We map services, topics, keywords and search intent into a clear page structure, navigation and URL plan.</p>
+          </div>
+        </article>
+
+        <article class="seo-stage">
+          <div class="seo-art seo-art-build">
+            <span class="seo-art-number">03</span>
+            <svg viewBox="0 0 240 190" role="img" aria-label="Building a fast, structured website">
+              <circle cx="120" cy="96" r="68" fill="#e4e0eb" />
+              <rect x="48" y="49" width="147" height="96" rx="3" fill="#17242b" />
+              <rect x="42" y="43" width="147" height="96" rx="3" fill="#fff" stroke="#17242b" stroke-width="2" />
+              <path d="M42 61h147" fill="none" stroke="#17242b" stroke-width="2" />
+              <circle cx="53" cy="52" r="2" fill="#b34a43" /><circle cx="61" cy="52" r="2" fill="#1f5f55" />
+              <rect x="54" y="72" width="55" height="56" fill="#e8f0ed" stroke="#17242b" stroke-width="2" />
+              <path d="M64 84h34M64 92h25M64 100h29" fill="none" stroke="#17242b" stroke-width="1.4" />
+              <rect x="119" y="73" width="58" height="9" rx="1" fill="#f2d9d4" />
+              <rect x="119" y="89" width="48" height="5" rx="1" fill="#d9d4cc" /><rect x="119" y="99" width="53" height="5" rx="1" fill="#d9d4cc" />
+              <rect x="119" y="113" width="31" height="12" rx="1" fill="#1f5f55" />
+              <path d="M105 145v10m-18 0h36M202 71v38m-7-7 7 7 7-7" fill="none" stroke="#17242b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M202 102v7" fill="none" stroke="#b34a43" stroke-width="2" />
+            </svg>
+          </div>
+          <div class="seo-stage-copy">
+            <span class="seo-stage-label">03 · Build</span>
+            <h3>Build on solid foundations</h3>
+            <p>We develop a fast, mobile-friendly site with clean structure, useful content, sensible internal links and technical SEO essentials.</p>
+          </div>
+        </article>
+
+        <article class="seo-stage">
+          <div class="seo-art seo-art-check">
+            <span class="seo-art-number">04</span>
+            <svg viewBox="0 0 240 190" role="img" aria-label="Checking the website before launch">
+              <circle cx="120" cy="95" r="68" fill="#dceae5" />
+              <rect x="51" y="45" width="137" height="101" rx="3" fill="#fff" stroke="#17242b" stroke-width="2" />
+              <path d="M51 66h137M64 56h45" fill="none" stroke="#17242b" stroke-width="1.5" />
+              <circle cx="165" cy="56" r="3" fill="#b34a43" />
+              <path d="M69 83h9l4 4 8-10M69 108h9l4 4 8-10" fill="none" stroke="#1f5f55" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M99 83h69M99 91h48M99 108h69M99 116h48" fill="none" stroke="#17242b" stroke-width="1.4" stroke-linecap="round" />
+              <path d="m137 137 13 13 28-31" fill="none" stroke="#1f5f55" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M39 38 29 28m172 10 10-10" fill="none" stroke="#b34a43" stroke-width="2.2" stroke-linecap="round" />
+            </svg>
+          </div>
+          <div class="seo-stage-copy">
+            <span class="seo-stage-label">04 · Prepare</span>
+            <h3>Check before launch</h3>
+            <p>We review key pages, metadata, links, indexing settings, redirects and performance before the site is ready to meet the world.</p>
+          </div>
+        </article>
+      </div>
+
+      <div class="seo-launch-transition">
+        <span></span>
+        <div>Then the website goes live<small>Launch is the starting line, not the finish.</small></div>
+        <span></span>
+      </div>
+
+      <div class="seo-after-launch">
+        <div>
+          <div class="seo-after-label"><Icon name="tabler:trending-up" /> After launch</div>
+          <h3>Keep learning. Keep improving.</h3>
+        </div>
+        <p>We monitor how the site performs, identify opportunities and refine content and SEO over time — because search visibility grows through ongoing work, not a one-off launch checklist.</p>
+      </div>
+
+      <p class="seo-approach-foot">The right starting point depends on your business, your audience and the website you need.</p>
+    </div>
+  </section>
+</Layout>
+
+<style is:global>
+/* SEO SERVICES PAGE — first three approved sections */
+.seo-services-page .hero.seo-hero {
+  min-height: 620px;
+  background: #17242b;
+}
+.seo-services-page .hero.seo-hero::before {
+  background: linear-gradient(90deg, rgba(9,18,22,.92), rgba(9,18,22,.68) 58%, rgba(9,18,22,.28));
+  background-image: linear-gradient(90deg, rgba(9,18,22,.92), rgba(9,18,22,.68) 58%, rgba(9,18,22,.28));
+}
+.seo-services-page .hero.seo-hero::after {
+  border-color: rgba(255,255,255,.14);
+}
+.seo-services-page .hero.seo-hero .container { z-index: 1; }
+.seo-services-page .hero.seo-hero h1 {
+  max-width: 900px;
+  font-size: clamp(46px, 6.4vw, 78px);
+  line-height: 1.06;
+}
+.seo-services-page .hero.seo-hero h1 span {
+  display: block;
+  color: #e9aaa3;
+}
+.seo-services-page .hero.seo-hero p { max-width: 690px; }
+.seo-services-page .hero.seo-hero .btn.primary { background: #b34a43; color: #fff; }
+.seo-services-page .hero.seo-hero .btn.ghost { border-color: rgba(255,255,255,.42); }
+
+.seo-services-page .seo-reality {
+  background: #fff;
+  color: #17242b;
+}
+.seo-services-page .seo-section-head {
+  max-width: 760px;
+  margin-bottom: 48px;
+}
+.seo-services-page .seo-section-head .kicker {
+  margin-bottom: 14px;
+  color: #1f5f55;
+}
+.seo-services-page .seo-section-head h2 {
+  max-width: 720px;
+  margin: 0;
+  color: #17242b;
+  font-size: clamp(36px, 4.8vw, 58px);
+  line-height: 1.06;
+}
+.seo-services-page .seo-section-head p {
+  max-width: 680px;
+  margin: 18px 0 0;
+  color: #657078;
+  font-size: 17px;
+  line-height: 1.7;
+}
+.seo-services-page .seo-problems {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+.seo-services-page .seo-problem {
+  display: flex;
+  flex-direction: column;
+  min-height: 260px;
+  padding: 28px;
+  border: 1px solid #e5e2dc;
+  background: #fbfaf8;
+}
+.seo-services-page .seo-problem-icon {
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  margin-bottom: 28px;
+  border: 1px solid #e5c5c0;
+  border-radius: 50%;
+  color: #b34a43;
+}
+.seo-services-page .seo-problem-icon svg { width: 25px; height: 25px; stroke-width: 1.6; }
+.seo-services-page .seo-problem-number {
+  display: block;
+  margin-bottom: 7px;
+  color: #b34a43;
+  font-size: 10px;
+  font-weight: 750;
+  letter-spacing: .13em;
+}
+.seo-services-page .seo-problem h3 {
+  margin: 0 0 10px;
+  color: #17242b;
+  font-size: 22px;
+}
+.seo-services-page .seo-problem p {
+  margin: 0;
+  color: #657078;
+  font-size: 14px;
+  line-height: 1.7;
+}
+.seo-services-page .seo-reality-close {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  margin: 28px 0 0;
+  color: #657078;
+  font-size: 13px;
+}
+.seo-services-page .seo-reality-close::before {
+  content: "";
+  width: 25px;
+  height: 1px;
+  background: #b34a43;
+}
+
+.seo-services-page .seo-approach {
+  background: #f1f4f2;
+  border-top: 1px solid #dfe5e8;
+  border-bottom: 1px solid #dfe5e8;
+}
+.seo-services-page .seo-journey {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+}
+.seo-services-page .seo-stage { min-width: 0; }
+.seo-services-page .seo-art {
+  position: relative;
+  display: grid;
+  place-items: center;
+  height: 190px;
+  margin-bottom: 20px;
+  overflow: hidden;
+  border: 1px solid #e4e0d8;
+  background: #f1eee8;
+}
+.seo-services-page .seo-art-structure { background: #edf1ed; }
+.seo-services-page .seo-art-build { background: #f3e9e5; }
+.seo-services-page .seo-art-check { background: #e9eeec; }
+.seo-services-page .seo-art-number {
+  position: absolute;
+  z-index: 1;
+  top: 12px;
+  left: 13px;
+  color: #7c8588;
+  font-size: 10px;
+  font-weight: 750;
+  letter-spacing: .13em;
+}
+.seo-services-page .seo-art svg {
+  width: 100%;
+  height: 100%;
+  max-width: 245px;
+  overflow: visible;
+}
+.seo-services-page .seo-stage-label {
+  display: block;
+  margin-bottom: 8px;
+  color: #b34a43;
+  font-size: 10px;
+  font-weight: 750;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+}
+.seo-services-page .seo-stage h3 {
+  margin: 0 0 8px;
+  color: #17242b;
+  font-size: 18px;
+  line-height: 1.3;
+}
+.seo-services-page .seo-stage p {
+  margin: 0;
+  color: #657078;
+  font-size: 13px;
+  line-height: 1.7;
+}
+.seo-services-page .seo-launch-transition {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 18px;
+  margin: 42px 0 0;
+}
+.seo-services-page .seo-launch-transition > span {
+  height: 1px;
+  background: #d7ded9;
+}
+.seo-services-page .seo-launch-transition > div {
+  color: #1f5f55;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .13em;
+  text-align: center;
+  text-transform: uppercase;
+}
+.seo-services-page .seo-launch-transition small {
+  display: block;
+  margin-top: 5px;
+  color: #657078;
+  font-size: 12px;
+  font-weight: 450;
+  letter-spacing: 0;
+  text-transform: none;
+}
+.seo-services-page .seo-after-launch {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 28px;
+  align-items: center;
+  margin-top: 22px;
+  padding: 25px 28px;
+  background: #17242b;
+  color: #fff;
+}
+.seo-services-page .seo-after-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 9px;
+  color: #e7aaa2;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+.seo-services-page .seo-after-label svg { width: 16px; height: 16px; }
+.seo-services-page .seo-after-launch h3 {
+  margin: 0;
+  color: #fff;
+  font-size: clamp(23px, 3vw, 30px);
+  line-height: 1.15;
+}
+.seo-services-page .seo-after-launch p {
+  margin: 0;
+  color: #c6d0d1;
+  font-size: 13px;
+  line-height: 1.75;
+}
+.seo-services-page .seo-approach-foot {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 23px 0 0;
+  color: #657078;
+  font-size: 12px;
+  line-height: 1.5;
+}
+.seo-services-page .seo-approach-foot::before {
+  content: "";
+  flex: 0 0 22px;
+  height: 1px;
+  background: #b34a43;
+}
+
+.dark .seo-services-page .seo-reality { background: transparent; color: #f4f7f6; }
+.dark .seo-services-page .seo-section-head h2,
+.dark .seo-services-page .seo-problem h3,
+.dark .seo-services-page .seo-stage h3 { color: #f4f7f6; }
+.dark .seo-services-page .seo-section-head p,
+.dark .seo-services-page .seo-problem p,
+.dark .seo-services-page .seo-stage p,
+.dark .seo-services-page .seo-reality-close,
+.dark .seo-services-page .seo-approach-foot { color: #aab7b4; }
+.dark .seo-services-page .seo-problem { background: #182220; border-color: #2d3a37; }
+.dark .seo-services-page .seo-approach { background: #111a19; border-color: #263331; }
+.dark .seo-services-page .seo-art { border-color: #34443f; }
+.dark .seo-services-page .seo-launch-transition > span { background: #34443f; }
+.dark .seo-services-page .seo-launch-transition small { color: #aab7b4; }
+
+@media (max-width: 900px) {
+  .seo-services-page .seo-journey { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 30px; }
+  .seo-services-page .seo-art { height: 180px; }
+}
+@media (max-width: 760px) {
+  .seo-services-page .seo-problems { grid-template-columns: 1fr; }
+  .seo-services-page .seo-problem { min-height: 0; }
+  .seo-services-page .seo-after-launch { grid-template-columns: 1fr; gap: 12px; }
+}
+@media (max-width: 480px) {
+  .seo-services-page .hero.seo-hero { min-height: 560px; }
+  .seo-services-page .hero.seo-hero h1 { font-size: clamp(42px, 11vw, 56px); }
+  .seo-services-page .seo-section-head { margin-bottom: 34px; }
+  .seo-services-page .seo-section-head p { font-size: 15px; }
+  .seo-services-page .seo-journey { grid-template-columns: 1fr; gap: 25px; }
+  .seo-services-page .seo-stage { display: grid; grid-template-columns: 112px 1fr; column-gap: 15px; align-items: start; }
+  .seo-services-page .seo-art { grid-row: 1 / span 3; height: 112px; margin: 0; }
+  .seo-services-page .seo-art svg { width: 125%; height: 125%; }
+  .seo-services-page .seo-art-number { top: 7px; left: 8px; font-size: 8px; }
+  .seo-services-page .seo-stage-label { margin: 2px 0 6px; }
+  .seo-services-page .seo-stage h3 { margin-bottom: 5px; font-size: 16px; }
+  .seo-services-page .seo-stage p { font-size: 12px; }
+  .seo-services-page .seo-launch-transition { grid-template-columns: 1fr; margin-top: 34px; }
+  .seo-services-page .seo-launch-transition > span { display: none; }
+  .seo-services-page .seo-after-launch { padding: 23px 20px; }
+}
+</style>
