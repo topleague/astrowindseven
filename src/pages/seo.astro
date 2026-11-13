@@ -1,6 +1,4 @@
----
 import Layout from '~/layouts/PageLayout.astro';
-import { Icon } from 'astro-icon/components';
 
 const metadata = {
   title: 'SEO Services | Top League Technologies',
@@ -8,9 +6,12 @@ const metadata = {
 };
 
 const enquiryLink = 'mailto:hello@topleaguetech.com?subject=SEO%20Services%20Enquiry';
+
 ---
 
 <Layout metadata={metadata} pageClass="product-description-page">
+
+  <!-- SECTION 1: HERO -->
   <section class="hero">
     <div class="container">
       <div class="eyebrow"><span class="dot"></span> SEO for website development</div>
@@ -18,69 +19,106 @@ const enquiryLink = 'mailto:hello@topleaguetech.com?subject=SEO%20Services%20Enq
       <p>We build SEO into your website from the planning stage. Already have a website? We'll identify what's holding it back and help put it right.</p>
       <div class="actions">
         <a class="btn primary" href={enquiryLink}>Free consultation ↗</a>
-        <a class="btn ghost" href="#approach">See how we do it ↓</a>
+        <a class="btn ghost" href="#process">See how we do it ↓</a>
       </div>
     </div>
   </section>
 
-  <section class="section band" id="reality">
-    <div class="container">
-      <div class="feature-head">
+  <!-- SECTION 2: THE SEO REALITY -->
+  <section class="section" id="story">
+    <div class="container story-layout">
+      <span class="story-number" aria-hidden="true">02</span>
+      <div class="story-content">
         <div class="kicker">The SEO reality</div>
         <h2>Poor SEO affecting your website?</h2>
         <p>Your website may look great, but poor SEO can make it harder for potential customers to find you, understand what you offer and take action.</p>
+
+        <div class="process-list">
+          <article class="step">
+            <span>01</span>
+            <div>
+              <h3>Hard to find</h3>
+              <p>Weak keyword targeting, poor indexing and technical issues can keep your pages out of relevant search results.</p>
+            </div>
+          </article>
+          <article class="step">
+            <span>02</span>
+            <div>
+              <h3>Hard to understand</h3>
+              <p>Poor page structure, unclear service descriptions and weak internal links make it harder for visitors and search engines to understand your business.</p>
+            </div>
+          </article>
+          <article class="step">
+            <span>03</span>
+            <div>
+              <h3>Hard to convert</h3>
+              <p>Even when visitors arrive, weak content, poor user experience and misplaced calls to action can cost you enquiries.</p>
+            </div>
+          </article>
+        </div>
+        <p><strong>And these problems aren't always visible on the surface.</strong></p>
       </div>
-      <div class="features">
-        <article class="feature">
-          <Icon name="tabler:search" class="mb-4 w-9 h-9 text-primary" />
-          <div><h3>Hard to find</h3><p>Weak keyword targeting, poor indexing and technical issues can keep your pages out of relevant search results.</p></div>
-        </article>
-        <article class="feature">
-          <Icon name="tabler:hierarchy-2" class="mb-4 w-9 h-9 text-primary" />
-          <div><h3>Hard to understand</h3><p>Poor page structure, unclear service descriptions and weak internal links make it harder for visitors and search engines to understand your business.</p></div>
-        </article>
-        <article class="feature">
-          <Icon name="tabler:target-arrow" class="mb-4 w-9 h-9 text-primary" />
-          <div><h3>Hard to convert</h3><p>Even when visitors arrive, weak content, poor user experience and misplaced calls to action can cost you enquiries.</p></div>
-        </article>
-      </div>
-      <p class="mt-8 text-muted"><strong>And these problems aren't always visible on the surface.</strong></p>
     </div>
   </section>
 
-  <section class="section" id="approach">
+  <!-- SECTION 3: OUR APPROACH -->
+  <section class="section" id="process">
     <div class="container">
-      <div class="feature-head">
-        <div class="kicker">Our approach</div>
-        <h2>SEO starts before your website goes live.</h2>
-        <p>A website shouldn't be built first and optimised as an afterthought. We bring SEO into the decisions that shape it — from what your pages say to how the whole site is put together.</p>
-      </div>
       <div class="process">
-        <article>
-          <div class="mb-4 flex h-20 items-center"><svg viewBox="0 0 120 76" role="img" aria-label="Research and discovery" class="h-20 w-32"><rect x="5" y="9" width="72" height="55" rx="5" fill="#e8f0ed" stroke="#1f5f55" stroke-width="1.5"/><path d="M17 23h42M17 32h29M17 41h35" stroke="#1f5f55" stroke-width="2" stroke-linecap="round"/><circle cx="82" cy="45" r="19" fill="#f7e9e6" stroke="#b34a43" stroke-width="2"/><path d="m96 59 13 12" stroke="#b34a43" stroke-width="4" stroke-linecap="round"/><circle cx="82" cy="45" r="8" fill="none" stroke="#b34a43" stroke-width="1.5"/></svg></div>
-          <div class="kicker">STEP 01 · UNDERSTAND</div><h3>Research before design</h3><p>We learn what your customers search for, what they need to know and which pages your business actually needs.</p>
-        </article>
-        <article>
-          <div class="mb-4 flex h-20 items-center"><svg viewBox="0 0 120 76" role="img" aria-label="Website structure" class="h-20 w-32"><rect x="35" y="4" width="50" height="19" rx="4" fill="#f7e9e6" stroke="#b34a43" stroke-width="1.5"/><rect x="5" y="51" width="32" height="19" rx="4" fill="#e8f0ed" stroke="#1f5f55" stroke-width="1.5"/><rect x="44" y="51" width="32" height="19" rx="4" fill="#e8f0ed" stroke="#1f5f55" stroke-width="1.5"/><rect x="83" y="51" width="32" height="19" rx="4" fill="#e8f0ed" stroke="#1f5f55" stroke-width="1.5"/><path d="M60 23v13M21 36h78M21 36v15m39-15v15m39-15v15" fill="none" stroke="#657078" stroke-width="1.5"/><path d="M46 13h28" stroke="#b34a43" stroke-width="2" stroke-linecap="round"/></svg></div>
-          <div class="kicker">STEP 02 · STRUCTURE</div><h3>Plan pages with purpose</h3><p>We map services, topics, keywords and search intent into a clear page structure, navigation and URL plan.</p>
-        </article>
-        <article>
-          <div class="mb-4 flex h-20 items-center"><svg viewBox="0 0 120 76" role="img" aria-label="Website development" class="h-20 w-32"><rect x="8" y="8" width="104" height="60" rx="5" fill="#fff" stroke="#1f5f55" stroke-width="1.7"/><path d="M8 21h104" stroke="#1f5f55" stroke-width="1.5"/><circle cx="17" cy="14.5" r="2" fill="#b34a43"/><circle cx="25" cy="14.5" r="2" fill="#d9a45d"/><circle cx="33" cy="14.5" r="2" fill="#1f5f55"/><rect x="18" y="31" width="37" height="27" rx="2" fill="#e8f0ed"/><path d="M65 33h34M65 41h27M65 49h31M18 62h81" stroke="#657078" stroke-width="1.7" stroke-linecap="round"/></svg></div>
-          <div class="kicker">STEP 03 · BUILD</div><h3>Build on solid foundations</h3><p>We develop a fast, mobile-friendly site with clean structure, useful content, sensible internal links and technical SEO essentials.</p>
-        </article>
-        <article>
-          <div class="mb-4 flex h-20 items-center"><svg viewBox="0 0 120 76" role="img" aria-label="Pre-launch checks" class="h-20 w-32"><rect x="23" y="5" width="57" height="66" rx="5" fill="#fff" stroke="#b34a43" stroke-width="1.6"/><path d="M35 21h31M35 32h18M35 48h31M35 59h20" stroke="#657078" stroke-width="1.7" stroke-linecap="round"/><circle cx="79" cy="51" r="20" fill="#e8f0ed" stroke="#1f5f55" stroke-width="1.8"/><path d="m69 51 7 7 14-16" fill="none" stroke="#1f5f55" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-          <div class="kicker">STEP 04 · PREPARE</div><h3>Check before launch</h3><p>We review key pages, metadata, links, indexing settings, redirects and performance before the site is ready to meet the world.</p>
-        </article>
+        <div class="feature-head">
+          <div>
+            <div class="kicker">Our approach</div>
+            <h2 style="color: #16202a;">SEO starts before your website goes live.</h2>
+            <p>A website shouldn't be built first and optimised as an afterthought. We bring SEO into the decisions that shape it — from what your pages say to how the whole site is put together.</p>
+          </div>
+        </div>
+
+        <div class="process-list">
+          <article class="step">
+            <span>01</span>
+            <div>
+              <h3>Research before design</h3>
+              <p>We learn what your customers search for, what they need to know and which pages your business actually needs.</p>
+            </div>
+          </article>
+          <article class="step">
+            <span>02</span>
+            <div>
+              <h3>Plan pages with purpose</h3>
+              <p>We map services, topics, keywords and search intent into a clear page structure, navigation and URL plan.</p>
+            </div>
+          </article>
+          <article class="step">
+            <span>03</span>
+            <div>
+              <h3>Build on solid foundations</h3>
+              <p>We develop a fast, mobile-friendly site with clean structure, useful content, sensible internal links and technical SEO essentials.</p>
+            </div>
+          </article>
+          <article class="step">
+            <span>04</span>
+            <div>
+              <h3>Check before launch</h3>
+              <p>We review key pages, metadata, links, indexing settings, redirects and performance before the site is ready to meet the world.</p>
+            </div>
+          </article>
+        </div>
       </div>
-      <div class="mt-10 border-y border-slate-200 py-6 text-center dark:border-slate-700">
-        <div class="kicker">Then the website goes live</div><p class="mt-2 text-muted">Launch is the starting line, not the finish.</p>
+
+      <div class="mt-10 border-y border-slate-200 py-6 dark:border-slate-700">
+        <div class="kicker">Then the website goes live</div>
+        <p class="mt-2 text-muted">Launch is the starting line, not the finish.</p>
       </div>
+
       <div class="mt-6 rounded-xl bg-slate-900 p-7 text-white dark:bg-slate-800 md:grid md:grid-cols-2 md:items-center md:gap-8">
-        <div><div class="kicker">After launch</div><h3 class="mt-2 text-2xl font-semibold">Keep learning. Keep improving.</h3></div>
+        <div>
+          <div class="kicker">After launch</div>
+          <h3 class="mt-2 text-2xl font-semibold">Keep learning. Keep improving.</h3>
+        </div>
         <p class="mt-4 text-slate-300 md:mt-0">We monitor how the site performs, identify opportunities and refine content and SEO over time — because search visibility grows through ongoing work, not a one-off launch checklist.</p>
       </div>
       <p class="mt-6 text-sm text-muted">The right starting point depends on your business, your audience and the website you need.</p>
     </div>
   </section>
+
 </Layout>
