@@ -1,0 +1,217 @@
+---
+import SxShell from '~/components/sx/SxShell.astro';
+import SxHero from '~/components/sx/SxHero.astro';
+import SxStats from '~/components/sx/SxStats.astro';
+import SxHead from '~/components/sx/SxHead.astro';
+import SxTimeline from '~/components/sx/SxTimeline.astro';
+import SxQuotes from '~/components/sx/SxQuotes.astro';
+import SxMarquee from '~/components/sx/SxMarquee.astro';
+import SxCta from '~/components/sx/SxCta.astro';
+
+const metadata = {
+  title: 'About us',
+  description:
+    'About Top League Technologies: a small, hands-on team in Bhubaneswar, India, crafting content and websites for clients across the globe.',
+};
+
+const contactLink = 'https://topleaguetech.com/contact/';
+
+const stats = [
+  { n: 16, l: 'years in digital' },
+  { n: 30, s: '+', l: 'websites built recently' },
+  { n: 20, l: 'websites currently maintained' },
+  { n: 10, l: 'countries, clients served' },
+];
+
+const journey = [
+  { dot: '2006', k: 'Industry experience', t: 'Where it began', d: 'Working with business content starts.' },
+  { dot: '2010', k: 'Top League', t: 'A small, scrappy team', d: 'Set up in Bhubaneswar, India, with one goal: content that ranks and resonates.' },
+  { dot: 'Now', k: 'Today', t: 'Tight-knit, worldwide', d: 'A two-person team working with clients from across the globe.' },
+  { dot: '∞', k: 'Always', t: 'Every word counts', d: 'Every word we write, every idea we shape, every client we help grow.' },
+];
+
+const people = [
+  {
+    name: 'Susanta',
+    role: 'Founder / Chief Blogger',
+    bio: 'He’s worked with small businesses, translating their ideas into content.',
+    img: 'https://topleaguetech.com/wp-content/uploads/2021/09/Untitled-drawing-2.png',
+  },
+  {
+    name: 'Meera',
+    role: 'Senior Content Writer',
+    bio: 'She creates well-researched, SEO-friendly articles that rank high.',
+    img: 'https://topleaguetech.com/wp-content/uploads/2022/08/Untitled-design-1.png',
+  },
+];
+
+const quotes = [
+  {
+    t: 'Accomplished Great Results!',
+    q: 'If you are in search of good SEO articles, look no further. At Top League you will find the best team of content writers in the internet. I have been using their services for over a year and have accomplished great results in my online marketing campaign.',
+    name: 'Roberto',
+    job: 'Founder / Polo Mercantile',
+  },
+  {
+    t: 'Always the Best!',
+    q: 'Top League have been excellent at presenting their work and work very hard to ensure that the quality of their work is always the best! Thank you Top League! I look forward to continuing our business together.',
+    name: 'Michael',
+    job: 'Founder / Idea Bubble',
+  },
+  {
+    t: 'Very Professional!',
+    q: 'Top League is the only company I use for my article writing needs. They are very professional and work with you throughout the project with constant updates. I recommend their services to anyone considering outsourcing their content writing.',
+    name: 'Daniel',
+    job: ' Founder / Future Success',
+  },
+  {
+    t: 'Readily Available!',
+    q: 'Top League did a great job writing content for our website. They followed our direction very closely and were readily available for every stage of the project. I would highly recommend their writing skills and will be utilizing their services again. Great Job!',
+    name: 'Jason Hamblin',
+    job: 'Sr. Executive / L2T Media',
+  },
+  {
+    t: 'Over Delivered!',
+    q: 'Top League over delivered on the articles we asked for. They were well written, concise & well optimized for search. We will continue to utilize their services.',
+    name: 'Sean',
+    job: 'Founder / Acquisition Engine',
+  },
+  {
+    t: 'An Excellent Job!',
+    q: 'The team did an excellent job on content creation for our appliance repair website. They must have done a thorough research on this topic because everything was written very professionally.',
+    name: 'Alex Garayev',
+    job: 'Founder / SD Appliances',
+  },
+];
+
+// Scattered "client" dots for the hero map (x, y, twinkle delay)
+const dots = [
+  [64, 88, 0], [128, 168, 1.2], [92, 300, 2.1], [168, 392, 0.6], [214, 70, 2.8], [380, 60, 1.5],
+  [462, 132, 0.3], [492, 262, 2.4], [440, 366, 1.1], [330, 420, 3.1], [88, 232, 3.4], [352, 150, 0.9],
+  [196, 336, 1.9], [420, 238, 2.7],
+];
+const links = [dots[1], dots[5], dots[7], dots[8], dots[2]];
+---
+
+<SxShell metadata={metadata}>
+
+  <!-- 1. HERO -->
+  <SxHero
+    pill="About us"
+    line1="Crafting Words that"
+    line2="Drive Results"
+    text="Customer-focused approach to deliver the best results possible."
+    primary={{ label: 'Contact us', href: contactLink }}
+    ghost={{ label: 'Meet the team', href: '#team' }}
+    note="Bhubaneswar, India · Clients across the globe"
+  >
+    <div
+      class="sx-stage"
+      role="img"
+      aria-label="Illustration: a glowing point for Bhubaneswar, India, with lines reaching out to clients around the world."
+    >
+      <svg viewBox="0 0 540 460" aria-hidden="true">
+        <circle class="sx-rip" cx="270" cy="240" r="210" style="--d:0s" />
+        <circle class="sx-rip" cx="270" cy="240" r="210" style="--d:2s" />
+        <circle class="sx-rip" cx="270" cy="240" r="210" style="--d:4s" />
+        <circle class="sx-ring2" cx="270" cy="240" r="170" />
+
+        {links.map(([x, y]) => <line class="sx-link" x1="270" y1="240" x2={x} y2={y} />)}
+        {dots.map(([x, y, d]) => <circle class="sx-dotc" cx={x} cy={y} r="3.5" style={`--d:${d}s`} />)}
+
+        <g class="sx-spin" style="--ox:270px;--oy:240px;--t:18s">
+          <circle class="sx-spark2" cx="270" cy="70" r="6" />
+        </g>
+
+        <circle class="sx-origin" cx="270" cy="240" r="9" />
+        <text class="sx-svgt-s" x="270" y="278">BHUBANESWAR, INDIA</text>
+      </svg>
+
+      <span class="sx-pin" style="left:0;top:6%"><b>2006</b> Industry experience</span>
+      <span class="sx-pin" style="right:0;top:44%"><b>2010</b> Top League begins</span>
+      <span class="sx-pin" style="left:4%;bottom:4%"><b>2</b> people, worldwide clients</span>
+    </div>
+  </SxHero>
+
+  <!-- 2. NUMBERS -->
+  <SxStats lead={['A small team.', 'A long track record.']} stats={stats} />
+
+  <!-- 3. THE STORY -->
+  <section class="sx-section sx-story" id="story">
+    <span class="sx-bignum" aria-hidden="true">2010</span>
+    <div class="sx-wrap sx-story-grid">
+
+      <div class="sx-sticky">
+        <div class="sx-kicker sx-reveal">About us</div>
+        <h2 class="sx-h2 sx-reveal">Every great story starts with a spark of inspiration.</h2>
+        <blockquote class="sx-pull sx-reveal">
+          For us, that spark was simple: a love for storytelling and a desire to help businesses find their voice online.
+        </blockquote>
+      </div>
+
+      <div class="sx-copy">
+        <p class="sx-reveal">
+          Back in 2010, when content was just beginning to rule the digital world, we set out to craft words that could make an impact. Armed with passion (and a whole lot of coffee), we started as a small, scrappy team in Bhubaneswar, India, driven by one goal: to create content that <strong>not only ranks but also resonates.</strong>
+        </p>
+        <p class="sx-reveal" style="--d:.1s">
+          What started as a solo venture has since grown into a <strong>tight-knit, two-person team</strong> that works with clients from across the globe, helping businesses tell their unique stories and get the attention they deserve.
+        </p>
+        <p class="sx-reveal" style="--d:.2s">
+          Whether it’s an SEO-friendly blog post or a carefully crafted social media campaign, we take pride in every word we write, every idea we shape, and every client we help grow.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 4. HOW WE GOT HERE -->
+  <section class="sx-section sx-alt" id="journey">
+    <div class="sx-wrap">
+      <SxHead kicker="How we got here" title="From a spark in Bhubaneswar to clients across the globe." />
+      <SxTimeline items={journey} />
+    </div>
+  </section>
+
+  <!-- 5. THE TEAM -->
+  <section class="sx-section" id="team">
+    <div class="sx-wrap">
+      <SxHead kicker="The people" title="Meet the team" />
+
+      <div class="sx-people">
+        {people.map((p, i) => (
+          <article class="sx-pcard sx-reveal" style={`--d:${i * 0.1}s`}>
+            <div class="sx-photo">
+              <img src={p.img} alt={p.name} width="360" height="360" loading="lazy" decoding="async" />
+            </div>
+            <div>
+              <h3 class="sx-pname">{p.name}</h3>
+              <div class="sx-prole">{p.role}</div>
+              <p>{p.bio}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. CLIENT WORDS -->
+  <section class="sx-section sx-night" id="proof">
+    <div class="sx-wrap">
+      <SxHead kicker="Client feedback" title="Words from real customers" />
+      <SxQuotes items={quotes} />
+    </div>
+  </section>
+
+  <!-- 7. MARQUEE -->
+  <SxMarquee items={['Storytelling', 'Content', 'Search', 'Websites', 'Results']} />
+
+  <!-- 8. CTA -->
+  <SxCta
+    id="contact"
+    title="Have a story to tell?"
+    text="Whether it’s an SEO-friendly blog post or a carefully crafted social media campaign, we take pride in every word we write."
+    cta="Contact us"
+    href={contactLink}
+  />
+
+</SxShell>
