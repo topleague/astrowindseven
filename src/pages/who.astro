@@ -1,6 +1,4 @@
-from pathlib import Path
-
-code = r'''---
+---
 import Layout from '~/layouts/PageLayout.astro';
 
 const metadata = {
@@ -63,7 +61,7 @@ const testimonials = [
 ];
 ---
 
-<Layout metadata={metadata} pageClass="product-description-page">
+<Layout metadata={metadata}>
   <div class="sx-page about-page">
     <div class="sx-progress" aria-hidden="true"><span></span></div>
 
@@ -484,7 +482,3 @@ const testimonials = [
   init();
   document.addEventListener('astro:page-load', init);
 </script>
-'''
-path = Path("/mnt/data/about-custom-revised.astro")
-path.write_text(code, encoding="utf-8")
-print(f"Created {path} ({len(code.splitlines())} lines, {path.stat().st_size:,} bytes)")
