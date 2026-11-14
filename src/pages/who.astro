@@ -1,370 +1,490 @@
+from pathlib import Path
 
----
+code = r'''---
 import Layout from '~/layouts/PageLayout.astro';
-import Team from '~/components/widgets/Team.astro';
-import Testimonials from '~/components/widgets/Testimonials.astro';
 
 const metadata = {
-  title: 'About Us | Top League Technologies',
+  title: 'About Top League Technologies',
   description:
-    'Meet Top League Technologies. Since 2009, we have helped businesses strengthen their online presence through content, SEO and website development.',
+    'Meet the people behind Top League Technologies. Since 2010, we have helped businesses communicate clearly and build their presence online.',
 };
 
-const enquiryLink =
-  'mailto:hello@topleaguetech.com?subject=About%20Top%20League%20Technologies';
+const enquiryLink = 'https://topleaguetech.com/contact/';
+
+const principles = [
+  {
+    n: '01',
+    title: 'Understand before creating',
+    text: 'We take time to understand your business, your audience and what you want your website or content to achieve.',
+  },
+  {
+    n: '02',
+    title: 'Make every page purposeful',
+    text: 'Good design and good content should make it easier for people to understand what you offer and decide what to do next.',
+  },
+  {
+    n: '03',
+    title: 'Think beyond launch',
+    text: 'A website is not a one-time exercise. Content, search visibility and the experience you offer need attention over time.',
+  },
+];
+
+const testimonials = [
+  {
+    quote: 'If you are in search of good SEO articles, look no further. At Top League you will find the best team of content writers in the internet. I have been using their services for over a year and have accomplished great results in my online marketing campaign.',
+    name: 'Roberto',
+    role: 'Founder / Polo Mercantile',
+  },
+  {
+    quote: 'Top League have been excellent at presenting their work and work very hard to ensure that the quality of their work is always the best! Thank you Top League! I look forward to continuing our business together.',
+    name: 'Michael',
+    role: 'Founder / Idea Bubble',
+  },
+  {
+    quote: 'Top League is the only company I use for my article writing needs. They are very professional and work with you throughout the project with constant updates. I recommend their services to anyone considering outsourcing their content writing.',
+    name: 'Daniel',
+    role: 'Founder / Future Success',
+  },
+  {
+    quote: 'Top League did a great job writing content for our website. They followed our direction very closely and were readily available for every stage of the project. I would highly recommend their writing skills and will be utilizing their services again. Great Job!',
+    name: 'Jason Hamblin',
+    role: 'Sr. Executive / L2T Media',
+  },
+  {
+    quote: 'Top League over delivered on the articles we asked for. They were well written, concise & well optimized for search. We will continue to utilize their services.',
+    name: 'Sean',
+    role: 'Founder / Acquisition Engine',
+  },
+  {
+    quote: 'The team did an excellent job on content creation for our appliance repair website. They must have done a thorough research on this topic because everything was written very professionally.',
+    name: 'Alex Garayev',
+    role: 'Founder / SD Appliances',
+  },
+];
 ---
 
 <Layout metadata={metadata} pageClass="product-description-page">
+  <div class="sx-page about-page">
+    <div class="sx-progress" aria-hidden="true"><span></span></div>
 
-  <!-- SECTION 1: HERO -->
-  <section class="hero">
-    <div class="container animate-fade">
-      <div class="eyebrow">
-        <span class="dot"></span>
-        About Top League Technologies
-      </div>
-
-      <h1>
-        We Make Websites Work Harder.
-        <span>That's Our Story.</span>
-      </h1>
-
-      <p>
-        We bring website development, SEO and content together to help
-        businesses build a stronger and more effective online presence.
-      </p>
-
-      <div class="actions">
-        <a class="btn primary" href={enquiryLink}>Let's talk ↗</a>
-        <a class="btn ghost" href="#our-story">Our story ↓</a>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- SECTION 2: OUR STORY -->
-  <section class="section" id="our-story">
-    <div class="container story-layout">
-      <div class="story-content animate-fade">
-        <div class="kicker">Where it began</div>
-
-        <h2>It started with a simple idea: help businesses get noticed.</h2>
-
-        <p>
-          We started in Bhubaneswar in 2009, working with businesses that
-          needed better content to communicate their ideas and reach the
-          right audience.
-        </p>
-
-        <p>
-          As search engines became central to how people discovered
-          businesses, we developed a deeper understanding of SEO and
-          what makes online content useful, relevant and discoverable.
-        </p>
-
-        <p>
-          Over time, our work expanded beyond writing. We began looking
-          at the bigger picture: how a website is structured, how it
-          communicates a business's value, and how effectively it turns
-          visitors into potential customers.
-        </p>
-
-        <p>
-          Today, website development brings these strands together.
-          We build websites with business goals, useful content and
-          search visibility in mind.
-        </p>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- SECTION 3: OUR JOURNEY -->
-  <section class="section band" id="our-approach">
-    <div class="container animate-fade">
-
-      <div class="feature-head">
-        <div>
-          <div class="kicker">How our thinking evolved</div>
-          <h2>Different skills. One bigger picture.</h2>
+    <!-- 1. HERO -->
+    <section class="sx-hero">
+      <div class="sx-wrap sx-hero-grid">
+        <div class="sx-hero-copy">
+          <div class="sx-pill"><span class="sx-dot"></span> A little about us</div>
+          <h1>Good work starts with <span>understanding.</span></h1>
+          <p>
+            We help businesses communicate clearly, build a stronger online presence
+            and make their websites work harder.
+          </p>
+          <div class="sx-actions">
+            <a class="sx-btn sx-btn-primary" href={enquiryLink}>Let's talk <i>↗</i></a>
+            <a class="sx-btn sx-btn-ghost" href="#our-story">Our story <i>↓</i></a>
+          </div>
+          <div class="sx-note">A small team in Bhubaneswar. Working with businesses around the world.</div>
         </div>
 
-        <p>
-          Our experience in content and SEO changed the way we approach
-          websites. We don't see design, development and search visibility
-          as separate tasks.
-        </p>
+        <div class="sx-hero-art" aria-hidden="true">
+          <div class="art-orbit orbit-one"></div>
+          <div class="art-orbit orbit-two"></div>
+          <div class="art-core">
+            <span class="art-mark">TL</span>
+            <span class="art-caption">Ideas into impact</span>
+          </div>
+          <span class="art-chip chip-one">Words</span>
+          <span class="art-chip chip-two">Websites</span>
+          <span class="art-chip chip-three">Search</span>
+          <span class="art-chip chip-four">People</span>
+          <div class="art-cross">✳</div>
+        </div>
       </div>
+    </section>
 
-      <div class="process-list">
-
-        <article class="step">
-          <span>01</span>
-          <div>
-            <h3>Content gave us a starting point</h3>
-            <p>
-              We learned how businesses communicate, what their customers
-              want to know and why useful content matters.
-            </p>
-          </div>
-        </article>
-
-        <article class="step">
-          <span>02</span>
-          <div>
-            <h3>SEO helped us see the bigger picture</h3>
-            <p>
-              We learned that getting found involves more than keywords.
-              Site structure, page purpose, technical foundations and
-              content all matter.
-            </p>
-          </div>
-        </article>
-
-        <article class="step">
-          <span>03</span>
-          <div>
-            <h3>Website development brought it together</h3>
-            <p>
-              We now use that experience to create websites that look
-              professional, communicate clearly and are built with
-              visibility in mind.
-            </p>
-          </div>
-        </article>
-
-        <article class="step">
-          <span>04</span>
-          <div>
-            <h3>The work continues after launch</h3>
-            <p>
-              A website is not a finished marketing asset. Its content,
-              performance and search visibility can all improve over time.
-            </p>
-          </div>
-        </article>
-
-      </div>
-    </div>
-  </section>
-
-
-  <!-- SECTION 4: WHAT WE BELIEVE -->
-  <section class="section" id="what-matters">
-    <div class="container animate-fade">
-
-      <div class="feature-head">
+    <!-- 2. INTRO / STORY -->
+    <section class="sx-section" id="our-story">
+      <div class="sx-wrap sx-two story-grid">
         <div>
-          <div class="kicker">What matters to us</div>
-          <h2>A website should do more than look good.</h2>
+          <div class="sx-kicker sx-reveal">Our story</div>
+          <h2 class="sx-h2 sx-reveal">A small beginning. A broader perspective.</h2>
+          <p class="sx-lead sx-reveal">
+            We started with words. Over time, we learned that helping a business
+            grow online takes more than writing good content.
+          </p>
+        </div>
+        <div class="story-copy sx-reveal">
+          <p>
+            Every great story starts with a spark of inspiration—and for us, that
+            spark was simple: a love for storytelling and a desire to help
+            businesses find their voice online.
+          </p>
+          <p>
+            Back in 2010, when content was just beginning to rule the digital
+            world, we set out to craft words that could make an impact. Armed
+            with passion (and a whole lot of coffee), we started as a small,
+            scrappy team in Bhubaneswar, India, driven by one goal: to create
+            content that not only ranks but also resonates.
+          </p>
+          <p>
+            What started as a solo venture has since grown into a tight-knit,
+            two-person team that works with clients from across the globe,
+            helping businesses tell their unique stories and get the attention
+            they deserve. Whether it’s an SEO-friendly blog post or a carefully
+            crafted social media campaign, we take pride in every word we write,
+            every idea we shape, and every client we help grow.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. EVOLUTION -->
+    <section class="sx-section sx-alt" id="what-we-believe">
+      <div class="sx-wrap">
+        <div class="sx-head">
+          <div class="sx-kicker sx-reveal">What we believe</div>
+          <h2 class="sx-h2 sx-reveal">A website is more than something that looks good.</h2>
+          <p class="sx-lead sx-reveal">
+            It should make your business easier to find, easier to understand
+            and easier to choose.
+          </p>
         </div>
 
-        <p>
-          We believe a good website should make it easier for people
-          to understand a business, find what they need and take the
-          next step.
-        </p>
+        <div class="belief-grid">
+          <article class="belief-card sx-reveal sx-glow">
+            <span class="belief-n">01</span>
+            <div class="belief-symbol">✳</div>
+            <h3>Words with a purpose</h3>
+            <p>Content should do more than fill a page. It should answer questions, communicate value and help people make decisions.</p>
+          </article>
+          <article class="belief-card belief-dark sx-reveal sx-glow" style="--d:.1s">
+            <span class="belief-n">02</span>
+            <div class="belief-symbol">⌘</div>
+            <h3>Websites that work</h3>
+            <p>Design, structure, performance and usability need to work together—not compete for attention.</p>
+          </article>
+          <article class="belief-card sx-reveal sx-glow" style="--d:.2s">
+            <span class="belief-n">03</span>
+            <div class="belief-symbol">↗</div>
+            <h3>Growth that continues</h3>
+            <p>Going live is a beginning. A business's online presence should keep improving as its needs and audience evolve.</p>
+          </article>
+        </div>
       </div>
+    </section>
 
-      <div class="features">
-
-        <article class="feature">
-          <div>
-            <div class="kicker">Purpose</div>
-            <h3>Built around your business</h3>
-            <p>
-              Every website should have a clear purpose, speak to the
-              right audience and support meaningful business goals.
-            </p>
-          </div>
-        </article>
-
-        <article class="feature">
-          <div>
-            <div class="kicker">Clarity</div>
-            <h3>Content that communicates</h3>
-            <p>
-              Visitors should quickly understand what you offer,
-              why it matters and how your business can help them.
-            </p>
-          </div>
-        </article>
-
-        <article class="feature">
-          <div>
-            <div class="kicker">Visibility</div>
-            <h3>SEO from the beginning</h3>
-            <p>
-              Search visibility should influence how a website is
-              planned and developed, not be left until the end.
-            </p>
-          </div>
-        </article>
-
-      </div>
-    </div>
-  </section>
-
-
-  <!-- SECTION 5: THE PEOPLE -->
-  <section class="section band" id="team">
-    <div class="container animate-fade">
-
-      <div class="feature-head">
+    <!-- 4. HOW WE WORK -->
+    <section class="sx-section" id="approach">
+      <div class="sx-wrap sx-two approach-grid">
         <div>
-          <div class="kicker">The people</div>
-          <h2>A small team with a broad perspective.</h2>
+          <div class="sx-kicker sx-reveal">How we work</div>
+          <h2 class="sx-h2 sx-reveal">Thoughtful work. Clear communication.</h2>
+          <p class="sx-lead sx-reveal">
+            No unnecessary complexity. We focus on understanding the problem
+            and doing the work that makes a meaningful difference.
+          </p>
+          <div class="approach-stamp sx-reveal">
+            <span>Small team</span><b>✳</b><span>Direct communication</span>
+          </div>
+        </div>
+        <div class="sx-steps">
+          {principles.map((item, i) => (
+            <article class="approach-step sx-reveal" style={`--d:${i * 0.1}s`}>
+              <span class="approach-number">{item.n}</span>
+              <div>
+                <h3>{item.title}</h3>
+                <p>{item.text}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. PEOPLE -->
+    <section class="sx-section sx-night" id="team">
+      <div class="sx-wrap">
+        <div class="sx-head">
+          <div class="sx-kicker sx-kicker-lime sx-reveal">The people</div>
+          <h2 class="sx-h2 sx-reveal">Small team. Personal involvement.</h2>
+          <p class="sx-lead sx-reveal">
+            The people you work with are the people doing the work.
+          </p>
         </div>
 
-        <p>
-          We keep our team lean and our approach hands-on.
-          The people working on your project understand the
-          importance of content, search and the website itself.
-        </p>
+        <div class="team-grid">
+          <article class="team-card sx-reveal sx-glow">
+            <div class="team-photo">
+              <img
+                src="https://topleaguetech.com/wp-content/uploads/2021/09/Untitled-drawing-2.png"
+                alt="Susanta, Founder and Chief Blogger"
+                loading="lazy"
+              />
+            </div>
+            <div class="team-info">
+              <div class="team-role">Founder / Chief Blogger</div>
+              <h3>Susanta</h3>
+              <p>He’s worked with small businesses, translating their ideas into content.</p>
+              <a href="https://github.com/topleague" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+            </div>
+          </article>
+
+          <article class="team-card sx-reveal sx-glow" style="--d:.12s">
+            <div class="team-photo">
+              <img
+                src="https://topleaguetech.com/wp-content/uploads/2022/08/Untitled-design-1.png"
+                alt="Meera, Senior Content Writer"
+                loading="lazy"
+              />
+            </div>
+            <div class="team-info">
+              <div class="team-role">Senior Content Writer</div>
+              <h3>Meera</h3>
+              <p>She creates well-researched, SEO-friendly articles that rank high.</p>
+            </div>
+          </article>
+        </div>
       </div>
+    </section>
 
-      <Team
-        columns={2}
-        members={[
-          {
-            name: 'Susanta',
-            role: 'Founder / Website Development & SEO',
-            image: {
-              src: 'https://topleaguetech.com/wp-content/uploads/2021/09/Untitled-drawing-2.png',
-              alt: 'Susanta',
-            },
-            bio: 'Working across website development, SEO and content, Susanta brings the different parts of a business’s online presence together.',
-          },
-          {
-            name: 'Meera',
-            role: 'Senior Content Writer',
-            image: {
-              src: 'https://topleaguetech.com/wp-content/uploads/2022/08/Untitled-design-1.png',
-              alt: 'Meera',
-            },
-            bio: 'Meera works on researched, reader-focused content that helps businesses communicate their expertise and connect with their audiences.',
-          },
-        ]}
-      />
-
-    </div>
-  </section>
-
-
-  <!-- SECTION 6: CLIENT EXPERIENCES -->
-  <section class="section" id="client-stories">
-    <div class="container animate-fade">
-
-      <div class="feature-head">
-        <div>
-          <div class="kicker">Client experiences</div>
-          <h2>Good work is remembered.</h2>
+    <!-- 6. TESTIMONIALS -->
+    <section class="sx-section sx-alt" id="kind-words">
+      <div class="sx-wrap">
+        <div class="sx-head">
+          <div class="sx-kicker sx-reveal">Kind words</div>
+          <h2 class="sx-h2 sx-reveal">Good relationships leave a mark.</h2>
+          <p class="sx-lead sx-reveal">
+            A few words from people who have worked with us.
+          </p>
         </div>
 
-        <p>
-          We've worked with businesses across different industries.
-          Here's what some of our clients have said about working with us.
-        </p>
+        <div class="testimonial-grid">
+          {testimonials.map((item, i) => (
+            <article class="quote-card sx-reveal sx-glow" style={`--d:${(i % 3) * 0.08}s`}>
+              <div class="quote-stars" aria-label="5 out of 5 stars">★★★★★</div>
+              <span class="quote-mark" aria-hidden="true">“</span>
+              <blockquote>{item.quote}</blockquote>
+              <div class="quote-person">
+                <span class="quote-initial">{item.name.charAt(0)}</span>
+                <div><strong>{item.name}</strong><small>{item.role}</small></div>
+              </div>
+            </article>
+          ))}
+        </div>
       </div>
+    </section>
 
-      <Testimonials
-        title="Words from our clients"
-        testimonials={[
-          {
-            title: 'Accomplished Great Results!',
-            testimonial: `If you are in search of good SEO articles, look no further. At Top League you will find the best team of content writers in the internet. I have been using their services for over a year and have accomplished great results in my online marketing campaign..`,
-            rating: 5,
-            name: 'Roberto',
-            job: 'Founder / Polo Mercantile',
-            image: {
-              src: 'https://images.unsplash.com/photo-1618835962148-cf177563c6c0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=930&q=80',
-              alt: 'Roberto',
-            },
-          },
-          {
-            title: 'Always the Best!',
-            testimonial: `Top League have been excellent at presenting their work and work very hard to ensure that the quality of their work is always the best! Thank you Top League! I look forward to continuing our business together.`,
-            rating: 5,
-            name: 'Michael',
-            job: 'Founder / Idea Bubble',
-            image: {
-              src: 'https://images.unsplash.com/photo-1561406636-b80293969660?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80',
-              alt: 'Michael',
-            },
-          },
-          {
-            title: 'Very Professional!',
-            testimonial: `Top League is the only company I use for my article writing needs. They are very professional and work with you throughout the project with constant updates. I recommend their services to anyone considering outsourcing their content writing.`,
-            rating: 5,
-            name: 'Daniel',
-            job: 'Founder / Future Success',
-            image: {
-              src: 'https://images.unsplash.com/photo-1545167622-3a6ac756afa4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=824&q=80',
-              alt: 'Daniel',
-            },
-          },
-          {
-            title: 'Readily Available!',
-            testimonial: `Top League did a great job writing content for our website. They followed our direction very closely and were readily available for every stage of the project. I would highly recommend their writing skills and will be utilizing their services again. Great Job!`,
-            rating: 5,
-            name: 'Jason Hamblin',
-            job: 'Sr. Executive / L2T Media',
-            image: {
-              src: 'https://images.unsplash.com/photo-1618835962148-cf177563c6c0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=930&q=80',
-              alt: 'Jason Hamblin',
-            },
-          },
-          {
-            title: 'Over Delivered!',
-            testimonial: `Top League over delivered on the articles we asked for. They were well written, concise & well optimized for search. We will continue to utilize their services.`,
-            rating: 5,
-            name: 'Sean',
-            job: 'Founder / Acquisition Engine',
-            image: {
-              src: 'https://images.unsplash.com/photo-1561406636-b80293969660?ixlib=rb-4.0.3&ixid=M3wxA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80',
-              alt: 'Sean',
-            },
-          },
-          {
-            title: 'An Excellent Job!',
-            testimonial: `The team did an excellent job on content creation for our appliance repair website. They must have done a thorough research on this topic because everything was written very professionally.`,
-            rating: 5,
-            name: 'Alex Garayev',
-            job: 'Founder / SD Appliances',
-            image: {
-              src: 'https://images.unsplash.com/photo-1545167622-3a6ac756afa4?ixlib=rb-4.0.3&ixid=M3wxA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=824&q=80',
-              alt: 'Alex Garayev',
-            },
-          },
-        ]}
-        callToAction={{
-          target: '_blank',
-          text: 'Contact Us',
-          href: 'https://topleaguetech.com/contact/',
-          icon: 'tabler:chevron-right',
-        }}
-      />
-
-    </div>
-  </section>
-
-
-  <!-- SECTION 7: FINAL CTA -->
-  <section id="contact" class="cta">
-    <div class="wrap">
-      <div class="kicker">Let's work together</div>
-
-      <h2>Have a website project in mind?</h2>
-
-      <p>
-        Whether you're starting from scratch or looking to improve
-        your existing website, let's talk about what your business needs.
-      </p>
-
-      <a class="button primary" href={enquiryLink}>
-        Tell us about your project ↗
-      </a>
-    </div>
-  </section>
-
+    <!-- 7. CTA -->
+    <section class="sx-cta" id="contact">
+      <div class="sx-wrap">
+        <div class="sx-cta-card sx-reveal">
+          <div>
+            <div class="sx-kicker sx-kicker-lime">Have a project in mind?</div>
+            <h2>Let's make your online presence work harder.</h2>
+            <p>Tell us what you're working on. We'll take it from there.</p>
+          </div>
+          <a class="sx-btn sx-btn-primary sx-btn-lg" href={enquiryLink}>Get in touch <i>↗</i></a>
+        </div>
+      </div>
+    </section>
+  </div>
 </Layout>
+
+<style>
+  .sx-page {
+    --bg:#fff;--alt:#f1f4f2;--ink:#16202a;--muted:#566470;--line:#dfe5e8;--card:#fff;
+    --red:#b34a43;--green:#1f5f55;--lime:#d9ff43;--night:#17242b;
+    color:var(--ink);background:var(--bg);overflow-x:clip;position:relative;
+  }
+  :global(.dark) .sx-page {--bg:#1e293b;--alt:#172033;--ink:#f8fafc;--muted:#cbd5e1;--line:#334155;--card:#243247}
+  .sx-page p{color:var(--muted)}
+  .sx-wrap{max-width:1180px;margin-inline:auto;padding-inline:20px}
+  .sx-section{padding:clamp(72px,9vw,120px) 0;background:var(--bg);position:relative}
+  .sx-alt{background:var(--alt);border-block:1px solid var(--line)}
+  .sx-progress{position:fixed;inset:0 0 auto;height:3px;z-index:70;pointer-events:none}
+  .sx-progress span{display:block;height:100%;background:var(--lime);transform:scaleX(0);transform-origin:0 50%}
+  :global(.sx-js) .sx-reveal:not(.is-in){opacity:0;transform:translateY(22px)}
+  .sx-reveal{transition:opacity .7s ease,transform .7s cubic-bezier(.2,.8,.2,1);transition-delay:var(--d,0s)}
+  .sx-kicker{font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--red);margin-bottom:18px}
+  .sx-kicker-lime{color:var(--lime)}
+  .sx-h2{font-size:clamp(34px,4.6vw,60px);line-height:1.04;margin:0 0 20px;color:var(--ink);max-width:16ch}
+  .sx-head{margin-bottom:52px;max-width:760px}
+  .sx-lead{font-size:clamp(17px,1.6vw,20px);line-height:1.55;max-width:46ch;margin:0}
+  .sx-two{display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(36px,6vw,90px);align-items:center}
+  .sx-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:15px 24px;border-radius:999px;font-weight:700;font-size:15px;text-decoration:none;transition:transform .25s ease,box-shadow .25s ease;border:1px solid transparent;line-height:1.2}
+  .sx-btn i{font-style:normal;transition:transform .25s ease}
+  .sx-btn:hover{transform:translateY(-2px)}
+  .sx-btn:hover i{transform:translate(3px,-3px)}
+  .sx-btn-primary{background:var(--lime);color:#17242b;box-shadow:0 10px 30px -10px rgba(217,255,67,.55)}
+  .sx-btn-ghost{color:#fff;border-color:rgba(255,255,255,.35)}
+  .sx-btn-ghost:hover{background:rgba(255,255,255,.08)}
+  .sx-btn-lg{padding:18px 30px;font-size:16px;white-space:nowrap}
+
+  /* Hero */
+  .sx-hero{position:relative;overflow:hidden;color:#fff;padding:150px 0 90px;background:radial-gradient(900px 520px at 88% 8%,rgba(217,255,67,.13),transparent 60%),radial-gradient(700px 520px at 0% 100%,rgba(179,74,67,.25),transparent 60%),linear-gradient(120deg,#0f1a1f,#17242b 55%,#1f3038)}
+  .sx-hero:before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;background-image:linear-gradient(rgba(255,255,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.06) 1px,transparent 1px);background-size:56px 56px;mask-image:radial-gradient(ellipse at 60% 40%,#000 10%,transparent 70%)}
+  .sx-hero-grid{position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center}
+  .sx-pill{display:inline-flex;align-items:center;gap:10px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;padding:8px 14px;border-radius:999px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);margin-bottom:28px}
+  .sx-dot{width:8px;height:8px;border-radius:50%;background:#b9db1c;animation:ping 2s infinite}
+  .sx-hero h1{font-size:clamp(46px,6.4vw,92px);line-height:1;letter-spacing:-.045em;margin:0 0 26px;color:#fff;max-width:11ch}
+  .sx-hero h1 span{display:block;color:var(--lime);background:linear-gradient(transparent 82%,rgba(217,255,67,.22) 82%);width:fit-content}
+  .sx-hero p{font-size:clamp(18px,1.7vw,21px);line-height:1.55;color:rgba(255,255,255,.8);max-width:34em;margin:0 0 34px}
+  .sx-actions{display:flex;flex-wrap:wrap;gap:12px}
+  .sx-note{margin-top:26px;font-size:13px;color:rgba(255,255,255,.6)}
+
+  /* Original abstract brand illustration */
+  .sx-hero-art{position:relative;aspect-ratio:1/1;max-width:500px;width:100%;margin:auto;display:grid;place-items:center}
+  .art-orbit{position:absolute;border:1px solid rgba(217,255,67,.32);border-radius:50%;transform:rotate(-28deg)}
+  .orbit-one{width:90%;height:43%;animation:orbit 18s linear infinite}
+  .orbit-two{width:72%;height:72%;border-color:rgba(255,255,255,.18);transform:rotate(35deg)}
+  .art-core{width:43%;aspect-ratio:1;border-radius:32%;background:linear-gradient(145deg,#d9ff43,#9bbd22);color:#17242b;display:flex;flex-direction:column;align-items:center;justify-content:center;transform:rotate(-8deg);box-shadow:0 30px 90px rgba(217,255,67,.16);z-index:1}
+  .art-mark{font-size:clamp(54px,8vw,90px);font-weight:900;letter-spacing:-.1em;line-height:1}
+  .art-caption{font-size:10px;letter-spacing:.13em;text-transform:uppercase;font-weight:800;margin-top:12px}
+  .art-chip{position:absolute;z-index:2;background:rgba(15,26,31,.86);border:1px solid rgba(255,255,255,.2);color:#fff;padding:10px 16px;border-radius:999px;font-size:13px;font-weight:700;backdrop-filter:blur(8px)}
+  .chip-one{top:18%;left:8%}.chip-two{top:23%;right:3%}.chip-three{bottom:22%;left:3%}.chip-four{bottom:16%;right:8%}
+  .art-cross{position:absolute;right:13%;top:4%;font-size:42px;color:var(--lime);animation:spin 18s linear infinite}
+
+  /* Story */
+  .story-grid{align-items:start}
+  .story-copy{font-size:17px;line-height:1.8}
+  .story-copy p{margin:0 0 20px}
+  .story-copy p:last-child{margin-bottom:0}
+  .story-copy p:first-child{font-size:20px;color:var(--ink);line-height:1.6}
+
+  /* Beliefs */
+  .belief-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .belief-card{position:relative;overflow:hidden;min-height:330px;padding:30px;border:1px solid var(--line);border-radius:24px;background:var(--card);transition:transform .35s,box-shadow .35s}
+  .belief-card:hover{transform:translateY(-6px);box-shadow:0 30px 60px -34px rgba(0,0,0,.35)}
+  .belief-n{font-size:12px;font-weight:800;color:var(--red);letter-spacing:.12em}
+  .belief-symbol{font-size:54px;line-height:1;margin:54px 0 26px;color:var(--green)}
+  .belief-card h3{font-size:25px;line-height:1.1;margin:0 0 12px;color:var(--ink)}
+  .belief-card p{font-size:15px;line-height:1.6;margin:0}
+  .belief-dark{background:linear-gradient(150deg,#101817,#17242b 70%,#1c3b37);border-color:#101817}
+  .belief-dark h3{color:#fff}.belief-dark p{color:rgba(255,255,255,.72)}.belief-dark .belief-n,.belief-dark .belief-symbol{color:var(--lime)}
+
+  /* Approach */
+  .approach-grid{align-items:start}
+  .approach-stamp{display:inline-flex;align-items:center;gap:12px;margin-top:34px;padding:11px 15px;border:1px solid var(--line);border-radius:999px;font-size:12px;font-weight:700;color:var(--muted)}
+  .approach-stamp b{color:var(--red);font-size:18px}
+  .sx-steps{border-top:1px solid var(--line)}
+  .approach-step{display:grid;grid-template-columns:54px 1fr;gap:18px;padding:26px 0;border-bottom:1px solid var(--line)}
+  .approach-number{font-size:13px;font-weight:800;color:var(--green)}
+  .approach-step h3{font-size:21px;margin:0 0 7px;color:var(--ink)}
+  .approach-step p{font-size:15px;line-height:1.6;margin:0}
+
+  /* Team */
+  .sx-night{background:linear-gradient(150deg,#0f1a1f,#17242b 60%,#1a2d33);color:#fff;overflow:hidden}
+  .sx-night .sx-h2{color:#fff}.sx-night .sx-lead{color:rgba(255,255,255,.75)}
+  .team-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;max-width:900px}
+  .team-card{display:grid;grid-template-columns: minmax(130px,.8fr) 1.2fr;gap:24px;align-items:center;padding:22px;border:1px solid rgba(255,255,255,.14);border-radius:24px;background:rgba(255,255,255,.055);position:relative;overflow:hidden}
+  .team-photo{aspect-ratio:1;overflow:hidden;border-radius:18px;background:#263b3d;display:grid;place-items:center}
+  .team-photo img{width:100%;height:100%;object-fit:cover}
+  .team-role{font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:800;color:var(--lime)}
+  .team-info h3{font-size:27px;color:#fff;margin:8px 0}
+  .team-info p{font-size:14px;line-height:1.55;color:rgba(255,255,255,.7);margin:0 0 14px}
+  .team-info a{font-size:13px;color:var(--lime);font-weight:700;text-decoration:none}
+
+  /* Testimonials */
+  .testimonial-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+  .quote-card{position:relative;overflow:hidden;background:var(--card);border:1px solid var(--line);border-radius:20px;padding:25px;display:flex;flex-direction:column;min-height:300px;transition:transform .3s,box-shadow .3s}
+  .quote-card:hover{transform:translateY(-5px);box-shadow:0 24px 50px -32px rgba(0,0,0,.35)}
+  .quote-stars{font-size:13px;letter-spacing:.14em;color:var(--green)}
+  .quote-mark{position:absolute;right:20px;top:8px;font-family:Georgia,serif;font-size:90px;line-height:1;color:var(--green);opacity:.12}
+  .quote-card blockquote{position:relative;margin:22px 0 28px;font-size:15px;line-height:1.65;color:var(--ink);flex:1}
+  .quote-person{display:flex;align-items:center;gap:12px;border-top:1px solid var(--line);padding-top:16px}
+  .quote-initial{width:36px;height:36px;display:grid;place-items:center;border-radius:50%;background:var(--night);color:var(--lime);font-weight:800}
+  .quote-person strong,.quote-person small{display:block}
+  .quote-person strong{font-size:13px;color:var(--ink)}
+  .quote-person small{font-size:11px;color:var(--muted);margin-top:3px}
+
+  /* CTA */
+  .sx-cta{background:var(--night);padding:clamp(60px,8vw,110px) 0}
+  .sx-cta-card{position:relative;overflow:hidden;border-radius:32px;padding:clamp(34px,6vw,80px);color:#fff;display:grid;grid-template-columns:1.5fr auto;gap:40px;align-items:end;background:radial-gradient(600px 300px at 100% 0%,rgba(217,255,67,.16),transparent 60%),#0f1a1f;border:1px solid rgba(255,255,255,.1)}
+  .sx-cta h2{font-size:clamp(40px,6vw,76px);line-height:.98;letter-spacing:-.05em;margin:0 0 22px;color:#fff;max-width:12ch}
+  .sx-cta p{color:rgba(255,255,255,.75);font-size:19px;line-height:1.55;max-width:34em;margin:0}
+  .sx-cta-card>*{position:relative;z-index:1}
+
+  @keyframes ping{70%{box-shadow:0 0 0 10px rgba(185,219,28,0)}100%{box-shadow:0 0 0 0 rgba(185,219,28,0)}}
+  @keyframes orbit{to{transform:rotate(332deg)}}
+  @keyframes spin{to{transform:rotate(360deg)}}
+
+  @media(max-width:980px){
+    .sx-hero{padding:120px 0 70px}
+    .sx-hero-grid,.sx-two{grid-template-columns:1fr}
+    .sx-hero-art{max-width:430px}
+    .belief-grid{grid-template-columns:1fr 1fr}
+    .belief-card:last-child{grid-column:span 2;min-height:260px}
+    .testimonial-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .sx-cta-card{grid-template-columns:1fr;align-items:start}
+  }
+  @media(max-width:700px){
+    .belief-grid,.team-grid,.testimonial-grid{grid-template-columns:1fr}
+    .belief-card:last-child{grid-column:auto}
+    .team-card{grid-template-columns:120px 1fr;gap:18px;padding:16px}
+    .team-info h3{font-size:23px}
+    .quote-card{min-height:0}
+    .sx-hero h1{font-size:clamp(44px,13vw,66px)}
+    .sx-hero-art{max-width:340px}
+    .art-chip{font-size:11px;padding:8px 11px}
+    .sx-cta-card{padding:34px 25px}
+  }
+  @media(prefers-reduced-motion:reduce){
+    .sx-page *, .sx-page *:before, .sx-page *:after{animation:none!important;transition:none!important}
+    :global(.sx-js) .sx-reveal:not(.is-in){opacity:1;transform:none}
+  }
+</style>
+
+<script>
+  function init() {
+    const root = document.querySelector<HTMLElement>('.sx-page.about-page');
+    if (!root || root.dataset.sxReady) return;
+    root.dataset.sxReady = '1';
+
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    document.documentElement.classList.add('sx-js');
+
+    const targets = root.querySelectorAll<HTMLElement>('.sx-reveal');
+    if (reduce || !('IntersectionObserver' in window)) {
+      targets.forEach((el) => el.classList.add('is-in'));
+    } else {
+      const io = new IntersectionObserver(
+        (entries) =>
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-in');
+              io.unobserve(entry.target);
+            }
+          }),
+        { threshold: 0.18, rootMargin: '0px 0px -6% 0px' },
+      );
+      targets.forEach((el) => io.observe(el));
+    }
+
+    root.querySelectorAll<HTMLElement>('.sx-glow').forEach((card) => {
+      card.addEventListener('pointermove', (event: PointerEvent) => {
+        const rect = card.getBoundingClientRect();
+        card.style.setProperty('--mx', `${event.clientX - rect.left}px`);
+        card.style.setProperty('--my', `${event.clientY - rect.top}px`);
+      });
+    });
+
+    const bar = root.querySelector<HTMLElement>('.sx-progress span');
+    if (bar) {
+      const onScroll = () => {
+        if (!bar.isConnected) {
+          window.removeEventListener('scroll', onScroll);
+          return;
+        }
+        const height = document.documentElement.scrollHeight - window.innerHeight;
+        bar.style.transform = `scaleX(${height > 0 ? Math.min(1, window.scrollY / height) : 0})`;
+      };
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+    }
+  }
+
+  init();
+  document.addEventListener('astro:page-load', init);
+</script>
+'''
+path = Path("/mnt/data/about-custom-revised.astro")
+path.write_text(code, encoding="utf-8")
+print(f"Created {path} ({len(code.splitlines())} lines, {path.stat().st_size:,} bytes)")
