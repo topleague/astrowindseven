@@ -1,472 +1,884 @@
-
 ---
 import Layout from '~/layouts/PageLayout.astro';
-import Features2 from '~/components/widgets/Features2.astro';
-import Steps from '~/components/widgets/Steps.astro';
-import FAQs from '~/components/widgets/FAQs.astro';
-import StructuredData from '~/components/common/StructuredData.astro';
-import FeatureTabs from '~/components/widgets/FeatureTabs.astro';
-
-import { SITE, METADATA, I18N } from 'astrowind:config';
-import favIconSvg from '~/assets/favicons/favicon.svg';
 
 const metadata = {
-  title: 'Website Development & Digital Services | Top League Technologies',
+  title: 'SEO Services | Top League Technologies',
   description:
-    'We build websites shaped by business goals, SEO and useful content. A practical digital partner for small businesses.',
-  ignoreTitleTemplate: true,
+    'SEO that starts with your website. Development-led SEO for speed, structure and search visibility, from the team that builds it.',
 };
 
-const organizationId = `${SITE?.site}/#organization`;
+const enquiryLink = 'mailto:hello@topleaguetech.com?subject=SEO%20Services%20Enquiry';
 
-const structuredData = [
+/* ---------- Isometric "website anatomy" helpers (u, v are -1..1 across a diamond) ---------- */
+const pt = (u: number, v: number, y: number) =>
+  `${(190 + 75 * (u - v)).toFixed(1)},${(y + 45 + 22.5 * (u + v)).toFixed(1)}`;
+const seg = (y: number, u1: number, v1: number, u2: number, v2: number) =>
+  `M${pt(u1, v1, y)}L${pt(u2, v2, y)}`;
+const top = (y: number) => [pt(-1, -1, y), pt(1, -1, y), pt(1, 1, y), pt(-1, 1, y)].join(' ');
+const sideL = (y: number) => [pt(-1, 1, y), pt(1, 1, y), pt(1, 1, y + 12), pt(-1, 1, y + 12)].join(' ');
+const sideR = (y: number) => [pt(1, 1, y), pt(1, -1, y), pt(1, -1, y + 12), pt(1, 1, y + 12)].join(' ');
+const dia = (y: number, u: number, v: number, s = 0.17) =>
+  [pt(u - s, v - s, y), pt(u + s, v - s, y), pt(u + s, v + s, y), pt(u - s, v + s, y)].join(' ');
+
+const Y = { content: 70, code: 175, structure: 280, speed: 385 };
+
+const layers = [
   {
-    '@context': 'https://schema.org',
-    '@type': 'WebSite',
-    '@id': `${SITE?.site}/#website`,
-    name: SITE?.name,
-    url: SITE?.site,
-    inLanguage: I18N?.language,
-    publisher: { '@id': organizationId },
+    key: 'content', n: '04', label: 'Content', y: Y.content, f: '#d9ff43', d: '#17242b', bd: '1.2s', gd: '2.8s',
+    paths: [seg(Y.content, -0.6, -0.45, 0.6, -0.45), seg(Y.content, -0.6, 0, 0.2, 0), seg(Y.content, -0.6, 0.45, 0.45, 0.45)],
+    nodes: [] as string[],
   },
   {
-    '@context': 'https://schema.org',
-    '@type': 'Organization',
-    '@id': organizationId,
-    name: SITE?.name,
-    url: SITE?.site,
-    logo: new URL(favIconSvg.src, SITE?.site).toString(),
-    ...(METADATA?.twitter?.handle
-      ? { sameAs: [`https://x.com/${METADATA.twitter.handle.replace(/^@/, '')}`] }
-      : {}),
+    key: 'code', n: '03', label: 'Code', y: Y.code, f: '#3f8fb0', d: 'rgba(255,255,255,.9)', bd: '0.8s', gd: '1.9s',
+    paths: [
+      seg(Y.code, -0.7, -0.5, -0.1, -0.5), seg(Y.code, -0.5, -0.15, 0.3, -0.15),
+      seg(Y.code, -0.5, 0.2, 0.1, 0.2), seg(Y.code, -0.7, 0.55, 0.4, 0.55),
+    ],
+    nodes: [] as string[],
+  },
+  {
+    key: 'structure', n: '02', label: 'Structure', y: Y.structure, f: '#2b7a78', d: 'rgba(255,255,255,.9)', bd: '0.4s', gd: '1s',
+    paths: [
+      seg(Y.structure, -0.6, 0, 0, -0.5), seg(Y.structure, -0.6, 0, 0, 0), seg(Y.structure, -0.6, 0, 0, 0.5),
+      seg(Y.structure, 0, -0.5, 0.6, -0.5), seg(Y.structure, 0, 0.5, 0.6, 0.5),
+    ],
+    nodes: [
+      dia(Y.structure, -0.6, 0, 0.2), dia(Y.structure, 0, -0.5), dia(Y.structure, 0, 0), dia(Y.structure, 0, 0.5),
+      dia(Y.structure, 0.6, -0.5), dia(Y.structure, 0.6, 0.5),
+    ],
+  },
+  {
+    key: 'speed', n: '01', label: 'Speed', y: Y.speed, f: '#1f5f55', d: 'rgba(255,255,255,.9)', bd: '0s', gd: '0.1s',
+    paths: [seg(Y.speed, -0.7, 0, 0.7, 0)],
+    nodes: [] as string[],
   },
 ];
+const drawOrder = [...layers].reverse(); // bottom layer first, so upper layers sit on top
 
-// THE USUAL WAY VS THE TOP LEAGUE APPROACH
-const usualWay = [
-  {
-    title: 'Start with the website',
-    description:
-      'The first question is “What kind of website do you want?”. A list of pages and features becomes the plan, and the business comes second.',
-  },
-  {
-    title: 'Treat requirements as the strategy',
-    description:
-      'A quote follows the feature list. The real budget surfaces later, usually as a compromise.',
-  },
-  {
-    title: 'Choose what is familiar',
-    description:
-      'Domain, hosting and platform are picked by habit, convenience or the lowest price.',
-  },
-  {
-    title: 'Build first, think about SEO later',
-    description:
-      'Pages are designed and written first. Search intent and site structure are considered afterwards.',
-  },
-  {
-    title: 'Fill the pages at the end',
-    description:
-      'Copy and images arrive late and get squeezed into whatever space the design left.',
-  },
-  {
-    title: 'Launch and move on',
-    description:
-      'Speed, security, social presence and fresh content become somebody else’s problem.',
-  },
+const connectors = [Y.content, Y.code, Y.structure].map((y) => ({
+  l: `M40,${y + 57}V${y + 105 + 45}`,
+  r: `M340,${y + 57}V${y + 105 + 45}`,
+}));
+
+const stats = [
+  { n: 16, s: '', l: 'years in digital' },
+  { n: 30, s: '+', l: 'websites built recently' },
+  { n: 20, s: '', l: 'websites currently maintained' },
+  { n: 10, s: '', l: 'countries served' },
 ];
 
-const topLeagueWay = [
-  {
-    title: 'Start with the business',
-    description:
-      'We begin with your audience, your goals and what success means to you. Only then do we decide which pages and features earn a place.',
-  },
-  {
-    title: 'Plan around the real budget',
-    description:
-      'Budget is part of the first conversation, so the plan is practical rather than padded.',
-  },
-  {
-    title: 'Choose foundations deliberately',
-    description:
-      'Domain, hosting and CMS, platform or framework follow your requirements, not whatever we happen to use.',
-  },
-  {
-    title: 'Map SEO before building pages',
-    description:
-      'Search intent, keywords, structure and the pages you need to compete are decided before the build begins.',
-  },
-  {
-    title: 'Create content around the plan',
-    description:
-      'Content and visuals are prepared with your audience and search goals in mind, before the pages are assembled.',
-  },
-  {
-    title: 'Plan for life after launch',
-    description:
-      'We build for speed and security from the start, and can continue supporting your website with updates, analytics and new content.',
-  },
+const problems = [
+  { t: 'Slow pages lose twice', d: 'Visitors leave. Search engines notice.', i: '⚡' },
+  { t: 'Messy structure hides good content', d: 'Pages that are hard to crawl are hard to rank.', i: '⌗' },
+  { t: 'Unclear journeys waste traffic', d: 'Visitors who can’t find the next step don’t get in touch.', i: '↯' },
 ];
 
-const comparison = (usual, top) => `
-  <div class="difference-panel">
-    <div class="difference-usual">
-      <div class="difference-label difference-label-usual">
-        <span class="difference-icon difference-icon-usual">×</span>
-        The Usual Way
-      </div>
-      <h3>${usual.title}</h3>
-      <p>${usual.description}</p>
-    </div>
-    <div class="difference-top">
-      <div class="difference-label difference-label-top">
-        <span class="difference-icon difference-icon-top">✓</span>
-        The Top League Approach
-      </div>
-      <h3>${top.title}</h3>
-      <p>${top.description}</p>
-    </div>
-  </div>
-`;
+const oldWay = [
+  'Keywords added to pages that weren\'t planned for them',
+  'Speed and structure problems left as they are',
+  'Recommendations someone else has to build',
+  'Results capped by the website itself',
+];
+const newWay = [
+  'Search intent shapes the pages before design begins',
+  'Speed, structure and markup built in',
+  'The people who build it are the people who optimise it',
+  'Nothing capped. Nothing lost in handover.',
+];
+
+const loop = [
+  { n: '1', t: 'Track what ranks', d: 'See which pages and searches bring people in.' },
+  { n: '2', t: 'Fix what slips', d: 'Speed, structure and technical issues, handled by developers.' },
+  { n: '3', t: 'Add what\'s missing', d: 'New pages and content for the searches you\'re not yet answering.' },
+];
+
+const paths = [
+  {
+    k: 'New website', t: 'Build it SEO-ready', d: 'Search planned before design.', feat: false, cta: 'Plan my new site',
+    li: ['Research before design', 'Fast, well-structured build', 'Launch checks included'],
+  },
+  {
+    k: 'Existing website', t: 'Fix the foundations', d: 'Find what\'s holding it back.', feat: true, cta: 'Review my website',
+    li: ['Speed, structure and technical review', 'Content and on-page fixes', 'Fixed by developers, not just reported'],
+  },
+  {
+    k: 'Needs a rethink', t: 'Rebuild with SEO at the core', d: 'When the site itself is the limit.', feat: false, cta: 'Talk it through',
+    li: ['Restructured pages and navigation', 'Redesigned for speed and usability', 'Redirects and migration handled'],
+  },
+];
 ---
 
-<Layout metadata={metadata} pageClass="home-draft">
-  <StructuredData slot="head" schema={structuredData} />
+<Layout metadata={metadata} pageClass="product-description-page">
+  <div class="sx-page">
 
-  <!-- 1. HERO -->
-  <section class="hero">
-    <div class="container">
+    <div class="sx-progress" aria-hidden="true"><span></span></div>
 
-      <div class="eyebrow">
-        <span class="dot"></span>
-        Digital partner for small businesses
-      </div>
+    <!-- ============ 1. HERO ============ -->
+    <section class="sx-hero">
+      <div class="sx-wrap sx-hero-grid">
 
-      <h1>
-        Build Your Online Presence,
-        <span>Not Just a Website.</span>
-      </h1>
+        <div class="sx-hero-copy">
+          <div class="sx-pill"><span class="sx-dot"></span> SEO + web development</div>
 
-      <p>
-        We build thoughtful websites shaped by your business goals, SEO and
-        useful content — so your online presence has a stronger foundation
-        from day one.
-      </p>
-
-      <div class="actions">
-        <a class="btn primary" href="/contact/">Let's talk ↗</a>
-        <a class="btn ghost" href="#approach">How we work ↓</a>
-      </div>
-
-      <div class="hero-note">
-        Website development · SEO · Content · Ongoing support
-      </div>
-
-    </div>
-  </section>
-
-
-  <!-- 2. PROOF BAR -->
-  <section class="proofbar">
-    <div class="wrap proofgrid">
-      <div class="proof">
-        <strong>16 years</strong>
-        <span>as an incorporated company</span>
-      </div>
-
-      <div class="proof">
-        <strong>300+</strong>
-        <span>clients worked with</span>
-      </div>
-
-      <div class="proof">
-        <strong>20</strong>
-        <span>websites currently maintained</span>
-      </div>
-
-      <div class="proof">
-        <strong>10 countries</strong>
-        <span>clients served</span>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- 3. THE BIGGER PICTURE -->
-  <section class="section band" id="coming">
-    <div class="container">
-
-      <div class="feature-head">
-        <div>
-          <div class="kicker">Why it matters</div>
-          <h2>Your website is only one part of your online presence.</h2>
-        </div>
-
-        <p>
-          Your domain, website, content, search visibility and social presence
-          all shape how people discover and experience your business.
-        </p>
-      </div>
-
-      <Features2
-        classes={{
-          container: 'coming-section',
-          headline: { container: 'max-w-3xl !mx-0 !text-left' },
-        }}
-        columns={3}
-        items={[
-          {
-            title: 'The right foundations',
-            description:
-              'Your domain, hosting and technology choices can affect your brand and your options long after the website launches.',
-            icon: 'tabler:building-community',
-          },
-          {
-            title: 'A connected presence',
-            description:
-              'Your website should work with your content and social channels — not sit apart from the rest of your marketing.',
-            icon: 'tabler:hierarchy-2',
-          },
-          {
-            title: 'Visibility that grows',
-            description:
-              'SEO, useful content, analytics and ongoing improvements help keep your online presence relevant after launch.',
-            icon: 'tabler:route',
-          },
-        ]}
-      />
-
-    </div>
-  </section>
-
-
-  <!-- 4. A REAL CLIENT STORY -->
-  <section class="section" id="reality">
-    <div class="container">
-
-      <div class="process">
-        <div>
-          <div class="kicker">Based on a real client story</div>
-          <h2>What an expensive mistake can look like.</h2>
-        </div>
-
-        <div class="story-content">
-          <p>
-            A client came to us with a domain name and logo already chosen.
-            After the website was ready, a trademark conflict forced a change
-            of name, domain and logo.
-          </p>
+          <h1>
+            Here for SEO?
+            <span>Start with your website.</span>
+          </h1>
 
           <p>
-            Work that should have been settled before the website began had
-            to be revisited. The result was avoidable time, effort and
-            expense.
+            Rankings are built on speed, structure and clean code. We fix the website,
+            then the search. One team. One plan.
           </p>
 
-          <p>
-            <strong>
-              A website project needs more than a design brief. It needs the
-              right questions asked at the beginning.
-            </strong>
-          </p>
-        </div>
-      </div>
+          <div class="sx-actions">
+            <a class="sx-btn sx-btn-primary" href={enquiryLink}>Get a free website + SEO review <i>↗</i></a>
+            <a class="sx-btn sx-btn-ghost" href="#versus">See why <i>↓</i></a>
+          </div>
 
-      <div class="mt-10 border-y border-slate-200 py-6 dark:border-slate-700">
-        <div class="kicker">The lesson</div>
-        <p class="mt-2 text-muted">
-          Think through the business decisions before committing to the
-          website decisions.
-        </p>
-      </div>
-
-    </div>
-  </section>
-
-
-  <!-- 5. THE TOP LEAGUE DIFFERENCE -->
-  <section class="section band" id="difference">
-    <div class="container">
-
-      <div class="feature-head">
-        <div>
-          <div class="kicker">The Top League difference</div>
-          <h2>A website is only as good as the thinking behind it.</h2>
+          <div class="sx-note">No giant proposal. Just a conversation.</div>
         </div>
 
-        <p>
-          Here's what we do differently before we build, while we build and
-          after we launch.
-        </p>
-      </div>
+        <!-- Isometric anatomy of a website: SEO sits on top of everything else -->
+        <div class="sx-anatomy" role="img" aria-label="Diagram: search visibility sits on top of four website layers: speed, structure, code and content.">
+          <div class="sx-rank">Search visibility <b>↑</b></div>
 
-      <FeatureTabs
-        items={[
-          ['Starting point', 'tabler:flag'],
-          ['Budget', 'tabler:coin'],
-          ['Foundations', 'tabler:stack-2'],
-          ['SEO', 'tabler:search'],
-          ['Content', 'tabler:writing'],
-          ['After launch', 'tabler:rocket'],
-        ].map(([title, icon], i) => ({
-          title,
-          icon,
-          image: comparison(usualWay[i], topLeagueWay[i]),
-        }))}
-      />
+          <svg viewBox="0 0 540 500" aria-hidden="true">
+            <defs>
+              <filter id="sx-blur"><feGaussianBlur stdDeviation="9" /></filter>
+            </defs>
 
-    </div>
-  </section>
+            <ellipse cx="190" cy="484" rx="150" ry="16" fill="#000" opacity=".45" filter="url(#sx-blur)" />
 
+            {connectors.map((c) => (
+              <>
+                <path d={c.l} class="sx-conn" />
+                <path d={c.r} class="sx-conn" />
+              </>
+            ))}
 
-  <!-- 6. HOW WE WORK -->
-  <section class="section" id="approach">
-    <div class="container">
+            {drawOrder.map((l) => (
+              <g class="sx-layer" style={`--f:${l.f};--d:${l.d};--bd:${l.bd};--gd:${l.gd}`}>
+                <polygon points={sideL(l.y)} class="sx-side" />
+                <polygon points={sideR(l.y)} class="sx-side sx-side-r" />
+                <polygon points={top(l.y)} class="sx-top" />
+                {l.paths.map((p) => <path d={p} class="sx-line" />)}
+                {l.nodes.map((p) => <polygon points={p} class="sx-dia" />)}
+                <polygon points={top(l.y)} class="sx-glowface" />
+              </g>
+            ))}
 
-      <div class="feature-head">
-        <div>
-          <div class="kicker">How we work</div>
-          <h2>From a business idea to a stronger online presence.</h2>
-        </div>
+            <path d="M190,64V22" class="sx-beam" />
+            <path d="M184,30L190,20L196,30" class="sx-arrowhead" />
+          </svg>
 
-        <p>
-          We bring website development, content and search expertise together
-          so the pieces work towards the same business goals.
-        </p>
-      </div>
-
-      <div class="process">
-        <div>
-          <p>
-            Not every business needs the same combination of services. We
-            start by understanding what you need, then build a practical plan
-            around it.
-          </p>
-        </div>
-
-        <div class="process-list">
-
-          <article class="step">
-            <span>01</span>
-            <div>
-              <h3>Website development</h3>
-              <p>
-                Thoughtful, responsive websites built around your business,
-                your audience and the experience you want to create.
-              </p>
+          {layers.map((l) => (
+            <div class="sx-tag" style={`top:${((l.y + 45) / 500) * 100}%`}>
+              <span>{l.n}</span>{l.label}
             </div>
+          ))}
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============ 2. PROOF ============ -->
+    <section class="sx-proof">
+      <div class="sx-wrap sx-proof-grid">
+        <div class="sx-proof-lead sx-reveal">We build websites.<br />So we know what SEO needs from them.</div>
+        <div class="sx-stats">
+          {stats.map((s, i) => (
+            <div class="sx-stat sx-reveal" style={`--d:${i * 0.08}s`}>
+              <div class="sx-num"><span data-sx-count={s.n}>{s.n}</span>{s.s}</div>
+              <div class="sx-stat-l">{s.l}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 3. THE CEILING ============ -->
+    <section class="sx-section" id="ceiling">
+      <div class="sx-wrap sx-two">
+
+        <div>
+          <div class="sx-kicker sx-reveal">The uncomfortable truth</div>
+          <h2 class="sx-h2 sx-reveal">SEO can't outrun a weak website.</h2>
+          <p class="sx-lead sx-reveal">Keywords and content only go as far as the site underneath can carry them.</p>
+
+          <ul class="sx-problems">
+            {problems.map((p, i) => (
+              <li class="sx-reveal" style={`--d:${0.1 + i * 0.1}s`}>
+                <span class="sx-ico">{p.i}</span>
+                <div>
+                  <div class="sx-p-t">{p.t}</div>
+                  <div class="sx-p-d">{p.d}</div>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <figure class="sx-chart-card sx-watch sx-reveal">
+          <div class="sx-chart">
+            <svg viewBox="0 0 560 340" role="img" aria-label="Illustration: SEO on a weak website levels off at the website's ceiling, while SEO on a website built for it keeps climbing.">
+              <defs>
+                <linearGradient id="sx-area" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0" stop-color="#1f5f55" stop-opacity=".35" />
+                  <stop offset="1" stop-color="#1f5f55" stop-opacity="0" />
+                </linearGradient>
+              </defs>
+              <g class="sx-grid">
+                <path d="M40,300H540" /><path d="M40,225H540" /><path d="M40,150H540" /><path d="M40,75H540" /><path d="M40,20V300" />
+              </g>
+              <path d="M40,300C150,288 220,215 300,148C380,92 450,48 540,30L540,300L40,300Z" fill="url(#sx-area)" class="sx-area" />
+              <path d="M40,120H540" class="sx-ceiling" />
+              <path d="M40,300C140,292 200,214 270,160C330,124 420,122 540,120" pathLength="1" class="sx-curve sx-curve-a sx-draw" />
+              <path d="M40,300C150,288 220,215 300,148C380,92 450,48 540,30" pathLength="1" class="sx-curve sx-curve-b sx-draw" />
+              <circle cx="540" cy="120" r="6" class="sx-end sx-end-a" />
+              <circle cx="540" cy="30" r="7" class="sx-end sx-end-b" />
+            </svg>
+            <div class="sx-ceiling-tag">The website's ceiling</div>
+          </div>
+          <figcaption>
+            <span><i class="sx-key sx-key-a"></i>SEO on a weak website</span>
+            <span><i class="sx-key sx-key-b"></i>SEO on a website built for it</span>
+            <small>Illustration, not real data.</small>
+          </figcaption>
+        </figure>
+
+      </div>
+    </section>
+
+    <!-- ============ 4. VERSUS ============ -->
+    <section class="sx-section sx-alt" id="versus">
+      <div class="sx-wrap">
+
+        <div class="sx-head">
+          <div class="sx-kicker sx-reveal">The Top League approach</div>
+          <h2 class="sx-h2 sx-reveal">SEO is part of the build, not a patch on top.</h2>
+          <p class="sx-lead sx-reveal">Most SEO starts after the website is finished. Ours starts before it's designed.</p>
+        </div>
+
+        <div class="sx-vs">
+          <article class="sx-vs-card sx-vs-old sx-watch sx-reveal">
+            <div class="sx-vs-k"><span class="sx-x">×</span> SEO on its own</div>
+            <h3>Fix it from the outside</h3>
+            <ul>
+              {oldWay.map((t, i) => <li style={`--i:${i}`}>{t}</li>)}
+            </ul>
           </article>
 
-          <article class="step">
-            <span>02</span>
-            <div>
-              <h3>Content that communicates</h3>
-              <p>
-                Clear, useful website content that explains what you offer,
-                speaks to your customers and supports your search goals.
-              </p>
+          <div class="sx-vs-badge" aria-hidden="true">VS</div>
+
+          <article class="sx-vs-card sx-vs-new sx-watch sx-reveal" style="--d:.12s">
+            <div class="sx-vs-k"><span class="sx-tick">✓</span> SEO + development</div>
+            <h3>Build it right from the inside</h3>
+            <ul>
+              {newWay.map((t, i) => <li style={`--i:${i}`}><span class="sx-tick">✓</span>{t}</li>)}
+            </ul>
+          </article>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============ 5. FOUNDATIONS (bento) ============ -->
+    <section class="sx-section" id="foundations">
+      <div class="sx-wrap">
+
+        <div class="sx-head">
+          <div class="sx-kicker sx-reveal">SEO from the development side</div>
+          <h2 class="sx-h2 sx-reveal">Four things rankings quietly depend on.</h2>
+        </div>
+
+        <div class="sx-bento">
+
+          <!-- Speed -->
+          <article class="sx-card sx-glow sx-reveal sx-b5">
+            <div class="sx-viz sx-watch sx-gauge">
+              <svg viewBox="0 0 200 118" aria-hidden="true">
+                <defs>
+                  <linearGradient id="sx-gg" x1="0" y1="0" x2="1" y2="0">
+                    <stop offset="0" stop-color="#e0705f" />
+                    <stop offset=".5" stop-color="#ffd166" />
+                    <stop offset="1" stop-color="#d9ff43" />
+                  </linearGradient>
+                </defs>
+                <path d="M20,100A80,80 0 0 1 180,100" class="sx-g-track" />
+                <path d="M20,100A80,80 0 0 1 180,100" class="sx-g-arc" />
+                <g class="sx-needle"><path d="M100,100L100,38" /><circle cx="100" cy="100" r="7" /></g>
+              </svg>
+              <div class="sx-viz-cap">Aim for a Largest Contentful Paint under 2.5 seconds.</div>
             </div>
+            <div class="sx-card-k">01 — Speed</div>
+            <h3>Fast by design</h3>
+            <p>Mobile-first builds that load quickly and pass performance checks.</p>
           </article>
 
-          <article class="step">
-            <span>03</span>
-            <div>
-              <h3>SEO and social visibility</h3>
-              <p>
-                Search optimisation and social media support to help your
-                business reach the people looking for what you offer.
-              </p>
+          <!-- Structure -->
+          <article class="sx-card sx-glow sx-reveal sx-b7" style="--d:.08s">
+            <div class="sx-viz sx-watch sx-tree">
+              <svg viewBox="0 0 280 136" aria-hidden="true">
+                <g class="sx-t-lines">
+                  <path d="M140,30V44H55V56" /><path d="M140,30V56" /><path d="M140,30V44H225V56" />
+                  <path d="M55,78V92H30V104" /><path d="M55,78V92H100V104" />
+                </g>
+                <g class="sx-node" style="--i:0"><rect x="105" y="6" width="70" height="24" rx="7" /><text x="140" y="22" text-anchor="middle">Home</text></g>
+                <g class="sx-node" style="--i:1"><rect x="20" y="56" width="70" height="22" rx="7" /><text x="55" y="71" text-anchor="middle">Services</text></g>
+                <g class="sx-node" style="--i:2"><rect x="105" y="56" width="70" height="22" rx="7" /><text x="140" y="71" text-anchor="middle">Blog</text></g>
+                <g class="sx-node" style="--i:3"><rect x="190" y="56" width="70" height="22" rx="7" /><text x="225" y="71" text-anchor="middle">About</text></g>
+                <g class="sx-node sx-node-hot" style="--i:4"><rect x="0" y="104" width="60" height="22" rx="7" /><text x="30" y="119" text-anchor="middle">SEO</text></g>
+                <g class="sx-node" style="--i:5"><rect x="70" y="104" width="60" height="22" rx="7" /><text x="100" y="119" text-anchor="middle">Web</text></g>
+              </svg>
             </div>
+            <div class="sx-card-k">02 — Structure</div>
+            <h3>Pages that make sense</h3>
+            <p>Logical headings, links and URLs. Easy for visitors and search engines.</p>
           </article>
 
-          <article class="step">
-            <span>04</span>
-            <div>
-              <h3>Ongoing care and improvement</h3>
-              <p>
-                Website maintenance, analytics and content improvements to
-                keep your digital presence useful beyond launch day.
-              </p>
+          <!-- Code -->
+          <article class="sx-card sx-glow sx-reveal sx-b7">
+            <div class="sx-viz sx-watch sx-code">
+              <div class="sx-cl" style="--i:0"><span class="sx-t">&lt;title&gt;</span>SEO Services | Top League<span class="sx-t">&lt;/title&gt;</span></div>
+              <div class="sx-cl" style="--i:1"><span class="sx-t">&lt;meta</span> <span class="sx-a">name</span>=<span class="sx-s">"description"</span> <span class="sx-a">content</span>=<span class="sx-s">"SEO that starts with your website…"</span><span class="sx-t">&gt;</span></div>
+              <div class="sx-cl" style="--i:2"><span class="sx-t">&lt;link</span> <span class="sx-a">rel</span>=<span class="sx-s">"canonical"</span> <span class="sx-a">href</span>=<span class="sx-s">"/seo/"</span><span class="sx-t">&gt;</span></div>
+              <div class="sx-cl" style="--i:3"><span class="sx-t">&lt;script</span> <span class="sx-a">type</span>=<span class="sx-s">"application/ld+json"</span><span class="sx-t">&gt;</span></div>
+              <div class="sx-cl" style="--i:4"><span class="sx-t">&lt;h1&gt;</span>One clear heading per page<span class="sx-t">&lt;/h1&gt;</span></div>
             </div>
+            <div class="sx-card-k">03 — Code</div>
+            <h3>Clean technical foundations</h3>
+            <p>Metadata, indexing, redirects and structured data handled in the build.</p>
+          </article>
+
+          <!-- Content -->
+          <article class="sx-card sx-glow sx-reveal sx-b5" style="--d:.08s">
+            <div class="sx-viz sx-serp-wrap">
+              <div class="sx-serp">
+                <div class="sx-serp-top">
+                  <span class="sx-fav">T</span>
+                  <div><b>Top League Technologies</b><small>topleaguetech.com › seo</small></div>
+                </div>
+                <div class="sx-serp-title">SEO Services | Top League Technologies</div>
+                <div class="sx-serp-desc"><mark>SEO</mark>-led <mark>website</mark> development and practical search optimisation to help your business get found, understood and chosen.</div>
+              </div>
+            </div>
+            <div class="sx-card-k">04 — Content</div>
+            <h3>Written for real searches</h3>
+            <p>Every page answers what people actually look for. No keyword stuffing.</p>
           </article>
 
         </div>
       </div>
+    </section>
 
-    </div>
-  </section>
+    <!-- ============ 6. AFTER LAUNCH (loop) ============ -->
+    <section class="sx-section sx-night" id="loop">
+      <div class="sx-wrap sx-two sx-two-loop">
 
+        <div class="sx-loop-visual sx-watch sx-reveal">
+          <svg viewBox="0 0 360 360" role="img" aria-label="A loop: track what ranks, fix what slips, add what's missing, then repeat.">
+            <circle cx="180" cy="180" r="120" class="sx-ring" />
+            <g class="sx-orbit"><circle cx="180" cy="60" r="7" class="sx-spark" /></g>
+            <g class="sx-n"><circle cx="180" cy="60" r="26" /><text x="180" y="68" text-anchor="middle">1</text></g>
+            <g class="sx-n"><circle cx="284" cy="240" r="26" /><text x="284" y="248" text-anchor="middle">2</text></g>
+            <g class="sx-n"><circle cx="76" cy="240" r="26" /><text x="76" y="248" text-anchor="middle">3</text></g>
+            <text x="180" y="176" text-anchor="middle" class="sx-inf">∞</text>
+            <text x="180" y="208" text-anchor="middle" class="sx-inf-s">better every month</text>
+          </svg>
+        </div>
 
-  <!-- 7. FAQs -->
-  <section class="section band" id="faqs">
-    <div class="container">
-
-      <div class="feature-head">
         <div>
-          <div class="kicker">FAQs</div>
-          <h2>A few things you may want to know.</h2>
+          <div class="sx-kicker sx-kicker-lime sx-reveal">After launch</div>
+          <h2 class="sx-h2 sx-reveal">Launch is where SEO starts.</h2>
+          <p class="sx-lead sx-reveal">Search keeps changing. So does your business. We stay on after launch.</p>
+
+          <ol class="sx-steps">
+            {loop.map((s, i) => (
+              <li class="sx-reveal" style={`--d:${0.1 + i * 0.1}s`}>
+                <span>{s.n}</span>
+                <div><div class="sx-p-t">{s.t}</div><div class="sx-p-d">{s.d}</div></div>
+              </li>
+            ))}
+          </ol>
+
+          <div class="sx-strong sx-reveal">Same team. Same website. Better every month.</div>
         </div>
 
-        <p>
-          Every project is different. Here are a few things worth knowing
-          before we start a conversation.
-        </p>
       </div>
+    </section>
 
-      <FAQs
-        schema
-        items={[
-          {
-            title: 'What kind of businesses do you work with?',
-            description:
-              'We work with small businesses and growing organisations that want a more effective online presence. The right approach depends on your goals, audience and requirements.',
-          },
-          {
-            title: 'Do you only build new websites?',
-            description:
-              'No. We can also review existing websites, identify what needs improvement and recommend targeted changes or a more substantial rebuild when appropriate.',
-          },
-          {
-            title: 'Can you help with website content and SEO?',
-            description:
-              'Yes. Content and SEO are important parts of our experience. We bring them into website planning and development, and can also help improve an existing website.',
-          },
-          {
-            title: 'Do you provide support after launch?',
-            description:
-              'Yes. We can help with website maintenance, updates, analytics and ongoing content or SEO improvements, depending on what your business needs.',
-          },
-          {
-            title: 'How do we get started?',
-            description:
-              'Start with a conversation about your business, what you want to achieve and the budget you have in mind. We can then discuss a practical way forward.',
-          },
-        ]}
-      />
+    <!-- ============ 7. STARTING POINTS ============ -->
+    <section class="sx-section" id="start">
+      <div class="sx-wrap">
 
+        <div class="sx-head">
+          <div class="sx-kicker sx-reveal">Where are you starting from?</div>
+          <h2 class="sx-h2 sx-reveal">Whatever your starting point, the website comes first.</h2>
+          <p class="sx-lead sx-reveal">Not sure which fits? Start with a free review.</p>
+        </div>
+
+        <div class="sx-paths">
+          {paths.map((p, i) => (
+            <article class={`sx-path sx-glow sx-reveal ${p.feat ? 'is-feat' : ''}`} style={`--d:${i * 0.1}s`}>
+              <span class="sx-path-n" aria-hidden="true">0{i + 1}</span>
+              {p.feat && <span class="sx-badge">Not sure? Start here</span>}
+              <div class="sx-card-k">{p.k}</div>
+              <h3>{p.t}</h3>
+              <p>{p.d}</p>
+              <ul>{p.li.map((t) => <li><span class="sx-tick">✓</span>{t}</li>)}</ul>
+              <a class={`sx-btn ${p.feat ? 'sx-btn-primary' : 'sx-btn-dark'}`} href={enquiryLink}>{p.cta} <i>↗</i></a>
+            </article>
+          ))}
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============ 8. MARQUEE ============ -->
+    <div class="sx-marquee" aria-hidden="true">
+      <div class="sx-marquee-track">
+        <span>Speed ✦ Structure ✦ Code ✦ Content ✦ Growth ✦ </span>
+        <span>Speed ✦ Structure ✦ Code ✦ Content ✦ Growth ✦ </span>
+        <span>Speed ✦ Structure ✦ Code ✦ Content ✦ Growth ✦ </span>
+        <span>Speed ✦ Structure ✦ Code ✦ Content ✦ Growth ✦ </span>
+      </div>
     </div>
-  </section>
 
+    <!-- ============ 9. FINAL CTA ============ -->
+    <section class="sx-cta" id="talk">
+      <div class="sx-wrap">
+        <div class="sx-cta-card sx-reveal">
+          <div>
+            <div class="sx-kicker sx-kicker-lime">Let's talk</div>
+            <h2>Rethink your SEO strategy.</h2>
+            <p>No giant proposal. Tell us about your website and your goals. We'll show you what to fix first.</p>
+          </div>
+          <a class="sx-btn sx-btn-primary sx-btn-lg" href={enquiryLink}>Book a free consultation <i>↗</i></a>
+        </div>
+      </div>
+    </section>
 
-  <!-- 8. FINAL CTA -->
-  <section id="contact" class="cta">
-    <div class="wrap">
-      <div class="kicker">Let's talk</div>
-
-      <h2>
-        Your business deserves more than just a website.
-      </h2>
-
-      <p>
-        Start with the business, the goal and the budget. We'll work out the
-        digital plan from there.
-      </p>
-
-      <a class="btn primary" href="mailto:hello@topleaguetech.com">
-        Start a conversation ↗
-      </a>
-    </div>
-  </section>
-
+  </div>
 </Layout>
+
+<style>
+  /* ---------- Tokens ---------- */
+  .sx-page {
+    --bg: #fff; --alt: #f1f4f2; --ink: #16202a; --muted: #566470; --line: #dfe5e8; --card: #fff;
+    --red: #b34a43; --green: #1f5f55; --lime: #d9ff43; --night: #17242b; --night-2: #0f1a1f;
+    color: var(--ink); background: var(--bg); overflow-x: clip; position: relative;
+  }
+  :global(.dark) .sx-page {
+    --bg: #1e293b; --alt: #172033; --ink: #f8fafc; --muted: #cbd5e1; --line: #334155; --card: #243247;
+  }
+  .sx-page p { color: var(--muted); }
+  .sx-wrap { max-width: 1180px; margin-inline: auto; padding-inline: 20px; }
+  .sx-section { padding: clamp(72px, 9vw, 120px) 0; background: var(--bg); position: relative; }
+  .sx-alt { background: var(--alt); border-block: 1px solid var(--line); }
+
+  /* ---------- Scroll progress ---------- */
+  .sx-progress { position: fixed; inset: 0 0 auto 0; height: 3px; z-index: 70; pointer-events: none; }
+  .sx-progress span { display: block; height: 100%; background: var(--lime); transform: scaleX(0); transform-origin: 0 50%; }
+
+  /* ---------- Reveal ---------- */
+  :global(.sx-js) .sx-reveal:not(.is-in) { opacity: 0; transform: translateY(22px); }
+  .sx-reveal { transition: opacity .7s ease, transform .7s cubic-bezier(.2, .8, .2, 1); transition-delay: var(--d, 0s); }
+
+  /* ---------- Shared type ---------- */
+  .sx-kicker { font-size: 13px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--red); margin-bottom: 18px; }
+  .sx-kicker-lime { color: var(--lime); }
+  .sx-h2 { font-size: clamp(34px, 4.6vw, 60px); line-height: 1.04; margin: 0 0 20px; color: var(--ink); max-width: 16ch; }
+  .sx-head .sx-h2 { max-width: 20ch; }
+  .sx-lead { font-size: clamp(17px, 1.6vw, 20px); line-height: 1.55; max-width: 46ch; margin: 0; }
+  .sx-head { margin-bottom: 56px; max-width: 760px; }
+  .sx-two { display: grid; grid-template-columns: 1fr 1.05fr; gap: clamp(36px, 6vw, 90px); align-items: center; }
+
+  /* ---------- Buttons ---------- */
+  .sx-btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 15px 24px; border-radius: 999px;
+    font-weight: 700; font-size: 15px; text-decoration: none; transition: transform .25s ease, background .25s ease, box-shadow .25s ease;
+    border: 1px solid transparent; line-height: 1.2; cursor: pointer;
+  }
+  .sx-btn i { font-style: normal; display: inline-block; transition: transform .25s ease; }
+  .sx-btn:hover i { transform: translate(3px, -3px); }
+  .sx-btn:hover { transform: translateY(-2px); }
+  .sx-btn-primary { background: var(--lime); color: #17242b; box-shadow: 0 10px 30px -10px rgba(217, 255, 67, .55); }
+  .sx-btn-primary:hover { box-shadow: 0 16px 36px -10px rgba(217, 255, 67, .75); }
+  .sx-btn-ghost { color: #fff; border-color: rgba(255, 255, 255, .35); }
+  .sx-btn-ghost:hover { background: rgba(255, 255, 255, .08); }
+  .sx-btn-dark { background: #17242b; color: #fff; }
+  .sx-btn-dark:hover { background: #22343d; }
+  .sx-btn-lg { padding: 18px 30px; font-size: 16px; white-space: nowrap; }
+
+  /* ---------- Hero ---------- */
+  .sx-hero {
+    position: relative; overflow: hidden; color: #fff; padding: 150px 0 90px;
+    background:
+      radial-gradient(900px 520px at 88% 8%, rgba(217, 255, 67, .13), transparent 60%),
+      radial-gradient(700px 520px at 0% 100%, rgba(179, 74, 67, .25), transparent 60%),
+      linear-gradient(120deg, #0f1a1f, #17242b 55%, #1f3038);
+  }
+  .sx-hero::before {
+    content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .5;
+    background-image: linear-gradient(rgba(255, 255, 255, .06) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, .06) 1px, transparent 1px);
+    background-size: 56px 56px;
+    -webkit-mask-image: radial-gradient(ellipse at 60% 40%, #000 10%, transparent 70%);
+    mask-image: radial-gradient(ellipse at 60% 40%, #000 10%, transparent 70%);
+  }
+  .sx-hero-grid { position: relative; display: grid; grid-template-columns: 1.05fr .95fr; gap: 40px; align-items: center; }
+  .sx-pill {
+    display: inline-flex; align-items: center; gap: 10px; font-size: 12px; letter-spacing: .16em; text-transform: uppercase; font-weight: 700;
+    padding: 8px 14px; border-radius: 999px; background: rgba(255, 255, 255, .08); border: 1px solid rgba(255, 255, 255, .16); margin-bottom: 28px;
+  }
+  .sx-dot { width: 8px; height: 8px; border-radius: 50%; background: #b9db1c; box-shadow: 0 0 0 0 rgba(185, 219, 28, .7); animation: sx-ping 2s infinite; }
+  .sx-hero h1 {
+    font-size: clamp(46px, 6.4vw, 92px); line-height: 1; letter-spacing: -.045em; margin: 0 0 26px; color: #fff; max-width: 11ch;
+  }
+  .sx-hero h1 span {
+    display: block; color: var(--lime);
+    background: linear-gradient(transparent 82%, rgba(217, 255, 67, .22) 82%); width: fit-content;
+  }
+  .sx-hero p { font-size: clamp(18px, 1.7vw, 21px); line-height: 1.55; color: rgba(255, 255, 255, .8); max-width: 34em; margin: 0 0 34px; }
+  .sx-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+  .sx-note { margin-top: 26px; font-size: 13px; color: rgba(255, 255, 255, .6); }
+
+  /* ---------- Anatomy ---------- */
+  .sx-anatomy { position: relative; width: 100%; max-width: 560px; margin-inline: auto; aspect-ratio: 540 / 500; }
+  .sx-anatomy::before {
+    content: ""; position: absolute; inset: 8% 0 0 -8%; z-index: 0; pointer-events: none;
+    background: radial-gradient(closest-side, rgba(217, 255, 67, .22), transparent 70%); filter: blur(10px);
+  }
+  .sx-anatomy svg { position: relative; width: 100%; height: 100%; overflow: visible; z-index: 1; }
+  .sx-rank {
+    position: absolute; z-index: 2; top: -2%; left: 35%; transform: translateX(-50%); white-space: nowrap;
+    background: var(--lime); color: #17242b; font-weight: 800; font-size: 12px; letter-spacing: .06em; text-transform: uppercase;
+    padding: 8px 14px; border-radius: 999px; box-shadow: 0 10px 30px -8px rgba(217, 255, 67, .6);
+  }
+  .sx-rank b { display: inline-block; animation: sx-up 1.4s ease-in-out infinite; }
+  .sx-layer { animation: sx-bob 5.5s ease-in-out infinite; animation-delay: var(--bd); }
+  .sx-top { fill: var(--f); stroke: rgba(255, 255, 255, .4); stroke-width: 1; }
+  .sx-side { fill: var(--f); filter: brightness(.62); }
+  .sx-side-r { filter: brightness(.78); }
+  .sx-glowface { fill: #fff; opacity: 0; pointer-events: none; animation: sx-glow 7s ease-in-out infinite; animation-delay: var(--gd); }
+  .sx-line { fill: none; stroke: var(--d); stroke-width: 3.2; stroke-linecap: round; opacity: .85; }
+  .sx-dia { fill: var(--d); opacity: .9; }
+  .sx-conn { fill: none; stroke: rgba(255, 255, 255, .28); stroke-width: 1; stroke-dasharray: 3 5; }
+  .sx-beam { fill: none; stroke: var(--lime); stroke-width: 2.5; stroke-dasharray: 4 6; animation: sx-dash 1s linear infinite; }
+  .sx-arrowhead { fill: none; stroke: var(--lime); stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+  .sx-tag {
+    position: absolute; z-index: 2; left: 65.5%; transform: translateY(-50%); display: inline-flex; align-items: center; gap: 8px;
+    font-size: 13px; font-weight: 700; color: #fff; padding: 7px 12px 7px 8px; border-radius: 999px;
+    background: rgba(15, 26, 31, .72); border: 1px solid rgba(255, 255, 255, .18); backdrop-filter: blur(6px);
+  }
+  .sx-tag span { font-size: 10px; letter-spacing: .08em; color: #17242b; background: var(--lime); border-radius: 999px; padding: 3px 6px; }
+
+  /* ---------- Proof ---------- */
+  .sx-proof { background: #0f1a1f; color: #fff; padding: 64px 0; border-top: 1px solid rgba(255, 255, 255, .08); }
+  .sx-proof-grid { display: grid; grid-template-columns: 1fr 1.7fr; gap: 48px; align-items: center; }
+  .sx-proof-lead { font-size: clamp(24px, 2.8vw, 36px); line-height: 1.15; letter-spacing: -.03em; font-weight: 700; font-family: 'Mona Bold', 'Mona Reg', sans-serif; }
+  .sx-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  .sx-stat { border-left: 1px solid rgba(255, 255, 255, .16); padding-left: 18px; }
+  .sx-num { font-family: 'Mona Bold Pro Max', 'Mona Bold', sans-serif; font-size: clamp(38px, 4.4vw, 58px); line-height: 1; color: var(--lime); letter-spacing: -.04em; }
+  .sx-stat-l { margin-top: 10px; font-size: 13px; line-height: 1.4; color: rgba(255, 255, 255, .65); }
+
+  /* ---------- Ceiling ---------- */
+  .sx-problems { list-style: none; margin: 36px 0 0; padding: 0; display: grid; gap: 14px; }
+  .sx-problems li { display: flex; gap: 16px; align-items: flex-start; padding: 18px 20px; border: 1px solid var(--line); border-radius: 16px; background: var(--card); transition: transform .3s ease, box-shadow .3s ease; }
+  .sx-problems li:hover { transform: translateX(6px); box-shadow: 0 14px 34px -18px rgba(0, 0, 0, .3); }
+  .sx-ico { flex: 0 0 auto; width: 42px; height: 42px; display: grid; place-items: center; border-radius: 12px; background: rgba(179, 74, 67, .12); color: var(--red); font-size: 20px; font-weight: 700; }
+  .sx-p-t { font-weight: 700; font-size: 17px; color: var(--ink); margin-bottom: 4px; }
+  .sx-p-d { font-size: 15px; line-height: 1.5; color: var(--muted); }
+
+  .sx-chart-card { margin: 0; padding: 26px; border-radius: 24px; border: 1px solid var(--line); background: var(--card); box-shadow: 0 30px 60px -36px rgba(0, 0, 0, .35); }
+  .sx-chart { position: relative; }
+  .sx-chart svg { width: 100%; height: auto; display: block; overflow: visible; }
+  .sx-grid path { stroke: var(--line); stroke-width: 1; fill: none; }
+  .sx-ceiling { stroke: var(--red); stroke-width: 1.5; stroke-dasharray: 6 6; fill: none; }
+  .sx-curve { fill: none; stroke-width: 4; stroke-linecap: round; stroke-dasharray: 1; stroke-dashoffset: 0; transition: stroke-dashoffset 1.9s cubic-bezier(.3, .6, .2, 1); }
+  .sx-curve-a { stroke: var(--red); }
+  .sx-curve-b { stroke: var(--green); transition-delay: .3s; }
+  :global(.dark) .sx-curve-b { stroke: var(--lime); }
+  .sx-area { transition: opacity 1.2s ease .9s; }
+  .sx-end { opacity: 1; transition: opacity .4s ease 2s; }
+  .sx-end-a { fill: var(--red); }
+  .sx-end-b { fill: var(--green); }
+  :global(.dark) .sx-end-b { fill: var(--lime); }
+  :global(.sx-js) .sx-chart-card:not(.is-in) .sx-draw { stroke-dashoffset: 1; }
+  :global(.sx-js) .sx-chart-card:not(.is-in) .sx-area,
+  :global(.sx-js) .sx-chart-card:not(.is-in) .sx-end { opacity: 0; }
+  .sx-end-b { animation: sx-pulse 2s ease-in-out infinite 2.2s; transform-box: fill-box; transform-origin: center; }
+  .sx-ceiling-tag { position: absolute; left: 8px; top: calc(120 / 340 * 100% - 30px); font-size: 12px; font-weight: 700; color: var(--red); background: var(--card); padding: 3px 8px; border-radius: 6px; border: 1px solid rgba(179, 74, 67, .35); }
+  .sx-chart-card figcaption { display: flex; flex-wrap: wrap; gap: 8px 22px; margin-top: 18px; font-size: 14px; color: var(--ink); align-items: center; }
+  .sx-chart-card figcaption small { color: var(--muted); margin-left: auto; font-size: 12px; }
+  .sx-key { display: inline-block; width: 22px; height: 4px; border-radius: 4px; margin-right: 8px; vertical-align: middle; }
+  .sx-key-a { background: var(--red); }
+  .sx-key-b { background: var(--green); }
+  :global(.dark) .sx-key-b { background: var(--lime); }
+
+  /* ---------- Versus ---------- */
+  .sx-vs { position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+  .sx-vs-card { border-radius: 26px; padding: clamp(26px, 3.4vw, 44px); border: 1px solid var(--line); }
+  .sx-vs-card h3 { font-size: clamp(26px, 2.8vw, 36px); line-height: 1.1; margin: 10px 0 24px; }
+  .sx-vs-card ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; }
+  .sx-vs-card li { display: flex; gap: 12px; align-items: flex-start; font-size: 17px; line-height: 1.45; padding: 12px 0; border-top: 1px solid currentColor; border-color: rgba(128, 128, 128, .22); }
+  .sx-vs-k { font-size: 12px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; display: flex; align-items: center; gap: 10px; }
+  .sx-vs-old { background: transparent; color: var(--muted); border-style: dashed; }
+  .sx-vs-old h3 { color: var(--muted); }
+  .sx-vs-old li { text-decoration: line-through; text-decoration-color: rgba(179, 74, 67, .65); text-decoration-thickness: 2px; }
+  .sx-vs-old .sx-vs-k { color: var(--red); }
+  .sx-x { display: inline-grid; place-items: center; width: 24px; height: 24px; border-radius: 50%; background: var(--red); color: #fff; font-size: 15px; line-height: 1; }
+  .sx-vs-new { background: linear-gradient(150deg, #101817, #17242b 60%, #1b3a36); color: #fff; border-color: #101817; box-shadow: 0 40px 80px -40px rgba(31, 95, 85, .7); position: relative; overflow: hidden; }
+  .sx-vs-new::after { content: ""; position: absolute; width: 340px; height: 340px; right: -120px; top: -150px; border-radius: 50%; border: 1px solid rgba(255, 255, 255, .12); box-shadow: 0 0 0 50px rgba(255, 255, 255, .03), 0 0 0 100px rgba(255, 255, 255, .02); pointer-events: none; }
+  .sx-vs-new .sx-vs-k { color: var(--lime); }
+  .sx-vs-new h3 { color: #fff; }
+  .sx-vs-new .sx-vs-k .sx-tick { display: none; }
+  .sx-tick { flex: 0 0 auto; display: inline-grid; place-items: center; width: 22px; height: 22px; margin-top: 1px; border-radius: 50%; background: var(--lime); color: #17242b; font-size: 12px; font-weight: 900; }
+  :global(.sx-js) .sx-vs-new:not(.is-in) li { opacity: 0; transform: translateX(-14px); }
+  .sx-vs-new li { transition: opacity .5s ease, transform .5s ease; transition-delay: calc(.45s + var(--i) * .13s); }
+  .sx-vs-badge {
+    position: absolute; z-index: 3; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 58px; height: 58px; display: grid; place-items: center;
+    border-radius: 50%; background: var(--lime); color: #17242b; font-family: 'Mona Bold Pro Max', sans-serif; font-size: 18px; letter-spacing: -.02em;
+    box-shadow: 0 0 0 8px var(--alt), 0 14px 30px -8px rgba(0, 0, 0, .4);
+  }
+
+  /* ---------- Bento ---------- */
+  .sx-bento { display: grid; grid-template-columns: repeat(12, 1fr); gap: 20px; }
+  .sx-b5 { grid-column: span 5; }
+  .sx-b7 { grid-column: span 7; }
+  .sx-card, .sx-path {
+    position: relative; overflow: hidden; border-radius: 26px; padding: 22px 22px 30px; background: var(--card); border: 1px solid var(--line);
+    transition: transform .35s cubic-bezier(.2, .8, .2, 1), box-shadow .35s ease, opacity .7s ease;
+  }
+  .sx-card:hover, .sx-path:hover { transform: translateY(-6px); box-shadow: 0 30px 60px -34px rgba(0, 0, 0, .45); }
+  .sx-glow::before {
+    content: ""; position: absolute; inset: 0; pointer-events: none; opacity: 0; transition: opacity .3s ease; z-index: 0;
+    background: radial-gradient(360px circle at var(--mx, 50%) var(--my, 0%), rgba(217, 255, 67, .22), transparent 60%);
+  }
+  .sx-glow:hover::before { opacity: 1; }
+  .sx-card > *, .sx-path > * { position: relative; z-index: 1; }
+  .sx-card-k { font-size: 12px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--red); margin: 22px 0 8px; }
+  .sx-card h3 { font-size: 26px; line-height: 1.1; margin: 0 0 10px; color: var(--ink); }
+  .sx-card p { margin: 0; font-size: 16px; line-height: 1.55; }
+
+  .sx-viz { min-height: 190px; border-radius: 18px; background: linear-gradient(150deg, #0f1a1f, #17242b); padding: 22px; display: grid; place-items: center; color: #fff; overflow: hidden; position: relative; }
+  .sx-viz::after { content: ""; position: absolute; inset: 0; pointer-events: none; background-image: radial-gradient(rgba(255, 255, 255, .09) 1px, transparent 1px); background-size: 16px 16px; }
+  .sx-viz > * { position: relative; z-index: 1; }
+
+  /* gauge */
+  .sx-gauge { align-content: center; gap: 6px; }
+  .sx-gauge svg { width: min(100%, 250px); height: auto; }
+  .sx-g-track { fill: none; stroke: rgba(255, 255, 255, .12); stroke-width: 14; stroke-linecap: round; }
+  .sx-g-arc { fill: none; stroke: url(#sx-gg); stroke-width: 14; stroke-linecap: round; }
+  .sx-needle path { stroke: #fff; stroke-width: 4; stroke-linecap: round; }
+  .sx-needle circle { fill: #fff; }
+  .sx-needle { transform-origin: 100px 100px; transform: rotate(52deg); transition: transform 1.6s cubic-bezier(.2, 1.2, .3, 1); }
+  :global(.sx-js) .sx-gauge:not(.is-in) .sx-needle { transform: rotate(-88deg); }
+  .sx-viz-cap { font-size: 12px; text-align: center; color: rgba(255, 255, 255, .7); max-width: 26ch; line-height: 1.4; }
+
+  /* tree */
+  .sx-tree svg { width: min(100%, 360px); height: auto; overflow: visible; }
+  .sx-t-lines path { fill: none; stroke: rgba(255, 255, 255, .35); stroke-width: 1.5; }
+  .sx-node rect { fill: rgba(255, 255, 255, .1); stroke: rgba(255, 255, 255, .35); }
+  .sx-node text { fill: #fff; font-size: 11px; font-weight: 700; }
+  .sx-node-hot rect { fill: var(--lime); stroke: var(--lime); }
+  .sx-node-hot text { fill: #17242b; }
+  .sx-node { transform-box: fill-box; transform-origin: center; transition: opacity .5s ease, transform .5s cubic-bezier(.2, 1.4, .4, 1); transition-delay: calc(var(--i) * .12s); }
+  :global(.sx-js) .sx-tree:not(.is-in) .sx-node { opacity: 0; transform: scale(.6); }
+
+  /* code */
+  .sx-code { place-items: stretch; align-content: center; gap: 8px; font-family: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace; font-size: 12.5px; line-height: 1.5; text-align: left; }
+  .sx-cl { overflow-wrap: anywhere; color: rgba(255, 255, 255, .85); clip-path: inset(0 0 0 0); transition: clip-path .8s ease; transition-delay: calc(var(--i) * .22s); }
+  :global(.sx-js) .sx-code:not(.is-in) .sx-cl { clip-path: inset(0 100% 0 0); }
+  .sx-t { color: #7fd1c4; }
+  .sx-a { color: #ffd166; }
+  .sx-s { color: #e8a29c; }
+
+  /* serp */
+  .sx-serp-wrap { background: linear-gradient(150deg, #e9eef2, #f6f8fa); }
+  .sx-serp-wrap::after { display: none; }
+  .sx-serp { width: 100%; background: #fff; border-radius: 14px; padding: 16px 18px; box-shadow: 0 16px 36px -16px rgba(0, 0, 0, .35); text-align: left; color: #202124; }
+  .sx-serp-top { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
+  .sx-fav { width: 26px; height: 26px; border-radius: 50%; background: #17242b; color: var(--lime); display: grid; place-items: center; font-size: 12px; font-weight: 800; }
+  .sx-serp-top b { display: block; font-size: 13px; line-height: 1.2; font-weight: 600; color: #202124; }
+  .sx-serp-top small { font-size: 12px; color: #4d5156; }
+  .sx-serp-title { font-size: 19px; line-height: 1.25; color: #1a0dab; margin-bottom: 4px; }
+  .sx-serp-desc { font-size: 13.5px; line-height: 1.5; color: #4d5156; }
+  .sx-serp-desc mark { background: rgba(217, 255, 67, .7); color: #17242b; font-weight: 700; padding: 0 2px; border-radius: 3px; }
+
+  /* ---------- Night section / loop ---------- */
+  .sx-night { background: linear-gradient(150deg, #0f1a1f, #17242b 60%, #1a2d33); color: #fff; overflow: hidden; }
+  .sx-night::before { content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .5; background-image: radial-gradient(rgba(255, 255, 255, .1) 1px, transparent 1px); background-size: 22px 22px; -webkit-mask-image: radial-gradient(ellipse at 20% 50%, #000, transparent 70%); mask-image: radial-gradient(ellipse at 20% 50%, #000, transparent 70%); }
+  .sx-night .sx-wrap { position: relative; }
+  .sx-night .sx-h2 { color: #fff; }
+  .sx-night .sx-lead { color: rgba(255, 255, 255, .75); }
+  .sx-two-loop { grid-template-columns: .95fr 1.05fr; }
+  .sx-loop-visual svg { width: 100%; max-width: 440px; height: auto; display: block; margin-inline: auto; }
+  .sx-ring { fill: none; stroke: rgba(255, 255, 255, .25); stroke-width: 1.5; stroke-dasharray: 3 7; }
+  .sx-orbit { transform-origin: 180px 180px; animation: sx-spin 14s linear infinite; }
+  .sx-spark { fill: var(--lime); filter: drop-shadow(0 0 8px rgba(217, 255, 67, .9)); }
+  .sx-n circle { fill: #17242b; stroke: var(--lime); stroke-width: 2; }
+  .sx-n text { fill: var(--lime); font-weight: 800; font-size: 20px; font-family: 'Mona Bold Pro Max', sans-serif; }
+  .sx-inf { fill: #fff; font-size: 74px; font-family: 'Mona Bold Pro Max', sans-serif; }
+  .sx-inf-s { fill: rgba(255, 255, 255, .7); font-size: 13px; letter-spacing: .08em; text-transform: uppercase; }
+  .sx-steps { list-style: none; margin: 34px 0 0; padding: 0; display: grid; gap: 14px; }
+  .sx-steps li { display: flex; gap: 16px; align-items: flex-start; padding-bottom: 14px; border-bottom: 1px solid rgba(255, 255, 255, .14); }
+  .sx-steps li > span { flex: 0 0 auto; width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; background: var(--lime); color: #17242b; font-weight: 800; }
+  .sx-night .sx-p-t { color: #fff; }
+  .sx-night .sx-p-d { color: rgba(255, 255, 255, .7); }
+  .sx-strong { margin-top: 28px; font-family: 'Mona Bold', sans-serif; font-size: clamp(20px, 2.2vw, 26px); letter-spacing: -.02em; color: var(--lime); }
+
+  /* ---------- Paths ---------- */
+  .sx-paths { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; align-items: stretch; }
+  .sx-path { display: flex; flex-direction: column; padding: 34px 30px; }
+  .sx-path-n { position: absolute !important; right: 20px; top: 6px; font-family: 'Mona Bold Pro Max', sans-serif; font-size: 96px; line-height: 1; letter-spacing: -.06em; color: var(--ink); opacity: .06; z-index: 0 !important; }
+  .sx-path .sx-card-k { margin-top: 0; }
+  .sx-path h3 { font-size: 27px; line-height: 1.1; margin: 0 0 10px; color: var(--ink); }
+  .sx-path p { margin: 0 0 22px; }
+  .sx-path ul { list-style: none; padding: 0; margin: 0 0 28px; display: grid; gap: 12px; border-top: 1px solid var(--line); padding-top: 20px; }
+  .sx-path li { display: flex; gap: 12px; align-items: flex-start; font-size: 15.5px; line-height: 1.45; color: var(--ink); }
+  .sx-path .sx-tick { background: var(--green); color: #fff; }
+  .sx-path .sx-btn { margin-top: auto; align-self: flex-start; }
+  .sx-path.is-feat { background: linear-gradient(160deg, #101817, #17242b 70%, #1c3b37); border-color: #101817; box-shadow: 0 40px 80px -40px rgba(31, 95, 85, .8); transform: translateY(-14px); }
+  .sx-path.is-feat:hover { transform: translateY(-20px); }
+  .sx-path.is-feat h3, .sx-path.is-feat li { color: #fff; }
+  .sx-path.is-feat p { color: rgba(255, 255, 255, .72); }
+  .sx-path.is-feat .sx-card-k { color: var(--lime); }
+  .sx-path.is-feat .sx-path-n { color: #fff; }
+  .sx-path.is-feat ul { border-color: rgba(255, 255, 255, .16); }
+  .sx-path.is-feat .sx-tick { background: var(--lime); color: #17242b; }
+  .sx-badge { align-self: flex-start; margin-bottom: 14px; font-size: 11px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; padding: 6px 11px; border-radius: 999px; background: var(--lime); color: #17242b; }
+
+  /* ---------- Marquee ---------- */
+  .sx-marquee { background: var(--lime); color: #17242b; overflow: hidden; border-block: 1px solid rgba(23, 36, 43, .2); padding: 18px 0; white-space: nowrap; }
+  .sx-marquee-track { display: inline-flex; animation: sx-marquee 34s linear infinite; }
+  .sx-marquee span { font-family: 'Mona Bold Pro Max', 'Mona Bold', sans-serif; font-size: clamp(36px, 6vw, 76px); line-height: 1; letter-spacing: -.04em; text-transform: uppercase; padding-right: .4em; }
+  .sx-marquee:hover .sx-marquee-track { animation-play-state: paused; }
+
+  /* ---------- CTA ---------- */
+  .sx-cta { background: var(--night); padding: clamp(60px, 8vw, 110px) 0; }
+  .sx-cta-card {
+    position: relative; overflow: hidden; border-radius: 32px; padding: clamp(34px, 6vw, 80px); color: #fff; display: grid; grid-template-columns: 1.5fr auto; gap: 40px; align-items: end;
+    background: radial-gradient(600px 300px at 100% 0%, rgba(217, 255, 67, .16), transparent 60%), #0f1a1f; border: 1px solid rgba(255, 255, 255, .1);
+  }
+  .sx-cta-card::after { content: ""; position: absolute; width: 360px; height: 360px; right: -100px; top: -130px; border-radius: 50%; border: 1px solid rgba(255, 255, 255, .14); box-shadow: 0 0 0 60px rgba(255, 255, 255, .035), 0 0 0 120px rgba(255, 255, 255, .025); pointer-events: none; }
+  .sx-cta-card > * { position: relative; z-index: 1; }
+  .sx-cta h2 { font-size: clamp(40px, 6vw, 80px); line-height: .98; letter-spacing: -.05em; margin: 0 0 22px; color: #fff; max-width: 12ch; }
+  .sx-cta p { color: rgba(255, 255, 255, .75); font-size: 19px; line-height: 1.55; max-width: 34em; margin: 0; }
+
+  /* ---------- Keyframes ---------- */
+  @keyframes sx-bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
+  @keyframes sx-glow { 0%, 100% { opacity: 0; } 8%, 20% { opacity: .5; } 38% { opacity: 0; } }
+  @keyframes sx-dash { to { stroke-dashoffset: -20; } }
+  @keyframes sx-up { 0%, 100% { transform: translateY(1px); } 50% { transform: translateY(-3px); } }
+  @keyframes sx-ping { 70% { box-shadow: 0 0 0 10px rgba(185, 219, 28, 0); } 100% { box-shadow: 0 0 0 0 rgba(185, 219, 28, 0); } }
+  @keyframes sx-spin { to { transform: rotate(360deg); } }
+  @keyframes sx-pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.5); } }
+  @keyframes sx-marquee { to { transform: translateX(-50%); } }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 980px) {
+    .sx-hero { padding: 120px 0 70px; }
+    .sx-hero-grid, .sx-two, .sx-two-loop, .sx-proof-grid { grid-template-columns: 1fr; }
+    .sx-anatomy { max-width: 460px; }
+    .sx-stats { grid-template-columns: repeat(2, 1fr); row-gap: 28px; }
+    .sx-bento { grid-template-columns: 1fr; }
+    .sx-b5, .sx-b7 { grid-column: auto; }
+    .sx-paths { grid-template-columns: 1fr; }
+    .sx-path.is-feat { transform: none; }
+    .sx-path.is-feat:hover { transform: translateY(-6px); }
+    .sx-cta-card { grid-template-columns: 1fr; align-items: start; }
+    .sx-h2, .sx-head .sx-h2 { max-width: none; }
+  }
+  @media (max-width: 700px) {
+    .sx-vs { grid-template-columns: 1fr; }
+    .sx-vs-badge { position: relative; left: auto; top: auto; transform: none; margin: -6px auto; }
+    .sx-tag { font-size: 11px; padding: 5px 9px 5px 6px; }
+    .sx-chart-card { padding: 18px; }
+    .sx-chart-card figcaption small { margin-left: 0; width: 100%; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .sx-page *, .sx-page *::before, .sx-page *::after { animation: none !important; transition: none !important; }
+    :global(.sx-js) .sx-reveal:not(.is-in) { opacity: 1; transform: none; }
+  }
+</style>
+
+<script>
+  function init() {
+    const root = document.querySelector<HTMLElement>('.sx-page');
+    if (!root || root.dataset.sxReady) return;
+    root.dataset.sxReady = '1';
+
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    document.documentElement.classList.add('sx-js');
+
+    // Reveal-on-scroll + "watch" blocks that trigger their own animations
+    const targets = root.querySelectorAll<HTMLElement>('.sx-reveal, .sx-watch');
+    if (reduce || !('IntersectionObserver' in window)) {
+      targets.forEach((el) => el.classList.add('is-in'));
+    } else {
+      const io = new IntersectionObserver(
+        (entries) =>
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.classList.add('is-in');
+              io.unobserve(e.target);
+            }
+          }),
+        { threshold: 0.18, rootMargin: '0px 0px -6% 0px' },
+      );
+      targets.forEach((el) => io.observe(el));
+    }
+
+    // Count-up numbers
+    if (!reduce && 'IntersectionObserver' in window) {
+      const counters = root.querySelectorAll<HTMLElement>('[data-sx-count]');
+      const cio = new IntersectionObserver(
+        (entries) =>
+          entries.forEach((e) => {
+            if (!e.isIntersecting) return;
+            const el = e.target as HTMLElement;
+            cio.unobserve(el);
+            const end = Number(el.dataset.sxCount);
+            const start = performance.now();
+            const dur = 1500;
+            const tick = (now: number) => {
+              const p = Math.min(1, (now - start) / dur);
+              el.textContent = String(Math.round(end * (1 - Math.pow(1 - p, 3))));
+              if (p < 1) requestAnimationFrame(tick);
+            };
+            el.textContent = '0';
+            requestAnimationFrame(tick);
+          }),
+        { threshold: 0.6 },
+      );
+      counters.forEach((el) => cio.observe(el));
+    }
+
+    // Pointer-following glow on cards
+    root.querySelectorAll<HTMLElement>('.sx-glow').forEach((card) => {
+      card.addEventListener('pointermove', (e: PointerEvent) => {
+        const r = card.getBoundingClientRect();
+        card.style.setProperty('--mx', `${e.clientX - r.left}px`);
+        card.style.setProperty('--my', `${e.clientY - r.top}px`);
+      });
+    });
+
+    // Scroll progress bar
+    const bar = root.querySelector<HTMLElement>('.sx-progress span');
+    if (bar) {
+      const onScroll = () => {
+        if (!bar.isConnected) {
+          window.removeEventListener('scroll', onScroll);
+          return;
+        }
+        const h = document.documentElement.scrollHeight - window.innerHeight;
+        bar.style.transform = `scaleX(${h > 0 ? Math.min(1, window.scrollY / h) : 0})`;
+      };
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+    }
+  }
+
+  init();
+  document.addEventListener('astro:page-load', init);
+</script>
