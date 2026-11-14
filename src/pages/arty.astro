@@ -1,0 +1,531 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+const metadata = {
+  title: 'SEO Article Writing Services | Top League Technologies',
+  description:
+    'Well-researched, reader-focused SEO articles that answer real questions, support your content strategy and give your business something useful to say.',
+};
+
+const enquiryLink = 'mailto:hello@topleaguetech.com?subject=SEO%20Article%20Writing%20Enquiry';
+
+const formats = [
+  {
+    n: '01',
+    type: 'BLOG CONTENT',
+    title: 'SEO blog posts',
+    text: 'Useful, search-focused posts that keep your blog relevant and give readers a reason to return.',
+    mark: '✳',
+  },
+  {
+    n: '02',
+    type: 'EXPLAINERS',
+    title: 'Informational articles',
+    text: 'Clear explanations that answer questions, unpack concepts and help readers make informed decisions.',
+    mark: '↗',
+  },
+  {
+    n: '03',
+    type: 'PRACTICAL CONTENT',
+    title: 'How-to guides and tutorials',
+    text: 'Step-by-step content that helps your audience understand how to do something.',
+    mark: '⌁',
+  },
+  {
+    n: '04',
+    type: 'INDUSTRY CONTENT',
+    title: 'Industry-specific articles',
+    text: 'Well-researched articles shaped around your sector, your audience and the questions that matter to them.',
+    mark: '◎',
+  },
+];
+
+const process = [
+  {
+    n: '01',
+    title: 'Understand the brief',
+    text: 'We discuss your topic, audience, objectives, keywords and content requirements.',
+  },
+  {
+    n: '02',
+    title: 'Research and structure',
+    text: 'We explore the subject and organise the article around its purpose and the reader’s intent.',
+  },
+  {
+    n: '03',
+    title: 'Write and refine',
+    text: 'We develop the article with a clear structure, natural keyword integration and reader-friendly language.',
+  },
+  {
+    n: '04',
+    title: 'Review and deliver',
+    text: 'We proofread the content, incorporate agreed feedback and deliver the finished article.',
+  },
+];
+
+const testimonials = [
+  {
+    quote:
+      'If you are in search of good SEO articles, look no further. At Top League you will find the best team of content writers in the internet. I have been using their services for over a year and have accomplished great results in my online marketing campaign.',
+    name: 'Roberto',
+    role: 'Founder, Polo Mercantile',
+  },
+  {
+    quote:
+      'The team did an excellent job on content creation for our appliance repair website. They must have done a thorough research on this topic because everything was written very professionally.',
+    name: 'Alex Garayev',
+    role: 'Founder, SD Appliances',
+  },
+  {
+    quote:
+      'Top League over delivered on the articles we asked for. They were well written, concise & well optimized for search. We will continue to utilize their services.',
+    name: 'Sean',
+    role: 'Founder, Acquisition Engine',
+  },
+];
+
+const packages = [
+  {
+    name: 'Basic',
+    note: 'A practical starting point',
+    price: '$320',
+    articles: '5 articles',
+    delivery: '10 business days',
+    featured: false,
+    subject: 'Basic SEO Article Package',
+  },
+  {
+    name: 'Standard',
+    note: 'For a steady content plan',
+    price: '$640',
+    articles: '10 articles',
+    delivery: '20 business days',
+    featured: true,
+    subject: 'Standard SEO Article Package',
+  },
+  {
+    name: 'Premium',
+    note: 'For larger content plans',
+    price: '$1,280',
+    articles: '20 articles',
+    delivery: '40 business days',
+    featured: false,
+    subject: 'Premium SEO Article Package',
+  },
+];
+---
+
+<Layout metadata={metadata}>
+  <div class="sx-page articles-page">
+    <div class="sx-progress" aria-hidden="true"><span></span></div>
+
+    <!-- HERO -->
+    <section class="sx-hero">
+      <div class="sx-wrap sx-hero-grid">
+        <div class="sx-hero-copy">
+          <div class="sx-pill"><span class="sx-dot"></span> SEO article writing</div>
+          <h1>Good articles deserve to be <span>read.</span></h1>
+          <p>
+            Well-researched, reader-focused articles that answer real questions
+            and give your business something useful to say.
+          </p>
+          <div class="sx-actions">
+            <a class="sx-btn sx-btn-primary" href="#packages">Explore packages <i>↗</i></a>
+            <a class="sx-btn sx-btn-ghost" href="#approach">How we work <i>↓</i></a>
+          </div>
+          <div class="sx-note">Content writing experience since 2006 · Top League established in 2010</div>
+        </div>
+
+        <div class="article-art" aria-hidden="true">
+          <div class="article-orbit orbit-a"></div>
+          <div class="article-orbit orbit-b"></div>
+          <div class="article-sheet">
+            <div class="sheet-top"><span></span><span></span><span></span></div>
+            <div class="sheet-label">THE ARTICLE</div>
+            <div class="sheet-title"></div>
+            <div class="sheet-line long"></div>
+            <div class="sheet-line"></div>
+            <div class="sheet-line medium"></div>
+            <div class="sheet-highlight"></div>
+            <div class="sheet-line long"></div>
+            <div class="sheet-line medium"></div>
+            <div class="sheet-line short"></div>
+          </div>
+          <div class="article-chip chip-research">Research first</div>
+          <div class="article-chip chip-reader">Reader focused</div>
+          <div class="article-spark">✳</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTEXT -->
+    <section class="sx-section" id="why">
+      <div class="sx-wrap sx-two">
+        <div class="section-intro">
+          <div class="sx-kicker sx-reveal">A changing search landscape</div>
+          <h2 class="sx-h2 sx-reveal">Publishing more content isn't the goal. Publishing better content is.</h2>
+          <p class="sx-lead sx-reveal">
+            Your audience has questions. Your articles should give them worthwhile answers.
+          </p>
+        </div>
+        <div class="body-copy sx-reveal">
+          <p>
+            Search engines have become better at understanding what people are looking for.
+            Generic, keyword-filled articles are unlikely to make your business stand out.
+          </p>
+          <p>
+            You need content that understands the subject, addresses the reader’s intent
+            and communicates ideas clearly.
+          </p>
+          <p>
+            <strong>That’s where we come in.</strong> We bring years of industry experience
+            to content with a clear purpose—not simply another page to fill.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- DIFFERENCE -->
+    <section class="sx-section sx-alt" id="difference">
+      <div class="sx-wrap">
+        <div class="sx-head">
+          <div class="sx-kicker sx-reveal">The Top League approach</div>
+          <h2 class="sx-h2 sx-reveal">Search has changed. Your content should too.</h2>
+          <p class="sx-lead sx-reveal">
+            Useful information, clear structure and natural optimisation—not outdated content shortcuts.
+          </p>
+        </div>
+
+        <div class="comparison-grid">
+          <article class="comparison-card old-card sx-reveal">
+            <div class="comparison-label"><span>×</span> THE USUAL WAY</div>
+            <h3>Articles built around keywords</h3>
+            <ul>
+              <li>Generic advice repackaged across websites</li>
+              <li>Keywords forced into awkward sentences</li>
+              <li>Word counts mistaken for value</li>
+              <li>Publishing volume without a clear purpose</li>
+            </ul>
+          </article>
+          <article class="comparison-card new-card sx-reveal">
+            <div class="comparison-label"><span>✓</span> THE TOP LEAGUE APPROACH</div>
+            <h3>Articles built around readers</h3>
+            <ul>
+              <li>Search intent shapes the structure</li>
+              <li>Research informs the substance</li>
+              <li>Keywords fit naturally into useful copy</li>
+              <li>Every section earns its place</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FORMATS -->
+    <section class="sx-section" id="formats">
+      <div class="sx-wrap">
+        <div class="sx-head">
+          <div class="sx-kicker sx-reveal">What we write</div>
+          <h2 class="sx-h2 sx-reveal">Different topics. Different purposes. One focus on quality.</h2>
+          <p class="sx-lead sx-reveal">Choose the kind of content that fits your audience and your goals.</p>
+        </div>
+
+        <div class="format-grid">
+          {formats.map((item, i) => (
+            <article class={`format-card sx-reveal ${i === 0 ? 'format-featured' : ''}`} style={`--d:${i * 0.08}s`}>
+              <div class="format-top"><span>{item.n} / {item.type}</span><b>{item.mark}</b></div>
+              <h3>{item.title}</h3>
+              <p>{item.text}</p>
+              <span class="format-rule"></span>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section class="sx-section sx-night" id="approach">
+      <div class="sx-wrap process-layout">
+        <div class="process-intro">
+          <div class="sx-kicker sx-kicker-lime sx-reveal">How we work</div>
+          <h2 class="sx-h2 sx-reveal">From your brief to a finished article.</h2>
+          <p class="sx-lead sx-reveal">A straightforward process. Clear communication at every stage.</p>
+          <a class="sx-btn sx-btn-primary sx-reveal" href={enquiryLink}>Talk about your content <i>↗</i></a>
+        </div>
+        <div class="process-list">
+          {process.map((item, i) => (
+            <article class="process-item sx-reveal" style={`--d:${i * 0.08}s`}>
+              <span class="process-number">{item.n}</span>
+              <div>
+                <h3>{item.title}</h3>
+                <p>{item.text}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CLIENT FEEDBACK -->
+    <section class="sx-section" id="proof">
+      <div class="sx-wrap">
+        <div class="sx-head">
+          <div class="sx-kicker sx-reveal">Client feedback</div>
+          <h2 class="sx-h2 sx-reveal">Good work is remembered.</h2>
+          <p class="sx-lead sx-reveal">A few words from clients who have worked with our content team.</p>
+        </div>
+        <div class="testimonial-grid">
+          {testimonials.map((item, i) => (
+            <article class="quote-card sx-reveal" style={`--d:${i * 0.08}s`}>
+              <div class="quote-stars" aria-label="5 out of 5 stars">★★★★★</div>
+              <span class="quote-mark" aria-hidden="true">“</span>
+              <blockquote>{item.quote}</blockquote>
+              <div class="quote-person">
+                <span class="quote-initial">{item.name.charAt(0)}</span>
+                <span><strong>{item.name}</strong><small>{item.role}</small></span>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- PACKAGES -->
+    <section class="sx-section sx-alt" id="packages">
+      <div class="sx-wrap">
+        <div class="sx-head">
+          <div class="sx-kicker sx-reveal">Writing packages</div>
+          <h2 class="sx-h2 sx-reveal">Clear pricing. Plenty of room to scale.</h2>
+          <p class="sx-lead sx-reveal">
+            Every package includes 2,000-word articles. Choose the volume that suits your content plan.
+          </p>
+        </div>
+        <div class="pricing-grid">
+          {packages.map((item, i) => (
+            <article class={`price-card sx-reveal ${item.featured ? 'price-featured' : ''}`} style={`--d:${i * 0.08}s`}>
+              <div class="price-top"><span class="sx-kicker">{item.name}</span>{item.featured && <span class="popular-tag">MOST CHOSEN</span>}</div>
+              <h3>{item.note}</h3>
+              <div class="price">{item.price}</div>
+              <div class="price-unit">per package</div>
+              <ul>
+                <li>{item.articles}</li>
+                <li>2,000 words each</li>
+                <li>{item.delivery}</li>
+              </ul>
+              <a class="sx-btn sx-btn-dark" href={`mailto:hello@topleaguetech.com?subject=${encodeURIComponent(item.subject)}`}>
+                Discuss this package <i>↗</i>
+              </a>
+            </article>
+          ))}
+        </div>
+        <p class="pricing-note">Need a different volume or a recurring content plan? <a href={enquiryLink}>Talk to us about your requirements.</a></p>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="sx-cta" id="contact">
+      <div class="sx-wrap">
+        <div class="sx-cta-card">
+          <div>
+            <div class="sx-kicker sx-kicker-lime">Let's talk</div>
+            <h2>Have a topic in mind? Let's make it useful.</h2>
+            <p>
+              Tell us what you want to communicate, who you're trying to reach and what you
+              want your content to achieve. We'll help you take it from there.
+            </p>
+          </div>
+          <a class="sx-btn sx-btn-primary sx-btn-lg" href={enquiryLink}>Discuss your project <i>↗</i></a>
+        </div>
+      </div>
+    </section>
+  </div>
+</Layout>
+
+<style>
+  .sx-page {
+    --bg:#fff;--alt:#f1f4f2;--ink:#16202a;--muted:#566470;--line:#dfe5e8;--card:#fff;
+    --red:#b34a43;--green:#1f5f55;--lime:#d9ff43;--night:#17242b;
+    color:var(--ink);background:var(--bg);overflow-x:clip;position:relative;
+  }
+  :global(.dark) .sx-page {--bg:#1e293b;--alt:#172033;--ink:#f8fafc;--muted:#cbd5e1;--line:#334155;--card:#243247}
+  .sx-page p{color:var(--muted)}
+  .sx-wrap{max-width:1180px;margin-inline:auto;padding-inline:20px}
+  .sx-section{padding:clamp(72px,9vw,120px) 0;background:var(--bg);position:relative}
+  .sx-alt{background:var(--alt);border-block:1px solid var(--line)}
+  .sx-progress{position:fixed;inset:0 0 auto;height:3px;z-index:70;pointer-events:none}
+  .sx-progress span{display:block;height:100%;background:var(--lime);transform:scaleX(0);transform-origin:0 50%}
+  :global(.sx-js) .sx-reveal:not(.is-in){opacity:0;transform:translateY(22px)}
+  .sx-reveal{transition:opacity .7s ease,transform .7s cubic-bezier(.2,.8,.2,1);transition-delay:var(--d,0s)}
+  .sx-kicker{font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--red);margin-bottom:18px}
+  .sx-kicker-lime{color:var(--lime)}
+  .sx-h2{font-size:clamp(34px,4.6vw,60px);line-height:1.04;letter-spacing:-.035em;margin:0 0 20px;color:var(--ink);max-width:17ch}
+  .sx-head{margin-bottom:48px;max-width:790px}
+  .sx-lead{font-size:clamp(17px,1.6vw,20px);line-height:1.55;max-width:48ch;margin:0}
+  .sx-two{display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(36px,6vw,90px);align-items:center}
+  .sx-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:15px 24px;border-radius:999px;font-weight:750;font-size:14px;text-decoration:none;transition:transform .25s ease,box-shadow .25s ease;border:1px solid transparent;line-height:1.2}
+  .sx-btn i{font-style:normal;transition:transform .25s ease}
+  .sx-btn:hover{transform:translateY(-2px)}
+  .sx-btn:hover i{transform:translate(3px,-3px)}
+  .sx-btn-primary{background:var(--lime);color:#17242b;box-shadow:0 10px 30px -10px rgba(217,255,67,.4)}
+  .sx-btn-ghost{color:#fff;border-color:rgba(255,255,255,.35)}
+  .sx-btn-ghost:hover{background:rgba(255,255,255,.08)}
+  .sx-btn-dark{background:var(--night);color:#fff}
+  .sx-btn-dark:hover{background:var(--green)}
+  .sx-btn-lg{padding:18px 28px;white-space:nowrap}
+  .sx-hero{position:relative;overflow:hidden;color:#fff;padding:145px 0 90px;background:radial-gradient(850px 520px at 88% 8%,rgba(217,255,67,.13),transparent 60%),radial-gradient(700px 520px at 0% 100%,rgba(179,74,67,.22),transparent 60%),linear-gradient(120deg,#0f1a1f,#17242b 55%,#1f3038)}
+  .sx-hero:before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.45;background-image:linear-gradient(rgba(255,255,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.06) 1px,transparent 1px);background-size:56px 56px;mask-image:radial-gradient(ellipse at 60% 40%,#000 10%,transparent 70%)}
+  .sx-hero-grid{position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center}
+  .sx-pill{display:inline-flex;align-items:center;gap:10px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:800;padding:8px 14px;border-radius:999px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);margin-bottom:28px}
+  .sx-dot{width:8px;height:8px;border-radius:50%;background:#b9db1c;box-shadow:0 0 0 5px rgba(185,219,28,.1)}
+  .sx-hero h1{font-size:clamp(46px,6.4vw,88px);line-height:.98;letter-spacing:-.05em;margin:0 0 26px;color:#fff;max-width:10ch}
+  .sx-hero h1 span{display:block;color:var(--lime);background:linear-gradient(transparent 82%,rgba(217,255,67,.2) 82%);width:fit-content}
+  .sx-hero p{font-size:clamp(18px,1.7vw,21px);line-height:1.55;color:rgba(255,255,255,.8);max-width:34em;margin:0 0 32px}
+  .sx-actions{display:flex;flex-wrap:wrap;gap:12px}
+  .sx-note{margin-top:25px;font-size:12px;color:rgba(255,255,255,.58)}
+  .article-art{position:relative;aspect-ratio:1/1;max-width:480px;width:100%;margin:auto;display:grid;place-items:center}
+  .article-orbit{position:absolute;border:1px solid rgba(217,255,67,.3);border-radius:50%}
+  .orbit-a{width:92%;height:48%;transform:rotate(-34deg)}
+  .orbit-b{width:75%;height:75%;border-color:rgba(255,255,255,.17);transform:rotate(28deg)}
+  .article-sheet{position:relative;width:55%;height:66%;padding:25px 24px;border-radius:12px;background:#f7f8f3;color:#17242b;box-shadow:0 30px 80px rgba(0,0,0,.35);transform:rotate(-5deg)}
+  .sheet-top{display:flex;gap:5px;margin-bottom:30px}.sheet-top span{width:6px;height:6px;border-radius:50%;background:#b34a43}
+  .sheet-label{font-size:8px;letter-spacing:.18em;font-weight:900;color:#1f5f55;margin-bottom:12px}
+  .sheet-title{height:13px;width:84%;background:#17242b;border-radius:3px;margin-bottom:18px}
+  .sheet-line{height:5px;width:78%;background:#cbd2cc;border-radius:4px;margin:9px 0}
+  .sheet-line.long{width:100%}.sheet-line.medium{width:62%}.sheet-line.short{width:43%}
+  .sheet-highlight{height:36px;background:#d9ff43;border-left:4px solid #1f5f55;margin:18px 0}
+  .article-chip{position:absolute;padding:10px 15px;border-radius:999px;background:rgba(15,26,31,.9);border:1px solid rgba(255,255,255,.2);color:#fff;font-size:12px;font-weight:750}
+  .chip-research{top:17%;left:0}.chip-reader{right:0;bottom:20%}
+  .article-spark{position:absolute;right:12%;top:7%;font-size:42px;color:var(--lime)}
+  .section-intro{align-self:start}
+  .body-copy{font-size:17px;line-height:1.8}
+  .body-copy p{margin:0 0 20px}.body-copy p:last-child{margin:0}
+  .body-copy p:first-child{font-size:19px;color:var(--ink);line-height:1.65}
+  .comparison-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .comparison-card{padding:clamp(26px,4vw,42px);border:1px solid var(--line);border-radius:24px;background:var(--card)}
+  .comparison-card h3{font-size:clamp(23px,2.5vw,32px);line-height:1.12;letter-spacing:-.03em;margin:30px 0 24px;color:var(--ink)}
+  .comparison-label{font-size:11px;font-weight:850;letter-spacing:.13em;color:var(--muted)}
+  .comparison-label span{font-size:17px;margin-right:8px;color:var(--red)}
+  .new-card{background:linear-gradient(145deg,#13251f,#172f2c);border-color:#1f5f55}
+  .new-card h3{color:#fff}.new-card .comparison-label{color:var(--lime)}.new-card .comparison-label span{color:var(--lime)}
+  .comparison-card ul,.price-card ul{list-style:none;padding:0;margin:0}
+  .comparison-card li{position:relative;padding:13px 0 13px 25px;border-top:1px solid var(--line);font-size:14px;line-height:1.5;color:var(--muted)}
+  .comparison-card li:before{content:"–";position:absolute;left:0;color:var(--red);font-weight:900}
+  .new-card li{border-color:rgba(255,255,255,.15);color:rgba(255,255,255,.78)}
+  .new-card li:before{content:"✓";color:var(--lime)}
+  .format-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+  .format-card{position:relative;overflow:hidden;min-height:290px;padding:25px;border:1px solid var(--line);border-radius:20px;background:var(--card);display:flex;flex-direction:column;transition:transform .3s,box-shadow .3s}
+  .format-card:hover{transform:translateY(-5px);box-shadow:0 25px 55px -35px rgba(0,0,0,.35)}
+  .format-featured{background:var(--night);border-color:var(--night)}
+  .format-top{display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:9px;font-weight:850;letter-spacing:.12em;color:var(--red)}
+  .format-top b{font-size:27px;color:var(--green);font-weight:500}
+  .format-featured .format-top,.format-featured .format-top b{color:var(--lime)}
+  .format-card h3{font-size:23px;line-height:1.12;letter-spacing:-.025em;margin:auto 0 13px;color:var(--ink)}
+  .format-featured h3{color:#fff}
+  .format-card p{font-size:13px;line-height:1.65;margin:0}
+  .format-featured p{color:rgba(255,255,255,.7)}
+  .format-rule{height:3px;width:42px;background:var(--lime);margin-top:24px}
+  .sx-night{background:linear-gradient(145deg,#0f1a1f,#17242b 65%,#1a3432);color:#fff}
+  .sx-night .sx-h2{color:#fff}.sx-night .sx-lead{color:rgba(255,255,255,.72)}
+  .process-layout{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(40px,8vw,110px);align-items:start}
+  .process-intro{position:sticky;top:110px}
+  .process-intro .sx-btn{margin-top:30px}
+  .process-list{border-top:1px solid rgba(255,255,255,.18)}
+  .process-item{display:grid;grid-template-columns:55px 1fr;gap:18px;padding:28px 0;border-bottom:1px solid rgba(255,255,255,.18)}
+  .process-number{font-size:13px;font-weight:850;color:var(--lime)}
+  .process-item h3{font-size:22px;color:#fff;margin:0 0 8px}
+  .process-item p{font-size:14px;line-height:1.65;color:rgba(255,255,255,.68);margin:0;max-width:48ch}
+  .testimonial-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+  .quote-card{position:relative;overflow:hidden;background:var(--card);border:1px solid var(--line);border-radius:20px;padding:25px;display:flex;flex-direction:column;min-height:320px}
+  .quote-stars{font-size:13px;letter-spacing:.14em;color:var(--green)}
+  .quote-mark{position:absolute;right:18px;top:5px;font-family:Georgia,serif;font-size:90px;line-height:1;color:var(--green);opacity:.12}
+  .quote-card blockquote{position:relative;margin:22px 0 28px;font-size:14px;line-height:1.7;color:var(--ink);flex:1}
+  .quote-person{display:flex;align-items:center;gap:12px;border-top:1px solid var(--line);padding-top:16px}
+  .quote-initial{width:36px;height:36px;display:grid;place-items:center;border-radius:50%;background:var(--night);color:var(--lime);font-weight:850}
+  .quote-person strong,.quote-person small{display:block}
+  .quote-person strong{font-size:13px;color:var(--ink)}
+  .quote-person small{font-size:11px;color:var(--muted);margin-top:3px}
+  .pricing-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;align-items:stretch}
+  .price-card{padding:30px;border:1px solid var(--line);border-radius:22px;background:var(--card);display:flex;flex-direction:column;position:relative}
+  .price-featured{border:2px solid var(--green);box-shadow:0 20px 50px -35px rgba(31,95,85,.5);transform:translateY(-8px)}
+  .price-top{display:flex;align-items:center;justify-content:space-between;gap:8px}
+  .price-top .sx-kicker{margin:0}
+  .popular-tag{font-size:9px;font-weight:900;letter-spacing:.1em;color:var(--green)}
+  .price-card h3{font-size:20px;line-height:1.2;margin:25px 0 12px;color:var(--ink)}
+  .price{font-size:clamp(42px,4vw,56px);font-weight:850;letter-spacing:-.06em;color:var(--ink);line-height:1}
+  .price-unit{font-size:11px;color:var(--muted);margin:7px 0 24px}
+  .price-card li{font-size:14px;color:var(--muted);padding:12px 0;border-top:1px solid var(--line)}
+  .price-card .sx-btn{margin-top:28px;width:100%;font-size:12px;padding:14px 12px}
+  .pricing-note{font-size:13px;text-align:center;margin:30px 0 0}
+  .pricing-note a{color:var(--green);font-weight:750}
+  .sx-cta{background:var(--night);padding:clamp(60px,8vw,110px) 0}
+  .sx-cta-card{position:relative;overflow:hidden;border-radius:30px;padding:clamp(34px,6vw,78px);color:#fff;display:grid;grid-template-columns:1.5fr auto;gap:40px;align-items:end;background:radial-gradient(600px 300px at 100% 0%,rgba(217,255,67,.16),transparent 60%),#0f1a1f;border:1px solid rgba(255,255,255,.1)}
+  .sx-cta h2{font-size:clamp(38px,5.8vw,72px);line-height:.98;letter-spacing:-.05em;margin:0 0 22px;color:#fff;max-width:12ch}
+  .sx-cta p{color:rgba(255,255,255,.75);font-size:18px;line-height:1.55;max-width:36em;margin:0}
+  .sx-cta-card>*{position:relative;z-index:1}
+  @media(max-width:980px){
+    .sx-hero{padding:120px 0 70px}
+    .sx-hero-grid,.sx-two,.process-layout{grid-template-columns:1fr}
+    .article-art{max-width:400px}
+    .format-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .process-intro{position:static}
+    .sx-cta-card{grid-template-columns:1fr;align-items:start}
+  }
+  @media(max-width:700px){
+    .comparison-grid,.testimonial-grid,.pricing-grid,.format-grid{grid-template-columns:1fr}
+    .format-card{min-height:230px}
+    .price-featured{transform:none}
+    .sx-hero h1{font-size:clamp(44px,13vw,66px)}
+    .article-art{max-width:330px}
+    .article-chip{font-size:10px;padding:8px 11px}
+    .sx-cta-card{padding:34px 25px}
+  }
+  @media(prefers-reduced-motion:reduce){
+    .sx-page *, .sx-page *:before, .sx-page *:after{animation:none!important;transition:none!important}
+    :global(.sx-js) .sx-reveal:not(.is-in){opacity:1;transform:none}
+  }
+</style>
+
+<script>
+  function init() {
+    const root = document.querySelector<HTMLElement>('.sx-page.articles-page');
+    if (!root || root.dataset.sxReady) return;
+    root.dataset.sxReady = '1';
+
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    document.documentElement.classList.add('sx-js');
+
+    const targets = root.querySelectorAll<HTMLElement>('.sx-reveal');
+    if (reduce || !('IntersectionObserver' in window)) {
+      targets.forEach((el) => el.classList.add('is-in'));
+    } else {
+      const io = new IntersectionObserver(
+        (entries) =>
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-in');
+              io.unobserve(entry.target);
+            }
+          }),
+        { threshold: 0.18, rootMargin: '0px 0px -6% 0px' },
+      );
+      targets.forEach((el) => io.observe(el));
+    }
+
+    const bar = root.querySelector<HTMLElement>('.sx-progress span');
+    if (bar) {
+      const onScroll = () => {
+        if (!bar.isConnected) {
+          window.removeEventListener('scroll', onScroll);
+          return;
+        }
+        const height = document.documentElement.scrollHeight - window.innerHeight;
+        bar.style.transform = `scaleX(${height > 0 ? Math.min(1, window.scrollY / height) : 0})`;
+      };
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+    }
+  }
+
+  init();
+  document.addEventListener('astro:page-load', init);
+</script>
