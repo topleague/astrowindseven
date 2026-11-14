@@ -1042,7 +1042,7 @@ dark .my-custom-class.bg-white {background-color: rgba(51, 65, 85, 0.31)!importa
 
 /* WHAT HAPPENED - Optimized the CSS speccitifify trying to remove conflict */
 /* .dark :is(#coming, #reality, #howdy, #difference, .stepy, #proof){all:revert; background-color: #1f5f55; background: #1f5f55;} */
-.dark .home-draft :is(#coming, #reality, #howdy, #difference, .stepy, #proof) {  background-color: #1f5f55;}
+.dark .home-draft :is(#coming, #reality, #howdy, #difference, .stepy, #proof) {  background-color: rgba(51, 65, 85, 0.31);}
 
 /* Card Border Color of Proof Section */
 .home-draft #proof .flex.intersect-once {border: solid #bbb 1px; border-radius: 5px;}
