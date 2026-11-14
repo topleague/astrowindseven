@@ -1,0 +1,370 @@
+
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Team from '~/components/widgets/Team.astro';
+import Testimonials from '~/components/widgets/Testimonials.astro';
+
+const metadata = {
+  title: 'About Us | Top League Technologies',
+  description:
+    'Meet Top League Technologies. Since 2009, we have helped businesses strengthen their online presence through content, SEO and website development.',
+};
+
+const enquiryLink =
+  'mailto:hello@topleaguetech.com?subject=About%20Top%20League%20Technologies';
+---
+
+<Layout metadata={metadata} pageClass="product-description-page">
+
+  <!-- SECTION 1: HERO -->
+  <section class="hero">
+    <div class="container animate-fade">
+      <div class="eyebrow">
+        <span class="dot"></span>
+        About Top League Technologies
+      </div>
+
+      <h1>
+        We Make Websites Work Harder.
+        <span>That's Our Story.</span>
+      </h1>
+
+      <p>
+        We bring website development, SEO and content together to help
+        businesses build a stronger and more effective online presence.
+      </p>
+
+      <div class="actions">
+        <a class="btn primary" href={enquiryLink}>Let's talk ↗</a>
+        <a class="btn ghost" href="#our-story">Our story ↓</a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- SECTION 2: OUR STORY -->
+  <section class="section" id="our-story">
+    <div class="container story-layout">
+      <div class="story-content animate-fade">
+        <div class="kicker">Where it began</div>
+
+        <h2>It started with a simple idea: help businesses get noticed.</h2>
+
+        <p>
+          We started in Bhubaneswar in 2009, working with businesses that
+          needed better content to communicate their ideas and reach the
+          right audience.
+        </p>
+
+        <p>
+          As search engines became central to how people discovered
+          businesses, we developed a deeper understanding of SEO and
+          what makes online content useful, relevant and discoverable.
+        </p>
+
+        <p>
+          Over time, our work expanded beyond writing. We began looking
+          at the bigger picture: how a website is structured, how it
+          communicates a business's value, and how effectively it turns
+          visitors into potential customers.
+        </p>
+
+        <p>
+          Today, website development brings these strands together.
+          We build websites with business goals, useful content and
+          search visibility in mind.
+        </p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- SECTION 3: OUR JOURNEY -->
+  <section class="section band" id="our-approach">
+    <div class="container animate-fade">
+
+      <div class="feature-head">
+        <div>
+          <div class="kicker">How our thinking evolved</div>
+          <h2>Different skills. One bigger picture.</h2>
+        </div>
+
+        <p>
+          Our experience in content and SEO changed the way we approach
+          websites. We don't see design, development and search visibility
+          as separate tasks.
+        </p>
+      </div>
+
+      <div class="process-list">
+
+        <article class="step">
+          <span>01</span>
+          <div>
+            <h3>Content gave us a starting point</h3>
+            <p>
+              We learned how businesses communicate, what their customers
+              want to know and why useful content matters.
+            </p>
+          </div>
+        </article>
+
+        <article class="step">
+          <span>02</span>
+          <div>
+            <h3>SEO helped us see the bigger picture</h3>
+            <p>
+              We learned that getting found involves more than keywords.
+              Site structure, page purpose, technical foundations and
+              content all matter.
+            </p>
+          </div>
+        </article>
+
+        <article class="step">
+          <span>03</span>
+          <div>
+            <h3>Website development brought it together</h3>
+            <p>
+              We now use that experience to create websites that look
+              professional, communicate clearly and are built with
+              visibility in mind.
+            </p>
+          </div>
+        </article>
+
+        <article class="step">
+          <span>04</span>
+          <div>
+            <h3>The work continues after launch</h3>
+            <p>
+              A website is not a finished marketing asset. Its content,
+              performance and search visibility can all improve over time.
+            </p>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- SECTION 4: WHAT WE BELIEVE -->
+  <section class="section" id="what-matters">
+    <div class="container animate-fade">
+
+      <div class="feature-head">
+        <div>
+          <div class="kicker">What matters to us</div>
+          <h2>A website should do more than look good.</h2>
+        </div>
+
+        <p>
+          We believe a good website should make it easier for people
+          to understand a business, find what they need and take the
+          next step.
+        </p>
+      </div>
+
+      <div class="features">
+
+        <article class="feature">
+          <div>
+            <div class="kicker">Purpose</div>
+            <h3>Built around your business</h3>
+            <p>
+              Every website should have a clear purpose, speak to the
+              right audience and support meaningful business goals.
+            </p>
+          </div>
+        </article>
+
+        <article class="feature">
+          <div>
+            <div class="kicker">Clarity</div>
+            <h3>Content that communicates</h3>
+            <p>
+              Visitors should quickly understand what you offer,
+              why it matters and how your business can help them.
+            </p>
+          </div>
+        </article>
+
+        <article class="feature">
+          <div>
+            <div class="kicker">Visibility</div>
+            <h3>SEO from the beginning</h3>
+            <p>
+              Search visibility should influence how a website is
+              planned and developed, not be left until the end.
+            </p>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- SECTION 5: THE PEOPLE -->
+  <section class="section band" id="team">
+    <div class="container animate-fade">
+
+      <div class="feature-head">
+        <div>
+          <div class="kicker">The people</div>
+          <h2>A small team with a broad perspective.</h2>
+        </div>
+
+        <p>
+          We keep our team lean and our approach hands-on.
+          The people working on your project understand the
+          importance of content, search and the website itself.
+        </p>
+      </div>
+
+      <Team
+        columns={2}
+        members={[
+          {
+            name: 'Susanta',
+            role: 'Founder / Website Development & SEO',
+            image: {
+              src: 'https://topleaguetech.com/wp-content/uploads/2021/09/Untitled-drawing-2.png',
+              alt: 'Susanta',
+            },
+            bio: 'Working across website development, SEO and content, Susanta brings the different parts of a business’s online presence together.',
+          },
+          {
+            name: 'Meera',
+            role: 'Senior Content Writer',
+            image: {
+              src: 'https://topleaguetech.com/wp-content/uploads/2022/08/Untitled-design-1.png',
+              alt: 'Meera',
+            },
+            bio: 'Meera works on researched, reader-focused content that helps businesses communicate their expertise and connect with their audiences.',
+          },
+        ]}
+      />
+
+    </div>
+  </section>
+
+
+  <!-- SECTION 6: CLIENT EXPERIENCES -->
+  <section class="section" id="client-stories">
+    <div class="container animate-fade">
+
+      <div class="feature-head">
+        <div>
+          <div class="kicker">Client experiences</div>
+          <h2>Good work is remembered.</h2>
+        </div>
+
+        <p>
+          We've worked with businesses across different industries.
+          Here's what some of our clients have said about working with us.
+        </p>
+      </div>
+
+      <Testimonials
+        title="Words from our clients"
+        testimonials={[
+          {
+            title: 'Accomplished Great Results!',
+            testimonial: `If you are in search of good SEO articles, look no further. At Top League you will find the best team of content writers in the internet. I have been using their services for over a year and have accomplished great results in my online marketing campaign..`,
+            rating: 5,
+            name: 'Roberto',
+            job: 'Founder / Polo Mercantile',
+            image: {
+              src: 'https://images.unsplash.com/photo-1618835962148-cf177563c6c0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=930&q=80',
+              alt: 'Roberto',
+            },
+          },
+          {
+            title: 'Always the Best!',
+            testimonial: `Top League have been excellent at presenting their work and work very hard to ensure that the quality of their work is always the best! Thank you Top League! I look forward to continuing our business together.`,
+            rating: 5,
+            name: 'Michael',
+            job: 'Founder / Idea Bubble',
+            image: {
+              src: 'https://images.unsplash.com/photo-1561406636-b80293969660?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80',
+              alt: 'Michael',
+            },
+          },
+          {
+            title: 'Very Professional!',
+            testimonial: `Top League is the only company I use for my article writing needs. They are very professional and work with you throughout the project with constant updates. I recommend their services to anyone considering outsourcing their content writing.`,
+            rating: 5,
+            name: 'Daniel',
+            job: 'Founder / Future Success',
+            image: {
+              src: 'https://images.unsplash.com/photo-1545167622-3a6ac756afa4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=824&q=80',
+              alt: 'Daniel',
+            },
+          },
+          {
+            title: 'Readily Available!',
+            testimonial: `Top League did a great job writing content for our website. They followed our direction very closely and were readily available for every stage of the project. I would highly recommend their writing skills and will be utilizing their services again. Great Job!`,
+            rating: 5,
+            name: 'Jason Hamblin',
+            job: 'Sr. Executive / L2T Media',
+            image: {
+              src: 'https://images.unsplash.com/photo-1618835962148-cf177563c6c0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=930&q=80',
+              alt: 'Jason Hamblin',
+            },
+          },
+          {
+            title: 'Over Delivered!',
+            testimonial: `Top League over delivered on the articles we asked for. They were well written, concise & well optimized for search. We will continue to utilize their services.`,
+            rating: 5,
+            name: 'Sean',
+            job: 'Founder / Acquisition Engine',
+            image: {
+              src: 'https://images.unsplash.com/photo-1561406636-b80293969660?ixlib=rb-4.0.3&ixid=M3wxA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80',
+              alt: 'Sean',
+            },
+          },
+          {
+            title: 'An Excellent Job!',
+            testimonial: `The team did an excellent job on content creation for our appliance repair website. They must have done a thorough research on this topic because everything was written very professionally.`,
+            rating: 5,
+            name: 'Alex Garayev',
+            job: 'Founder / SD Appliances',
+            image: {
+              src: 'https://images.unsplash.com/photo-1545167622-3a6ac756afa4?ixlib=rb-4.0.3&ixid=M3wxA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=824&q=80',
+              alt: 'Alex Garayev',
+            },
+          },
+        ]}
+        callToAction={{
+          target: '_blank',
+          text: 'Contact Us',
+          href: 'https://topleaguetech.com/contact/',
+          icon: 'tabler:chevron-right',
+        }}
+      />
+
+    </div>
+  </section>
+
+
+  <!-- SECTION 7: FINAL CTA -->
+  <section id="contact" class="cta">
+    <div class="wrap">
+      <div class="kicker">Let's work together</div>
+
+      <h2>Have a website project in mind?</h2>
+
+      <p>
+        Whether you're starting from scratch or looking to improve
+        your existing website, let's talk about what your business needs.
+      </p>
+
+      <a class="button primary" href={enquiryLink}>
+        Tell us about your project ↗
+      </a>
+    </div>
+  </section>
+
+</Layout>
