@@ -1,12 +1,5 @@
 ---
-import SxShell from '~/components/sx/SxShell.astro';
-import SxHero from '~/components/sx/SxHero.astro';
-import SxStats from '~/components/sx/SxStats.astro';
-import SxHead from '~/components/sx/SxHead.astro';
-import SxTimeline from '~/components/sx/SxTimeline.astro';
-import SxQuotes from '~/components/sx/SxQuotes.astro';
-import SxMarquee from '~/components/sx/SxMarquee.astro';
-import SxCta from '~/components/sx/SxCta.astro';
+import Layout from '~/layouts/PageLayout.astro';
 
 const metadata = {
   title: 'About us',
@@ -62,7 +55,7 @@ const quotes = [
     t: 'Very Professional!',
     q: 'Top League is the only company I use for my article writing needs. They are very professional and work with you throughout the project with constant updates. I recommend their services to anyone considering outsourcing their content writing.',
     name: 'Daniel',
-    job: ' Founder / Future Success',
+    job: 'Founder / Future Success',
   },
   {
     t: 'Readily Available!',
@@ -84,6 +77,17 @@ const quotes = [
   },
 ];
 
+const initials = (name: string) =>
+  name
+    .trim()
+    .split(/\s+/)
+    .map((w) => w[0])
+    .slice(0, 2)
+    .join('')
+    .toUpperCase();
+
+const marquee = ['Storytelling', 'Content', 'Search', 'Websites', 'Results'].join(' ✦ ') + ' ✦ ';
+
 // Scattered "client" dots for the hero map (x, y, twinkle delay)
 const dots = [
   [64, 88, 0], [128, 168, 1.2], [92, 300, 2.1], [168, 392, 0.6], [214, 70, 2.8], [380, 60, 1.5],
@@ -93,125 +97,549 @@ const dots = [
 const links = [dots[1], dots[5], dots[7], dots[8], dots[2]];
 ---
 
-<SxShell metadata={metadata}>
+<Layout metadata={metadata} pageClass="product-description-page">
 
-  <!-- 1. HERO -->
-  <SxHero
-    pill="About us"
-    line1="Crafting Words that"
-    line2="Drive Results"
-    text="Customer-focused approach to deliver the best results possible."
-    primary={{ label: 'Contact us', href: contactLink }}
-    ghost={{ label: 'Meet the team', href: '#team' }}
-    note="Bhubaneswar, India · Clients across the globe"
-  >
-    <div
-      class="sx-stage"
-      role="img"
-      aria-label="Illustration: a glowing point for Bhubaneswar, India, with lines reaching out to clients around the world."
-    >
-      <svg viewBox="0 0 540 460" aria-hidden="true">
-        <circle class="sx-rip" cx="270" cy="240" r="210" style="--d:0s" />
-        <circle class="sx-rip" cx="270" cy="240" r="210" style="--d:2s" />
-        <circle class="sx-rip" cx="270" cy="240" r="210" style="--d:4s" />
-        <circle class="sx-ring2" cx="270" cy="240" r="170" />
+  <script is:inline>
+    document.documentElement.classList.add('sx-js');
+    // Safety net: if the page script ever fails to start, show everything.
+    setTimeout(function () {
+      if (!document.querySelector('.sx-page[data-sx-ready]')) document.documentElement.classList.remove('sx-js');
+    }, 4000);
+  </script>
 
-        {links.map(([x, y]) => <line class="sx-link" x1="270" y1="240" x2={x} y2={y} />)}
-        {dots.map(([x, y, d]) => <circle class="sx-dotc" cx={x} cy={y} r="3.5" style={`--d:${d}s`} />)}
+  <div class="sx-page">
+    <div class="sx-progress" aria-hidden="true"><span></span></div>
 
-        <g class="sx-spin" style="--ox:270px;--oy:240px;--t:18s">
-          <circle class="sx-spark2" cx="270" cy="70" r="6" />
-        </g>
+    <!-- 1. HERO -->
+    <section class="sx-hero">
+      <div class="sx-wrap sx-hero-grid">
+        <div class="sx-hero-copy">
+          <div class="sx-pill"><span class="sx-dot"></span> About us</div>
 
-        <circle class="sx-origin" cx="270" cy="240" r="9" />
-        <text class="sx-svgt-s" x="270" y="278">BHUBANESWAR, INDIA</text>
-      </svg>
+          <h1>
+            Crafting Words that
+            <span>Drive Results</span>
+          </h1>
 
-      <span class="sx-pin" style="left:0;top:6%"><b>2006</b> Industry experience</span>
-      <span class="sx-pin" style="right:0;top:44%"><b>2010</b> Top League begins</span>
-      <span class="sx-pin" style="left:4%;bottom:4%"><b>2</b> people, worldwide clients</span>
-    </div>
-  </SxHero>
+          <p>Customer-focused approach to deliver the best results possible.</p>
 
-  <!-- 2. NUMBERS -->
-  <SxStats lead={['A small team.', 'A long track record.']} stats={stats} />
+          <div class="sx-actions">
+            <a class="sx-btn sx-btn-primary" href={contactLink}>Contact us <i>↗</i></a>
+            <a class="sx-btn sx-btn-ghost" href="#team">Meet the team <i>↓</i></a>
+          </div>
 
-  <!-- 3. THE STORY -->
-  <section class="sx-section sx-story" id="story">
-    <span class="sx-bignum" aria-hidden="true">2010</span>
-    <div class="sx-wrap sx-story-grid">
+          <div class="sx-note">Bhubaneswar, India · Clients across the globe</div>
+        </div>
 
-      <div class="sx-sticky">
-        <div class="sx-kicker sx-reveal">About us</div>
-        <h2 class="sx-h2 sx-reveal">Every great story starts with a spark of inspiration.</h2>
-        <blockquote class="sx-pull sx-reveal">
-          For us, that spark was simple: a love for storytelling and a desire to help businesses find their voice online.
-        </blockquote>
+        <div
+          class="sx-stage"
+          role="img"
+          aria-label="Illustration: a glowing point for Bhubaneswar, India, with lines reaching out to clients around the world."
+        >
+          <svg viewBox="0 0 540 460" aria-hidden="true">
+            <circle class="sx-rip" cx="270" cy="240" r="210" style="--d:0s" />
+            <circle class="sx-rip" cx="270" cy="240" r="210" style="--d:2s" />
+            <circle class="sx-rip" cx="270" cy="240" r="210" style="--d:4s" />
+            <circle class="sx-ring2" cx="270" cy="240" r="170" />
+
+            {links.map(([x, y]) => <line class="sx-link" x1="270" y1="240" x2={x} y2={y} />)}
+            {dots.map(([x, y, d]) => <circle class="sx-dotc" cx={x} cy={y} r="3.5" style={`--d:${d}s`} />)}
+
+            <g class="sx-spin" style="--ox:270px;--oy:240px;--t:18s">
+              <circle class="sx-spark2" cx="270" cy="70" r="6" />
+            </g>
+
+            <circle class="sx-origin" cx="270" cy="240" r="9" />
+            <text class="sx-svgt-s" x="270" y="278">BHUBANESWAR, INDIA</text>
+          </svg>
+
+          <span class="sx-pin" style="left:0;top:6%"><b>2006</b> Industry experience</span>
+          <span class="sx-pin" style="right:0;top:44%"><b>2010</b> Top League begins</span>
+          <span class="sx-pin" style="left:4%;bottom:4%"><b>2</b> people, worldwide clients</span>
+        </div>
       </div>
+    </section>
 
-      <div class="sx-copy">
-        <p class="sx-reveal">
-          Back in 2010, when content was just beginning to rule the digital world, we set out to craft words that could make an impact. Armed with passion (and a whole lot of coffee), we started as a small, scrappy team in Bhubaneswar, India, driven by one goal: to create content that <strong>not only ranks but also resonates.</strong>
-        </p>
-        <p class="sx-reveal" style="--d:.1s">
-          What started as a solo venture has since grown into a <strong>tight-knit, two-person team</strong> that works with clients from across the globe, helping businesses tell their unique stories and get the attention they deserve.
-        </p>
-        <p class="sx-reveal" style="--d:.2s">
-          Whether it’s an SEO-friendly blog post or a carefully crafted social media campaign, we take pride in every word we write, every idea we shape, and every client we help grow.
-        </p>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- 4. HOW WE GOT HERE -->
-  <section class="sx-section sx-alt" id="journey">
-    <div class="sx-wrap">
-      <SxHead kicker="How we got here" title="From a spark in Bhubaneswar to clients across the globe." />
-      <SxTimeline items={journey} />
-    </div>
-  </section>
-
-  <!-- 5. THE TEAM -->
-  <section class="sx-section" id="team">
-    <div class="sx-wrap">
-      <SxHead kicker="The people" title="Meet the team" />
-
-      <div class="sx-people">
-        {people.map((p, i) => (
-          <article class="sx-pcard sx-reveal" style={`--d:${i * 0.1}s`}>
-            <div class="sx-photo">
-              <img src={p.img} alt={p.name} width="360" height="360" loading="lazy" decoding="async" />
+    <!-- 2. NUMBERS -->
+    <section class="sx-proof">
+      <div class="sx-wrap sx-proof-grid">
+        <div class="sx-proof-lead sx-reveal">A small team.<br />A long track record.</div>
+        <div class="sx-stats">
+          {stats.map((s, i) => (
+            <div class="sx-stat sx-reveal" style={`--d:${i * 0.08}s`}>
+              <div class="sx-num"><span data-sx-count={s.n}>{s.n}</span>{s.s}</div>
+              <div class="sx-stat-l">{s.l}</div>
             </div>
-            <div>
-              <h3 class="sx-pname">{p.name}</h3>
-              <div class="sx-prole">{p.role}</div>
-              <p>{p.bio}</p>
-            </div>
-          </article>
-        ))}
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. THE STORY -->
+    <section class="sx-section sx-story" id="story">
+      <span class="sx-bignum" aria-hidden="true">2010</span>
+      <div class="sx-wrap sx-story-grid">
+
+        <div class="sx-sticky">
+          <div class="sx-kicker sx-reveal">About us</div>
+          <h2 class="sx-h2 sx-reveal">Every great story starts with a spark of inspiration.</h2>
+          <blockquote class="sx-pull sx-reveal">
+            For us, that spark was simple: a love for storytelling and a desire to help businesses find their voice online.
+          </blockquote>
+        </div>
+
+        <div class="sx-copy">
+          <p class="sx-reveal">
+            Back in 2010, when content was just beginning to rule the digital world, we set out to craft words that could make an impact. Armed with passion (and a whole lot of coffee), we started as a small, scrappy team in Bhubaneswar, India, driven by one goal: to create content that <strong>not only ranks but also resonates.</strong>
+          </p>
+          <p class="sx-reveal" style="--d:.1s">
+            What started as a solo venture has since grown into a <strong>tight-knit, two-person team</strong> that works with clients from across the globe, helping businesses tell their unique stories and get the attention they deserve.
+          </p>
+          <p class="sx-reveal" style="--d:.2s">
+            Whether it’s an SEO-friendly blog post or a carefully crafted social media campaign, we take pride in every word we write, every idea we shape, and every client we help grow.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 4. HOW WE GOT HERE -->
+    <section class="sx-section sx-alt" id="journey">
+      <div class="sx-wrap">
+        <div class="sx-head">
+          <div class="sx-kicker sx-reveal">How we got here</div>
+          <h2 class="sx-h2 sx-reveal">From a spark in Bhubaneswar to clients across the globe.</h2>
+        </div>
+
+        <ol class="sx-tl sx-watch" style={`--n:${journey.length}`}>
+          {journey.map((s) => (
+            <li>
+              <span class="sx-tl-dot">{s.dot}</span>
+              <div class="sx-tl-k">{s.k}</div>
+              <h3>{s.t}</h3>
+              <p>{s.d}</p>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
+
+    <!-- 5. THE TEAM -->
+    <section class="sx-section" id="team">
+      <div class="sx-wrap">
+        <div class="sx-head">
+          <div class="sx-kicker sx-reveal">The people</div>
+          <h2 class="sx-h2 sx-reveal">Meet the team</h2>
+        </div>
+
+        <div class="sx-people">
+          {people.map((p, i) => (
+            <article class="sx-pcard sx-reveal" style={`--d:${i * 0.1}s`}>
+              <div class="sx-photo">
+                <img src={p.img} alt={p.name} width="360" height="360" loading="lazy" decoding="async" />
+              </div>
+              <div>
+                <h3 class="sx-pname">{p.name}</h3>
+                <div class="sx-prole">{p.role}</div>
+                <p>{p.bio}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. CLIENT WORDS -->
+    <section class="sx-section sx-night" id="proof">
+      <div class="sx-wrap">
+        <div class="sx-head">
+          <div class="sx-kicker sx-reveal">Client feedback</div>
+          <h2 class="sx-h2 sx-reveal">Words from real customers</h2>
+        </div>
+
+        <div class="sx-quotes">
+          {quotes.map((q, i) => (
+            <article class="sx-quote sx-reveal" style={`--d:${i * 0.08}s`}>
+              <div class="sx-stars" role="img" aria-label="5 out of 5 stars">★★★★★</div>
+              <div class="sx-quote-t">{q.t}</div>
+              <p>“{q.q}”</p>
+              <div class="sx-person">
+                <span class="sx-av" aria-hidden="true">{initials(q.name)}</span>
+                <div class="sx-who">
+                  <b>{q.name}</b>
+                  <span>{q.job}</span>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. MARQUEE -->
+    <div class="sx-marquee" aria-hidden="true">
+      <div class="sx-marquee-track">
+        <span>{marquee}</span>
+        <span>{marquee}</span>
+        <span>{marquee}</span>
+        <span>{marquee}</span>
       </div>
     </div>
-  </section>
 
-  <!-- 6. CLIENT WORDS -->
-  <section class="sx-section sx-night" id="proof">
-    <div class="sx-wrap">
-      <SxHead kicker="Client feedback" title="Words from real customers" />
-      <SxQuotes items={quotes} />
-    </div>
-  </section>
+    <!-- 8. CTA -->
+    <section class="sx-cta" id="contact">
+      <div class="sx-wrap">
+        <div class="sx-cta-card sx-reveal">
+          <div>
+            <div class="sx-kicker sx-kicker-lime">Let's talk</div>
+            <h2>Have a story to tell?</h2>
+            <p>Whether it’s an SEO-friendly blog post or a carefully crafted social media campaign, we take pride in every word we write.</p>
+          </div>
+          <a class="sx-btn sx-btn-primary sx-btn-lg" href={contactLink}>Contact us <i>↗</i></a>
+        </div>
+      </div>
+    </section>
+  </div>
+</Layout>
 
-  <!-- 7. MARQUEE -->
-  <SxMarquee items={['Storytelling', 'Content', 'Search', 'Websites', 'Results']} />
+<style is:global>
+.sx-page {
+    --bg: #fff; --alt: #f1f4f2; --ink: #16202a; --muted: #566470; --line: #dfe5e8; --card: #fff;
+    --red: #b34a43; --green: #1f5f55; --lime: #d9ff43; --night: #17242b; --night-2: #0f1a1f;
+    color: var(--ink); background: var(--bg); overflow-x: clip; position: relative;
+  }
+.dark .sx-page {
+    --bg: #1e293b; --alt: #172033; --ink: #f8fafc; --muted: #cbd5e1; --line: #334155; --card: #243247;
+  }
+.sx-page p { color: var(--muted); }
+.sx-page .sx-wrap { max-width: 1180px; margin-inline: auto; padding-inline: 20px; }
+.sx-page .sx-section { padding: clamp(72px, 9vw, 120px) 0; background: var(--bg); position: relative; }
+.sx-page .sx-alt { background: var(--alt); border-block: 1px solid var(--line); }
+.sx-page .sx-progress { position: fixed; inset: 0 0 auto 0; height: 3px; z-index: 70; pointer-events: none; }
+.sx-page .sx-progress span { display: block; height: 100%; background: var(--lime); transform: scaleX(0); transform-origin: 0 50%; }
+.sx-js .sx-page .sx-reveal:not(.is-in) { opacity: 0; transform: translateY(22px); }
+.sx-page .sx-reveal { transition: opacity .7s ease, transform .7s cubic-bezier(.2, .8, .2, 1); transition-delay: var(--d, 0s); }
+.sx-page .sx-kicker { font-size: 13px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--red); margin-bottom: 18px; }
+.sx-page .sx-kicker-lime { color: var(--lime); }
+.sx-page .sx-h2 { font-size: clamp(34px, 4.6vw, 60px); line-height: 1.04; margin: 0 0 20px; color: var(--ink); max-width: 16ch; }
+.sx-page .sx-head .sx-h2 { max-width: 20ch; }
+.sx-page .sx-head { margin-bottom: 56px; max-width: 760px; }
+.sx-page .sx-btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 15px 24px; border-radius: 999px;
+    font-weight: 700; font-size: 15px; text-decoration: none; transition: transform .25s ease, background .25s ease, box-shadow .25s ease;
+    border: 1px solid transparent; line-height: 1.2; cursor: pointer;
+  }
+.sx-page .sx-btn i { font-style: normal; display: inline-block; transition: transform .25s ease; }
+.sx-page .sx-btn:hover i { transform: translate(3px, -3px); }
+.sx-page .sx-btn:hover { transform: translateY(-2px); }
+.sx-page .sx-btn-primary { background: var(--lime); color: #17242b; box-shadow: 0 10px 30px -10px rgba(217, 255, 67, .55); }
+.sx-page .sx-btn-primary:hover { box-shadow: 0 16px 36px -10px rgba(217, 255, 67, .75); }
+.sx-page .sx-btn-ghost { color: #fff; border-color: rgba(255, 255, 255, .35); }
+.sx-page .sx-btn-ghost:hover { background: rgba(255, 255, 255, .08); }
+.sx-page .sx-btn-lg { padding: 18px 30px; font-size: 16px; white-space: nowrap; }
+.sx-page .sx-hero {
+    position: relative; overflow: hidden; color: #fff; padding: 150px 0 90px;
+    background:
+      radial-gradient(900px 520px at 88% 8%, rgba(217, 255, 67, .13), transparent 60%),
+      radial-gradient(700px 520px at 0% 100%, rgba(179, 74, 67, .25), transparent 60%),
+      linear-gradient(120deg, #0f1a1f, #17242b 55%, #1f3038);
+  }
+.sx-page .sx-hero::before {
+    content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .5;
+    background-image: linear-gradient(rgba(255, 255, 255, .06) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, .06) 1px, transparent 1px);
+    background-size: 56px 56px;
+    -webkit-mask-image: radial-gradient(ellipse at 60% 40%, #000 10%, transparent 70%);
+    mask-image: radial-gradient(ellipse at 60% 40%, #000 10%, transparent 70%);
+  }
+.sx-page .sx-hero-grid { position: relative; display: grid; grid-template-columns: 1.05fr .95fr; gap: 40px; align-items: center; }
+.sx-page .sx-pill {
+    display: inline-flex; align-items: center; gap: 10px; font-size: 12px; letter-spacing: .16em; text-transform: uppercase; font-weight: 700;
+    padding: 8px 14px; border-radius: 999px; background: rgba(255, 255, 255, .08); border: 1px solid rgba(255, 255, 255, .16); margin-bottom: 28px;
+  }
+.sx-page .sx-dot { width: 8px; height: 8px; border-radius: 50%; background: #b9db1c; box-shadow: 0 0 0 0 rgba(185, 219, 28, .7); animation: sx-ping 2s infinite; }
+.sx-page .sx-hero h1 {
+    font-size: clamp(46px, 6.4vw, 92px); line-height: 1; letter-spacing: -.045em; margin: 0 0 26px; color: #fff; max-width: 11ch;
+  }
+.sx-page .sx-hero h1 span {
+    display: block; color: var(--lime);
+    background: linear-gradient(transparent 82%, rgba(217, 255, 67, .22) 82%); width: fit-content;
+  }
+.sx-page .sx-hero p { font-size: clamp(18px, 1.7vw, 21px); line-height: 1.55; color: rgba(255, 255, 255, .8); max-width: 34em; margin: 0 0 34px; }
+.sx-page .sx-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+.sx-page .sx-note { margin-top: 26px; font-size: 13px; color: rgba(255, 255, 255, .6); }
+.sx-page .sx-proof { background: #0f1a1f; color: #fff; padding: 64px 0; border-top: 1px solid rgba(255, 255, 255, .08); }
+.sx-page .sx-proof-grid { display: grid; grid-template-columns: 1fr 1.7fr; gap: 48px; align-items: center; }
+.sx-page .sx-proof-lead { font-size: clamp(24px, 2.8vw, 36px); line-height: 1.15; letter-spacing: -.03em; font-weight: 700; font-family: 'Mona Bold', 'Mona Reg', sans-serif; }
+.sx-page .sx-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.sx-page .sx-stat { border-left: 1px solid rgba(255, 255, 255, .16); padding-left: 18px; }
+.sx-page .sx-num { font-family: 'Mona Bold Pro Max', 'Mona Bold', sans-serif; font-size: clamp(38px, 4.4vw, 58px); line-height: 1; color: var(--lime); letter-spacing: -.04em; }
+.sx-page .sx-stat-l { margin-top: 10px; font-size: 13px; line-height: 1.4; color: rgba(255, 255, 255, .65); }
+.sx-page .sx-night { background: linear-gradient(150deg, #0f1a1f, #17242b 60%, #1a2d33); color: #fff; overflow: hidden; }
+.sx-page .sx-night::before { content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .5; background-image: radial-gradient(rgba(255, 255, 255, .1) 1px, transparent 1px); background-size: 22px 22px; -webkit-mask-image: radial-gradient(ellipse at 20% 50%, #000, transparent 70%); mask-image: radial-gradient(ellipse at 20% 50%, #000, transparent 70%); }
+.sx-page .sx-night .sx-wrap { position: relative; }
+.sx-page .sx-night .sx-h2 { color: #fff; }
+.sx-page .sx-night .sx-lead { color: rgba(255, 255, 255, .75); }
+.sx-page .sx-night .sx-p-t { color: #fff; }
+.sx-page .sx-night .sx-p-d { color: rgba(255, 255, 255, .7); }
+.sx-page .sx-path .sx-btn { margin-top: auto; align-self: flex-start; }
+.sx-page .sx-marquee { background: var(--lime); color: #17242b; overflow: hidden; border-block: 1px solid rgba(23, 36, 43, .2); padding: 18px 0; white-space: nowrap; }
+.sx-page .sx-marquee-track { display: inline-flex; animation: sx-marquee 34s linear infinite; }
+.sx-page .sx-marquee span { font-family: 'Mona Bold Pro Max', 'Mona Bold', sans-serif; font-size: clamp(36px, 6vw, 76px); line-height: 1; letter-spacing: -.04em; text-transform: uppercase; padding-right: .4em; }
+.sx-page .sx-marquee:hover .sx-marquee-track { animation-play-state: paused; }
+.sx-page .sx-cta { background: var(--night); padding: clamp(60px, 8vw, 110px) 0; }
+.sx-page .sx-cta-card {
+    position: relative; overflow: hidden; border-radius: 32px; padding: clamp(34px, 6vw, 80px); color: #fff; display: grid; grid-template-columns: 1.5fr auto; gap: 40px; align-items: end;
+    background: radial-gradient(600px 300px at 100% 0%, rgba(217, 255, 67, .16), transparent 60%), #0f1a1f; border: 1px solid rgba(255, 255, 255, .1);
+  }
+.sx-page .sx-cta-card::after { content: ""; position: absolute; width: 360px; height: 360px; right: -100px; top: -130px; border-radius: 50%; border: 1px solid rgba(255, 255, 255, .14); box-shadow: 0 0 0 60px rgba(255, 255, 255, .035), 0 0 0 120px rgba(255, 255, 255, .025); pointer-events: none; }
+.sx-page .sx-cta-card > * { position: relative; z-index: 1; }
+.sx-page .sx-cta h2 { font-size: clamp(40px, 6vw, 80px); line-height: .98; letter-spacing: -.05em; margin: 0 0 22px; color: #fff; max-width: 12ch; }
+.sx-page .sx-cta p { color: rgba(255, 255, 255, .75); font-size: 19px; line-height: 1.55; max-width: 34em; margin: 0; }
+@media (max-width: 980px) {
+.sx-page .sx-hero { padding: 120px 0 70px; }
+.sx-page .sx-hero-grid,
+.sx-page .sx-two,
+.sx-page .sx-two-loop,
+.sx-page .sx-proof-grid { grid-template-columns: 1fr; }
+.sx-page .sx-stats { grid-template-columns: repeat(2, 1fr); row-gap: 28px; }
+.sx-page .sx-cta-card { grid-template-columns: 1fr; align-items: start; }
+.sx-page .sx-h2,
+.sx-page .sx-head .sx-h2 { max-width: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+.sx-page *,
+.sx-page *::before,
+.sx-page *::after { animation: none !important; transition: none !important; }
+.sx-js .sx-page .sx-reveal:not(.is-in) { opacity: 1; transform: none; }
+}
+.sx-page section[id] { scroll-margin-top: 84px; }
+.sx-page .sx-night .sx-kicker { color: var(--lime); }
+.sx-page .sx-night .sx-bigq { color: #fff; }
+.sx-page .sx-night p { color: rgba(255, 255, 255, .74); }
+.sx-page .sx-stage { position: relative; width: 100%; max-width: 560px; margin-inline: auto; }
+.sx-page .sx-stage::before {
+  content: ""; position: absolute; inset: 6% -6% -4% -6%; z-index: 0; pointer-events: none;
+  background: radial-gradient(closest-side, rgba(217, 255, 67, .2), transparent 72%); filter: blur(10px);
+}
+.sx-page .sx-stage > :not(.sx-pin) { position: relative; z-index: 1; }
+.sx-page .sx-stage svg { width: 100%; height: auto; display: block; overflow: visible; }
+.sx-page .sx-pin {
+  position: absolute; z-index: 3; display: inline-flex; align-items: center; gap: 8px; max-width: calc(100% - 8px); font-size: 12.5px; font-weight: 700;
+  line-height: 1.2; color: #fff; padding: 6px 12px 6px 6px; border-radius: 999px; background: rgba(15, 26, 31, .88); white-space: nowrap;
+  border: 1px solid rgba(255, 255, 255, .22); backdrop-filter: blur(6px); box-shadow: 0 14px 30px -14px rgba(0, 0, 0, .6);
+}
+.sx-page .sx-pin b { flex: none; min-width: 22px; height: 22px; border-radius: 999px; background: var(--lime); color: #17242b; display: grid; place-items: center; font-size: 11px; }
+.sx-page .sx-spin { transform-origin: var(--ox, 50%) var(--oy, 50%); animation: sx-spin var(--t, 16s) linear infinite; }
+.sx-page .sx-ring2 { fill: none; stroke: rgba(255, 255, 255, .22); stroke-width: 1.5; stroke-dasharray: 3 8; }
+.sx-page .sx-svgt-s { fill: rgba(255, 255, 255, .72); font-size: 12px; font-weight: 700; text-anchor: middle; letter-spacing: .04em; }
+.sx-page .sx-spark2 { fill: var(--lime); filter: drop-shadow(0 0 8px rgba(217, 255, 67, .9)); }
+.sx-page .sx-rip { fill: none; stroke: var(--lime); stroke-width: 1.5; opacity: 0; transform-box: fill-box; transform-origin: center; animation: sx-rip 6s ease-out infinite; animation-delay: var(--d, 0s); }
+.sx-page .sx-dotc { fill: #fff; opacity: .5; transform-box: fill-box; transform-origin: center; animation: sx-tw 4s ease-in-out infinite; animation-delay: var(--d, 0s); }
+.sx-page .sx-origin { fill: var(--lime); filter: drop-shadow(0 0 10px rgba(217, 255, 67, .8)); }
+.sx-page .sx-link { fill: none; stroke: rgba(255, 255, 255, .16); stroke-width: 1; stroke-dasharray: 2 5; }
+.sx-page .sx-tl { --n: 4; list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(var(--n), 1fr); gap: 26px; position: relative; }
+.sx-page .sx-tl::before { content: ""; position: absolute; left: 20px; right: 20px; top: 19px; height: 2px; background: var(--line); }
+.sx-page .sx-tl::after {
+  content: ""; position: absolute; left: 20px; top: 19px; height: 2px; width: calc(100% - 40px); background: var(--green);
+  transform-origin: 0 50%; transform: scaleX(1); transition: transform 1.8s cubic-bezier(.3, .6, .2, 1) .2s;
+}
+.dark .sx-page .sx-tl::after { background: var(--lime); }
+.sx-js .sx-page .sx-tl:not(.is-in)::after { transform: scaleX(0); }
+.sx-page .sx-tl > li { position: relative; padding-top: 64px; }
+.sx-page .sx-tl-dot {
+  position: absolute; top: 0; left: 0; width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; z-index: 1;
+  background: var(--bg); border: 2px solid var(--green); color: var(--green); font-weight: 800; font-size: 14px; font-family: 'Mona Bold Pro Max', 'Mona Bold', sans-serif;
+}
+.sx-page .sx-alt .sx-tl-dot { background: var(--alt); }
+.dark .sx-page .sx-tl-dot { color: var(--lime); border-color: var(--lime); }
+.sx-page .sx-tl > li.is-bad .sx-tl-dot { background: var(--red); border-color: var(--red); color: #fff; }
+.sx-page .sx-tl-k { font-size: 12px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--red); margin-bottom: 8px; }
+.sx-page .sx-tl h3 { font-size: 22px; line-height: 1.15; margin: 0 0 8px; color: var(--ink); }
+.sx-page .sx-tl p { margin: 0; font-size: 15.5px; line-height: 1.55; max-width: 30ch; }
+.sx-page .sx-night .sx-tl::before { background: rgba(255, 255, 255, .18); }
+.sx-page .sx-night .sx-tl-dot { background: #17242b; color: var(--lime); border-color: var(--lime); }
+.sx-page .sx-night .sx-tl::after { background: var(--lime); }
+.sx-page .sx-night .sx-tl h3 { color: #fff; }
+.sx-page .sx-quotes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.sx-page .sx-quotes.is-two { grid-template-columns: repeat(2, 1fr); }
+.sx-page .sx-quote {
+  display: flex; flex-direction: column; gap: 16px; background: var(--card); border: 1px solid var(--line); border-radius: 24px; padding: 28px;
+  transition: opacity .7s ease, transform .35s cubic-bezier(.2, .8, .2, 1), box-shadow .35s ease;
+}
+.sx-page .sx-quote:hover { transform: translateY(-6px); box-shadow: 0 30px 60px -34px rgba(0, 0, 0, .45); }
+.sx-page .sx-stars { letter-spacing: .14em; font-size: 13px; color: var(--green); }
+.dark .sx-page .sx-stars { color: var(--lime); }
+.sx-page .sx-quote-t { font-family: 'Mona Bold', 'Mona Reg', sans-serif; font-size: 20px; line-height: 1.2; letter-spacing: -.02em; color: var(--ink); }
+.sx-page .sx-quote p { margin: 0; font-size: 16px; line-height: 1.65; color: var(--ink); }
+.sx-page .sx-person { display: flex; align-items: center; gap: 12px; margin-top: auto; padding-top: 6px; }
+.sx-page .sx-av { flex: none; width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; background: #17242b; color: var(--lime); font-weight: 800; font-size: 14px; }
+.sx-page .sx-who b { display: block; font-size: 14px; line-height: 1.3; color: var(--ink); }
+.sx-page .sx-who span { display: block; font-size: 13px; line-height: 1.3; color: var(--muted); }
+.sx-page .sx-night .sx-bigq::before { color: var(--lime); }
+.sx-page .sx-night .sx-who b { color: #fff; }
+.sx-page .sx-night .sx-who span { color: rgba(255, 255, 255, .65); }
+.sx-page .sx-night .sx-quote { background: rgba(255, 255, 255, .05); border-color: rgba(255, 255, 255, .14); }
+.sx-page .sx-night .sx-quote p, .sx-page .sx-night .sx-quote .sx-quote-t { color: #fff; }
+.sx-page .sx-people { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
+.sx-page .sx-pcard { display: grid; grid-template-columns: 180px 1fr; gap: 26px; align-items: center; background: var(--card); border: 1px solid var(--line); border-radius: 28px; padding: 22px; transition: transform .35s cubic-bezier(.2, .8, .2, 1), box-shadow .35s ease, opacity .7s ease; }
+.sx-page .sx-pcard:hover { transform: translateY(-6px); box-shadow: 0 30px 60px -34px rgba(0, 0, 0, .45); }
+.sx-page .sx-photo { aspect-ratio: 1; border-radius: 20px; overflow: hidden; background: linear-gradient(150deg, #0f1a1f, #1f5f55); box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .1); }
+.sx-page .sx-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.sx-page .sx-pname { font-size: 28px; line-height: 1.05; margin: 0 0 6px; color: var(--ink); }
+.sx-page .sx-prole { font-size: 12px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--red); margin-bottom: 12px; }
+.sx-page .sx-pcard p { margin: 0; font-size: 16px; line-height: 1.6; }
+.sx-page .sx-story { position: relative; isolation: isolate; }
+.sx-page .sx-bignum { position: absolute; z-index: -1; right: -6px; top: -64px; font-family: 'Mona Bold Pro Max', sans-serif; font-size: clamp(140px, 22vw, 320px); line-height: 1; letter-spacing: -.08em; color: var(--ink); opacity: .05; pointer-events: none; user-select: none; }
+.sx-page .sx-copy p { margin: 0 0 18px; font-size: 17px; line-height: 1.75; max-width: 60ch; }
+.sx-page .sx-copy p strong { color: var(--ink); }
+.sx-page .sx-night .sx-copy p strong { color: var(--lime); }
+.sx-page .sx-pull { font-family: 'Mona Bold', 'Mona Reg', sans-serif; font-size: clamp(24px, 2.8vw, 36px); line-height: 1.18; letter-spacing: -.03em; color: var(--ink); margin: 0 0 28px; padding-left: 22px; border-left: 4px solid var(--red); }
+.sx-page .sx-story-grid { display: grid; grid-template-columns: .95fr 1.05fr; gap: clamp(36px, 6vw, 90px); align-items: start; }
+.sx-page .sx-sticky { position: sticky; top: 110px; }
+.sx-js .sx-page .sx-watch:not(.is-in) .sx-fbar { width: 100%; }
+.sx-js .sx-page .sx-watch:not(.is-in) .sx-dots i.is-hot { background: rgba(255, 255, 255, .12); box-shadow: none; }
+.sx-js .sx-page .sx-watch:not(.is-in) .sx-bub { opacity: 0; transform: translateY(10px); }
+.sx-js .sx-page .sx-watch:not(.is-in) .sx-bar { transform: scaleY(.04); }
+.sx-page .sx-stats.is-text .sx-num { font-size: clamp(22px, 2.5vw, 32px); line-height: 1.1; }
+@media (max-width: 980px) {
+.sx-page .sx-story-grid { grid-template-columns: 1fr; }
+.sx-page .sx-sticky { position: static; }
+.sx-page .sx-people { grid-template-columns: 1fr; }
+.sx-page .sx-quotes, .sx-page .sx-quotes.is-two { grid-auto-flow: column; grid-template-columns: none; grid-auto-columns: min(86%, 380px); overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 18px; }
+.sx-page .sx-quote { scroll-snap-align: start; }
+.sx-page .sx-stage { max-width: 480px; }
+}
+@media (max-width: 850px) {
+.sx-page .sx-tl { grid-template-columns: 1fr; gap: 30px; }
+.sx-page .sx-tl::before { left: 19px; right: auto; top: 20px; bottom: 20px; width: 2px; height: auto; }
+.sx-page .sx-tl::after { left: 19px; top: 20px; width: 2px; height: calc(100% - 40px); transform-origin: 50% 0; transform: scaleY(1); }
+.sx-js .sx-page .sx-tl:not(.is-in)::after { transform: scaleY(0); }
+.sx-page .sx-tl > li { padding: 4px 0 0 64px; min-height: 40px; }
+.sx-page .sx-tl p { max-width: none; }
+}
+@media (max-width: 700px) {
+.sx-page .sx-pin { font-size: 11px; padding: 5px 10px 5px 5px; }
+.sx-page .sx-pin b { min-width: 18px; height: 18px; font-size: 10px; }
+}
+@media (max-width: 520px) {
+.sx-page .sx-pcard { grid-template-columns: 1fr; }
+.sx-page .sx-photo { max-width: 200px; }
+}
+@media (prefers-reduced-motion: reduce) {
+.sx-js .sx-page .sx-watch:not(.is-in) .sx-bub,
+  .sx-js .sx-page .sx-watch:not(.is-in) .sx-bar { opacity: 1; transform: none; }
+}
+@keyframes sx-ping { 70% { box-shadow: 0 0 0 10px rgba(185, 219, 28, 0); } 100% { box-shadow: 0 0 0 0 rgba(185, 219, 28, 0); } }
+@keyframes sx-spin { to { transform: rotate(360deg); } }
+@keyframes sx-marquee { to { transform: translateX(-50%); } }
+@keyframes sx-rip { 0% { transform: scale(.12); opacity: .85; } 100% { transform: scale(1); opacity: 0; } }
+@keyframes sx-tw { 0%, 100% { opacity: .3; transform: scale(1); } 50% { opacity: 1; transform: scale(1.7); } }
+</style>
 
-  <!-- 8. CTA -->
-  <SxCta
-    id="contact"
-    title="Have a story to tell?"
-    text="Whether it’s an SEO-friendly blog post or a carefully crafted social media campaign, we take pride in every word we write."
-    cta="Contact us"
-    href={contactLink}
-  />
+<script>
+  function init() {
+    const root = document.querySelector<HTMLElement>('.sx-page');
+    if (!root || root.dataset.sxReady) return;
+    root.dataset.sxReady = '1';
 
-</SxShell>
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    document.documentElement.classList.add('sx-js');
+
+    // Reveal on scroll, plus "watch" blocks that start their own animations
+    const targets = root.querySelectorAll<HTMLElement>('.sx-reveal, .sx-watch');
+    if (reduce || !('IntersectionObserver' in window)) {
+      targets.forEach((el) => el.classList.add('is-in'));
+    } else {
+      const io = new IntersectionObserver(
+        (entries) =>
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.classList.add('is-in');
+              io.unobserve(e.target);
+            }
+          }),
+        { threshold: 0.18, rootMargin: '0px 0px -6% 0px' },
+      );
+      targets.forEach((el) => io.observe(el));
+    }
+
+    // Count-up numbers
+    if (!reduce && 'IntersectionObserver' in window) {
+      const counters = root.querySelectorAll<HTMLElement>('[data-sx-count]');
+      const cio = new IntersectionObserver(
+        (entries) =>
+          entries.forEach((e) => {
+            if (!e.isIntersecting) return;
+            const el = e.target as HTMLElement;
+            cio.unobserve(el);
+            const end = Number(el.dataset.sxCount);
+            const start = performance.now();
+            const dur = 1500;
+            const tick = (now: number) => {
+              const p = Math.min(1, (now - start) / dur);
+              el.textContent = String(Math.round(end * (1 - Math.pow(1 - p, 3))));
+              if (p < 1) requestAnimationFrame(tick);
+            };
+            el.textContent = '0';
+            requestAnimationFrame(tick);
+          }),
+        { threshold: 0.6 },
+      );
+      counters.forEach((el) => cio.observe(el));
+    }
+
+    // Pointer-following glow on cards
+    root.querySelectorAll<HTMLElement>('.sx-glow').forEach((card) => {
+      card.addEventListener('pointermove', (e: PointerEvent) => {
+        const r = card.getBoundingClientRect();
+        card.style.setProperty('--mx', `${e.clientX - r.left}px`);
+        card.style.setProperty('--my', `${e.clientY - r.top}px`);
+      });
+    });
+
+    // Tabs ([data-sx-tabs] > [role=tablist] > [role=tab], panels are [role=tabpanel])
+    root.querySelectorAll<HTMLElement>('[data-sx-tabs]').forEach((group) => {
+      const tabs = Array.from(group.querySelectorAll<HTMLElement>('[role="tab"]'));
+      const panels = Array.from(group.querySelectorAll<HTMLElement>('[role="tabpanel"]'));
+      const select = (index: number, focus = false) => {
+        tabs.forEach((tab, i) => {
+          const on = i === index;
+          tab.setAttribute('aria-selected', String(on));
+          tab.tabIndex = on ? 0 : -1;
+          if (on && focus) tab.focus();
+        });
+        panels.forEach((panel, i) => {
+          panel.hidden = i !== index;
+        });
+      };
+      tabs.forEach((tab, i) => {
+        tab.addEventListener('click', () => select(i));
+        tab.addEventListener('keydown', (e: KeyboardEvent) => {
+          if (e.key === 'ArrowRight') select((i + 1) % tabs.length, true);
+          else if (e.key === 'ArrowLeft') select((i - 1 + tabs.length) % tabs.length, true);
+          else if (e.key === 'Home') select(0, true);
+          else if (e.key === 'End') select(tabs.length - 1, true);
+        });
+      });
+      select(0);
+    });
+
+    // Scroll progress bar
+    const bar = root.querySelector<HTMLElement>('.sx-progress span');
+    if (bar) {
+      const onScroll = () => {
+        if (!bar.isConnected) {
+          window.removeEventListener('scroll', onScroll);
+          return;
+        }
+        const h = document.documentElement.scrollHeight - window.innerHeight;
+        bar.style.transform = `scaleX(${h > 0 ? Math.min(1, window.scrollY / h) : 0})`;
+      };
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+    }
+  }
+
+  init();
+  document.addEventListener('astro:page-load', init);
+</script>
