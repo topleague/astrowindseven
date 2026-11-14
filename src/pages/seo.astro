@@ -1,6 +1,6 @@
-
 ---
 import Layout from '~/layouts/PageLayout.astro';
+import Features2 from '~/components/widgets/Features2.astro';
 
 const metadata = {
   title: 'SEO Services | Top League Technologies',
@@ -8,444 +8,353 @@ const metadata = {
     'SEO-led website development and practical search optimisation to help your business get found, understood and chosen.',
 };
 
-const enquiryLink =
-  'mailto:hello@topleaguetech.com?subject=SEO%20Services%20Enquiry';
+const enquiryLink = 'mailto:hello@topleaguetech.com?subject=SEO%20Services%20Enquiry';
 ---
 
 <Layout metadata={metadata} pageClass="product-description-page">
 
-  <!-- 1. HERO -->
+  <!-- 1. HERO (one primary action, one ghost action, a low-pressure note) -->
   <section class="hero">
     <div class="container">
+
       <div class="eyebrow">
         <span class="dot"></span>
         SEO for website development
       </div>
 
       <h1>
-        A Good Website Isn't Enough.
-        <span>It Needs SEO Built In.</span>
+        A good website isn't enough.
+        <span>It needs SEO built in.</span>
       </h1>
 
       <p>
-        We build SEO into your website from the planning stage. Already have a
-        website? We'll identify what's holding it back and help put it right.
+        We build SEO into your website from the planning stage. Already have a website?
+        We'll identify what's holding it back and help put it right.
       </p>
 
       <div class="actions">
         <a class="btn primary" href={enquiryLink}>Free consultation ↗</a>
         <a class="btn ghost" href="#process">See how we do it ↓</a>
       </div>
+
+      <div class="hero-note">
+        No obligation. Just a straight conversation about what your website needs.
+      </div>
+
     </div>
   </section>
 
-
-  <!-- 2. THE SEO REALITY -->
-  <section class="section band" id="story">
-    <div class="container story-layout">
-      <div class="story-content">
-        <div class="kicker">The SEO reality</div>
-
-        <h2>Poor SEO affecting your website?</h2>
-
-        <p>
-          Your website may look great, but poor SEO can make it harder for
-          potential customers to find you, understand what you offer and take
-          action.
-        </p>
-
-        <div class="process-list">
-          <article class="step">
-            <span>01</span>
-            <div>
-              <h3>Hard to find</h3>
-              <p>
-                Weak keyword targeting, poor indexing and technical issues
-                can keep your pages out of relevant search results.
-              </p>
-            </div>
-          </article>
-
-          <article class="step">
-            <span>02</span>
-            <div>
-              <h3>Hard to understand</h3>
-              <p>
-                Poor page structure, unclear service descriptions and weak
-                internal links make it harder for visitors and search engines
-                to understand your business.
-              </p>
-            </div>
-          </article>
-
-          <article class="step">
-            <span>03</span>
-            <div>
-              <h3>Hard to convert</h3>
-              <p>
-                Even when visitors arrive, weak content, poor user experience
-                and misplaced calls to action can cost you enquiries.
-              </p>
-            </div>
-          </article>
-        </div>
-
-        <p>
-          <strong>
-            And these problems aren't always visible on the surface.
-          </strong>
-        </p>
+  <!-- 2. JOURNEY STRIP: the whole story at a glance, directly under the hero -->
+  <section class="proofbar" aria-label="How SEO fits into the project">
+    <div class="container proofgrid">
+      <div class="proof">
+        <strong>01 Research</strong>
+        <span>before anything is designed</span>
+      </div>
+      <div class="proof">
+        <strong>02 Structure</strong>
+        <span>pages planned with purpose</span>
+      </div>
+      <div class="proof">
+        <strong>03 Build</strong>
+        <span>technical essentials included</span>
+      </div>
+      <div class="proof">
+        <strong>04 Grow</strong>
+        <span>improved long after launch</span>
       </div>
     </div>
   </section>
 
+  <!-- 3. THE SEO REALITY: three problems as icon cards (scannable, equal weight) -->
+  <Features2
+    id="coming"
+    classes={{ container: 'coming-section', headline: { container: 'max-w-3xl !mx-0 !text-left' } }}
+    tagline="The SEO reality"
+    title="Poor SEO affecting your website?"
+    subtitle="Your website may look great, but poor SEO can make it harder for potential customers to find you, understand what you offer and take action. And these problems aren't always visible on the surface."
+    columns={3}
+    items={[
+      {
+        title: 'Hard to find',
+        description:
+          'Weak keyword targeting, poor indexing and technical issues can keep your pages out of relevant search results.',
+        icon: 'tabler:search',
+      },
+      {
+        title: 'Hard to understand',
+        description:
+          'Poor page structure, unclear service descriptions and weak internal links make it harder for visitors and search engines to understand your business.',
+        icon: 'tabler:sitemap',
+      },
+      {
+        title: 'Hard to convert',
+        description:
+          'Even when visitors arrive, weak content, poor user experience and misplaced calls to action can cost you enquiries.',
+        icon: 'tabler:target-arrow',
+      },
+    ]}
+  />
 
-  <!-- 3. OUR APPROACH -->
-  <section class="section" id="process">
+  <!-- 4. THE APPROACH: a before/after comparison (the x / tick styling is built into #difference) -->
+  <section class="section band" id="difference">
     <div class="container">
-      <div class="process">
 
+      <div class="feature-head">
         <div>
           <div class="kicker">Our approach</div>
-
-          <h2>
-            SEO starts before your website goes live.
-          </h2>
-
+          <h2 class="!text-heading">SEO starts before your website goes live.</h2>
           <p>
-            A website shouldn't be built first and optimised as an
-            afterthought. We bring SEO into the decisions that shape it —
-            from what your pages say to how the whole site is put together.
+            A website shouldn't be built first and optimised as an afterthought. We bring SEO into
+            the decisions that shape it, from what your pages say to how the whole site is put together.
           </p>
         </div>
+      </div>
 
-        <div class="process-list">
+      <div class="features">
+        <article class="feature">
+          <div class="kicker">× THE USUAL WAY</div>
+          <h3>Build first. Optimise later.</h3>
+          <ul>
+            <li>Keywords added after the design is finished</li>
+            <li>Page structure decided by the layout, not by search intent</li>
+            <li>Technical problems found after launch</li>
+            <li>Launch day treated as the finish line</li>
+          </ul>
+        </article>
+
+        <article class="feature">
+          <div class="kicker">✓ THE TOP LEAGUE APPROACH</div>
+          <h3>SEO built in from the start</h3>
+          <ul>
+            <li>Research before a single page is designed</li>
+            <li>Pages planned around what people actually search for</li>
+            <li>Technical essentials built into the site</li>
+            <li>Reviewed and improved long after launch</li>
+          </ul>
+        </article>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 5. THE FOUNDATIONS: four equal cards in a 2 x 2 grid -->
+  <section class="section" id="included">
+    <div class="container">
+
+      <div class="feature-head">
+        <div>
+          <div class="kicker">What we do</div>
+          <h2 class="!text-heading">The SEO foundations every website needs.</h2>
+          <p>
+            Good SEO isn't one setting or a collection of keywords. It comes from getting
+            several important elements working together.
+          </p>
+        </div>
+      </div>
+
+      <div class="features">
+        <article class="feature">
+          <div class="kicker">01 — Research</div>
+          <h3>Keyword and search intent research</h3>
+          <p>We identify the searches that matter to your business and understand what people are looking for before deciding how your pages should address them.</p>
+        </article>
+
+        <article class="feature">
+          <div class="kicker">02 — Structure</div>
+          <h3>Clear site structure</h3>
+          <p>We organise your pages, navigation, headings and internal links so visitors and search engines can understand how your website fits together.</p>
+        </article>
+
+        <article class="feature">
+          <div class="kicker">03 — Content</div>
+          <h3>Useful, relevant content</h3>
+          <p>We create and refine page content that answers customer questions, communicates your value and naturally incorporates relevant search terms.</p>
+        </article>
+
+        <article class="feature">
+          <div class="kicker">04 — Technical</div>
+          <h3>Technical SEO essentials</h3>
+          <p>We take care of mobile usability, page performance, metadata, crawlability and indexability.</p>
+        </article>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 6. HOW WE WORK: four numbered steps, before launch -->
+  <section class="section band" id="process">
+    <div class="container">
+
+      <div class="feature-head">
+        <div>
+          <div class="kicker">How we work</div>
+          <h2 class="!text-heading">Plan first. Build properly. Check before launch.</h2>
+          <p>
+            Every decision before launch is made with search in mind, so the site meets the world ready to be found.
+          </p>
+        </div>
+      </div>
+
+      <div class="process">
+        <article>
+          <div class="kicker">STEP 01</div>
+          <h3>Research before design</h3>
+          <p>We learn what your customers search for, what they need to know and which pages your business actually needs.</p>
+        </article>
+
+        <article>
+          <div class="kicker">STEP 02</div>
+          <h3>Plan pages with purpose</h3>
+          <p>We map services, topics, keywords and search intent into a clear page structure, navigation and URL plan.</p>
+        </article>
+
+        <article>
+          <div class="kicker">STEP 03</div>
+          <h3>Build on solid foundations</h3>
+          <p>We develop a fast, mobile-friendly site with clean structure, useful content, sensible internal links and technical SEO essentials.</p>
+        </article>
+
+        <article>
+          <div class="kicker">STEP 04</div>
+          <h3>Check before launch</h3>
+          <p>We review key pages, metadata, links, indexing settings, redirects and performance before the site goes live.</p>
+        </article>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 7. AFTER LAUNCH: the numbering carries on (05) behind the headline -->
+  <section class="section" id="story">
+    <div class="container story-layout">
+
+      <span class="story-number" aria-hidden="true">05</span>
+
+      <div class="story-content">
+        <div class="kicker">After launch</div>
+
+        <h2>SEO doesn't stop when your website goes live.</h2>
+
+        <p>A launch gives your website a strong starting point. Growing its visibility takes attention, useful content and improvements guided by how people actually find and use it.</p>
+
+        <p>Search behaviour changes. Your business evolves. And the pages that matter most today may not be the ones that bring in your next customer.</p>
+
+        <p><strong>No guesswork or endless changes for the sake of it. The next step should be based on what the website needs.</strong></p>
+
+        <div class="process-list mt-10">
           <article class="step">
             <span>01</span>
             <div>
-              <h3>Research before design</h3>
-              <p>
-                We learn what your customers search for, what they need to
-                know and which pages your business actually needs.
-              </p>
+              <h3>Monitor search performance</h3>
+              <p>Track visibility, relevant search queries and the pages attracting attention.</p>
             </div>
           </article>
 
           <article class="step">
             <span>02</span>
             <div>
-              <h3>Plan pages with purpose</h3>
-              <p>
-                We map services, topics, keywords and search intent into a
-                clear page structure, navigation and URL plan.
-              </p>
+              <h3>Improve important pages</h3>
+              <p>Refine page content, titles, structure and internal links as needs become clearer.</p>
             </div>
           </article>
 
           <article class="step">
             <span>03</span>
             <div>
-              <h3>Build on solid foundations</h3>
-              <p>
-                We develop a fast, mobile-friendly site with clean structure,
-                useful content, sensible internal links and technical SEO
-                essentials.
-              </p>
+              <h3>Find the next opportunities</h3>
+              <p>Identify useful topics, content gaps and pages your audience still needs.</p>
             </div>
           </article>
 
           <article class="step">
             <span>04</span>
             <div>
-              <h3>Check before launch</h3>
-              <p>
-                We review key pages, metadata, links, indexing settings,
-                redirects and performance before the site is ready to meet
-                the world.
-              </p>
+              <h3>Keep the site in good shape</h3>
+              <p>Address technical issues and make sure the foundations continue to support the site.</p>
             </div>
           </article>
         </div>
-
       </div>
 
-      <div class="mt-10 border-y border-slate-200 py-6 dark:border-slate-700">
-        <div class="kicker">Then the website goes live</div>
-        <p class="mt-2 text-muted">
-          Launch is the starting line, not the finish.
-        </p>
-      </div>
-
-      <div class="mt-6 rounded-xl bg-slate-900 p-7 text-white dark:bg-slate-800 md:grid md:grid-cols-2 md:items-center md:gap-8">
-        <div>
-          <div class="kicker">After launch</div>
-          <h3 class="mt-2 text-2xl font-semibold">
-            Keep learning. Keep improving.
-          </h3>
-        </div>
-
-        <p class="mt-4 text-slate-300 md:mt-0">
-          We monitor how the site performs, identify opportunities and refine
-          content and SEO over time — because search visibility grows through
-          ongoing work, not a one-off launch checklist.
-        </p>
-      </div>
-
-      <p class="mt-6 text-sm text-muted">
-        The right starting point depends on your business, your audience and
-        the website you need.
-      </p>
     </div>
   </section>
 
-
-  <!-- 4. SEO FOUNDATIONS -->
-  <section class="section band" id="included">
+  <!-- 8. STARTING POINTS: three paths, tick lists, the middle one highlighted -->
+  <section class="section band" id="packages">
     <div class="container">
 
       <div class="feature-head">
         <div>
-          <div class="kicker">What we do</div>
-          <h2>The SEO foundations every website needs.</h2>
+          <div class="kicker">Where are you starting from?</div>
+          <h2 class="!text-heading">You don't always need a new website.</h2>
+          <p>
+            We start by understanding your website and identifying what it actually needs, not by
+            assuming that a rebuild is always the answer.
+          </p>
         </div>
-
-        <p>
-          Good SEO isn't one setting or a collection of keywords. It comes
-          from getting several important elements working together.
-        </p>
       </div>
 
-      <div class="process-list">
-        <article class="step">
-          <span>01</span>
-          <div>
-            <h3>Keyword and search intent research</h3>
-            <p>
-              We identify the searches that matter to your business and
-              understand what people are looking for before deciding how your
-              pages should address them.
-            </p>
-          </div>
+      <div class="pricing-grid">
+
+        <article class="price-card">
+          <div class="kicker">New website</div>
+          <h3>SEO built in from day one</h3>
+          <p>Planning a new site? Get the structure and foundations right before design begins.</p>
+          <ul>
+            <li>Keyword and search intent research</li>
+            <li>Page, navigation and URL planning</li>
+            <li>Fast, mobile-friendly build</li>
+            <li>Pre-launch SEO checks</li>
+          </ul>
+          <a class="btn primary" href={enquiryLink}>Plan your new site ↗</a>
         </article>
 
-        <article class="step">
-          <span>02</span>
-          <div>
-            <h3>Clear site structure</h3>
-            <p>
-              We organise your pages, navigation, headings and internal links
-              so visitors and search engines can understand how your website
-              fits together.
-            </p>
-          </div>
+        <article class="price-card price-popular">
+          <div class="kicker">Existing website</div>
+          <h3>Improve what you already have</h3>
+          <p>If your website has a sound structure, we focus on the areas that need attention.</p>
+          <ul>
+            <li>Review existing pages and search performance</li>
+            <li>Improve content, headings and metadata</li>
+            <li>Fix internal linking and on-page issues</li>
+            <li>Address technical problems affecting visibility</li>
+          </ul>
+          <a class="btn primary" href={enquiryLink}>Review my website ↗</a>
         </article>
 
-        <article class="step">
-          <span>03</span>
-          <div>
-            <h3>Useful, relevant content</h3>
-            <p>
-              We create and refine page content that answers customer
-              questions, communicates your value and naturally incorporates
-              relevant search terms.
-            </p>
-          </div>
+        <article class="price-card">
+          <div class="kicker">Needs a rethink</div>
+          <h3>Restructure or rebuild when needed</h3>
+          <p>Sometimes the underlying website is the problem. A bigger change may be the better long-term investment.</p>
+          <ul>
+            <li>Reorganise confusing site structures</li>
+            <li>Rework pages that fail to serve their purpose</li>
+            <li>Improve design, usability and performance</li>
+            <li>Build a better website with SEO at its core</li>
+          </ul>
+          <a class="btn primary" href={enquiryLink}>Talk it through ↗</a>
         </article>
 
-        <article class="step">
-          <span>04</span>
-          <div>
-            <h3>Technical SEO essentials</h3>
-            <p>
-              We take care of important technical considerations, including
-              mobile usability, page performance, metadata, crawlability and
-              indexability.
-            </p>
-          </div>
-        </article>
       </div>
 
     </div>
   </section>
 
-
-  <!-- 5. EXISTING WEBSITES -->
-  <section class="section" id="difference">
-    <div class="container">
-
-      <div class="feature-head">
-        <div>
-          <div class="kicker">Already have a website?</div>
-          <h2>Let's make it work harder.</h2>
-        </div>
-
-        <p>
-          You don't necessarily need a new website to improve your SEO. The
-          right solution depends on what's already working — and what's
-          holding it back.
-        </p>
-      </div>
-
-      <div class="features">
-
-        <article class="feature">
-          <div>
-            <div class="kicker">Targeted improvements</div>
-
-            <h3>Improve what you already have.</h3>
-
-            <p>
-              If your website has a sound structure, we can focus on the areas
-              that need attention.
-            </p>
-
-            <ul>
-              <li>Review existing pages and search performance</li>
-              <li>Improve content, headings and metadata</li>
-              <li>Fix internal linking and on-page SEO issues</li>
-              <li>Address technical problems affecting visibility</li>
-            </ul>
-          </div>
-        </article>
-
-        <article class="feature">
-          <div>
-            <div class="kicker">A stronger foundation</div>
-
-            <h3>Restructure or rebuild when needed.</h3>
-
-            <p>
-              Sometimes the underlying website is the problem. A more
-              substantial change may be the better long-term investment.
-            </p>
-
-            <ul>
-              <li>Reorganise confusing site structures</li>
-              <li>Rework pages that fail to serve their purpose</li>
-              <li>Improve design, usability and performance</li>
-              <li>Build a better website with SEO at its core</li>
-            </ul>
-          </div>
-        </article>
-
-      </div>
-
-      <p class="mt-8 text-muted">
-        We start by understanding your website and identifying what it
-        actually needs — not by assuming that a rebuild is always the answer.
-      </p>
-
-    </div>
-  </section>
-
-
-  <!-- 6. ONGOING SEO -->
-  <section class="section band" id="why">
-    <div class="container">
-
-      <div class="feature-head">
-        <div>
-          <div class="kicker">After launch</div>
-          <h2>SEO doesn't stop when your website goes live.</h2>
-        </div>
-
-        <p>
-          A launch gives your website a strong starting point. Growing its
-          visibility takes attention, useful content and improvements guided
-          by how people actually find and use it.
-        </p>
-      </div>
-
-      <div class="story-content">
-        <p>
-          Search behaviour changes. Your business evolves. And the pages that
-          matter most today may not be the ones that bring in your next
-          customer.
-        </p>
-
-        <p>
-          That is why SEO needs to continue after launch. We look at what is
-          working, where people are dropping off and which opportunities are
-          worth acting on.
-        </p>
-
-        <p>
-          <strong>
-            No guesswork or endless changes for the sake of it. The next step
-            should be based on what the website needs.
-          </strong>
-        </p>
-      </div>
-
-      <div class="process-list mt-10">
-
-        <article class="step">
-          <span>01</span>
-          <div>
-            <h3>Monitor search performance</h3>
-            <p>
-              Track visibility, relevant search queries and the pages
-              attracting attention.
-            </p>
-          </div>
-        </article>
-
-        <article class="step">
-          <span>02</span>
-          <div>
-            <h3>Improve important pages</h3>
-            <p>
-              Refine page content, titles, structure and internal links as
-              needs become clearer.
-            </p>
-          </div>
-        </article>
-
-        <article class="step">
-          <span>03</span>
-          <div>
-            <h3>Find the next opportunities</h3>
-            <p>
-              Identify useful topics, content gaps and pages your audience
-              still needs.
-            </p>
-          </div>
-        </article>
-
-        <article class="step">
-          <span>04</span>
-          <div>
-            <h3>Keep the site in good shape</h3>
-            <p>
-              Address technical issues and make sure the foundations continue
-              to support the site.
-            </p>
-          </div>
-        </article>
-
-      </div>
-    </div>
-  </section>
-
-
-  <!-- 7. FINAL CTA -->
+  <!-- 9. FINAL CTA: text left, single action right, inside the dark card -->
   <section id="contact" class="cta">
     <div class="wrap">
-      <div class="kicker">Let's get started</div>
-
-      <h2>
-        Ready to build a website that works harder for your business?
-      </h2>
-
-      <p>
-        Whether you're planning a new website or want to get more from the one
-        you already have, let's talk about what would make the biggest
-        difference.
-      </p>
-
-      <a class="btn primary" href={enquiryLink}>
-        Book a free consultation ↗
-      </a>
+      <div class="cta-box">
+        <div>
+          <div class="kicker">Let's get started</div>
+          <h2>Let's build a website that works harder.</h2>
+          <p>
+            Whether you're planning a new website or want to get more from the one you already have,
+            let's talk about what would make the biggest difference.
+          </p>
+        </div>
+        <a class="button primary justify-self-start" href={enquiryLink}>Book a free consultation ↗</a>
+      </div>
     </div>
   </section>
 
