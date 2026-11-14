@@ -1,0 +1,301 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+const metadata = {
+  title: 'SEO Copywriting Services | Top League',
+  description:
+    'Website copy that connects with your audience, communicates your value and encourages action.',
+};
+
+const enquiryLink = 'mailto:hello@topleaguetech.com?subject=SEO%20Copywriting%20Enquiry';
+
+const services = [
+  { n: '01', type: 'CORE PAGES', title: 'Homepage copy', text: 'Communicate what your business does, who it serves and why visitors should care.', symbol: '⌂' },
+  { n: '02', type: 'SERVICE PAGES', title: 'Service page copy', text: 'Explain your services, highlight their benefits and encourage potential customers to get in touch.', symbol: '↗' },
+  { n: '03', type: 'CAMPAIGN PAGES', title: 'Landing page copy', text: 'Build focused messages around a particular offer, campaign or audience.', symbol: '◎' },
+  { n: '04', type: 'BRAND STORY', title: 'About Us pages', text: 'Tell your business story, communicate your values and give visitors reasons to trust you.', symbol: '✳' },
+];
+
+const process = [
+  { n: '01', title: 'Understand your business', text: 'We learn about your business, audience, offerings and objectives.' },
+  { n: '02', title: 'Find the right message', text: 'We identify your selling points, customer concerns and the messages your website needs to communicate.' },
+  { n: '03', title: 'Write persuasive copy', text: 'We develop clear, engaging content with meaningful headlines, natural keyword integration and purposeful calls to action.' },
+  { n: '04', title: 'Review and refine', text: 'We polish the copy, incorporate agreed feedback and deliver content ready for your website.' },
+];
+
+const strengths = [
+  { n: '01', title: 'Industry experience since 2006', text: "We've been working with business content since 2006. Top League Technologies was established in 2010.", symbol: '◷' },
+  { n: '02', title: 'Persuasion with SEO awareness', text: 'We write for people first while keeping search intent and on-page SEO considerations in mind.', symbol: '⌕' },
+  { n: '03', title: 'Your business, your voice', text: 'We understand your offerings and communicate them in a way that reflects your brand.', symbol: '↗' },
+  { n: '04', title: 'A hands-on team', text: 'Work directly with an experienced, approachable team instead of being another order in a content production pipeline.', symbol: '◎' },
+];
+
+const packages = [
+  { name: 'Basic', note: 'For a smaller website', price: '$299', pages: '5 website pages', delivery: '5 business days', featured: false, subject: 'Basic SEO Copywriting Package' },
+  { name: 'Standard', note: 'For a growing website', price: '$449', pages: '10 website pages', delivery: '10 business days', featured: true, subject: 'Standard SEO Copywriting Package' },
+  { name: 'Premium', note: 'For a larger website', price: '$599', pages: '20 website pages', delivery: '20 business days', featured: false, subject: 'Premium SEO Copywriting Package' },
+];
+---
+
+<Layout metadata={metadata}>
+  <div class="sx-page copy-page">
+    <div class="sx-progress" aria-hidden="true"><span></span></div>
+
+    <section class="sx-hero">
+      <div class="sx-wrap sx-hero-grid">
+        <div class="sx-hero-copy">
+          <div class="sx-pill"><span class="sx-dot"></span> SEO copywriting</div>
+          <h1>Website copy that <span>moves people.</span></h1>
+          <p>Website copy that connects with your audience, communicates your value and encourages action.</p>
+          <div class="sx-actions">
+            <a class="sx-btn sx-btn-primary" href="#packages">Explore packages <i>↗</i></a>
+            <a class="sx-btn sx-btn-ghost" href="#process">See how we work <i>↓</i></a>
+          </div>
+          <div class="sx-note">Industry experience since 2006 · Top League established in 2010</div>
+        </div>
+        <div class="copy-art" aria-hidden="true">
+          <div class="copy-orbit orbit-one"></div><div class="copy-orbit orbit-two"></div>
+          <div class="copy-message">
+            <div class="message-label">YOUR MESSAGE</div>
+            <div class="message-heading">Make it clear.</div>
+            <div class="message-heading message-accent">Make it matter.</div>
+            <div class="message-lines"><span></span><span></span><span></span></div>
+            <div class="message-action">TAKE THE NEXT STEP <b>↗</b></div>
+          </div>
+          <div class="copy-sticker sticker-top">Clarity first</div>
+          <div class="copy-sticker sticker-bottom">Words with purpose</div>
+          <div class="copy-star">✳</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sx-section" id="story">
+      <div class="sx-wrap story-layout">
+        <div class="story-aside sx-reveal">
+          <span class="story-number">01</span>
+          <div class="sx-kicker">The message matters</div>
+        </div>
+        <div class="story-content">
+          <h2 class="sx-h2 sx-reveal">Visitors are landing on your website. Are your words giving them a reason to stay?</h2>
+          <div class="story-copy sx-reveal">
+            <p>Your website might have a great design, a useful product and a competitive offer. But if your message doesn't connect with visitors, you could be losing potential customers.</p>
+            <p>Confusing headlines, generic descriptions and weak calls to action make it harder for people to understand why they should choose you.</p>
+            <p><strong>We help you get your message across.</strong> We combine persuasive writing with SEO-aware content structure to make your website clearer, more relevant and more compelling.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sx-section sx-alt" id="included">
+      <div class="sx-wrap">
+        <div class="sx-head">
+          <div class="sx-kicker sx-reveal">What we write</div>
+          <h2 class="sx-h2 sx-reveal">Every page has a purpose. Your copy should reflect it.</h2>
+          <p class="sx-lead sx-reveal">Website copy shaped around what each page needs to communicate—and what you want visitors to do next.</p>
+        </div>
+        <div class="service-grid">
+          {services.map((item, i) => (
+            <article class={`service-card sx-reveal ${i === 0 ? 'service-featured' : ''}`} style={`--d:${i * 0.08}s`}>
+              <div class="service-top"><span>{item.n} / {item.type}</span><b>{item.symbol}</b></div>
+              <h3>{item.title}</h3><p>{item.text}</p><span class="service-line"></span>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="sx-section sx-night" id="process">
+      <div class="sx-wrap process-layout">
+        <div class="process-intro">
+          <div class="sx-kicker sx-kicker-lime sx-reveal">Our approach</div>
+          <h2 class="sx-h2 sx-reveal">Good copy doesn't happen by accident.</h2>
+          <p class="sx-lead sx-reveal">A straightforward process that turns what you know about your business into a clear message for your customers.</p>
+          <a class="sx-btn sx-btn-primary sx-reveal" href={enquiryLink}>Talk about your website <i>↗</i></a>
+        </div>
+        <div class="process-list">
+          {process.map((item, i) => (
+            <article class="process-item sx-reveal" style={`--d:${i * 0.08}s`}>
+              <span class="process-number">{item.n}</span>
+              <div><h3>{item.title}</h3><p>{item.text}</p></div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="sx-section" id="why">
+      <div class="sx-wrap">
+        <div class="sx-head">
+          <div class="sx-kicker sx-reveal">Why Top League</div>
+          <h2 class="sx-h2 sx-reveal">Words matter. Experience makes a difference.</h2>
+          <p class="sx-lead sx-reveal">Thoughtful copy, a practical understanding of SEO and a team that takes the time to understand your business.</p>
+        </div>
+        <div class="strength-grid">
+          {strengths.map((item, i) => (
+            <article class="strength-card sx-reveal" style={`--d:${i * 0.07}s`}>
+              <div class="strength-top"><span>{item.n}</span><b>{item.symbol}</b></div>
+              <h3>{item.title}</h3><p>{item.text}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="sx-section sx-alt" id="proof">
+      <div class="sx-wrap proof-layout">
+        <div class="proof-intro">
+          <div class="sx-kicker sx-reveal">Client feedback</div>
+          <h2 class="sx-h2 sx-reveal">“They followed our direction very closely.”</h2>
+          <p class="sx-lead sx-reveal">Jason Hamblin · Senior Executive, L2T Media</p>
+        </div>
+        <article class="testimonial-card sx-reveal">
+          <div class="quote-stars" aria-label="5 out of 5 stars">★★★★★</div>
+          <span class="quote-mark" aria-hidden="true">“</span>
+          <blockquote>Top League did a great job writing content for our website. They followed our direction very closely and were readily available for every stage of the project. I would highly recommend their writing skills and will be utilizing their services again. Great Job!</blockquote>
+          <div class="quote-person">
+            <span class="quote-initial">J</span>
+            <span><strong>Jason Hamblin</strong><small>Senior Executive, L2T Media</small></span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="sx-section" id="packages">
+      <div class="sx-wrap">
+        <div class="sx-head">
+          <div class="sx-kicker sx-reveal">Copywriting packages</div>
+          <h2 class="sx-h2 sx-reveal">Professional website copy. Straightforward packages.</h2>
+          <p class="sx-lead sx-reveal">Each page includes up to 300 words of website copy. Choose the package that fits your website.</p>
+        </div>
+        <div class="pricing-grid">
+          {packages.map((item, i) => (
+            <article class={`price-card sx-reveal ${item.featured ? 'price-featured' : ''}`} style={`--d:${i * 0.08}s`}>
+              <div class="price-top"><span class="sx-kicker">{item.name}</span>{item.featured && <span class="popular-tag">MOST CHOSEN</span>}</div>
+              <h3>{item.note}</h3>
+              <div class="price">{item.price}</div><div class="price-unit">per package</div>
+              <ul><li>{item.pages}</li><li>Up to 300 words per page</li><li>{item.delivery}</li></ul>
+              <a class="sx-btn sx-btn-dark" href={`mailto:hello@topleaguetech.com?subject=${encodeURIComponent(item.subject)}`}>Discuss this package <i>↗</i></a>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="sx-cta" id="contact">
+      <div class="sx-wrap">
+        <div class="sx-cta-card">
+          <div>
+            <div class="sx-kicker sx-kicker-lime">Let's talk</div>
+            <h2>Your website deserves better words.</h2>
+            <p>Let's make your message clearer, your value easier to understand and your website more persuasive.</p>
+          </div>
+          <a class="sx-btn sx-btn-primary sx-btn-lg" href={enquiryLink}>Discuss your project <i>↗</i></a>
+        </div>
+      </div>
+    </section>
+  </div>
+</Layout>
+
+<style>
+.sx-page{--bg:#fff;--alt:#f1f4f2;--ink:#16202a;--muted:#566470;--line:#dfe5e8;--card:#fff;--red:#b34a43;--green:#1f5f55;--lime:#d9ff43;--night:#17242b;color:var(--ink);background:var(--bg);overflow-x:clip;position:relative}
+:global(.dark) .sx-page{--bg:#1e293b;--alt:#172033;--ink:#f8fafc;--muted:#cbd5e1;--line:#334155;--card:#243247}
+.sx-page p{color:var(--muted)}.sx-wrap{max-width:1180px;margin-inline:auto;padding-inline:20px}
+.sx-section{padding:clamp(72px,9vw,120px) 0;background:var(--bg);position:relative}.sx-alt{background:var(--alt);border-block:1px solid var(--line)}
+.sx-progress{position:fixed;inset:0 0 auto;height:3px;z-index:70;pointer-events:none}.sx-progress span{display:block;height:100%;background:var(--lime);transform:scaleX(0);transform-origin:0 50%}
+:global(.sx-js) .sx-reveal:not(.is-in){opacity:0;transform:translateY(22px)}.sx-reveal{transition:opacity .7s ease,transform .7s cubic-bezier(.2,.8,.2,1);transition-delay:var(--d,0s)}
+.sx-kicker{font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--red);margin-bottom:18px}.sx-kicker-lime{color:var(--lime)}
+.sx-h2{font-size:clamp(34px,4.6vw,60px);line-height:1.04;letter-spacing:-.035em;margin:0 0 20px;color:var(--ink);max-width:17ch}
+.sx-head{margin-bottom:48px;max-width:790px}.sx-lead{font-size:clamp(17px,1.6vw,20px);line-height:1.55;max-width:48ch;margin:0}
+.sx-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:15px 24px;border-radius:999px;font-weight:750;font-size:14px;text-decoration:none;transition:transform .25s ease,box-shadow .25s ease;border:1px solid transparent;line-height:1.2}
+.sx-btn i{font-style:normal;transition:transform .25s ease}.sx-btn:hover{transform:translateY(-2px)}.sx-btn:hover i{transform:translate(3px,-3px)}
+.sx-btn-primary{background:var(--lime);color:#17242b;box-shadow:0 10px 30px -10px rgba(217,255,67,.4)}.sx-btn-ghost{color:#fff;border-color:rgba(255,255,255,.35)}.sx-btn-ghost:hover{background:rgba(255,255,255,.08)}
+.sx-btn-dark{background:var(--night);color:#fff}.sx-btn-dark:hover{background:var(--green)}.sx-btn-lg{padding:18px 28px;white-space:nowrap}
+.sx-hero{position:relative;overflow:hidden;color:#fff;padding:145px 0 90px;background:radial-gradient(850px 520px at 88% 8%,rgba(217,255,67,.13),transparent 60%),radial-gradient(700px 520px at 0% 100%,rgba(179,74,67,.22),transparent 60%),linear-gradient(120deg,#0f1a1f,#17242b 55%,#1f3038)}
+.sx-hero:before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.45;background-image:linear-gradient(rgba(255,255,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.06) 1px,transparent 1px);background-size:56px 56px;mask-image:radial-gradient(ellipse at 60% 40%,#000 10%,transparent 70%)}
+.sx-hero-grid{position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center}
+.sx-pill{display:inline-flex;align-items:center;gap:10px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:800;padding:8px 14px;border-radius:999px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);margin-bottom:28px}
+.sx-dot{width:8px;height:8px;border-radius:50%;background:#b9db1c;box-shadow:0 0 0 5px rgba(185,219,28,.1)}
+.sx-hero h1{font-size:clamp(46px,6.4vw,88px);line-height:.98;letter-spacing:-.05em;margin:0 0 26px;color:#fff;max-width:10ch}.sx-hero h1 span{display:block;color:var(--lime);background:linear-gradient(transparent 82%,rgba(217,255,67,.2) 82%);width:fit-content}
+.sx-hero p{font-size:clamp(18px,1.7vw,21px);line-height:1.55;color:rgba(255,255,255,.8);max-width:34em;margin:0 0 32px}.sx-actions{display:flex;flex-wrap:wrap;gap:12px}.sx-note{margin-top:25px;font-size:12px;color:rgba(255,255,255,.58)}
+.copy-art{position:relative;aspect-ratio:1/1;max-width:480px;width:100%;margin:auto;display:grid;place-items:center}.copy-orbit{position:absolute;border:1px solid rgba(217,255,67,.28);border-radius:50%}
+.orbit-one{width:92%;height:48%;transform:rotate(-32deg)}.orbit-two{width:76%;height:76%;border-color:rgba(255,255,255,.16);transform:rotate(25deg)}
+.copy-message{position:relative;width:70%;padding:34px 30px 26px;border-radius:18px;background:#f7f8f3;color:#17242b;box-shadow:0 30px 80px rgba(0,0,0,.35);transform:rotate(-5deg)}
+.message-label{font-size:9px;letter-spacing:.17em;font-weight:900;color:#1f5f55;margin-bottom:24px}.message-heading{font-size:clamp(24px,3vw,36px);line-height:1.05;font-weight:850;letter-spacing:-.05em}.message-accent{color:#b34a43}
+.message-lines{margin:24px 0 26px}.message-lines span{display:block;height:5px;border-radius:5px;background:#d4dbd5;margin:9px 0}.message-lines span:nth-child(1){width:100%}.message-lines span:nth-child(2){width:82%}.message-lines span:nth-child(3){width:62%}
+.message-action{display:flex;justify-content:space-between;align-items:center;border-top:1px solid #dce1db;padding-top:16px;font-size:9px;font-weight:900;letter-spacing:.1em;color:#1f5f55}.message-action b{font-size:17px}
+.copy-sticker{position:absolute;padding:10px 15px;border-radius:999px;background:rgba(15,26,31,.92);border:1px solid rgba(255,255,255,.2);color:#fff;font-size:12px;font-weight:750}.sticker-top{top:17%;left:0}.sticker-bottom{right:-2%;bottom:19%}.copy-star{position:absolute;right:12%;top:7%;font-size:42px;color:var(--lime)}
+.story-layout{display:grid;grid-template-columns:.4fr 1.6fr;gap:45px}.story-aside{padding-top:8px}.story-number{display:block;font-size:clamp(70px,10vw,130px);font-weight:850;line-height:.8;letter-spacing:-.08em;color:rgba(179,74,67,.14);margin-bottom:35px}
+.story-content .sx-h2{max-width:19ch}.story-copy{max-width:720px;margin-left:auto;font-size:17px;line-height:1.8}.story-copy p{margin:0 0 18px}.story-copy p:last-child{margin-bottom:0}.story-copy p:first-child{font-size:19px;color:var(--ink);line-height:1.65}.story-copy strong{color:var(--red)}
+.service-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}.service-card{position:relative;overflow:hidden;min-height:290px;padding:25px;border:1px solid var(--line);border-radius:20px;background:var(--card);display:flex;flex-direction:column;transition:transform .3s,box-shadow .3s}
+.service-card:hover{transform:translateY(-5px);box-shadow:0 25px 55px -35px rgba(0,0,0,.35)}.service-featured{background:var(--night);border-color:var(--night)}
+.service-top{display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:9px;font-weight:850;letter-spacing:.12em;color:var(--red)}.service-top b{font-size:27px;color:var(--green);font-weight:500}
+.service-featured .service-top,.service-featured .service-top b{color:var(--lime)}.service-card h3{font-size:23px;line-height:1.12;letter-spacing:-.025em;margin:auto 0 13px;color:var(--ink)}.service-featured h3{color:#fff}
+.service-card p{font-size:13px;line-height:1.65;margin:0}.service-featured p{color:rgba(255,255,255,.7)}.service-line{height:3px;width:42px;background:var(--lime);margin-top:24px}
+.sx-night{background:linear-gradient(145deg,#0f1a1f,#17242b 65%,#1a3432);color:#fff}.sx-night .sx-h2{color:#fff}.sx-night .sx-lead{color:rgba(255,255,255,.72)}
+.process-layout{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(40px,8vw,110px);align-items:start}.process-intro{position:sticky;top:110px}.process-intro .sx-btn{margin-top:30px}
+.process-list{border-top:1px solid rgba(255,255,255,.18)}.process-item{display:grid;grid-template-columns:55px 1fr;gap:18px;padding:28px 0;border-bottom:1px solid rgba(255,255,255,.18)}
+.process-number{font-size:13px;font-weight:850;color:var(--lime)}.process-item h3{font-size:22px;color:#fff;margin:0 0 8px}.process-item p{font-size:14px;line-height:1.65;color:rgba(255,255,255,.68);margin:0;max-width:48ch}
+.strength-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.strength-card{padding:28px;border:1px solid var(--line);border-radius:20px;background:var(--card)}
+.strength-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:30px}.strength-top span{font-size:11px;font-weight:850;color:var(--red);letter-spacing:.12em}.strength-top b{font-size:28px;font-weight:500;color:var(--green)}
+.strength-card h3{font-size:22px;line-height:1.15;letter-spacing:-.025em;margin:0 0 10px;color:var(--ink)}.strength-card p{font-size:14px;line-height:1.7;margin:0;max-width:50ch}
+.proof-layout{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(35px,7vw,90px);align-items:center}.proof-intro .sx-h2{font-size:clamp(34px,4vw,52px)}
+.testimonial-card{position:relative;overflow:hidden;padding:clamp(28px,4vw,42px);border:1px solid var(--line);border-radius:22px;background:var(--card)}.quote-stars{font-size:13px;letter-spacing:.14em;color:var(--green)}
+.quote-mark{position:absolute;right:20px;top:4px;font-family:Georgia,serif;font-size:100px;line-height:1;color:var(--green);opacity:.12}.testimonial-card blockquote{position:relative;margin:26px 0 30px;font-size:17px;line-height:1.75;color:var(--ink)}
+.quote-person{display:flex;align-items:center;gap:12px;border-top:1px solid var(--line);padding-top:18px}.quote-initial{width:38px;height:38px;display:grid;place-items:center;border-radius:50%;background:var(--night);color:var(--lime);font-weight:850}
+.quote-person strong,.quote-person small{display:block}.quote-person strong{font-size:13px;color:var(--ink)}.quote-person small{font-size:11px;color:var(--muted);margin-top:3px}
+.pricing-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;align-items:stretch}.price-card{padding:30px;border:1px solid var(--line);border-radius:22px;background:var(--card);display:flex;flex-direction:column;position:relative}
+.price-featured{border:2px solid var(--green);box-shadow:0 20px 50px -35px rgba(31,95,85,.5);transform:translateY(-8px)}.price-top{display:flex;align-items:center;justify-content:space-between;gap:8px}.price-top .sx-kicker{margin:0}
+.popular-tag{font-size:9px;font-weight:900;letter-spacing:.1em;color:var(--green)}.price-card h3{font-size:20px;line-height:1.2;margin:25px 0 12px;color:var(--ink)}
+.price{font-size:clamp(42px,4vw,56px);font-weight:850;letter-spacing:-.06em;color:var(--ink);line-height:1}.price-unit{font-size:11px;color:var(--muted);margin:7px 0 24px}
+.price-card ul{list-style:none;padding:0;margin:0}.price-card li{font-size:14px;color:var(--muted);padding:12px 0;border-top:1px solid var(--line)}.price-card .sx-btn{margin-top:28px;width:100%;font-size:12px;padding:14px 12px}
+.sx-cta{background:var(--night);padding:clamp(60px,8vw,110px) 0}.sx-cta-card{position:relative;overflow:hidden;border-radius:30px;padding:clamp(34px,6vw,78px);color:#fff;display:grid;grid-template-columns:1.5fr auto;gap:40px;align-items:end;background:radial-gradient(600px 300px at 100% 0%,rgba(217,255,67,.16),transparent 60%),#0f1a1f;border:1px solid rgba(255,255,255,.1)}
+.sx-cta h2{font-size:clamp(38px,5.8vw,72px);line-height:.98;letter-spacing:-.05em;margin:0 0 22px;color:#fff;max-width:12ch}.sx-cta p{color:rgba(255,255,255,.75);font-size:18px;line-height:1.55;max-width:36em;margin:0}.sx-cta-card>*{position:relative;z-index:1}
+@media(max-width:980px){.sx-hero{padding:120px 0 70px}.sx-hero-grid,.story-layout,.process-layout,.proof-layout{grid-template-columns:1fr}.copy-art{max-width:400px}.story-aside{display:flex;align-items:center;gap:20px}.story-number{font-size:72px;margin:0}.story-aside .sx-kicker{margin:0}.story-copy{margin-left:0}.service-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.process-intro{position:static}.sx-cta-card{grid-template-columns:1fr;align-items:start}}
+@media(max-width:700px){.service-grid,.strength-grid,.pricing-grid{grid-template-columns:1fr}.service-card{min-height:230px}.price-featured{transform:none}.sx-hero h1{font-size:clamp(44px,13vw,66px)}.copy-art{max-width:330px}.copy-sticker{font-size:10px;padding:8px 11px}.sx-cta-card{padding:34px 25px}.story-layout{gap:28px}}
+@media(prefers-reduced-motion:reduce){.sx-page *,.sx-page *:before,.sx-page *:after{animation:none!important;transition:none!important}:global(.sx-js) .sx-reveal:not(.is-in){opacity:1;transform:none}}
+</style>
+
+<script>
+  function init() {
+    const root = document.querySelector<HTMLElement>('.sx-page.copy-page');
+    if (!root || root.dataset.sxReady) return;
+    root.dataset.sxReady = '1';
+
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    document.documentElement.classList.add('sx-js');
+
+    const targets = root.querySelectorAll<HTMLElement>('.sx-reveal');
+    if (reduce || !('IntersectionObserver' in window)) {
+      targets.forEach((el) => el.classList.add('is-in'));
+    } else {
+      const io = new IntersectionObserver(
+        (entries) =>
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-in');
+              io.unobserve(entry.target);
+            }
+          }),
+        { threshold: 0.18, rootMargin: '0px 0px -6% 0px' },
+      );
+      targets.forEach((el) => io.observe(el));
+    }
+
+    const bar = root.querySelector<HTMLElement>('.sx-progress span');
+    if (bar) {
+      const onScroll = () => {
+        if (!bar.isConnected) {
+          window.removeEventListener('scroll', onScroll);
+          return;
+        }
+        const height = document.documentElement.scrollHeight - window.innerHeight;
+        bar.style.transform = `scaleX(${height > 0 ? Math.min(1, window.scrollY / height) : 0})`;
+      };
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+    }
+  }
+
+  init();
+  document.addEventListener('astro:page-load', init);
+</script>
