@@ -39,32 +39,24 @@ export const headerData = {
         },
       ],
     },
-    {
-      text: 'Landing',
+  {
+      text: ‘Services’,
       links: [
         {
-          text: 'Lead Generation',
-          href: getPermalink('/landing/lead-generation'),
+          text: 'Article Writing',
+          href: getPermalink('/arty/'),
         },
         {
-          text: 'Long-form Sales',
-          href: getPermalink('/landing/sales'),
+          text: 'SEO Copywriting',
+          href: getPermalink('/mike/'),
         },
         {
-          text: 'Click-Through',
-          href: getPermalink('/landing/click-through'),
+          text: 'Product Description Writing',
+          href: getPermalink('/hiya/'),
         },
-        {
-          text: 'Product Details (or Services)',
-          href: getPermalink('/landing/product'),
-        },
-        {
-          text: 'Coming Soon or Pre-Launch',
-          href: getPermalink('/landing/pre-launch'),
-        },
-        {
-          text: 'Subscription',
-          href: getPermalink('/landing/subscription'),
+	  {
+          text: 'SEO Services',
+          href: getPermalink('/homy/'),
         },
       ],
     },
