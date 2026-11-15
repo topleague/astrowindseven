@@ -1,81 +1,245 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
-import HeroText from '~/components/widgets/HeroText.astro';
-import ContactUs from '~/components/widgets/Contact.astro';
-import Features2 from '~/components/widgets/Features2.astro';
+import SxEffects from '~/components/sx/SxEffects.astro';
+import { Icon } from 'astro-icon/components';
 
 const metadata = {
-  title: 'Contact',
+  title: 'Contact Top League Technologies',
   description:
-    'Contact page demo built with AstroWind: a form, contact details and support links in one accessible layout.',
+    'Start with the business, the goal and the budget. Send us a message and we will work out the digital plan from there. Our team typically responds within 24 business hours.',
 };
+
+const email = 'hello@topleaguetech.com';
+
+// Where the form is sent. Leave empty to open the visitor's email app with the
+// message pre-filled (works on any static host). To receive messages directly,
+// paste your form service URL here (Formspree, Web3Forms, a Pages Function...).
+const formEndpoint = '';
+
+const help = [
+  { k: '01 — Websites', t: 'Websites', d: 'Fast, thoughtful WordPress builds that are made to perform — not simply launch.' },
+  { k: '02 — Content', t: 'Content', d: 'Clear, useful content shaped around your customers, your voice and your search goals.' },
+  { k: '03 — SEO + Social', t: 'SEO + Social', d: 'Search visibility and campaigns that keep your business in front of the people looking for it.' },
+  { k: '04 — Care + Data', t: 'Care + Data', d: 'Maintenance, analytics, reporting and the everyday details that make digital feel effortless.' },
+];
+
+const next = [
+  { dot: '1', k: 'STEP 1', t: 'Tell us about the business', d: 'Who you serve and what you want your online presence to do.' },
+  { dot: '2', k: 'STEP 2', t: 'Share the goal and the budget', d: 'No giant proposal. No unnecessary package. Just what you need.' },
+  { dot: '3', k: 'STEP 3', t: 'We work out the plan', d: 'We come back with a practical digital plan, built from there.' },
+];
 ---
 
-<Layout metadata={metadata}>
-  <!-- HeroText Widget ******************* -->
+<Layout metadata={metadata} pageClass="product-description-page">
+  <SxEffects />
 
-  <HeroText tagline="Contact" title="Let's Connect!" />
+  <div class="sx-page">
+    <div class="sx-progress" aria-hidden="true"><span></span></div>
 
-  <ContactUs
-    id="form"
-    title="Drop us a message today!"
-    subtitle="For quicker answers, explore our FAQs section. You may find the solution you're looking  for right there! If not, our support team is delighted to help you."
-    inputs={[
-      {
-        type: 'text',
-        name: 'name',
-        label: 'Name',
-      },
-      {
-        type: 'email',
-        name: 'email',
-        label: 'Email',
-      },
-    ]}
-    textarea={{
-      label: 'Message',
-    }}
-    disclaimer={{
-      label:
-        'By submitting this contact form, you acknowledge and agree to the collection of your personal information.',
-    }}
-    description="Our support team typically responds within 24 business hours."
-  />
+    <!-- 1. HERO -->
+    <section class="sx-hero">
+      <div class="sx-wrap sx-hero-grid">
+        <div class="sx-hero-copy">
+          <div class="sx-pill"><span class="sx-dot"></span> Contact</div>
+          <h1>
+            Let's
+            <span>Connect!</span>
+          </h1>
+          <p>Start with the business, the goal and the budget. We'll work out the digital plan from there.</p>
+          <div class="sx-actions">
+            <a class="sx-btn sx-btn-primary" href="#form">Write to us <i>↓</i></a>
+            <a class="sx-btn sx-btn-ghost" href={`mailto:${email}`}>Email directly <i>↗</i></a>
+          </div>
+          <div class="sx-note">Our support team typically responds within 24 business hours.</div>
+        </div>
 
-  <!-- Features2 Widget ************** -->
+        <div class="sx-stage" role="img" aria-label="Illustration: a contact form with name, email and message fields.">
+          <div class="sx-win">
+            <div class="sx-win-bar"><i></i><i></i><i></i><span>{email}</span></div>
+            <div class="sx-win-body">
+              <span class="sx-chip" style="justify-self:start">New message</span>
+              <span class="sx-sk is-h w50"></span>
+              <span class="sx-sk w90"></span>
+              <div class="sx-box sx-hl" style="--hd:3s">
+                <span class="sx-sk w90"></span>
+                <span class="sx-sk w80"></span>
+                <span class="sx-sk w60"></span>
+              </div>
+              <span class="sx-sk is-btn" style="width:120px"></span>
+            </div>
+          </div>
+          <span class="sx-pin" style="right:-2%;top:8%"><b>1</b> Tell us what you need</span>
+          <span class="sx-pin" style="left:-2%;bottom:8%"><b>2</b> Reply within 24 business hours</span>
+        </div>
+      </div>
+    </section>
 
-  <Features2
-    title="We are here to help!"
-    items={[
-      {
-        title: 'General support',
-        description: `Chat with us for inquiries related to account management, website navigation, payment issues, accessing purchased templates or general questions about the website's functionality.`,
-      },
-      {
-        title: 'Contact sales',
-        description:
-          'Chat with us for questions about purchases, customization options, licensing for commercial use, inquiries about specific template, etc.',
-      },
-      {
-        title: 'Technical support',
-        description:
-          'Chat with us when facing issues like template installation, problems editing difficulties, compatibility issues with software or download errors, or other technical challenges related to using the templates.',
-      },
-      {
-        title: 'Phone',
-        description: '+1 (234) 567-890',
-        icon: 'tabler:headset',
-      },
-      {
-        title: 'Email',
-        description: 'contact@support.com',
-        icon: 'tabler:mail',
-      },
-      {
-        title: 'Location',
-        description: '1234 Lorem Ipsum St, 12345, Miami, EEUU',
-        icon: 'tabler:map-pin',
-      },
-    ]}
-  />
+    <!-- 2. FORM + DETAILS -->
+    <section class="sx-section" id="form">
+      <div class="sx-wrap sx-two" style="align-items:start">
+        <div>
+          <div class="sx-kicker sx-reveal">Get in touch</div>
+          <h2 class="sx-h2 sx-reveal" style="max-width:none">Drop us a message today!</h2>
+          <p class="sx-lead sx-reveal">Our support team typically responds within 24 business hours.</p>
+
+          <ul class="sx-problems">
+            <li class="sx-reveal" style="--d:.1s">
+              <span class="sx-ico" aria-hidden="true"><Icon name="tabler:mail" class="h-5 w-5" /></span>
+              <div>
+                <div class="sx-p-t">Email</div>
+                <div class="sx-p-d"><a href={`mailto:${email}`}>{email}</a></div>
+              </div>
+            </li>
+            <li class="sx-reveal" style="--d:.2s">
+              <span class="sx-ico" aria-hidden="true"><Icon name="tabler:map-pin" class="h-5 w-5" /></span>
+              <div>
+                <div class="sx-p-t">Location</div>
+                <div class="sx-p-d">Bhubaneswar, India. Clients across the globe.</div>
+              </div>
+            </li>
+            <li class="sx-reveal" style="--d:.3s">
+              <span class="sx-ico" aria-hidden="true"><Icon name="tabler:clock" class="h-5 w-5" /></span>
+              <div>
+                <div class="sx-p-t">Response time</div>
+                <div class="sx-p-d">Typically within 24 business hours.</div>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <form class="sx-form sx-reveal" id="contact-form" data-endpoint={formEndpoint} data-email={email} novalidate>
+          <div class="sx-field">
+            <label for="cf-name">Name</label>
+            <input id="cf-name" name="name" type="text" autocomplete="name" required />
+          </div>
+          <div class="sx-field">
+            <label for="cf-email">Email</label>
+            <input id="cf-email" name="email" type="email" autocomplete="email" required />
+          </div>
+          <div class="sx-field">
+            <label for="cf-message">Message</label>
+            <textarea id="cf-message" name="message" rows="6" required></textarea>
+          </div>
+          <div class="sx-hp" aria-hidden="true">
+            <label>Leave this empty <input name="website" type="text" tabindex="-1" autocomplete="off" /></label>
+          </div>
+          <button class="sx-btn sx-btn-primary" type="submit">Send message <i>↗</i></button>
+          <p class="sx-form-note">By submitting this contact form, you acknowledge and agree to the collection of your personal information.</p>
+          <p class="sx-form-status" id="contact-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+
+    <!-- 3. WHAT WE CAN HELP WITH -->
+    <section class="sx-section sx-alt" id="help">
+      <div class="sx-wrap">
+        <div class="sx-head">
+          <div class="sx-kicker sx-reveal">We are here to help!</div>
+          <h2 class="sx-h2 sx-reveal">Websites, content, SEO and care.</h2>
+        </div>
+        <div class="sx-bento">
+          {help.map((h, i) => (
+            <article class="sx-card sx-glow sx-reveal sx-b6" style={`--d:${(i % 2) * 0.08}s`}>
+              <div class="sx-card-k">{h.k}</div>
+              <h3>{h.t}</h3>
+              <p>{h.d}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. WHAT HAPPENS NEXT -->
+    <section class="sx-section" id="next">
+      <div class="sx-wrap">
+        <div class="sx-head">
+          <div class="sx-kicker sx-reveal">What happens next</div>
+          <h2 class="sx-h2 sx-reveal">No giant proposal. No unnecessary package.</h2>
+        </div>
+        <ol class="sx-tl sx-watch" style={`--n:${next.length}`}>
+          {next.map((s) => (
+            <li>
+              <span class="sx-tl-dot">{s.dot}</span>
+              <div class="sx-tl-k">{s.k}</div>
+              <h3>{s.t}</h3>
+              <p>{s.d}</p>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
+  </div>
 </Layout>
+
+<style is:global>
+  .sx-page .sx-form { display: grid; gap: 18px; padding: clamp(24px, 4vw, 40px); background: var(--card); border: 1px solid var(--line); border-radius: 24px; box-shadow: 0 30px 60px -40px rgba(0, 0, 0, .35); }
+  .sx-page .sx-field { display: grid; gap: 8px; }
+  .sx-page .sx-field label { font-size: 13px; font-weight: 700; letter-spacing: .04em; color: var(--ink); }
+  .sx-page .sx-field input, .sx-page .sx-field textarea { width: 100%; padding: 14px 16px; border: 1px solid var(--line); border-radius: 12px; background: var(--bg); color: var(--ink); font: inherit; font-size: 16px; transition: border-color .2s ease, box-shadow .2s ease; }
+  .sx-page .sx-field textarea { min-height: 150px; resize: vertical; }
+  .sx-page .sx-field input:focus, .sx-page .sx-field textarea:focus { outline: none; border-color: var(--green); box-shadow: 0 0 0 3px rgba(31, 95, 85, .25); }
+  .dark .sx-page .sx-field input:focus, .dark .sx-page .sx-field textarea:focus { border-color: var(--lime); box-shadow: 0 0 0 3px rgba(217, 255, 67, .25); }
+  .sx-page .sx-field .is-bad { border-color: var(--red); }
+  .sx-page .sx-hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+  .sx-page .sx-form .sx-btn { justify-self: start; cursor: pointer; }
+  .sx-page .sx-form-note { font-size: 13px; line-height: 1.5; margin: 0; }
+  .sx-page .sx-form-status { font-size: 14px; font-weight: 700; margin: 0; min-height: 1.4em; color: var(--green); }
+  .dark .sx-page .sx-form-status { color: var(--lime); }
+  .sx-page .sx-form-status.is-error { color: var(--red); }
+  .sx-page .sx-p-d a { color: var(--green); font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
+  .dark .sx-page .sx-p-d a { color: var(--lime); }
+</style>
+
+<script>
+  function initContactForm() {
+    const form = document.getElementById('contact-form');
+    if (!form || form.dataset.ready) return;
+    form.dataset.ready = '1';
+    const status = document.getElementById('contact-status');
+    const endpoint = form.dataset.endpoint;
+    const email = form.dataset.email;
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const data = new FormData(form);
+      if (data.get('website')) return; // honeypot: bots only
+
+      const name = String(data.get('name') || '').trim();
+      const from = String(data.get('email') || '').trim();
+      const message = String(data.get('message') || '').trim();
+
+      let ok = true;
+      [['name', name], ['email', /\S+@\S+\.\S+/.test(from) ? from : ''], ['message', message]].forEach(([field, value]) => {
+        const el = form.elements[field];
+        el.classList.toggle('is-bad', !value);
+        if (!value) ok = false;
+      });
+      status.classList.remove('is-error');
+      if (!ok) {
+        status.classList.add('is-error');
+        status.textContent = 'Please fill in your name, a valid email and a message.';
+        return;
+      }
+
+      if (endpoint) {
+        try {
+          const res = await fetch(endpoint, { method: 'POST', body: data, headers: { Accept: 'application/json' } });
+          if (!res.ok) throw new Error('bad response');
+          form.reset();
+          status.textContent = 'Thank you! We typically respond within 24 business hours.';
+        } catch (e) {
+          status.classList.add('is-error');
+          status.textContent = `Something went wrong. Please email us at ${email}.`;
+        }
+        return;
+      }
+
+      const subject = encodeURIComponent(`Website enquiry from ${name}`);
+      const body = encodeURIComponent(`${message}\n\n${name}\n${from}`);
+      status.textContent = 'Opening your email app with your message…';
+      window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
+    });
+  }
+  initContactForm();
+  document.addEventListener('astro:page-load', initContactForm);
+</script>
