@@ -1,0 +1,124 @@
+---
+/**
+ * SxEffects: the one shared script for every .sx-page page.
+ * Reveal on scroll, count-up numbers, pointer glow, tabs, scroll progress bar.
+ * Usage: put <SxEffects /> once inside <Layout>, before <div class="sx-page">.
+ * Requires the sx.css rules to be present (e.g. pasted into tailwind.css).
+ */
+---
+
+<script is:inline>
+    document.documentElement.classList.add('sx-js');
+    // Safety net: if the page script ever fails to start, show everything.
+    setTimeout(function () {
+      if (!document.querySelector('.sx-page[data-sx-ready]')) document.documentElement.classList.remove('sx-js');
+    }, 4000);
+  </script>
+
+<script>
+  function init() {
+    const root = document.querySelector<HTMLElement>('.sx-page');
+    if (!root || root.dataset.sxReady) return;
+    root.dataset.sxReady = '1';
+
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    document.documentElement.classList.add('sx-js');
+
+    // Reveal on scroll, plus "watch" blocks that start their own animations
+    const targets = root.querySelectorAll<HTMLElement>('.sx-reveal, .sx-watch');
+    if (reduce || !('IntersectionObserver' in window)) {
+      targets.forEach((el) => el.classList.add('is-in'));
+    } else {
+      const io = new IntersectionObserver(
+        (entries) =>
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.classList.add('is-in');
+              io.unobserve(e.target);
+            }
+          }),
+        { threshold: 0.18, rootMargin: '0px 0px -6% 0px' },
+      );
+      targets.forEach((el) => io.observe(el));
+    }
+
+    // Count-up numbers
+    if (!reduce && 'IntersectionObserver' in window) {
+      const counters = root.querySelectorAll<HTMLElement>('[data-sx-count]');
+      const cio = new IntersectionObserver(
+        (entries) =>
+          entries.forEach((e) => {
+            if (!e.isIntersecting) return;
+            const el = e.target as HTMLElement;
+            cio.unobserve(el);
+            const end = Number(el.dataset.sxCount);
+            const start = performance.now();
+            const dur = 1500;
+            const tick = (now: number) => {
+              const p = Math.min(1, (now - start) / dur);
+              el.textContent = String(Math.round(end * (1 - Math.pow(1 - p, 3))));
+              if (p < 1) requestAnimationFrame(tick);
+            };
+            el.textContent = '0';
+            requestAnimationFrame(tick);
+          }),
+        { threshold: 0.6 },
+      );
+      counters.forEach((el) => cio.observe(el));
+    }
+
+    // Pointer-following glow on cards
+    root.querySelectorAll<HTMLElement>('.sx-glow').forEach((card) => {
+      card.addEventListener('pointermove', (e: PointerEvent) => {
+        const r = card.getBoundingClientRect();
+        card.style.setProperty('--mx', `${e.clientX - r.left}px`);
+        card.style.setProperty('--my', `${e.clientY - r.top}px`);
+      });
+    });
+
+    // Tabs ([data-sx-tabs] > [role=tablist] > [role=tab], panels are [role=tabpanel])
+    root.querySelectorAll<HTMLElement>('[data-sx-tabs]').forEach((group) => {
+      const tabs = Array.from(group.querySelectorAll<HTMLElement>('[role="tab"]'));
+      const panels = Array.from(group.querySelectorAll<HTMLElement>('[role="tabpanel"]'));
+      const select = (index: number, focus = false) => {
+        tabs.forEach((tab, i) => {
+          const on = i === index;
+          tab.setAttribute('aria-selected', String(on));
+          tab.tabIndex = on ? 0 : -1;
+          if (on && focus) tab.focus();
+        });
+        panels.forEach((panel, i) => {
+          panel.hidden = i !== index;
+        });
+      };
+      tabs.forEach((tab, i) => {
+        tab.addEventListener('click', () => select(i));
+        tab.addEventListener('keydown', (e: KeyboardEvent) => {
+          if (e.key === 'ArrowRight') select((i + 1) % tabs.length, true);
+          else if (e.key === 'ArrowLeft') select((i - 1 + tabs.length) % tabs.length, true);
+          else if (e.key === 'Home') select(0, true);
+          else if (e.key === 'End') select(tabs.length - 1, true);
+        });
+      });
+      select(0);
+    });
+
+    // Scroll progress bar
+    const bar = root.querySelector<HTMLElement>('.sx-progress span');
+    if (bar) {
+      const onScroll = () => {
+        if (!bar.isConnected) {
+          window.removeEventListener('scroll', onScroll);
+          return;
+        }
+        const h = document.documentElement.scrollHeight - window.innerHeight;
+        bar.style.transform = `scaleX(${h > 0 ? Math.min(1, window.scrollY / h) : 0})`;
+      };
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+    }
+  }
+
+  init();
+  document.addEventListener('astro:page-load', init);
+</script>
