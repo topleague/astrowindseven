@@ -40,7 +40,7 @@ export const headerData = {
       ],
     },
   {
-      text: ‘Services’,
+     text: 'Services',
       links: [
         {
           text: 'Article Writing',
