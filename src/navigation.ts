@@ -2,9 +2,10 @@ import { getPermalink, getBlogPermalink, getAsset } from './utils/permalinks';
 
 export const headerData = {
   links: [
-  {
-      text: 'Home',
-  },
+    {
+        text: 'About',
+        href: getPermalink('/who/'),
+      },
     {
       text: 'Pages',
       links: [
