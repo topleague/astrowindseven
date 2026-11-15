@@ -1,0 +1,21 @@
+---
+/**
+ * SxBlogHero: compact dark title band for blog list, category and tag pages.
+ * crumbs: breadcrumb items (rendered in light colours, with BreadcrumbList data).
+ */
+import Breadcrumbs from '~/components/common/Breadcrumbs.astro';
+
+const { pill = 'Blog', title, accent, subtitle, crumbs } = Astro.props;
+---
+
+<section class="sx-hero sx-blog-hero">
+  <div class="sx-wrap">
+    {crumbs && <div class="sx-crumbs"><Breadcrumbs items={crumbs} /></div>}
+    <div class="sx-pill"><span class="sx-dot"></span> {pill}</div>
+    <h1>
+      {title}
+      {accent && <span>{accent}</span>}
+    </h1>
+    {subtitle && <p>{subtitle}</p>}
+  </div>
+</section>
