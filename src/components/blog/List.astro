@@ -4,17 +4,25 @@ import type { Post } from '~/types';
 
 export interface Props {
   posts: Array<Post>;
+  /** Make the first post a wide featured card (use on page 1 of the main blog list). */
+  featured?: boolean;
+  /** 2 (default) or 3 columns. */
+  columns?: 2 | 3;
 }
 
-const { posts } = Astro.props;
+const { posts, featured = false, columns = 2 } = Astro.props;
 ---
 
-<ul>
-  {
-    posts.map((post) => (
-      <li class="mb-12 md:mb-20">
-        <Item post={post} />
-      </li>
-    ))
-  }
-</ul>
+{
+  posts.length === 0 ? (
+    <p class="sx-empty">No posts yet. Please check back soon.</p>
+  ) : (
+    <ul class:list={['sx-posts', columns === 3 && 'is-3']}>
+      {posts.map((post, i) => (
+        <li class:list={['sx-reveal', featured && i === 0 && 'is-feat']} style={`--d:${(i % 3) * 0.08}s`}>
+          <Item post={post} />
+        </li>
+      ))}
+    </ul>
+  )
+}
