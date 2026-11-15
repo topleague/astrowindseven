@@ -1,6 +1,9 @@
 ---
+/**
+ * MarkdownLayout: wraps .md pages (terms, privacy...) in the SX look.
+ * Dark header + short dark title band, then a readable text column.
+ */
 import Layout from '~/layouts/PageLayout.astro';
-
 import type { MetaData } from '~/types';
 
 export interface Props {
@@ -16,13 +19,34 @@ const metadata: MetaData = {
 };
 ---
 
-<Layout metadata={metadata}>
-  <section class="px-4 py-16 sm:px-6 mx-auto lg:px-8 lg:py-20 max-w-4xl">
-    <h1 class="font-bold font-heading text-4xl md:text-5xl leading-tighter tracking-tighter">{frontmatter.title}</h1>
-    <div
-      class="mx-auto prose prose-lg max-w-4xl dark:prose-invert dark:prose-headings:text-slate-300 prose-headings:font-heading prose-headings:leading-tighter prose-headings:tracking-tighter prose-headings:font-bold prose-a:text-primary dark:prose-a:text-blue-400 prose-img:rounded-md prose-img:shadow-lg mt-8"
-    >
-      <slot />
-    </div>
-  </section>
+<Layout metadata={metadata} pageClass="product-description-page">
+  <div class="sx-page">
+    <section class="sx-hero sx-doc-hero">
+      <div class="sx-wrap">
+        <div class="sx-pill"><span class="sx-dot"></span> Legal</div>
+        <h1>{frontmatter.title}</h1>
+      </div>
+    </section>
+
+    <section class="sx-section">
+      <div class="sx-wrap">
+        <article
+          class="sx-doc prose prose-lg max-w-3xl dark:prose-invert prose-headings:font-heading prose-headings:tracking-tighter prose-headings:font-bold prose-headings:text-[var(--ink)] prose-strong:text-[var(--ink)] prose-a:text-[var(--green)] dark:prose-a:text-[var(--lime)]"
+        >
+          <slot />
+        </article>
+      </div>
+    </section>
+  </div>
 </Layout>
+
+<style is:global>
+  .sx-page .sx-doc-hero { padding: 130px 0 56px; }
+  .sx-page .sx-doc-hero h1 { max-width: none; margin: 0; font-size: clamp(40px, 5.5vw, 72px); }
+  .sx-page .sx-doc p, .sx-page .sx-doc li { color: var(--muted); }
+  .sx-page .sx-doc li::marker { color: var(--green); }
+  .sx-page .sx-doc blockquote { border-left: 3px solid var(--red); background: var(--alt); padding: 14px 20px; border-radius: 0 12px 12px 0; font-style: normal; color: var(--ink); }
+  .sx-page .sx-doc blockquote p { color: inherit; }
+  .sx-page .sx-doc hr { border-color: var(--line); }
+  .dark .sx-page .sx-doc li::marker { color: var(--lime); }
+</style>
