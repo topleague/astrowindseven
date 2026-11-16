@@ -13,18 +13,6 @@ export const headerData = {
           text: 'Features (Anchor Link)',
           href: getPermalink('/#features'),
         },
-        {
-          text: 'About us',
-          href: getPermalink('/about'),
-        },
-        {
-          text: 'Terms',
-          href: getPermalink('/terms'),
-        },
-        {
-          text: 'Privacy policy',
-          href: getPermalink('/privacy'),
-        },
       ],
     },
   {
@@ -130,6 +118,6 @@ export const footerData = {
     { ariaLabel: 'Github', icon: 'tabler:brand-github', href: 'https://github.com/arthelokyo/astrowind' },
   ],
   footNote: `
-    Made by <a class="text-blue-600 underline dark:text-muted" href="https://arthelokyo.com"> Arthelokyo</a> · All rights reserved.
+    Made by <a class="text-blue-600 underline dark:text-muted" href="https://arthelokyo.com">Arthelokyo</a> · All rights reserved. <a href="/terms/">Terms of Service</a> · <a href="/privacy/">Privacy Policy</a>.
   `,
 };
