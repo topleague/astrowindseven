@@ -221,7 +221,7 @@ const next = [
 
       const topic = String(data.get('topic') || '').trim();
       const subject = topic === 'Other' || !topic ? `Website enquiry from ${name}` : `Inquiry about ${topic} Project`;
-      data.set('_subject', subject);
+      data.set('subject', subject);
 
       let ok = true;
       [['name', name], ['email', /\S+@\S+\.\S+/.test(from) ? from : ''], ['message', message]].forEach(([field, value]) => {
