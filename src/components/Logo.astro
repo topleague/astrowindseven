@@ -4,7 +4,7 @@
 // switch to white when the surface behind them is light.
 ---
 <svg
-  class="tl-logo h-9 md:h-10 w-auto"
+  class="tl-logo"
   viewBox="0 0 210 70"
   role="img"
   aria-label="Top League Tech"
@@ -30,8 +30,19 @@
 </svg>
 
 <style>
-  .tl-logo { display: block; }
+  /* Scales with the viewport: ~100px wide on small phones up to 132px on desktop */
+  .tl-logo {
+    display: block;
+    flex: none;
+    width: clamp(100px, 30vw, 132px);
+    height: auto;
+    color: #111827; /* wordmark + diamond on a light header */
+  }
   .tl-logo-mark { fill: #fff; }
+
+  /* Dark header: dark mode, or pages that force the dark header */
+  :global(.dark) .tl-logo,
+  :global(.product-description-page #header) .tl-logo { color: #f3f6f6; }
   :global(.dark) .tl-logo-mark,
-  :global(.product-description-page #header) .tl-logo-mark { fill: #000000; }
+  :global(.product-description-page #header) .tl-logo-mark { fill: #0b44fa; }
 </style>
