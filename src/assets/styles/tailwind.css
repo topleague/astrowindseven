@@ -1075,3 +1075,10 @@ color: #fff;
     max-width: 38em;
   }
 }
+
+@media (max-width: 980px) {
+  .sx-page .sx-hero {
+    padding-top: clamp(56px, 10vw, 84px);     /* ~56px on phones, ~82px on iPad */
+    padding-bottom: clamp(48px, 8vw, 70px);   /* tighter bottom edge as well */
+  }
+}
