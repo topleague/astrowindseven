@@ -1,0 +1,381 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import SxEffects from '~/components/sx/SxEffects.astro';
+import { Icon } from 'astro-icon/components';
+
+const metadata = {
+  title: 'Website Development for Small Businesses | Top League',
+  description:
+    'Custom WordPress websites for small businesses: designed around your brand, built for speed and search, and looked after long after launch. Clear scope, no hidden costs.',
+};
+
+const quoteLink = '/contact/';
+
+const stats = [
+  { n: 'Scalable', l: 'Grows with your business' },
+  { n: 'Quick', l: 'Fast-paced turnaround' },
+  { n: 'Found', l: 'SEO-minded from day one' },
+  { n: 'Looked after', l: 'Updates and security' },
+];
+
+const why = [
+  { icon: 'tabler:layout-dashboard', t: 'Built around your business', d: 'Not a template with your logo dropped in. We work with you page by page, from imagery to colour palette, so the site looks and feels like your brand.' },
+  { icon: 'tabler:search', t: 'Made to be found', d: 'Fast-loading, mobile-friendly pages with on-page SEO set up from the start, so search engines and visitors both understand what you offer.' },
+  { icon: 'tabler:shield-check', t: 'Looked after afterwards', d: 'We handle updates and security so your site stays safe, current and worry-free, with direct access to the team when you need help.' },
+];
+
+const usual = [
+  'A generic template with your logo dropped in',
+  'SEO left for “later”',
+  'Handed over, then silence',
+  'Surprise costs after the quote',
+];
+const better = [
+  'A design shaped around your brand and goals',
+  'On-page SEO built into the site',
+  'Ongoing maintenance and support',
+  'Clear scope. No hidden costs. No upsells.',
+];
+
+const steps = [
+  { dot: '1', k: 'STEP 01', t: 'Understand your business', d: 'We start with a requirements analysis: what you do, who you want to reach, and what the website needs to achieve for you.' },
+  { dot: '2', k: 'STEP 02', t: 'Design it with you', d: 'We work through the site page by page with you, choosing imagery and refining the colour palette until it fits your brand.' },
+  { dot: '3', k: 'STEP 03', t: 'Build for speed and search', d: 'We build a fast, mobile-friendly site with on-page SEO and a contact page designed to turn visitors into enquiries.' },
+  { dot: '4', k: 'STEP 04', t: 'Launch and look after it', d: 'We take the site live, then keep it updated and secure for the support period you choose.' },
+];
+
+const included = [
+  { icon: 'tabler:palette', t: 'Design to fit your brand', d: 'From limited customisation to a fully custom theme, depending on the package you choose.' },
+  { icon: 'tabler:device-mobile', t: 'Mobile-friendly', d: 'Your site looks and works well on phones, tablets and desktops.' },
+  { icon: 'tabler:bolt', t: 'Fast-loading', d: 'Speed and performance are part of the build, not an afterthought.' },
+  { icon: 'tabler:chart-line', t: 'On-page SEO', d: 'Titles, descriptions, headings and structure set up for the pages in your package.' },
+  { icon: 'tabler:message-circle', t: 'A contact page that works', d: 'A clear way for visitors to reach you, set up so enquiries actually arrive.' },
+  { icon: 'tabler:tool', t: 'Maintenance and support', d: 'Updates, security and help from the people who built your site.' },
+];
+
+const plans = [
+  {
+    k: 'Basic', t: '$500',
+    d: 'A practical, professional website to get your business online.',
+    li: ['Limited customisation', 'On-page SEO for 1 page', '3 months support'],
+  },
+  {
+    k: 'Standard', t: '$750',
+    d: 'A site tailored to how your business works and what your customers need.',
+    li: ['Customised to your needs', 'On-page SEO for 4 pages', '9 months support'], feat: true, badge: 'Popular',
+  },
+  {
+    k: 'Premium', t: '$1000',
+    d: 'A site with its own look, built from the ground up for your brand.',
+    li: ['Custom theme design', 'Free SEO for one month', '12 months support'],
+  },
+];
+
+const work = [
+  {
+    t: 'Purbaghat Masala',
+    k: 'Custom WordPress child theme',
+    d: 'The client wanted a unique online presence, not a generic template. We built a custom child theme and worked with them page by page on imagery and the colour palette to match the brand.',
+  },
+  {
+    t: 'Decyphr',
+    k: 'IT consultancy website',
+    d: 'After a requirements analysis, we built an optimised site focused on speed and performance, covering theme selection, contact page optimisation and ongoing maintenance of the whole digital presence.',
+  },
+];
+
+const faqs = [
+  { q: 'How much does a website cost?', a: 'Our packages start at $500 and go up to $1000, with the scope of each one set out above. If your project needs more, tell us what you have in mind and we’ll prepare a custom quote.' },
+  { q: 'How long will it take?', a: 'It depends on the number of pages and how ready your content is. We agree a timeline with you after the requirements analysis, and we work to get your site live quickly.' },
+  { q: 'Do I need to write the content myself?', a: 'You can supply your own, or we can help. Content writing is one of our core services, and good copy makes a big difference to how a website performs.' },
+  { q: 'Will my website rank on Google?', a: 'We set up on-page SEO properly, so your site is built to be found. Nobody can honestly promise a particular ranking, though, and results depend on competition and ongoing content.' },
+  { q: 'What happens after the site goes live?', a: 'Every package includes a support period (3, 9 or 12 months). We handle updates and security, and you have direct access to the team throughout.' },
+  { q: 'Can I edit the website myself?', a: 'Yes. WordPress lets you change text and images without code. We’ll show you how, and we’re there when you’d rather leave it to us.' },
+];
+
+const marquee = ['Custom', 'Fast', 'Found', 'Looked after'].join(' ✦ ') + ' ✦ ';
+---
+
+<Layout metadata={metadata} pageClass="product-description-page">
+
+  <SxEffects />
+
+  <div class="sx-page">
+    <div class="sx-progress" aria-hidden="true"><span></span></div>
+
+    <!-- 1. HERO -->
+    <section class="sx-hero">
+      <div class="sx-wrap sx-hero-grid">
+        <div class="sx-hero-copy">
+          <div class="sx-pill"><span class="sx-dot"></span> Website development</div>
+
+          <h1>
+            Websites that
+            <span>work for your business.</span>
+          </h1>
+
+          <p>
+            Custom WordPress websites for small businesses: built around your brand, fast on every
+            device, and set up for search from day one.
+          </p>
+
+          <div class="sx-actions">
+            <a class="sx-btn sx-btn-primary" href={quoteLink}>Get a free quote <i>↗</i></a>
+            <a class="sx-btn sx-btn-ghost" href="#packages">See packages <i>↓</i></a>
+          </div>
+
+          <div class="sx-note">Clear scope. No hidden costs. Typically we reply within 24 hours.</div>
+        </div>
+
+        <div
+          class="sx-stage"
+          role="img"
+          aria-label="Illustration: a website page with a headline, an image, a call to action button and search-friendly structure."
+        >
+          <div class="sx-win">
+            <div class="sx-win-bar"><i></i><i></i><i></i><span>yourbusiness.com</span></div>
+            <div class="sx-win-body">
+              <div class="sx-cols" style="--c:2">
+                <span class="sx-sk is-img" style="height:150px"></span>
+                <div style="display:grid;gap:10px;align-content:start">
+                  <span class="sx-sk is-h w90"></span>
+                  <span class="sx-sk w70"></span>
+                  <span class="sx-sk w80"></span>
+                  <span class="sx-sk is-btn" style="width:130px;margin-top:6px"></span>
+                </div>
+              </div>
+              <div class="sx-cols" style="--c:3">
+                <div class="sx-box"><span class="sx-sk is-hot w50"></span><span class="sx-sk w90"></span><span class="sx-sk w70"></span></div>
+                <div class="sx-box sx-hl" style="--hd:3s"><span class="sx-sk is-hot w50"></span><span class="sx-sk w90"></span><span class="sx-sk w70"></span></div>
+                <div class="sx-box"><span class="sx-sk is-hot w50"></span><span class="sx-sk w90"></span><span class="sx-sk w70"></span></div>
+              </div>
+            </div>
+          </div>
+
+          <span class="sx-pin" style="right:-2%;top:6%"><b>1</b> Looks like your brand</span>
+          <span class="sx-pin" style="left:-2%;top:58%"><b>2</b> Fast on any device</span>
+          <span class="sx-pin" style="right:-2%;bottom:5%"><b>3</b> SEO from day one</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. STRIP -->
+    <section class="sx-proof">
+      <div class="sx-wrap sx-proof-grid">
+        <div class="sx-proof-lead sx-reveal">Built right.<br />Kept running.</div>
+        <div class="sx-stats is-text">
+          {stats.map((s, i) => (
+            <div class="sx-stat sx-reveal" style={`--d:${i * 0.08}s`}>
+              <div class="sx-num"><span>{s.n}</span></div>
+              <div class="sx-stat-l">{s.l}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. WHY IT MATTERS -->
+    <section class="sx-section" id="why">
+      <div class="sx-wrap">
+        <div class="sx-head">
+          <div class="sx-kicker sx-reveal">What sets us apart</div>
+          <h2 class="sx-h2 sx-reveal">A website is the start of your online presence, not the finish.</h2>
+          <p class="sx-lead sx-reveal">
+            A good site looks right, loads quickly, gets found and stays healthy. We build all four
+            into every project.
+          </p>
+        </div>
+        <div class="sx-bento">
+          {why.map((w, i) => (
+            <article class="sx-card sx-glow sx-reveal sx-b4" style={`--d:${i * 0.08}s`}>
+              <span class="sx-ico" style="margin:6px 0 18px"><Icon name={w.icon} class="h-5 w-5" /></span>
+              <h3>{w.t}</h3>
+              <p>{w.d}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. THE DIFFERENCE -->
+    <section class="sx-section sx-alt" id="difference">
+      <div class="sx-wrap">
+        <div class="sx-head">
+          <div class="sx-kicker sx-reveal">The Top League approach</div>
+          <h2 class="sx-h2 sx-reveal">Personal service, clear pricing, and a site that’s yours.</h2>
+          <p class="sx-lead sx-reveal">
+            You deal directly with the people building your website, and you know what you’re getting before we start.
+          </p>
+        </div>
+
+        <div class="sx-vs">
+          <article class="sx-vs-card sx-vs-old sx-watch sx-reveal">
+            <div class="sx-vs-k"><span class="sx-x">×</span> The usual way</div>
+            <h3>Websites that disappoint</h3>
+            <ul>{usual.map((t, i) => <li style={`--i:${i}`}>{t}</li>)}</ul>
+          </article>
+
+          <div class="sx-vs-badge" aria-hidden="true">VS</div>
+
+          <article class="sx-vs-card sx-vs-new sx-watch sx-reveal" style="--d:.12s">
+            <div class="sx-vs-k"><span class="sx-tick">✓</span> The Top League approach</div>
+            <h3>A website that does its job</h3>
+            <ul>{better.map((t, i) => <li style={`--i:${i}`}><span class="sx-tick">✓</span>{t}</li>)}</ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. PROCESS -->
+    <section class="sx-section" id="process">
+      <div class="sx-wrap">
+        <div class="sx-head">
+          <div class="sx-kicker sx-reveal">How we work</div>
+          <h2 class="sx-h2 sx-reveal">From first conversation to a live website.</h2>
+          <p class="sx-lead sx-reveal">
+            A simple process, with you involved at every step.
+          </p>
+        </div>
+
+        <ol class="sx-tl sx-watch" style={`--n:${steps.length}`}>
+          {steps.map((s) => (
+            <li>
+              <span class="sx-tl-dot">{s.dot}</span>
+              <div class="sx-tl-k">{s.k}</div>
+              <h3>{s.t}</h3>
+              <p>{s.d}</p>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
+
+    <!-- 6. WHAT'S INCLUDED -->
+    <section class="sx-section sx-alt" id="included">
+      <div class="sx-wrap">
+        <div class="sx-head">
+          <div class="sx-kicker sx-reveal">What’s included</div>
+          <h2 class="sx-h2 sx-reveal">Everything a small business website needs to get going.</h2>
+        </div>
+        <div class="sx-bento">
+          {included.map((w, i) => (
+            <article class="sx-card sx-glow sx-reveal sx-b4" style={`--d:${(i % 3) * 0.08}s`}>
+              <span class="sx-ico" style="margin:6px 0 18px"><Icon name={w.icon} class="h-5 w-5" /></span>
+              <h3>{w.t}</h3>
+              <p>{w.d}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. PACKAGES -->
+    <section class="sx-section" id="packages">
+      <div class="sx-wrap">
+        <div class="sx-head">
+          <div class="sx-kicker sx-reveal">Website packages</div>
+          <h2 class="sx-h2 sx-reveal">Clear prices. No hidden costs. No upsells.</h2>
+          <p class="sx-lead sx-reveal">
+            Pick the package that fits where your business is today. Need something different? We’ll quote for it.
+          </p>
+        </div>
+
+        <div class="sx-paths">
+          {plans.map((p, i) => (
+            <article class={`sx-path sx-glow sx-reveal${p.feat ? ' is-feat' : ''}`} style={`--d:${i * 0.1}s`}>
+              <span class="sx-path-n" aria-hidden="true">0{i + 1}</span>
+              {p.badge && <span class="sx-badge">{p.badge}</span>}
+              <div class="sx-card-k">{p.k}</div>
+              <h3>{p.t}</h3>
+              <p>{p.d}</p>
+              <ul>{p.li.map((t) => <li><span class="sx-tick">✓</span>{t}</li>)}</ul>
+              <a class={`sx-btn ${p.feat ? 'sx-btn-primary' : 'sx-btn-dark'}`} href={quoteLink}>Get started <i>↗</i></a>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. WORK -->
+    <section class="sx-section sx-alt" id="work">
+      <div class="sx-wrap">
+        <div class="sx-head">
+          <div class="sx-kicker sx-reveal">Recent work</div>
+          <h2 class="sx-h2 sx-reveal">Websites we’ve built for real businesses.</h2>
+        </div>
+        <div class="sx-quotes is-two">
+          {work.map((w, i) => (
+            <article class="sx-quote sx-reveal" style={`--d:${i * 0.08}s`}>
+              <div class="sx-card-k" style="margin:0">{w.k}</div>
+              <div class="sx-quote-t">{w.t}</div>
+              <p>{w.d}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. CLIENT WORDS -->
+    <section class="sx-section sx-night" id="proof">
+      <div class="sx-wrap" style="max-width:860px">
+        <div class="sx-kicker sx-reveal">Client words</div>
+        <blockquote class="sx-bigq sx-reveal">
+          Over the last six years, Top League have exceeded my expectations and delighted me with their
+          personalized service in maintaining my professional and other websites.
+        </blockquote>
+        <div class="sx-person sx-reveal">
+          <span class="sx-av" aria-hidden="true">UD</span>
+          <div class="sx-who">
+            <b>Prof. Uday Damodaran</b>
+            <span>Faculty, IIM Udaipur</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10. FAQ -->
+    <section class="sx-section" id="faq">
+      <div class="sx-wrap">
+        <div class="sx-head">
+          <div class="sx-kicker sx-reveal">Questions</div>
+          <h2 class="sx-h2 sx-reveal">Things people ask before they start.</h2>
+        </div>
+        <ul class="sx-problems">
+          {faqs.map((f) => (
+            <li class="sx-reveal">
+              <span class="sx-ico" aria-hidden="true">?</span>
+              <details style="flex:1">
+                <summary class="sx-p-t" style="cursor:pointer;margin:0">{f.q}</summary>
+                <div class="sx-p-d" style="margin-top:10px">{f.a}</div>
+              </details>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+
+    <!-- 11. MARQUEE -->
+    <div class="sx-marquee" aria-hidden="true">
+      <div class="sx-marquee-track">
+        <span>{marquee}</span>
+        <span>{marquee}</span>
+        <span>{marquee}</span>
+        <span>{marquee}</span>
+      </div>
+    </div>
+
+    <!-- 12. CTA -->
+    <section class="sx-cta" id="contact">
+      <div class="sx-wrap">
+        <div class="sx-cta-card sx-reveal">
+          <div>
+            <div class="sx-kicker sx-kicker-lime">Let’s talk</div>
+            <h2>Let’s build your online presence</h2>
+            <p>Tell us about your business and what you need. We typically reply within 24 hours.</p>
+          </div>
+          <a class="sx-btn sx-btn-primary sx-btn-lg" href={quoteLink}>Get a free quote <i>↗</i></a>
+        </div>
+      </div>
+    </section>
+  </div>
+</Layout>
