@@ -117,11 +117,22 @@ const next = [
             <input id="cf-email" name="email" type="email" autocomplete="email" required />
           </div>
           <div class="sx-field">
+            <label for="cf-topic">What is it about?</label>
+            <select id="cf-topic" name="topic">
+              <option value="">Choose one (optional)</option>
+              <option value="Website">Website</option>
+              <option value="Content">Content / Articles</option>
+              <option value="SEO">SEO</option>
+              <option value="Product Description">Product descriptions</option>
+              <option value="Other">Something else</option>
+            </select>
+          </div>
+          <div class="sx-field">
             <label for="cf-message">Message</label>
             <textarea id="cf-message" name="message" rows="6" required></textarea>
           </div>
           <div class="sx-hp" aria-hidden="true">
-            <label>Leave this empty <input name="website" type="text" tabindex="-1" autocomplete="off" /></label>
+            <label>Leave this empty <input name="_gotcha" type="text" tabindex="-1" autocomplete="off" /></label>
           </div>
           <button class="sx-btn sx-btn-primary" type="submit">Send message <i>↗</i></button>
           <p class="sx-form-note">By submitting this contact form, you acknowledge and agree to the collection of your personal information.</p>
@@ -175,10 +186,10 @@ const next = [
   .sx-page .sx-form { display: grid; gap: 18px; padding: clamp(24px, 4vw, 40px); background: var(--card); border: 1px solid var(--line); border-radius: 24px; box-shadow: 0 30px 60px -40px rgba(0, 0, 0, .35); }
   .sx-page .sx-field { display: grid; gap: 8px; }
   .sx-page .sx-field label { font-size: 13px; font-weight: 700; letter-spacing: .04em; color: var(--ink); }
-  .sx-page .sx-field input, .sx-page .sx-field textarea { width: 100%; padding: 14px 16px; border: 1px solid var(--line); border-radius: 12px; background: var(--bg); color: var(--ink); font: inherit; font-size: 16px; transition: border-color .2s ease, box-shadow .2s ease; }
+  .sx-page .sx-field input, .sx-page .sx-field textarea, .sx-page .sx-field select { width: 100%; padding: 14px 16px; border: 1px solid var(--line); border-radius: 12px; background: var(--bg); color: var(--ink); font: inherit; font-size: 16px; transition: border-color .2s ease, box-shadow .2s ease; }
   .sx-page .sx-field textarea { min-height: 150px; resize: vertical; }
-  .sx-page .sx-field input:focus, .sx-page .sx-field textarea:focus { outline: none; border-color: var(--green); box-shadow: 0 0 0 3px rgba(31, 95, 85, .25); }
-  .dark .sx-page .sx-field input:focus, .dark .sx-page .sx-field textarea:focus { border-color: var(--lime); box-shadow: 0 0 0 3px rgba(217, 255, 67, .25); }
+  .sx-page .sx-field input:focus, .sx-page .sx-field textarea:focus, .sx-page .sx-field select:focus { outline: none; border-color: var(--green); box-shadow: 0 0 0 3px rgba(31, 95, 85, .25); }
+  .dark .sx-page .sx-field input:focus, .dark .sx-page .sx-field textarea:focus, .dark .sx-page .sx-field select:focus { border-color: var(--lime); box-shadow: 0 0 0 3px rgba(217, 255, 67, .25); }
   .sx-page .sx-field .is-bad { border-color: var(--red); }
   .sx-page .sx-hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
   .sx-page .sx-form .sx-btn { justify-self: start; cursor: pointer; }
@@ -202,11 +213,15 @@ const next = [
     form.addEventListener('submit', async (event) => {
       event.preventDefault();
       const data = new FormData(form);
-      if (data.get('website')) return; // honeypot: bots only
+      if (data.get('_gotcha')) return; // honeypot: bots only
 
       const name = String(data.get('name') || '').trim();
       const from = String(data.get('email') || '').trim();
       const message = String(data.get('message') || '').trim();
+
+      const topic = String(data.get('topic') || '').trim();
+      const subject = topic === 'Other' || !topic ? `Website enquiry from ${name}` : `Inquiry about ${topic} Project`;
+      data.set('_subject', subject);
 
       let ok = true;
       [['name', name], ['email', /\S+@\S+\.\S+/.test(from) ? from : ''], ['message', message]].forEach(([field, value]) => {
@@ -234,10 +249,10 @@ const next = [
         return;
       }
 
-      const subject = encodeURIComponent(`Website enquiry from ${name}`);
+      const mailSubject = encodeURIComponent(subject);
       const body = encodeURIComponent(`${message}\n\n${name}\n${from}`);
       status.textContent = 'Opening your email app with your message…';
-      window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
+      window.location.href = `mailto:${email}?subject=${mailSubject}&body=${body}`;
     });
   }
   initContactForm();
