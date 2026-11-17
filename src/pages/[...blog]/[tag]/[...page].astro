@@ -24,15 +24,16 @@ const currentPage = page.currentPage ?? 1;
 const breadcrumbs = [
   { text: 'Home', href: getPermalink('/') },
   { text: 'Blog', href: getBlogPermalink() },
+  { text: 'Tags', href: getPermalink('/tags') },
   ...(currentPage > 1
     ? [
         {
-          text: `Tag: ${tag.title}`,
+          text: tag.title,
           href: getPermalink(tag.slug, 'tag'),
         },
         { text: `Page ${currentPage}` },
       ]
-    : [{ text: `Tag: ${tag.title}` }]),
+    : [{ text: tag.title }]),
 ];
 
 const metadata = {
@@ -48,7 +49,7 @@ const metadata = {
 <SxBlogShell metadata={metadata}>
   <SxBlogHero
     pill="Tag"
-    title={`Tag: ${tag.title}`}
+    title={tag.title}
     crumbs={breadcrumbs}
   />
 
