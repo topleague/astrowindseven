@@ -2,7 +2,7 @@
 title: How to Choose Phrases for Internal Linking
 publishDate: 2026-09-26
 updateDate: 2026-09-26
-draft: false
+draft: true
 excerpt: "Knowing how to build better internal links within your website can
   help search engines understand, crawl and index your website better. "
 image: /images/Hbbku5ol_400x400-removebg-preview.png
