@@ -39,7 +39,13 @@ const categories = Array.from(categoryMap.values()).sort((a, b) =>
 const breadcrumbs = [
   { text: 'Home', href: getPermalink('/') },
   { text: 'Blog', href: getBlogPermalink() },
-  { text: 'Categories' },
+  { text: 'Categories', href: getPermalink('/categories') },
+  ...(currentPage > 1
+    ? [
+        { text: category.title, href: getPermalink(category.slug, 'category') },
+        { text: `Page ${currentPage}` },
+      ]
+    : [{ text: category.title }]),
 ];
 
 const metadata = {
