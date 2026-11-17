@@ -5,7 +5,10 @@ publishDate: 2015-01-06T00:00:00+05:30
 updateDate: 2026-11-17T00:00:00+05:30
 category: "Content Writing"
 author: "Top League Technologies"
-tags: []
+tags:
+  - style guide
+  - editing
+  - headlines
 metadata:
   title: "Capitalization Rules for Headlines and Subheadings"
   description: "Title case or sentence case? A plain guide to capitalizing headlines and subheadings, why style guides differ, and how to keep your site consistent."
@@ -68,6 +71,8 @@ Because our clients write for readers in both India and the USA, we also recomme
 Most word processors and editors can change case automatically, but their title case is often only approximate and misses the edge cases above. Treat automated tools as a first pass and read the result yourself. Pay particular attention to proper nouns, acronyms and words after colons, which tools frequently get wrong.
 
 Remember that headlines appear in places beyond the page: search results, social previews, browser tabs and emails. A consistent style carries through all of them.
+
+A written style sheet is one of the simplest ways to [improve your content quality](/improve-content-writing-quality/) across a whole site.
 
 ## In short
 

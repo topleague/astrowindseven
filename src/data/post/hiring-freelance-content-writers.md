@@ -5,7 +5,10 @@ publishDate: 2010-05-15T00:00:00+05:30
 updateDate: 2026-11-17T00:00:00+05:30
 category: "Content Writing"
 author: "Top League Technologies"
-tags: []
+tags:
+  - hiring
+  - freelance writers
+  - content writing
 metadata:
   title: "How to Hire a Content Writer (and What to Avoid)"
   description: "A practical checklist for hiring a freelance content writer or agency: what to ask for, how to test, which red flags matter, and when to part ways."

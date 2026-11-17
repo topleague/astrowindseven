@@ -5,7 +5,10 @@ publishDate: 2014-07-24T00:00:00+05:30
 updateDate: 2026-11-17T00:00:00+05:30
 category: "SEO"
 author: "Top League Technologies"
-tags: []
+tags:
+  - schema markup
+  - structured data
+  - technical seo
 metadata:
   title: "Schema Markup for Small Business Websites"
   description: "What schema markup is, which types a small business site actually needs, how to add and test it, and why accurate markup beats more markup."

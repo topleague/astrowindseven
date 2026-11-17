@@ -5,7 +5,10 @@ publishDate: 2014-10-28T00:00:00+05:30
 updateDate: 2026-11-17T00:00:00+05:30
 category: "Website"
 author: "Top League Technologies"
-tags: []
+tags:
+  - landing pages
+  - conversion
+  - web design
 metadata:
   title: "Landing Page Elements That Convert"
   description: "A landing page has one job: get the visitor to take one action. These are the elements that matter, and the common mistakes that cost you enquiries."

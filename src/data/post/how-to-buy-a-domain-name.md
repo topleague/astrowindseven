@@ -5,7 +5,10 @@ publishDate: 2016-07-20T00:00:00+05:30
 updateDate: 2026-11-17T00:00:00+05:30
 category: "Website"
 author: "Top League Technologies"
-tags: []
+tags:
+  - domain names
+  - website basics
+  - beginners
 metadata:
   title: "How to Buy a Domain Name (Website Guide, Part 1)"
   description: "Part 1 of our beginner series on starting a website: how to pick a domain name, choose an extension, avoid common traps and register it safely."

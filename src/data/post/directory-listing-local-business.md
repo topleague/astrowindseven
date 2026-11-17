@@ -1,14 +1,17 @@
 ---
 title: "Local SEO and Google Business Profile for small businesses"
-excerpt: "A practical guide to local SEO: set up your Google Business Profile, keep your name, address and phone number consistent, and choose directories that are worth your time."
+excerpt: "A practical guide to local SEO: set up your Google Business Profile, keep your name, address and phone consistent, and pick directories worth your time."
 publishDate: 2013-11-19T00:00:00+05:30
 updateDate: 2026-11-17T00:00:00+05:30
 category: "SEO"
 author: "Top League Technologies"
-tags: []
+tags:
+  - local seo
+  - google business profile
+  - citations
 metadata:
   title: "Local SEO and Google Business Profile Guide"
-  description: "A practical guide to local SEO: set up your Google Business Profile, keep your name, address and phone number consistent, and choose directories that are worth your time."
+  description: "A practical guide to local SEO: set up your Google Business Profile, keep your name, address and phone consistent, and pick directories worth your time."
 ---
 
 If your customers come from a particular town or city, local search is probably the most valuable kind of SEO for you. Someone searching "dentist near me" or "wedding photographer in Cuttack" is usually ready to act, and Google answers with a map and a short list of businesses before it shows ordinary website results.

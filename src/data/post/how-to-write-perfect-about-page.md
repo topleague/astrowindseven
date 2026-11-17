@@ -5,7 +5,10 @@ publishDate: 2015-02-13T00:00:00+05:30
 updateDate: 2026-11-17T00:00:00+05:30
 category: "Website"
 author: "Top League Technologies"
-tags: []
+tags:
+  - about page
+  - web copy
+  - trust
 metadata:
   title: "How to Write the Perfect About Page"
   description: "Your About page is among the most visited on your site. Learn how to write one that builds trust, answers visitor doubts and leads to the next step."

@@ -5,7 +5,10 @@ publishDate: 2016-07-21T00:00:00+05:30
 updateDate: 2026-11-17T00:00:00+05:30
 category: "Website"
 author: "Top League Technologies"
-tags: []
+tags:
+  - web hosting
+  - website basics
+  - beginners
 metadata:
   title: "How to Choose Web Hosting (Website Guide, Part 2)"
   description: "Part 2 of our beginner series: what web hosting is, the types available, and the support, backup, speed and exit questions to ask before you sign up."

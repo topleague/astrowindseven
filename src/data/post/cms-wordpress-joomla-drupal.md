@@ -5,7 +5,10 @@ publishDate: 2016-07-23T00:00:00+05:30
 updateDate: 2026-11-17T00:00:00+05:30
 category: "Website"
 author: "Top League Technologies"
-tags: []
+tags:
+  - cms
+  - wordpress
+  - website basics
 metadata:
   title: "How to Choose a CMS (Website Guide, Part 3)"
   description: "Part 3 of our beginner series: what a CMS is, how WordPress, Drupal and Joomla compare, and why most small businesses start with WordPress."

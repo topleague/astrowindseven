@@ -5,7 +5,10 @@ publishDate: 2016-08-09T00:00:00+05:30
 updateDate: 2026-11-17T00:00:00+05:30
 category: "Content Marketing"
 author: "Top League Technologies"
-tags: []
+tags:
+  - content marketing
+  - small business
+  - strategy
 metadata:
   title: "Content Marketing Guide for Small Businesses"
   description: "What content marketing is, how it differs from copywriting, what it costs in time and money, and how a small business can start with a plan it can sustain."

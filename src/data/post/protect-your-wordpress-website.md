@@ -5,7 +5,10 @@ publishDate: 2014-12-03T00:00:00+05:30
 updateDate: 2026-11-17T00:00:00+05:30
 category: "WordPress"
 author: "Top League Technologies"
-tags: []
+tags:
+  - wordpress
+  - security
+  - maintenance
 metadata:
   title: "How to Protect Your WordPress Site from Hackers"
   description: "Practical steps to keep a WordPress site safe: strong logins, updates, trusted plugins, backups, and what to do if your site has already been hacked."

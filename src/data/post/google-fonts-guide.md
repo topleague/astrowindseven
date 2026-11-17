@@ -5,7 +5,10 @@ publishDate: 2015-02-12T00:00:00+05:30
 updateDate: 2026-11-17T00:00:00+05:30
 category: "Website"
 author: "Top League Technologies"
-tags: []
+tags:
+  - web fonts
+  - typography
+  - performance
 metadata:
   title: "How to Use Custom Fonts on Your Website"
   description: "How to choose web fonts, self-host Google Fonts for speed and privacy, understand premium font licences, and add fonts in WordPress block themes."

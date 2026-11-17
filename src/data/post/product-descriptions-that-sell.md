@@ -1,14 +1,17 @@
 ---
 title: "How to write product descriptions that sell"
-excerpt: "Practical rules for product descriptions that inform and persuade: the details to include, benefits over features, plain language, and why original text matters."
+excerpt: "Practical rules for product descriptions that inform and persuade: the details to include, benefits over features, plain language and original text."
 publishDate: 2015-12-14T00:00:00+05:30
 updateDate: 2026-11-17T00:00:00+05:30
 category: "Copywriting"
 author: "Top League Technologies"
-tags: []
+tags:
+  - product descriptions
+  - ecommerce
+  - copywriting
 metadata:
   title: "How to Write Product Descriptions That Sell"
-  description: "Practical rules for product descriptions that inform and persuade: the details to include, benefits over features, plain language, and why original text matters."
+  description: "Practical rules for product descriptions that inform and persuade: the details to include, benefits over features, plain language and original text."
 ---
 
 A product description has a harder job than most sales copy. A shopper cannot touch the item, ask a question or meet the seller. The description has to stand in for all of that, in a few lines, and often on a phone screen.

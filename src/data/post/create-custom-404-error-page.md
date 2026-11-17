@@ -5,7 +5,10 @@ publishDate: 2016-08-05T00:00:00+05:30
 updateDate: 2026-11-17T00:00:00+05:30
 category: "Website"
 author: "Top League Technologies"
-tags: []
+tags:
+  - 404 page
+  - wordpress
+  - user experience
 metadata:
   title: "How to Create a Custom 404 Page"
   description: "A good 404 page helps lost visitors find what they wanted. Learn what to include, what to avoid, and how to build one in WordPress, including block themes."
@@ -75,6 +78,8 @@ Visit a URL that cannot exist, for example `yoursite.com/this-page-does-not-exis
 - the response code is 404
 
 Revisit it after theme changes, since updates sometimes reset the template.
+
+A good 404 page works best on a site with sound [internal linking](/internal-linking-anchor-text/), so visitors have somewhere useful to go next.
 
 ## A small chance to help
 

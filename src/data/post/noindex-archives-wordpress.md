@@ -5,7 +5,10 @@ publishDate: 2014-08-11T00:00:00+05:30
 updateDate: 2026-11-17T00:00:00+05:30
 category: "SEO"
 author: "Top League Technologies"
-tags: []
+tags:
+  - noindex
+  - wordpress
+  - technical seo
 metadata:
   title: "Should You Noindex Archives in WordPress?"
   description: "Tag, author and date archives rarely deserve a place in Google. Here is which WordPress archives to noindex, which to keep, and how to do it safely."

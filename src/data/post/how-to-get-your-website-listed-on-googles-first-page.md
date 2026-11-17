@@ -5,7 +5,10 @@ publishDate: 2014-04-13T00:00:00+05:30
 updateDate: 2026-11-17T00:00:00+05:30
 category: "SEO"
 author: "Top League Technologies"
-tags: []
+tags:
+  - google
+  - indexing
+  - seo basics
 metadata:
   title: "How to Get Your Website on Google"
   description: "Being on Google takes three things: pages Google can find, content that matches what people search for, and trust from other sites. Here is how it works."

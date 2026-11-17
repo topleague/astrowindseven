@@ -5,7 +5,10 @@ publishDate: 2014-11-03T00:00:00+05:30
 updateDate: 2026-11-17T00:00:00+05:30
 category: "SEO"
 author: "Top League Technologies"
-tags: []
+tags:
+  - internal links
+  - anchor text
+  - on-page seo
 metadata:
   title: "Internal Linking and Anchor Text Explained"
   description: "How to link between your own pages in a way that helps visitors and search engines, how to choose anchor text, and what to do about nofollow links."

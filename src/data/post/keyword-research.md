@@ -5,7 +5,10 @@ publishDate: 2013-07-24T00:00:00+05:30
 updateDate: 2026-11-17T00:00:00+05:30
 category: "SEO"
 author: "Top League Technologies"
-tags: []
+tags:
+  - keyword research
+  - search intent
+  - seo basics
 metadata:
   title: "Keyword Research for Small Businesses"
   description: "A practical way to find the search terms your customers use, judge search intent, and choose keywords your small business can realistically rank for."

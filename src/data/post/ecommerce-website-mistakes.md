@@ -5,7 +5,10 @@ publishDate: 2014-10-27T00:00:00+05:30
 updateDate: 2026-11-17T00:00:00+05:30
 category: "Website"
 author: "Top League Technologies"
-tags: []
+tags:
+  - ecommerce
+  - web design
+  - conversion
 metadata:
   title: "Ecommerce Website Mistakes to Avoid"
   description: "Six ecommerce mistakes that cost small online shops sales: weak product pages, slow mobile pages, poor support, clumsy checkout and unmonitored payments."

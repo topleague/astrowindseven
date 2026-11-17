@@ -5,7 +5,10 @@ publishDate: 2015-12-16T00:00:00+05:30
 updateDate: 2026-11-17T00:00:00+05:30
 category: "Copywriting"
 author: "Top League Technologies"
-tags: []
+tags:
+  - copywriting
+  - cliches
+  - conversion
 metadata:
   title: "Copywriting That Converts: Headlines and Sales Copy"
   description: "How to write headlines and sales copy that persuade: skip the empty buzzwords, be specific, speak to the reader's problem and end with a clear next step."
