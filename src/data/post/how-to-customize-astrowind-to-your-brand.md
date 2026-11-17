@@ -5,6 +5,7 @@ excerpt: Customize the AstroWind Astro template to your brand. Light and dark co
 image: https://images.unsplash.com/photo-1709803056954-aff96d0faf1c?auto=format&fit=crop&w=2070&q=80
 imageAlt: Steps painted in different colors against a blue sky
 category: Documentation
+draft: true
 tags:
   - astro
   - tailwind css
