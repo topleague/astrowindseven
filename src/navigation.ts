@@ -4,26 +4,30 @@ export const headerData = {
   links: [
     {
         text: 'About',
-        href: getPermalink('/who/'),
+        href: getPermalink('/about-us/'),
       },
   {
      text: 'Services',
       links: [
         {
           text: 'Article Writing',
-          href: getPermalink('/arty/'),
+          href: getPermalink('/seo-article-writing/'),
         },
         {
           text: 'SEO Copywriting',
-          href: getPermalink('/mike/'),
+          href: getPermalink('/seo-copywriting/'),
         },
         {
           text: 'Product Description Writing',
-          href: getPermalink('/hiya/'),
+          href: getPermalink('/product-description-writing/'),
+        },
+        {
+          text: 'Website Development',
+          href: getPermalink('/website-development/'),
         },
 	  {
           text: 'SEO Services',
-          href: getPermalink('/homy/'),
+          href: getPermalink('/seo-services/'),
         },
       ],
     },
