@@ -13,7 +13,6 @@ tags:
   - astro
   - tailwind css
 updateDate: 2026-09-25
-draft: false
 ---
 Most of the work on a marketing site is not hard, it is long: a new page that looks like the others, a section moved from one page to another, a blog post with the right front matter, a deployment setting nobody remembers. AI coding assistants are good at exactly this kind of work, provided they know the conventions of the project. AstroWind gives them those conventions in two places, so that the same assistant that can [create the project](/get-started-website-with-astro-tailwind-css) can also [rebrand it](/how-to-customize-astrowind-to-your-brand) or [explain how it works](/astrowind-template-in-depth) without guessing.
 
