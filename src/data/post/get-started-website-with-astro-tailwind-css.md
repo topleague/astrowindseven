@@ -6,6 +6,7 @@ excerpt: Build a site with the free AstroWind template for Astro and Tailwind CS
 image: https://images.unsplash.com/photo-1502101872923-d48509bff386?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80
 imageAlt: Two toddlers standing at the bottom of a beige concrete staircase
 category: Tutorials
+draft: true
 tags:
   - astro
   - tailwind css
