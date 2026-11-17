@@ -1,308 +1,893 @@
-
 ---
-/* PART 1: IMPORTS */
-import Hero from '~/components/widgets/Hero.astro';
 import Layout from '~/layouts/PageLayout.astro';
-import Content from '~/components/widgets/Content.astro';
-import Features from '~/components/widgets/Features.astro';
-import Testimonials from '~/components/widgets/Testimonials.astro';
-import Quote from '~/components/widgets/Quote.astro';
 
-import Headline from '~/components/ui/Headline.astro';
-import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
-
-import Projects from '~/components/widgets/Projects.astro';
-import { findLatestPosts } from '~/utils/blog';
-import { findImage } from '~/utils/images';
-import { getPermalink, getBlogPermalink } from '~/utils/permalinks';
-import Prices from '~/components/widgets/Pricing.astro';
-
-
-/* PART 2: FRONTMATTER */
 const metadata = {
-  title: 'Page Name',
-  description: 'Random Page Description.',
+  title: 'Product Description Writing Services | Top League',
+  description:
+    'Persuasive, research-driven and SEO-friendly product descriptions that help shoppers understand your products and feel confident buying them.',
 };
 
-const destination = 'https://github.com/arthelokyo/astrowind';
+const sampleLink = 'mailto:hello@topleaguetech.com?subject=Free%20Sample%20Request';
 
-const posts = await findLatestPosts({ count: 3 });
+const stats = [
+  { n: 'Product', l: 'Understand the product' },
+  { n: 'Buyer', l: 'Understand the buyer' },
+  { n: 'Words', l: 'Find the right words' },
+  { n: 'Review', l: 'Write, review and refine' },
+];
 
-const blogItems = await Promise.all(
-  posts.map(async (post) => {
-    const image = await findImage(post.image);
+const why = [
+  { g: '◆', t: 'Features need meaning', d: 'Features tell shoppers what a product has. Benefits help them understand what it can do for them. We bring the two together through clear, compelling writing.' },
+  { g: '?', t: 'Buyers need answers', d: 'We consider your target audience, their priorities and the questions they’re likely to ask before putting words on the page.' },
+  { g: '⌕', t: 'Products need visibility', d: 'We incorporate relevant search keywords naturally, without compromising readability or turning your descriptions into keyword lists.' },
+];
 
-    return {
-      title: post.title,
-      image: image ? { src: image, alt: post.imageAlt || post.title } : undefined,
-      tags: [
-        post.publishDate.toLocaleDateString('en-IN', {
-          day: 'numeric',
-          month: 'short',
-          year: 'numeric',
-        }),
-        ...(post.category ? [post.category.title] : []),
-      ],
-      href: getPermalink(post.permalink, 'post'),
-      linkText: 'Read More',
-    };
-  })
-);
+const moment = [
+  { t: 'Browsing', d: 'Imagine someone browsing your online store.' },
+  { t: 'Interested', d: 'They find a product that looks promising. The photographs are appealing. The price seems reasonable.' },
+  { t: 'Scrolling', d: 'They scroll down to learn a little more.' },
+  { t: 'Nothing to go on', d: 'But the description tells them almost nothing. Just a list of specifications, a few generic sentences and perhaps some technical details copied from the manufacturer’s catalogue.' },
+  { t: 'Still asking', d: 'They still have questions. Will it solve their problem? Is it worth the price? What makes it different from the alternatives?' },
+  { t: 'Another tab', d: 'They hesitate. They open another tab. And your product becomes just another option they considered.' },
+];
 
+const usual = [
+  'Long lists of unexplained specifications',
+  'Generic claims that could describe any product',
+  'Keyword-heavy sentences that are hard to read',
+  'Pushy language and exaggerated promises',
+];
+const better = [
+  'Clear information that answers real questions',
+  'Meaningful benefits connected to product features',
+  'Natural keywords and readable copy',
+  'Persuasion grounded in the product’s actual value',
+];
+
+const steps = [
+  { dot: '1', k: 'STEP 01', t: 'Understand the product', d: 'We examine its features, specifications, intended uses and distinguishing qualities. We identify what a prospective customer needs to know.' },
+  { dot: '2', k: 'STEP 02', t: 'Understand the buyer', d: 'Who is likely to purchase this product? What matters to them? What concerns might prevent them from buying?' },
+  { dot: '3', k: 'STEP 03', t: 'Find the right words', d: 'We identify relevant keywords and translate product information into clear, benefit-oriented language.' },
+  { dot: '4', k: 'STEP 04', t: 'Write, review and refine', d: 'We review the copy for clarity, accuracy, readability and SEO considerations before delivery.' },
+];
+
+const plans = [
+  {
+    k: 'Basic', t: 'A practical starting point',
+    d: 'For businesses looking to experience our product description writing before placing a larger order.',
+    li: ['Product-focused descriptions', 'Research-led writing', 'SEO-aware copy'],
+  },
+  {
+    k: 'Standard', t: 'For growing catalogues',
+    d: 'For online stores improving product content across a growing catalogue.',
+    li: ['Consistent catalogue voice', 'Product and audience research', 'SEO titles and meta descriptions'], feat: true, badge: 'Popular',
+  },
+  {
+    k: 'Premium', t: 'For larger catalogues',
+    d: 'For businesses with substantial product ranges that need consistent descriptions at scale.',
+    li: ['Bulk-order planning', 'Consistent writing standards', 'Volume-based pricing'],
+  },
+];
+
+const marquee = ['Meaning', 'Answers', 'Visibility', 'Confidence'].join(' ✦ ') + ' ✦ ';
 ---
 
-<!-- PART 3: TEMPLATE (PAGE BODY) -->
-<Layout
-  metadata={metadata}
-  pageClass="seo-article-writing"
->
+<Layout metadata={metadata} pageClass="product-description-page">
 
-  <!-- Hero2 Widget ******************* -->
+  <script is:inline>
+    document.documentElement.classList.add('sx-js');
+    // Safety net: if the page script ever fails to start, show everything.
+    setTimeout(function () {
+      if (!document.querySelector('.sx-page[data-sx-ready]')) document.documentElement.classList.remove('sx-js');
+    }, 4000);
+  </script>
 
+  <div class="sx-page">
+    <div class="sx-progress" aria-hidden="true"><span></span></div>
 
-<!-- Custom SEO Article Writing Hero -->
-<div class="seo-content-writing">
-  <section
-    class="article-hero"
-    aria-labelledby="article-hero-title"
-    style="background-image: linear-gradient(to right, #141618, #14161870), url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3…90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2040&h=1148&q=80')"
-  >
-    <div class="article-hero-content">
-      <h1 id="article-hero-title">Product Description Writing</h1>  <!-- Hero TITLE 🟢 ¯\_(ツ)_/¯ 🟢  ******************* -->
-      <p>We write product descriptions your paying customers want to read.</p>
-    </div>
-  </section>
+    <!-- 1. HERO -->
+    <section class="sx-hero">
+      <div class="sx-wrap sx-hero-grid">
+        <div class="sx-hero-copy">
+          <div class="sx-pill"><span class="sx-dot"></span> Product description writing</div>
 
-  <!-- Existing SVG Curve -->
-  <div class="hero-separator dark:hidden" aria-hidden="true">
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 1920 120"
-      preserveAspectRatio="none"
-      class="block w-full"
-    >
-      <path
-        fill="#fff"
-        fill-rule="evenodd"
-        d="M0,0 C320,60 640,90 960,90 C1280,90 1600,60 1920,0 L1920,120 L0,120 L0,0 Z"
-      />
-    </svg>
-  </div>
-</div>
+          <h1>
+            Product descriptions
+            <span>that make buying easier.</span>
+          </h1>
 
+          <p>
+            We turn product features into meaningful reasons to buy, with persuasive,
+            research-driven and SEO-friendly product descriptions.
+          </p>
 
-<!-- Features Widget ************************************************************************************************************************ -->
+          <div class="sx-actions">
+            <a class="sx-btn sx-btn-primary" href="#contact">Request a free sample <i>↗</i></a>
+            <a class="sx-btn sx-btn-ghost" href="#included">See what's included <i>↓</i></a>
+          </div>
 
+          <div class="sx-note">No obligation. Just good product writing for you to evaluate.</div>
+        </div>
 
-<!-- Content / Plain Text Widget -->
+        <div
+          class="sx-stage"
+          role="img"
+          aria-label="Illustration: a product page where a bare list of specifications sits next to a description that explains benefits and answers questions."
+        >
+          <div class="sx-win">
+            <div class="sx-win-bar"><i></i><i></i><i></i><span>yourstore.com/product</span></div>
+            <div class="sx-win-body">
+              <div class="sx-cols" style="--c:2">
+                <span class="sx-sk is-img" style="height:140px"></span>
+                <div style="display:grid;gap:10px;align-content:start">
+                  <span class="sx-sk is-h w90"></span>
+                  <span class="sx-sk w50"></span>
+                  <span class="sx-sk w70"></span>
+                  <span class="sx-sk is-btn" style="width:120px;margin-top:6px"></span>
+                </div>
+              </div>
+              <div class="sx-cols" style="--c:2">
+                <div class="sx-box">
+                  <span class="sx-chip" style="justify-self:start">Specs only</span>
+                  <span class="sx-sk w90"></span>
+                  <span class="sx-sk w70"></span>
+                  <span class="sx-sk w80"></span>
+                  <span class="sx-sk w60"></span>
+                </div>
+                <div class="sx-box sx-hl" style="--hd:3s">
+                  <span class="sx-chip is-hot" style="justify-self:start">With our copy</span>
+                  <span class="sx-sk is-hot w70"></span>
+                  <span class="sx-sk w90"></span>
+                  <span class="sx-sk w80"></span>
+                  <span class="sx-sk w50"></span>
+                </div>
+              </div>
+            </div>
+          </div>
 
+          <span class="sx-pin" style="right:-2%;top:6%"><b>1</b> Benefits, not just features</span>
+          <span class="sx-pin" style="left:-2%;top:56%"><b>2</b> Answers buyer questions</span>
+          <span class="sx-pin" style="right:-2%;bottom:5%"><b>3</b> Keywords, naturally</span>
+        </div>
+      </div>
+    </section>
 
+    <!-- 2. STRIP -->
+    <section class="sx-proof">
+      <div class="sx-wrap sx-proof-grid">
+        <div class="sx-proof-lead sx-reveal">Understand first.<br />Write second.</div>
+        <div class="sx-stats is-text">
+          {stats.map((s, i) => (
+            <div class="sx-stat sx-reveal" style={`--d:${i * 0.08}s`}>
+              <div class="sx-num"><span>{s.n}</span></div>
+              <div class="sx-stat-l">{s.l}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
 
-<!-- Service Introduction / Editorial Text Section -->
-<section id="about" class="px-6 py-16 sm:py-20 lg:py-24">
-  <div class="mx-auto max-w-5xl">
-    <div class="mx-auto max-w-3xl">
+    <!-- 3. WHY IT MATTERS -->
+    <section class="sx-section" id="coming">
+      <div class="sx-wrap sx-two">
+        <div>
+          <div class="sx-kicker sx-reveal">Why it matters</div>
+          <h2 class="sx-h2 sx-reveal" style="max-width:none">Good product descriptions make the value obvious.</h2>
+          <p class="sx-lead sx-reveal">The right words connect what a product does with what a customer actually cares about.</p>
 
-      <h2 class="mb-6 text-3xl font-bold leading-tight tracking-tight text-slate-900 dark:text-white sm:text-4xl">
-        Article writing has changed. Quality matters more than ever.
-      </h2> <!-- OPENING PARAGRAPH 🟢 ¯\_(ツ)_/¯ 🟢  ******************* -->
+          <ul class="sx-problems">
+            {why.map((w, i) => (
+              <li class="sx-reveal" style={`--d:${0.1 + i * 0.1}s`}>
+                <span class="sx-ico" aria-hidden="true">{w.g}</span>
+                <div>
+                  <div class="sx-p-t">{w.t}</div>
+                  <div class="sx-p-d">{w.d}</div>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
 
-      <div class="space-y-5 text-base leading-7 text-slate-700 dark:text-slate-300 sm:text-lg sm:leading-8">
+        <div class="sx-win sx-reveal" role="img" aria-label="Illustrative example: a plain feature turned into a benefit, a buyer question turned into an answer, and a search term used naturally.">
+          <div class="sx-bridge">
+            <div style="display:grid;gap:8px">
+              <div class="sx-bridge-l">Features need meaning</div>
+              <div class="sx-qa">Stainless steel, 750 ml</div>
+              <div class="sx-qa is-a">Keeps your drink cold through the workday.</div>
+            </div>
+            <div style="display:grid;gap:8px">
+              <div class="sx-bridge-l">Buyers need answers</div>
+              <div class="sx-qa">Will it fit in my bag?</div>
+              <div class="sx-qa is-a">Slim enough for a side pocket.</div>
+            </div>
+            <div style="display:grid;gap:8px">
+              <div class="sx-bridge-l">Products need visibility</div>
+              <div class="sx-qa">insulated water bottle</div>
+              <div class="sx-qa is-a">An insulated water bottle that stays out of the way.</div>
+            </div>
+            <div class="sx-dots-cap" style="padding:0"><div>Illustrative example only.</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-        <p>
-          When an e-commerce store loses their business to the competition, they don’t either have the product or product description it takes to convert visitors into paying customers.
-        </p>
+    <!-- 4. A FAMILIAR SHOPPING MOMENT -->
+    <section class="sx-section sx-night" id="story">
+      <div class="sx-wrap sx-story-grid">
+        <div class="sx-sticky">
+          <div class="sx-kicker sx-reveal">A familiar shopping moment</div>
+          <h2 class="sx-h2 sx-reveal" style="max-width:none">Someone is interested in your product. But are they convinced?</h2>
+          <blockquote class="sx-bigq sx-reveal">The problem isn't necessarily your product. Sometimes, it's the way your product is presented.</blockquote>
+          <div class="sx-copy">
+            <p class="sx-reveal">
+              A good product description closes that gap. It helps shoppers understand what they're looking at,
+              imagine how it fits into their lives and recognise why it might be the right choice.
+            </p>
+            <p class="sx-reveal"><strong>That's what we believe product writing should accomplish.</strong></p>
+          </div>
+        </div>
 
-        <p>
-         Product descriptions can make or break an e-commerce business. They must be concise, informative and captivating all at the same time, in order to help customers make a purchase.
-        </p>
+        <ol class="sx-steps">
+          {moment.map((m, i) => (
+            <li class="sx-reveal" style={`--d:${i * 0.07}s`}>
+              <span>{i + 1}</span>
+              <div>
+                <div class="sx-p-t">{m.t}</div>
+                <div class="sx-p-d">{m.d}</div>
+              </div>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
 
-        <p>
-       With over six years into content writing, we’ve crafted hundreds of product descriptions for stores operating across a wide range of verticals. Through our research-oriented approach, we ensure that we know what customers want even before we write the first word.
-        </p>
+    <!-- 5. THE TOP LEAGUE APPROACH -->
+    <section class="sx-section sx-alt" id="difference">
+      <div class="sx-wrap">
+        <div class="sx-head">
+          <div class="sx-kicker sx-reveal">The Top League approach</div>
+          <h2 class="sx-h2 sx-reveal">Your product may be excellent. Your description should make that obvious.</h2>
+          <p class="sx-lead sx-reveal">
+            Effective product copy doesn't need to be complicated. It needs to communicate the right
+            things in the right way.
+          </p>
+        </div>
 
+        <div class="sx-vs">
+          <article class="sx-vs-card sx-vs-old sx-watch sx-reveal">
+            <div class="sx-vs-k"><span class="sx-x">×</span> The usual way</div>
+            <h3>Descriptions that get in the way</h3>
+            <ul>{usual.map((t, i) => <li style={`--i:${i}`}>{t}</li>)}</ul>
+          </article>
+
+          <div class="sx-vs-badge" aria-hidden="true">VS</div>
+
+          <article class="sx-vs-card sx-vs-new sx-watch sx-reveal" style="--d:.12s">
+            <div class="sx-vs-k"><span class="sx-tick">✓</span> The Top League approach</div>
+            <h3>Copy that helps customers decide</h3>
+            <ul>{better.map((t, i) => <li style={`--i:${i}`}><span class="sx-tick">✓</span>{t}</li>)}</ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. HOW WE WORK -->
+    <section class="sx-section" id="process">
+      <div class="sx-wrap">
+        <div class="sx-head">
+          <div class="sx-kicker sx-reveal">How we work</div>
+          <h2 class="sx-h2 sx-reveal">Before we write about your product, we need to understand it.</h2>
+          <p class="sx-lead sx-reveal">
+            Good product descriptions don't begin with a writing template. They begin with understanding.
+          </p>
+        </div>
+
+        <ol class="sx-tl sx-watch" style={`--n:${steps.length}`}>
+          {steps.map((s) => (
+            <li>
+              <span class="sx-tl-dot">{s.dot}</span>
+              <div class="sx-tl-k">{s.k}</div>
+              <h3>{s.t}</h3>
+              <p>{s.d}</p>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
+
+    <!-- 7. WHAT'S INCLUDED -->
+    <section class="sx-section sx-alt" id="included">
+      <div class="sx-wrap">
+        <div class="sx-head">
+          <div class="sx-kicker sx-reveal">What's included</div>
+          <h2 class="sx-h2 sx-reveal">Everything your product page needs to make a stronger impression.</h2>
+        </div>
+
+        <div class="sx-bento">
+
+          <article class="sx-card sx-glow sx-reveal sx-b7">
+            <div class="sx-viz sx-serp-wrap" aria-hidden="true">
+              <div class="sx-serp">
+                <div class="sx-serp-top">
+                  <span class="sx-fav">Y</span>
+                  <div><b>Your Store</b><small>yourstore.com › products › product-name</small></div>
+                </div>
+                <div class="sx-serp-title">Product name | Your Store</div>
+                <div class="sx-serp-desc">Benefit-led copy that helps each product page make a stronger first impression in search.</div>
+              </div>
+            </div>
+            <div class="sx-card-k">04 — Search</div>
+            <h3>SEO titles and meta descriptions</h3>
+            <p>
+              We provide SEO titles and meta descriptions alongside your product descriptions, helping
+              each product page make a stronger first impression in search.
+            </p>
+          </article>
+
+          <article class="sx-card sx-glow sx-reveal sx-b5" style="--d:.08s">
+            <div class="sx-viz" aria-hidden="true">
+              <div class="sx-tiles">
+                {[0, 1, 2, 3, 4, 5].map(() => (
+                  <div class="sx-tile"><span class="sx-sk is-img"></span><span class="sx-sk is-hot w50"></span><span class="sx-sk w90"></span></div>
+                ))}
+              </div>
+            </div>
+            <div class="sx-card-k">05 — Consistency</div>
+            <h3>A consistent catalogue</h3>
+            <p>
+              Whether you have a handful of products or hundreds, your catalogue should communicate a
+              consistent brand personality.
+            </p>
+          </article>
+
+          <article class="sx-card sx-glow sx-reveal sx-b5">
+            <div class="sx-viz" aria-hidden="true">
+              <div class="sx-stack">
+                <div class="sx-box" style="--k:0"><span class="sx-sk w70"></span><span class="sx-sk w50"></span></div>
+                <div class="sx-box" style="--k:1"><span class="sx-sk w70"></span><span class="sx-sk w50"></span></div>
+                <div class="sx-box is-top" style="--k:2"><span class="sx-sk is-hot w70"></span><span class="sx-sk w50"></span></div>
+              </div>
+            </div>
+            <div class="sx-card-k">06 — Bulk value</div>
+            <h3>Better value on bulk orders</h3>
+            <p>Have a large catalogue to populate? Ask us about volume-based pricing for qualifying bulk orders.</p>
+          </article>
+
+          <article class="sx-card sx-glow sx-reveal sx-b7" style="--d:.08s">
+            <div class="sx-viz is-stack" aria-hidden="true">
+              <div class="sx-chips"><span class="sx-chip is-hot">Free sample</span></div>
+              <span class="sx-sk w90"></span>
+              <span class="sx-sk w60"></span>
+              <div class="sx-url"><b>Sample</b> Try before you commit <span class="sx-ok">✓</span></div>
+            </div>
+            <div class="sx-card-k">07 — Free sample</div>
+            <h3>Try before you commit</h3>
+            <p>
+              Not sure whether our writing is right for your business? Get in touch to discuss a sample
+              before choosing a package.
+            </p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. PACKAGES -->
+    <section class="sx-section" id="packages">
+      <div class="sx-wrap">
+        <div class="sx-head">
+          <div class="sx-kicker sx-reveal">Writing packages</div>
+          <h2 class="sx-h2 sx-reveal">Start small. Scale when you're ready.</h2>
+          <p class="sx-lead sx-reveal">
+            Whether you're testing the waters or building an entire catalogue, there's a package to get you moving.
+          </p>
+        </div>
+
+        <div class="sx-paths">
+          {plans.map((p, i) => (
+            <article class={`sx-path sx-glow sx-reveal${p.feat ? ' is-feat' : ''}`} style={`--d:${i * 0.1}s`}>
+              <span class="sx-path-n" aria-hidden="true">0{i + 1}</span>
+              {p.badge && <span class="sx-badge">{p.badge}</span>}
+              <div class="sx-card-k">{p.k}</div>
+              <h3>{p.t}</h3>
+              <p>{p.d}</p>
+              <ul>{p.li.map((t) => <li><span class="sx-tick">✓</span>{t}</li>)}</ul>
+              <a class={`sx-btn ${p.feat ? 'sx-btn-primary' : 'sx-btn-dark'}`} href="#contact">Discuss your requirements <i>↗</i></a>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. MARQUEE -->
+    <div class="sx-marquee" aria-hidden="true">
+      <div class="sx-marquee-track">
+        <span>{marquee}</span>
+        <span>{marquee}</span>
+        <span>{marquee}</span>
+        <span>{marquee}</span>
       </div>
     </div>
+
+    <!-- 10. CTA -->
+    <section class="sx-cta" id="contact">
+      <div class="sx-wrap">
+        <div class="sx-cta-card sx-reveal">
+          <div>
+            <div class="sx-kicker sx-kicker-lime">Let's talk</div>
+            <h2>Let's make your descriptions shine</h2>
+            <p>You've already invested in your products. Let's make the shoppers notice what they're worth.</p>
+          </div>
+          <a class="sx-btn sx-btn-primary sx-btn-lg" href={sampleLink}>Request a free sample <i>↗</i></a>
+        </div>
+      </div>
+    </section>
   </div>
-</section>
-
-<!-- Features Widget ************************************************************************************************************************ -->
-<!-- FEATURES 🟢 ¯\_(ツ)_/¯ 🟢  ******************* -->
-
-  <Features
-    id="features"
-    title="Unique features & potential benefits of our product description writing services"
-    subtitle="We write product descriptions that speak to your customers."
-    columns={2}
-    items={[
-      {
-        title: 'Persuasive Description',
-        description: 'We tailor the tone of articles based on audience we target, ensuring the articles leave a great deal of impact',
-        icon: 'tabler:artboard',
-      },
-      {
-        title: 'Keyword Optimized',
-        description: 'We proofread articles to ensure they are free from all kinds of errors, and look professional.',
-        icon: 'tabler:picture-in-picture',
-      },
-      {
-        title: 'SEO Title & Description',
-        description: 'We offer sample content specifically designed for your project to let you see if we’re a good fit.',
-        icon: 'tabler:adjustments-horizontal',
-      },
-      {
-        title: 'Discounts on Bulk Order',
-        description: 'Our articles are 100% unique and each of them is tested via Copyscape before final delivery.',
-        icon: 'tabler:rocket',
-      },
-      {
-        title: 'Free Sample',
-        description: 'We offer up to 50% discount on our standard pricing when you place order for big package.',
-        icon: 'tabler:arrows-right-left',
-      },
-      {
-        title: 'Additional Help',
-        description: 'We offer multiple revisions based on your feedback and rework on any article you’re not satisfied with.',
-        icon: 'tabler:plug-connected',
-      },
-    ]}
-  />
-
-
- <!-- Pricing Widget ******************* -->
-<!-- PRICES 🟢 ¯\_(ツ)_/¯ 🟢  ******************* -->
-
-  <Prices
-    classes={{
-      container: 'service-pricing',
-    }}
-    title="Product Description Writing Packages"
-    subtitle="We have a package for every budget."
-    prices={[
-      {
-        title: 'basic',
-        subtitle: 'Optimal choice for personal use',
-        price: { monthly: 29, yearly: 290 },
-        period: { monthly: 'per month', yearly: 'per year' },
-        items: [
-          {
-            description: 'Etiam in libero, et volutpat',
-          },
-          {
-            description: 'Aenean ac nunc dolor tristique',
-          },
-          {
-            description: 'Cras scelerisque accumsan lib',
-          },
-          {
-            description: 'In hac habitasse',
-          },
-        ],
-        callToAction: {
-          text: 'Get started',
-          href: '#',
-        },
-      },
-      {
-        title: 'standard',
-        subtitle: 'Optimal choice for small teams',
-        price: { monthly: 69, yearly: 690 },
-        period: { monthly: 'per month', yearly: 'per year' },
-        note: 'Two months free on the yearly plan',
-        highlight: true,
-        items: [
-          {
-            description: 'Proin vel laoreet',
-          },
-          {
-            description: 'Ut efficitur habitasse egestas',
-          },
-          {
-            description: 'Volutpat hac curabitur',
-          },
-          {
-            description: 'Pellentesque blandit ut nibh',
-          },
-          {
-            description: 'Donec fringilla sem',
-          },
-        ],
-        callToAction: {
-          text: 'Get started',
-          href: '#',
-        },
-        hasRibbon: true,
-        ribbonTitle: 'popular',
-      },
-      {
-        title: 'premium',
-        subtitle: 'Optimal choice for companies',
-        price: { monthly: 199, yearly: 1990 },
-        period: { monthly: 'per month', yearly: 'per year' },
-        items: [
-          {
-            description: 'Curabitur suscipit risus',
-          },
-          {
-            description: 'Aliquam habitasse malesuada',
-          },
-          {
-            description: 'Suspendisse sit amet blandit',
-          },
-          {
-            description: 'Suspendisse auctor blandit dui',
-          },
-        ],
-        callToAction: {
-          text: 'Get started',
-          href: '#',
-        },
-      },
-    ]}
-  />
-
-<!-- Features Widget: Our Services ************************ -->
-
-<!-- 6. Proof: constraints and (placeholder) testimonials ************************************************************************************************************************-->
-<!-- SOCIAL PROOF 🟢 ¯\_(ツ)_/¯ 🟢  ******************* -->
-
-  <Testimonials
-    id="proof"
-    tagline="Social proof"
-    title="This is where real customer words go"
-    subtitle="Placeholders below, on purpose: never publish invented testimonials. Ask three customers for one sentence each and use their real name, role and photo with permission."
-    testimonials={[
-      {
-        testimonial:
-          'One sentence that names the problem the customer had before and the result after. Specific numbers make it credible.',
-        name: 'Customer name',
-        job: 'Role, company (sample testimonial)',
-        image: {
-          src: 'https://images.unsplash.com/photo-1618835962148-cf177563c6c0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=930&q=80',
-          alt: 'Portrait placeholder for a customer testimonial',
-        },
-      },
-      {
-        testimonial:
-          'A quote that addresses the biggest objection your FAQ also answers: time to value, price, or trust.',
-        name: 'Customer name',
-        job: 'Role, company (sample testimonial)',
-        image: {
-          src: 'https://images.unsplash.com/photo-1453738773917-9c3eff1db985?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1320&q=80',
-          alt: 'Portrait placeholder for a customer testimonial',
-        },
-      },
-      {
-        testimonial:
-          'A short one. Variety in length reads as authentic; three quotes of identical shape read as written by the same person.',
-        name: 'Customer name',
-        job: 'Role, company (sample testimonial)',
-        image: {
-          src: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1320&q=80',
-          alt: 'Portrait placeholder for a customer testimonial',
-        },
-      },
-    ]}
-  />
-
 </Layout>
+
+<style is:global>
+.sx-page {
+    --bg: #fff; --alt: #f1f4f2; --ink: #16202a; --muted: #566470; --line: #dfe5e8; --card: #fff;
+    --red: #b34a43; --green: #1f5f55; --lime: #d9ff43; --night: #17242b; --night-2: #0f1a1f;
+    color: var(--ink); background: var(--bg); overflow-x: clip; position: relative;
+  }
+.dark .sx-page {
+    --bg: #1e293b; --alt: #172033; --ink: #f8fafc; --muted: #cbd5e1; --line: #334155; --card: #243247;
+  }
+.sx-page p { color: var(--muted); }
+.sx-page .sx-wrap { max-width: 1180px; margin-inline: auto; padding-inline: 20px; }
+.sx-page .sx-section { padding: clamp(72px, 9vw, 120px) 0; background: var(--bg); position: relative; }
+.sx-page .sx-alt { background: var(--alt); border-block: 1px solid var(--line); }
+.sx-page .sx-progress { position: fixed; inset: 0 0 auto 0; height: 3px; z-index: 70; pointer-events: none; }
+.sx-page .sx-progress span { display: block; height: 100%; background: var(--lime); transform: scaleX(0); transform-origin: 0 50%; }
+.sx-js .sx-page .sx-reveal:not(.is-in) { opacity: 0; transform: translateY(22px); }
+.sx-page .sx-reveal { transition: opacity .7s ease, transform .7s cubic-bezier(.2, .8, .2, 1); transition-delay: var(--d, 0s); }
+.sx-page .sx-kicker { font-size: 13px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--red); margin-bottom: 18px; }
+.sx-page .sx-kicker-lime { color: var(--lime); }
+.sx-page .sx-h2 { font-size: clamp(34px, 4.6vw, 60px); line-height: 1.04; margin: 0 0 20px; color: var(--ink); max-width: 16ch; }
+.sx-page .sx-head .sx-h2 { max-width: 20ch; }
+.sx-page .sx-lead { font-size: clamp(17px, 1.6vw, 20px); line-height: 1.55; max-width: 46ch; margin: 0; }
+.sx-page .sx-head { margin-bottom: 56px; max-width: 760px; }
+.sx-page .sx-two { display: grid; grid-template-columns: 1fr 1.05fr; gap: clamp(36px, 6vw, 90px); align-items: center; }
+.sx-page .sx-btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 15px 24px; border-radius: 999px;
+    font-weight: 700; font-size: 15px; text-decoration: none; transition: transform .25s ease, background .25s ease, box-shadow .25s ease;
+    border: 1px solid transparent; line-height: 1.2; cursor: pointer;
+  }
+.sx-page .sx-btn i { font-style: normal; display: inline-block; transition: transform .25s ease; }
+.sx-page .sx-btn:hover i { transform: translate(3px, -3px); }
+.sx-page .sx-btn:hover { transform: translateY(-2px); }
+.sx-page .sx-btn-primary { background: var(--lime); color: #17242b; box-shadow: 0 10px 30px -10px rgba(217, 255, 67, .55); }
+.sx-page .sx-btn-primary:hover { box-shadow: 0 16px 36px -10px rgba(217, 255, 67, .75); }
+.sx-page .sx-btn-ghost { color: #fff; border-color: rgba(255, 255, 255, .35); }
+.sx-page .sx-btn-ghost:hover { background: rgba(255, 255, 255, .08); }
+.sx-page .sx-btn-dark { background: #17242b; color: #fff; }
+.sx-page .sx-btn-dark:hover { background: #22343d; }
+.sx-page .sx-btn-lg { padding: 18px 30px; font-size: 16px; white-space: nowrap; }
+.sx-page .sx-hero {
+    position: relative; overflow: hidden; color: #fff; padding: 150px 0 90px;
+    background:
+      radial-gradient(900px 520px at 88% 8%, rgba(217, 255, 67, .13), transparent 60%),
+      radial-gradient(700px 520px at 0% 100%, rgba(179, 74, 67, .25), transparent 60%),
+      linear-gradient(120deg, #0f1a1f, #17242b 55%, #1f3038);
+  }
+.sx-page .sx-hero::before {
+    content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .5;
+    background-image: linear-gradient(rgba(255, 255, 255, .06) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, .06) 1px, transparent 1px);
+    background-size: 56px 56px;
+    -webkit-mask-image: radial-gradient(ellipse at 60% 40%, #000 10%, transparent 70%);
+    mask-image: radial-gradient(ellipse at 60% 40%, #000 10%, transparent 70%);
+  }
+.sx-page .sx-hero-grid { position: relative; display: grid; grid-template-columns: 1.05fr .95fr; gap: 40px; align-items: center; }
+.sx-page .sx-pill {
+    display: inline-flex; align-items: center; gap: 10px; font-size: 12px; letter-spacing: .16em; text-transform: uppercase; font-weight: 700;
+    padding: 8px 14px; border-radius: 999px; background: rgba(255, 255, 255, .08); border: 1px solid rgba(255, 255, 255, .16); margin-bottom: 28px;
+  }
+.sx-page .sx-dot { width: 8px; height: 8px; border-radius: 50%; background: #b9db1c; box-shadow: 0 0 0 0 rgba(185, 219, 28, .7); animation: sx-ping 2s infinite; }
+.sx-page .sx-hero h1 {
+    font-size: clamp(46px, 6.4vw, 92px); line-height: 1; letter-spacing: -.045em; margin: 0 0 26px; color: #fff; max-width: 11ch;
+  }
+.sx-page .sx-hero h1 span {
+    display: block; color: var(--lime);
+    background: linear-gradient(transparent 82%, rgba(217, 255, 67, .22) 82%); width: fit-content;
+  }
+.sx-page .sx-hero p { font-size: clamp(18px, 1.7vw, 21px); line-height: 1.55; color: rgba(255, 255, 255, .8); max-width: 34em; margin: 0 0 34px; }
+.sx-page .sx-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+.sx-page .sx-note { margin-top: 26px; font-size: 13px; color: rgba(255, 255, 255, .6); }
+.sx-page .sx-proof { background: #0f1a1f; color: #fff; padding: 64px 0; border-top: 1px solid rgba(255, 255, 255, .08); }
+.sx-page .sx-proof-grid { display: grid; grid-template-columns: 1fr 1.7fr; gap: 48px; align-items: center; }
+.sx-page .sx-proof-lead { font-size: clamp(24px, 2.8vw, 36px); line-height: 1.15; letter-spacing: -.03em; font-weight: 700; font-family: 'Mona Bold', 'Mona Reg', sans-serif; }
+.sx-page .sx-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.sx-page .sx-stat { border-left: 1px solid rgba(255, 255, 255, .16); padding-left: 18px; }
+.sx-page .sx-num { font-family: 'Mona Bold Pro Max', 'Mona Bold', sans-serif; font-size: clamp(38px, 4.4vw, 58px); line-height: 1; color: var(--lime); letter-spacing: -.04em; }
+.sx-page .sx-stat-l { margin-top: 10px; font-size: 13px; line-height: 1.4; color: rgba(255, 255, 255, .65); }
+.sx-page .sx-problems { list-style: none; margin: 36px 0 0; padding: 0; display: grid; gap: 14px; }
+.sx-page .sx-problems li { display: flex; gap: 16px; align-items: flex-start; padding: 18px 20px; border: 1px solid var(--line); border-radius: 16px; background: var(--card); transition: transform .3s ease, box-shadow .3s ease; }
+.sx-page .sx-problems li:hover { transform: translateX(6px); box-shadow: 0 14px 34px -18px rgba(0, 0, 0, .3); }
+.sx-page .sx-ico { flex: 0 0 auto; width: 42px; height: 42px; display: grid; place-items: center; border-radius: 12px; background: rgba(179, 74, 67, .12); color: var(--red); font-size: 20px; font-weight: 700; }
+.sx-page .sx-p-t { font-weight: 700; font-size: 17px; color: var(--ink); margin-bottom: 4px; }
+.sx-page .sx-p-d { font-size: 15px; line-height: 1.5; color: var(--muted); }
+.sx-page .sx-vs { position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+.sx-page .sx-vs-card { border-radius: 26px; padding: clamp(26px, 3.4vw, 44px); border: 1px solid var(--line); }
+.sx-page .sx-vs-card h3 { font-size: clamp(26px, 2.8vw, 36px); line-height: 1.1; margin: 10px 0 24px; }
+.sx-page .sx-vs-card ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; }
+.sx-page .sx-vs-card li { display: flex; gap: 12px; align-items: flex-start; font-size: 17px; line-height: 1.45; padding: 12px 0; border-top: 1px solid currentColor; border-color: rgba(128, 128, 128, .22); }
+.sx-page .sx-vs-k { font-size: 12px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; display: flex; align-items: center; gap: 10px; }
+.sx-page .sx-vs-old { background: transparent; color: var(--muted); border-style: dashed; }
+.sx-page .sx-vs-old h3 { color: var(--muted); }
+.sx-page .sx-vs-old li { text-decoration: line-through; text-decoration-color: rgba(179, 74, 67, .65); text-decoration-thickness: 2px; }
+.sx-page .sx-vs-old .sx-vs-k { color: var(--red); }
+.sx-page .sx-x { display: inline-grid; place-items: center; width: 24px; height: 24px; border-radius: 50%; background: var(--red); color: #fff; font-size: 15px; line-height: 1; }
+.sx-page .sx-vs-new { background: linear-gradient(150deg, #101817, #17242b 60%, #1b3a36); color: #fff; border-color: #101817; box-shadow: 0 40px 80px -40px rgba(31, 95, 85, .7); position: relative; overflow: hidden; }
+.sx-page .sx-vs-new::after { content: ""; position: absolute; width: 340px; height: 340px; right: -120px; top: -150px; border-radius: 50%; border: 1px solid rgba(255, 255, 255, .12); box-shadow: 0 0 0 50px rgba(255, 255, 255, .03), 0 0 0 100px rgba(255, 255, 255, .02); pointer-events: none; }
+.sx-page .sx-vs-new .sx-vs-k { color: var(--lime); }
+.sx-page .sx-vs-new h3 { color: #fff; }
+.sx-page .sx-vs-new .sx-vs-k .sx-tick { display: none; }
+.sx-page .sx-tick { flex: 0 0 auto; display: inline-grid; place-items: center; width: 22px; height: 22px; margin-top: 1px; border-radius: 50%; background: var(--lime); color: #17242b; font-size: 12px; font-weight: 900; }
+.sx-js .sx-page .sx-vs-new:not(.is-in) li { opacity: 0; transform: translateX(-14px); }
+.sx-page .sx-vs-new li { transition: opacity .5s ease, transform .5s ease; transition-delay: calc(.45s + var(--i) * .13s); }
+.sx-page .sx-vs-badge {
+    position: absolute; z-index: 3; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 58px; height: 58px; display: grid; place-items: center;
+    border-radius: 50%; background: var(--lime); color: #17242b; font-family: 'Mona Bold Pro Max', sans-serif; font-size: 18px; letter-spacing: -.02em;
+    box-shadow: 0 0 0 8px var(--alt), 0 14px 30px -8px rgba(0, 0, 0, .4);
+  }
+.sx-page .sx-bento { display: grid; grid-template-columns: repeat(12, 1fr); gap: 20px; }
+.sx-page .sx-b5 { grid-column: span 5; }
+.sx-page .sx-b7 { grid-column: span 7; }
+.sx-page .sx-card,
+.sx-page .sx-path {
+    position: relative; overflow: hidden; border-radius: 26px; padding: 22px 22px 30px; background: var(--card); border: 1px solid var(--line);
+    transition: transform .35s cubic-bezier(.2, .8, .2, 1), box-shadow .35s ease, opacity .7s ease;
+  }
+.sx-page .sx-card:hover,
+.sx-page .sx-path:hover { transform: translateY(-6px); box-shadow: 0 30px 60px -34px rgba(0, 0, 0, .45); }
+.sx-page .sx-glow::before {
+    content: ""; position: absolute; inset: 0; pointer-events: none; opacity: 0; transition: opacity .3s ease; z-index: 0;
+    background: radial-gradient(360px circle at var(--mx, 50%) var(--my, 0%), rgba(217, 255, 67, .22), transparent 60%);
+  }
+.sx-page .sx-glow:hover::before { opacity: 1; }
+.sx-page .sx-card > *,
+.sx-page .sx-path > * { position: relative; z-index: 1; }
+.sx-page .sx-card-k { font-size: 12px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--red); margin: 22px 0 8px; }
+.sx-page .sx-card h3 { font-size: 26px; line-height: 1.1; margin: 0 0 10px; color: var(--ink); }
+.sx-page .sx-card p { margin: 0; font-size: 16px; line-height: 1.55; }
+.sx-page .sx-viz { min-height: 190px; border-radius: 18px; background: linear-gradient(150deg, #0f1a1f, #17242b); padding: 22px; display: grid; place-items: center; color: #fff; overflow: hidden; position: relative; }
+.sx-page .sx-viz::after { content: ""; position: absolute; inset: 0; pointer-events: none; background-image: radial-gradient(rgba(255, 255, 255, .09) 1px, transparent 1px); background-size: 16px 16px; }
+.sx-page .sx-viz > * { position: relative; z-index: 1; }
+.sx-page .sx-serp-wrap { background: linear-gradient(150deg, #e9eef2, #f6f8fa); }
+.sx-page .sx-serp-wrap::after { display: none; }
+.sx-page .sx-serp { width: 100%; background: #fff; border-radius: 14px; padding: 16px 18px; box-shadow: 0 16px 36px -16px rgba(0, 0, 0, .35); text-align: left; color: #202124; }
+.sx-page .sx-serp-top { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
+.sx-page .sx-fav { width: 26px; height: 26px; border-radius: 50%; background: #17242b; color: var(--lime); display: grid; place-items: center; font-size: 12px; font-weight: 800; }
+.sx-page .sx-serp-top b { display: block; font-size: 13px; line-height: 1.2; font-weight: 600; color: #202124; }
+.sx-page .sx-serp-top small { font-size: 12px; color: #4d5156; }
+.sx-page .sx-serp-title { font-size: 19px; line-height: 1.25; color: #1a0dab; margin-bottom: 4px; }
+.sx-page .sx-serp-desc { font-size: 13.5px; line-height: 1.5; color: #4d5156; }
+.sx-page .sx-serp-desc mark { background: rgba(217, 255, 67, .7); color: #17242b; font-weight: 700; padding: 0 2px; border-radius: 3px; }
+.sx-page .sx-night { background: linear-gradient(150deg, #0f1a1f, #17242b 60%, #1a2d33); color: #fff; overflow: hidden; }
+.sx-page .sx-night::before { content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .5; background-image: radial-gradient(rgba(255, 255, 255, .1) 1px, transparent 1px); background-size: 22px 22px; -webkit-mask-image: radial-gradient(ellipse at 20% 50%, #000, transparent 70%); mask-image: radial-gradient(ellipse at 20% 50%, #000, transparent 70%); }
+.sx-page .sx-night .sx-wrap { position: relative; }
+.sx-page .sx-night .sx-h2 { color: #fff; }
+.sx-page .sx-night .sx-lead { color: rgba(255, 255, 255, .75); }
+.sx-page .sx-steps { list-style: none; margin: 34px 0 0; padding: 0; display: grid; gap: 14px; }
+.sx-page .sx-steps li { display: flex; gap: 16px; align-items: flex-start; padding-bottom: 14px; border-bottom: 1px solid rgba(255, 255, 255, .14); }
+.sx-page .sx-steps li > span { flex: 0 0 auto; width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; background: var(--lime); color: #17242b; font-weight: 800; }
+.sx-page .sx-night .sx-p-t { color: #fff; }
+.sx-page .sx-night .sx-p-d { color: rgba(255, 255, 255, .7); }
+.sx-page .sx-paths { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; align-items: stretch; }
+.sx-page .sx-path { display: flex; flex-direction: column; padding: 34px 30px; }
+.sx-page .sx-path-n { position: absolute !important; right: 20px; top: 6px; font-family: 'Mona Bold Pro Max', sans-serif; font-size: 96px; line-height: 1; letter-spacing: -.06em; color: var(--ink); opacity: .06; z-index: 0 !important; }
+.sx-page .sx-path .sx-card-k { margin-top: 0; }
+.sx-page .sx-path h3 { font-size: 27px; line-height: 1.1; margin: 0 0 10px; color: var(--ink); }
+.sx-page .sx-path p { margin: 0 0 22px; }
+.sx-page .sx-path ul { list-style: none; padding: 0; margin: 0 0 28px; display: grid; gap: 12px; border-top: 1px solid var(--line); padding-top: 20px; }
+.sx-page .sx-path li { display: flex; gap: 12px; align-items: flex-start; font-size: 15.5px; line-height: 1.45; color: var(--ink); }
+.sx-page .sx-path .sx-tick { background: var(--green); color: #fff; }
+.sx-page .sx-path .sx-btn { margin-top: auto; align-self: flex-start; }
+.sx-page .sx-path.is-feat { background: linear-gradient(160deg, #101817, #17242b 70%, #1c3b37); border-color: #101817; box-shadow: 0 40px 80px -40px rgba(31, 95, 85, .8); transform: translateY(-14px); }
+.sx-page .sx-path.is-feat:hover { transform: translateY(-20px); }
+.sx-page .sx-path.is-feat h3,
+.sx-page .sx-path.is-feat li { color: #fff; }
+.sx-page .sx-path.is-feat p { color: rgba(255, 255, 255, .72); }
+.sx-page .sx-path.is-feat .sx-card-k { color: var(--lime); }
+.sx-page .sx-path.is-feat .sx-path-n { color: #fff; }
+.sx-page .sx-path.is-feat ul { border-color: rgba(255, 255, 255, .16); }
+.sx-page .sx-path.is-feat .sx-tick { background: var(--lime); color: #17242b; }
+.sx-page .sx-badge { align-self: flex-start; margin-bottom: 14px; font-size: 11px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; padding: 6px 11px; border-radius: 999px; background: var(--lime); color: #17242b; }
+.sx-page .sx-marquee { background: var(--lime); color: #17242b; overflow: hidden; border-block: 1px solid rgba(23, 36, 43, .2); padding: 18px 0; white-space: nowrap; }
+.sx-page .sx-marquee-track { display: inline-flex; animation: sx-marquee 34s linear infinite; }
+.sx-page .sx-marquee span { font-family: 'Mona Bold Pro Max', 'Mona Bold', sans-serif; font-size: clamp(36px, 6vw, 76px); line-height: 1; letter-spacing: -.04em; text-transform: uppercase; padding-right: .4em; }
+.sx-page .sx-marquee:hover .sx-marquee-track { animation-play-state: paused; }
+.sx-page .sx-cta { background: var(--night); padding: clamp(60px, 8vw, 110px) 0; }
+.sx-page .sx-cta-card {
+    position: relative; overflow: hidden; border-radius: 32px; padding: clamp(34px, 6vw, 80px); color: #fff; display: grid; grid-template-columns: 1.5fr auto; gap: 40px; align-items: end;
+    background: radial-gradient(600px 300px at 100% 0%, rgba(217, 255, 67, .16), transparent 60%), #0f1a1f; border: 1px solid rgba(255, 255, 255, .1);
+  }
+.sx-page .sx-cta-card::after { content: ""; position: absolute; width: 360px; height: 360px; right: -100px; top: -130px; border-radius: 50%; border: 1px solid rgba(255, 255, 255, .14); box-shadow: 0 0 0 60px rgba(255, 255, 255, .035), 0 0 0 120px rgba(255, 255, 255, .025); pointer-events: none; }
+.sx-page .sx-cta-card > * { position: relative; z-index: 1; }
+.sx-page .sx-cta h2 { font-size: clamp(40px, 6vw, 80px); line-height: .98; letter-spacing: -.05em; margin: 0 0 22px; color: #fff; max-width: 12ch; }
+.sx-page .sx-cta p { color: rgba(255, 255, 255, .75); font-size: 19px; line-height: 1.55; max-width: 34em; margin: 0; }
+@media (max-width: 980px) {
+.sx-page .sx-hero { padding: 120px 0 70px; }
+.sx-page .sx-hero-grid,
+.sx-page .sx-two,
+.sx-page .sx-two-loop,
+.sx-page .sx-proof-grid { grid-template-columns: 1fr; }
+.sx-page .sx-stats { grid-template-columns: repeat(2, 1fr); row-gap: 28px; }
+.sx-page .sx-bento { grid-template-columns: 1fr; }
+.sx-page .sx-b5,
+.sx-page .sx-b7 { grid-column: auto; }
+.sx-page .sx-paths { grid-template-columns: 1fr; }
+.sx-page .sx-path.is-feat { transform: none; }
+.sx-page .sx-path.is-feat:hover { transform: translateY(-6px); }
+.sx-page .sx-cta-card { grid-template-columns: 1fr; align-items: start; }
+.sx-page .sx-h2,
+.sx-page .sx-head .sx-h2 { max-width: none; }
+}
+@media (max-width: 700px) {
+.sx-page .sx-vs { grid-template-columns: 1fr; }
+.sx-page .sx-vs-badge { position: relative; left: auto; top: auto; transform: none; margin: -6px auto; }
+}
+@media (prefers-reduced-motion: reduce) {
+.sx-page *,
+.sx-page *::before,
+.sx-page *::after { animation: none !important; transition: none !important; }
+.sx-js .sx-page .sx-reveal:not(.is-in) { opacity: 1; transform: none; }
+}
+.sx-page section[id] { scroll-margin-top: 84px; }
+.sx-page .sx-night .sx-kicker { color: var(--lime); }
+.sx-page .sx-night .sx-bigq { color: #fff; }
+.sx-page .sx-night p { color: rgba(255, 255, 255, .74); }
+.sx-page .sx-viz.is-stack { place-items: stretch; align-content: center; gap: 10px; text-align: left; }
+.sx-page .sx-viz.is-tall { min-height: 230px; }
+.sx-page .sx-stage { position: relative; width: 100%; max-width: 560px; margin-inline: auto; }
+.sx-page .sx-stage::before {
+  content: ""; position: absolute; inset: 6% -6% -4% -6%; z-index: 0; pointer-events: none;
+  background: radial-gradient(closest-side, rgba(217, 255, 67, .2), transparent 72%); filter: blur(10px);
+}
+.sx-page .sx-stage > :not(.sx-pin) { position: relative; z-index: 1; }
+.sx-page .sx-stage svg { width: 100%; height: auto; display: block; overflow: visible; }
+.sx-page .sx-win {
+  background: linear-gradient(150deg, #0f1a1f, #17242b); border: 1px solid rgba(255, 255, 255, .14); border-radius: 22px;
+  box-shadow: 0 40px 90px -40px rgba(0, 0, 0, .8); overflow: hidden; color: #fff;
+}
+.sx-page .sx-win-bar { display: flex; align-items: center; gap: 7px; padding: 12px 16px; border-bottom: 1px solid rgba(255, 255, 255, .1); }
+.sx-page .sx-win-bar i { width: 10px; height: 10px; border-radius: 50%; background: rgba(255, 255, 255, .22); display: block; flex: none; }
+.sx-page .sx-win-bar span {
+  margin-left: 10px; flex: 1; min-width: 0; font-size: 12px; color: rgba(255, 255, 255, .62); background: rgba(255, 255, 255, .07);
+  border-radius: 999px; padding: 4px 12px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.sx-page .sx-win-body { padding: 22px; display: grid; gap: 12px; }
+.sx-page .sx-sk { display: block; height: 10px; border-radius: 6px; background: rgba(255, 255, 255, .16); }
+.sx-page .sx-sk.is-h { height: 24px; border-radius: 8px; background: rgba(255, 255, 255, .92); }
+.sx-page .sx-sk.is-hot { background: var(--lime); }
+.sx-page .sx-sk.is-btn { height: 34px; width: 150px; border-radius: 999px; background: var(--lime); }
+.sx-page .sx-sk.is-img { height: 120px; border-radius: 14px; background: linear-gradient(135deg, rgba(255, 255, 255, .16), rgba(255, 255, 255, .04)); }
+.sx-page .sx-sk.is-av { width: 46px; height: 46px; border-radius: 50%; }
+.sx-page .sx-sk.w20 { width: 20%; }
+.sx-page .sx-sk.w30 { width: 30%; }
+.sx-page .sx-sk.w40 { width: 40%; }
+.sx-page .sx-sk.w50 { width: 50%; }
+.sx-page .sx-sk.w60 { width: 60%; }
+.sx-page .sx-sk.w70 { width: 70%; }
+.sx-page .sx-sk.w80 { width: 80%; }
+.sx-page .sx-sk.w90 { width: 90%; }
+.sx-page .sx-row > .sx-sk { flex: none; }
+.sx-page .sx-cols { display: grid; gap: 12px; grid-template-columns: repeat(var(--c, 2), 1fr); }
+.sx-page .sx-box { border: 1px solid rgba(255, 255, 255, .12); border-radius: 14px; padding: 14px; background: rgba(255, 255, 255, .04); display: grid; gap: 9px; align-content: start; }
+.sx-page .sx-hl { border-radius: 8px; animation: sx-hl 9s ease-in-out infinite; animation-delay: var(--hd, 0s); }
+.sx-page .sx-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.sx-page .sx-chip {
+  display: inline-flex; align-items: center; gap: 6px; padding: 5px 11px; border-radius: 999px; font-size: 12px; font-weight: 700; line-height: 1.2;
+  color: #fff; border: 1px solid rgba(255, 255, 255, .24); background: rgba(255, 255, 255, .06);
+}
+.sx-page .sx-chip.is-hot { background: var(--lime); border-color: var(--lime); color: #17242b; }
+.sx-page .sx-pin {
+  position: absolute; z-index: 3; display: inline-flex; align-items: center; gap: 8px; max-width: calc(100% - 8px); font-size: 12.5px; font-weight: 700;
+  line-height: 1.2; color: #fff; padding: 6px 12px 6px 6px; border-radius: 999px; background: rgba(15, 26, 31, .88); white-space: nowrap;
+  border: 1px solid rgba(255, 255, 255, .22); backdrop-filter: blur(6px); box-shadow: 0 14px 30px -14px rgba(0, 0, 0, .6);
+}
+.sx-page .sx-pin b { flex: none; min-width: 22px; height: 22px; border-radius: 999px; background: var(--lime); color: #17242b; display: grid; place-items: center; font-size: 11px; }
+.sx-page .sx-vs-card p { margin: 0; font-size: 17px; line-height: 1.6; }
+.sx-page .sx-vs-old p { color: var(--muted); }
+.sx-page .sx-vs-new p { color: rgba(255, 255, 255, .8); }
+.sx-page .sx-vs-old.is-title h3 { text-decoration: line-through; text-decoration-color: rgba(179, 74, 67, .7); text-decoration-thickness: 2px; }
+.sx-page .sx-tl { --n: 4; list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(var(--n), 1fr); gap: 26px; position: relative; }
+.sx-page .sx-tl::before { content: ""; position: absolute; left: 20px; right: 20px; top: 19px; height: 2px; background: var(--line); }
+.sx-page .sx-tl::after {
+  content: ""; position: absolute; left: 20px; top: 19px; height: 2px; width: calc(100% - 40px); background: var(--green);
+  transform-origin: 0 50%; transform: scaleX(1); transition: transform 1.8s cubic-bezier(.3, .6, .2, 1) .2s;
+}
+.dark .sx-page .sx-tl::after { background: var(--lime); }
+.sx-js .sx-page .sx-tl:not(.is-in)::after { transform: scaleX(0); }
+.sx-page .sx-tl > li { position: relative; padding-top: 64px; }
+.sx-page .sx-tl-dot {
+  position: absolute; top: 0; left: 0; width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; z-index: 1;
+  background: var(--bg); border: 2px solid var(--green); color: var(--green); font-weight: 800; font-size: 14px; font-family: 'Mona Bold Pro Max', 'Mona Bold', sans-serif;
+}
+.sx-page .sx-alt .sx-tl-dot { background: var(--alt); }
+.dark .sx-page .sx-tl-dot { color: var(--lime); border-color: var(--lime); }
+.sx-page .sx-tl > li.is-bad .sx-tl-dot { background: var(--red); border-color: var(--red); color: #fff; }
+.sx-page .sx-tl-k { font-size: 12px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--red); margin-bottom: 8px; }
+.sx-page .sx-tl h3 { font-size: 22px; line-height: 1.15; margin: 0 0 8px; color: var(--ink); }
+.sx-page .sx-tl p { margin: 0; font-size: 15.5px; line-height: 1.55; max-width: 30ch; }
+.sx-page .sx-night .sx-tl::before { background: rgba(255, 255, 255, .18); }
+.sx-page .sx-night .sx-tl-dot { background: #17242b; color: var(--lime); border-color: var(--lime); }
+.sx-page .sx-night .sx-tl::after { background: var(--lime); }
+.sx-page .sx-night .sx-tl h3 { color: #fff; }
+.sx-page .sx-bigq { font-family: 'Mona Bold', 'Mona Reg', sans-serif; font-size: clamp(26px, 3.6vw, 46px); line-height: 1.12; letter-spacing: -.035em; color: var(--ink); margin: 0 0 24px; }
+.sx-page .sx-bigq::before { content: "\201C"; display: block; font-size: 2.2em; line-height: .6; height: .5em; color: var(--red); margin-bottom: .1em; }
+.sx-page .sx-night .sx-bigq::before { color: var(--lime); }
+.sx-page .sx-night .sx-who b { color: #fff; }
+.sx-page .sx-night .sx-who span { color: rgba(255, 255, 255, .65); }
+.sx-page .sx-night .sx-quote { background: rgba(255, 255, 255, .05); border-color: rgba(255, 255, 255, .14); }
+.sx-page .sx-night .sx-quote p, .sx-page .sx-night .sx-quote .sx-quote-t { color: #fff; }
+.sx-page .sx-copy p { margin: 0 0 18px; font-size: 17px; line-height: 1.75; max-width: 60ch; }
+.sx-page .sx-copy p strong { color: var(--ink); }
+.sx-page .sx-night .sx-copy p strong { color: var(--lime); }
+.sx-page .sx-story-grid { display: grid; grid-template-columns: .95fr 1.05fr; gap: clamp(36px, 6vw, 90px); align-items: start; }
+.sx-page .sx-sticky { position: sticky; top: 110px; }
+.sx-js .sx-page .sx-watch:not(.is-in) .sx-fbar { width: 100%; }
+.sx-js .sx-page .sx-watch:not(.is-in) .sx-dots i.is-hot { background: rgba(255, 255, 255, .12); box-shadow: none; }
+.sx-page .sx-dots-cap { display: flex; flex-wrap: wrap; gap: 8px 22px; padding: 0 26px 24px; font-size: 13px; color: rgba(255, 255, 255, .72); }
+.sx-page .sx-dots-cap span::before { content: ""; display: inline-block; width: 12px; height: 12px; border-radius: 4px; background: rgba(255, 255, 255, .2); margin-right: 8px; vertical-align: -1px; }
+.sx-page .sx-dots-cap span.is-hot::before { background: var(--lime); }
+.sx-js .sx-page .sx-watch:not(.is-in) .sx-bub { opacity: 0; transform: translateY(10px); }
+.sx-page .sx-bridge { display: grid; gap: 14px; padding: 26px; }
+.sx-page .sx-bridge-l { font-size: 12px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: rgba(255, 255, 255, .6); }
+.sx-page .sx-float .sx-serp { padding: 12px 14px; }
+.sx-page .sx-float .sx-serp-title { font-size: 15px; }
+.sx-page .sx-float .sx-serp-desc { font-size: 12px; }
+.sx-page .sx-url { display: flex; align-items: center; gap: 10px; background: rgba(255, 255, 255, .08); border: 1px solid rgba(255, 255, 255, .18); border-radius: 999px; padding: 10px 16px; font-weight: 700; font-size: 15px; color: rgba(255, 255, 255, .85); overflow: hidden; }
+.sx-page .sx-url b { color: var(--lime); }
+.sx-page .sx-ok { flex: none; margin-left: auto; width: 22px; height: 22px; border-radius: 50%; background: var(--lime); color: #17242b; display: grid; place-items: center; font-size: 12px; font-weight: 900; }
+.sx-page .sx-viz svg { width: 100%; height: auto; max-width: 280px; overflow: visible; }
+.sx-js .sx-page .sx-watch:not(.is-in) .sx-bar { transform: scaleY(.04); }
+.sx-page .sx-qa { border-radius: 14px; padding: 12px 14px; font-size: 13.5px; font-weight: 700; line-height: 1.35; color: #17242b; background: #fff; }
+.sx-page .sx-qa.is-a { background: var(--lime); }
+.sx-page .sx-tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; width: 100%; }
+.sx-page .sx-tile { border: 1px solid rgba(255, 255, 255, .14); border-radius: 12px; padding: 8px; display: grid; gap: 7px; background: rgba(255, 255, 255, .04); }
+.sx-page .sx-tile .sx-sk.is-img { height: 46px; }
+.sx-page .sx-stack { position: relative; width: 100%; height: 150px; }
+.sx-page .sx-stack .sx-box { position: absolute; width: 74%; left: calc(var(--k, 0) * 10%); top: calc(var(--k, 0) * 16px); background: #1d3037; box-shadow: 0 14px 30px -14px rgba(0, 0, 0, .7); }
+.sx-page .sx-stack .sx-box.is-top { background: #1f5f55; border-color: rgba(217, 255, 67, .5); }
+.sx-page .sx-path.is-feat .sx-price { color: #fff; }
+.sx-page .sx-path.is-feat .sx-per { color: rgba(255, 255, 255, .66); }
+.sx-page .sx-stats.is-text .sx-num { font-size: clamp(22px, 2.5vw, 32px); line-height: 1.1; }
+@media (max-width: 980px) {
+.sx-page .sx-story-grid { grid-template-columns: 1fr; }
+.sx-page .sx-sticky { position: static; }
+.sx-page .sx-stage { max-width: 480px; }
+}
+@media (max-width: 850px) {
+.sx-page .sx-tl { grid-template-columns: 1fr; gap: 30px; }
+.sx-page .sx-tl::before { left: 19px; right: auto; top: 20px; bottom: 20px; width: 2px; height: auto; }
+.sx-page .sx-tl::after { left: 19px; top: 20px; width: 2px; height: calc(100% - 40px); transform-origin: 50% 0; transform: scaleY(1); }
+.sx-js .sx-page .sx-tl:not(.is-in)::after { transform: scaleY(0); }
+.sx-page .sx-tl > li { padding: 4px 0 0 64px; min-height: 40px; }
+.sx-page .sx-tl p { max-width: none; }
+}
+@media (max-width: 700px) {
+.sx-page .sx-pin { font-size: 11px; padding: 5px 10px 5px 5px; }
+.sx-page .sx-pin b { min-width: 18px; height: 18px; font-size: 10px; }
+.sx-page .sx-win-body { padding: 16px; }
+}
+@media (max-width: 520px) {
+.sx-page .sx-tiles { grid-template-columns: repeat(2, 1fr); }
+}
+@media (prefers-reduced-motion: reduce) {
+.sx-js .sx-page .sx-watch:not(.is-in) .sx-bub,
+  .sx-js .sx-page .sx-watch:not(.is-in) .sx-bar { opacity: 1; transform: none; }
+}
+@keyframes sx-ping { 70% { box-shadow: 0 0 0 10px rgba(185, 219, 28, 0); } 100% { box-shadow: 0 0 0 0 rgba(185, 219, 28, 0); } }
+@keyframes sx-marquee { to { transform: translateX(-50%); } }
+@keyframes sx-hl { 0%, 100% { box-shadow: 0 0 0 0 rgba(217, 255, 67, 0); } 6%, 22% { box-shadow: 0 0 0 3px rgba(217, 255, 67, .85), 0 0 24px rgba(217, 255, 67, .35); } 30% { box-shadow: 0 0 0 0 rgba(217, 255, 67, 0); } }
+</style>
+
+<script>
+  function init() {
+    const root = document.querySelector<HTMLElement>('.sx-page');
+    if (!root || root.dataset.sxReady) return;
+    root.dataset.sxReady = '1';
+
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    document.documentElement.classList.add('sx-js');
+
+    // Reveal on scroll, plus "watch" blocks that start their own animations
+    const targets = root.querySelectorAll<HTMLElement>('.sx-reveal, .sx-watch');
+    if (reduce || !('IntersectionObserver' in window)) {
+      targets.forEach((el) => el.classList.add('is-in'));
+    } else {
+      const io = new IntersectionObserver(
+        (entries) =>
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.classList.add('is-in');
+              io.unobserve(e.target);
+            }
+          }),
+        { threshold: 0.18, rootMargin: '0px 0px -6% 0px' },
+      );
+      targets.forEach((el) => io.observe(el));
+    }
+
+    // Count-up numbers
+    if (!reduce && 'IntersectionObserver' in window) {
+      const counters = root.querySelectorAll<HTMLElement>('[data-sx-count]');
+      const cio = new IntersectionObserver(
+        (entries) =>
+          entries.forEach((e) => {
+            if (!e.isIntersecting) return;
+            const el = e.target as HTMLElement;
+            cio.unobserve(el);
+            const end = Number(el.dataset.sxCount);
+            const start = performance.now();
+            const dur = 1500;
+            const tick = (now: number) => {
+              const p = Math.min(1, (now - start) / dur);
+              el.textContent = String(Math.round(end * (1 - Math.pow(1 - p, 3))));
+              if (p < 1) requestAnimationFrame(tick);
+            };
+            el.textContent = '0';
+            requestAnimationFrame(tick);
+          }),
+        { threshold: 0.6 },
+      );
+      counters.forEach((el) => cio.observe(el));
+    }
+
+    // Pointer-following glow on cards
+    root.querySelectorAll<HTMLElement>('.sx-glow').forEach((card) => {
+      card.addEventListener('pointermove', (e: PointerEvent) => {
+        const r = card.getBoundingClientRect();
+        card.style.setProperty('--mx', `${e.clientX - r.left}px`);
+        card.style.setProperty('--my', `${e.clientY - r.top}px`);
+      });
+    });
+
+    // Tabs ([data-sx-tabs] > [role=tablist] > [role=tab], panels are [role=tabpanel])
+    root.querySelectorAll<HTMLElement>('[data-sx-tabs]').forEach((group) => {
+      const tabs = Array.from(group.querySelectorAll<HTMLElement>('[role="tab"]'));
+      const panels = Array.from(group.querySelectorAll<HTMLElement>('[role="tabpanel"]'));
+      const select = (index: number, focus = false) => {
+        tabs.forEach((tab, i) => {
+          const on = i === index;
+          tab.setAttribute('aria-selected', String(on));
+          tab.tabIndex = on ? 0 : -1;
+          if (on && focus) tab.focus();
+        });
+        panels.forEach((panel, i) => {
+          panel.hidden = i !== index;
+        });
+      };
+      tabs.forEach((tab, i) => {
+        tab.addEventListener('click', () => select(i));
+        tab.addEventListener('keydown', (e: KeyboardEvent) => {
+          if (e.key === 'ArrowRight') select((i + 1) % tabs.length, true);
+          else if (e.key === 'ArrowLeft') select((i - 1 + tabs.length) % tabs.length, true);
+          else if (e.key === 'Home') select(0, true);
+          else if (e.key === 'End') select(tabs.length - 1, true);
+        });
+      });
+      select(0);
+    });
+
+    // Scroll progress bar
+    const bar = root.querySelector<HTMLElement>('.sx-progress span');
+    if (bar) {
+      const onScroll = () => {
+        if (!bar.isConnected) {
+          window.removeEventListener('scroll', onScroll);
+          return;
+        }
+        const h = document.documentElement.scrollHeight - window.innerHeight;
+        bar.style.transform = `scaleX(${h > 0 ? Math.min(1, window.scrollY / h) : 0})`;
+      };
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+    }
+  }
+
+  init();
+  document.addEventListener('astro:page-load', init);
+</script>
