@@ -7,6 +7,7 @@ excerpt: AstroWind ships an AGENTS.md and skills that teach any AI coding
 image: /images/0C0D502B-00F3-4061-A743-71D176EA9E1D Background Removed.png
 imageAlt: A blue plastic toy robot
 category: Tutorials
+draft: true
 tags:
   - ai
   - astro
