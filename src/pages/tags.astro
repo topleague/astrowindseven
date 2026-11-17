@@ -1,0 +1,152 @@
+
+---
+import SxBlogShell from '~/components/sx/SxBlogShell.astro';
+import SxBlogHero from '~/components/sx/SxBlogHero.astro';
+import { fetchPosts } from '~/utils/blog';
+import { getPermalink, getBlogPermalink } from '~/utils/permalinks';
+
+export const prerender = true;
+
+const posts = await fetchPosts();
+
+// Collect unique tags and count their published posts.
+const tagMap = new Map<
+  string,
+  { title: string; slug: string; count: number }
+>();
+
+for (const post of posts) {
+  for (const tag of post.tags ?? []) {
+    if (!tag?.slug) continue;
+
+    const existing = tagMap.get(tag.slug);
+
+    if (existing) {
+      existing.count++;
+    } else {
+      tagMap.set(tag.slug, {
+        title: tag.title,
+        slug: tag.slug,
+        count: 1,
+      });
+    }
+  }
+}
+
+const tags = Array.from(tagMap.values()).sort((a, b) =>
+  a.title.localeCompare(b.title)
+);
+
+const breadcrumbs = [
+  { text: 'Home', href: getPermalink('/') },
+  { text: 'Blog', href: getBlogPermalink() },
+  { text: 'Tags' },
+];
+
+const metadata = {
+  title: 'Browse Blog Tags',
+  description: 'Browse articles by tag in the Top League blog.',
+};
+---
+
+<SxBlogShell metadata={metadata}>
+  <SxBlogHero
+    pill="Explore"
+    title="Browse by tag"
+    subtitle="Explore our articles by tag and find the information you're looking for."
+    crumbs={breadcrumbs}
+  />
+
+  <section class="sx-section">
+    <div class="sx-wrap">
+      <div class="sx-category-grid">
+        {tags.map((tag) => (
+          <a
+            class="sx-category-card"
+            href={getPermalink(tag.slug, 'tag')}
+          >
+            <span class="sx-category-name">{tag.title}</span>
+            <span class="sx-category-count">
+              {tag.count} {tag.count === 1 ? 'article' : 'articles'}
+            </span>
+            <span class="sx-category-arrow" aria-hidden="true">↗</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</SxBlogShell>
+
+<style>
+  .sx-category-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+  }
+
+  .sx-category-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    min-height: 150px;
+    padding: 26px;
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    background: var(--card);
+    text-decoration: none;
+    transition: transform .25s ease, border-color .25s ease;
+  }
+
+  .sx-category-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--green);
+  }
+
+  .sx-category-name {
+    color: var(--ink);
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: -.03em;
+  }
+
+  .sx-category-count {
+    color: var(--muted);
+    font-size: 14px;
+  }
+
+  .sx-category-arrow {
+    position: absolute;
+    right: 24px;
+    bottom: 22px;
+    color: var(--green);
+    font-size: 20px;
+    font-weight: 700;
+  }
+
+  .dark .sx-category-arrow {
+    color: var(--lime);
+  }
+
+  @media (max-width: 700px) {
+    .sx-category-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .sx-category-card {
+      min-height: 130px;
+      padding: 18px;
+    }
+
+    .sx-category-name {
+      font-size: 18px;
+    }
+  }
+
+  @media (max-width: 420px) {
+    .sx-category-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
