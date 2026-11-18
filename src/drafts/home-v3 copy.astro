@@ -1,0 +1,269 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import HeroText from '~/components/widgets/HeroText.astro';
+import SocialProof from '~/components/widgets/SocialProof.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import Quote from '~/components/widgets/Quote.astro';
+import Steps2 from '~/components/widgets/Steps2.astro';
+import Features from '~/components/widgets/Features.astro';
+import Comparison from '~/components/widgets/Comparison.astro';
+import Stats from '~/components/widgets/Stats.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'Top League — Hand off your digital presence to people who own it',
+  ignoreTitleTemplate: true,
+  description:
+    'Top League builds, writes, optimises and maintains your website, SEO and social. One experienced team led by the founder, working since 2010, replying in hours.',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- 1. HERO: the promise (ownership / peace of mind), no service list ******* -->
+
+  <HeroText
+    tagline="Top League · Bhubaneswar · Since 2010"
+    callToAction={{
+      variant: 'primary',
+      text: 'Tell us what you need',
+      href: '#contact',
+      icon: 'tabler:arrow-right',
+    }}
+    callToAction2={{ text: 'See what we take off your plate', href: '#handled' }}
+  >
+    <Fragment slot="title">
+      Stop managing your <span class="text-accent dark:text-white">digital presence.</span> Hand it to people who own it.
+    </Fragment>
+    <Fragment slot="subtitle">
+      We build your website, write the content, handle SEO and social, and keep everything running. One experienced
+      team, led by the founder, that answers within hours — so you never have to chase anyone.
+    </Fragment>
+  </HeroText>
+
+  <!-- 2. QUIET PROOF STRIP: the facts that answer "will they disappear?" ****** -->
+
+  <SocialProof
+    id="proof"
+    items={[
+      { value: '16 yrs', label: 'in business, since 2010', icon: 'tabler:calendar-check', color: 'text-sky-500' },
+      { value: '20', label: 'websites we look after today', icon: 'tabler:heart-handshake', color: 'text-emerald-500' },
+      { value: '10', label: 'countries our clients are in', icon: 'tabler:world', color: 'text-amber-500' },
+      { value: '4–8 hrs', label: 'typical email reply time', icon: 'tabler:clock-bolt', color: 'text-violet-500' },
+    ]}
+  />
+
+  <!-- 3. WHAT OWNERSHIP LOOKS LIKE: real requests, not a service catalogue **** -->
+
+  <Features2
+    id="handled"
+    tagline="What “someone owns it” means"
+    title="The messages our clients actually send us."
+    subtitle="No briefs, no ticket systems, no explaining the same thing to four different vendors. You send the message. We take it from there."
+    columns={3}
+    items={[
+      {
+        title: '“Here’s our new blog post. Please publish it.”',
+        description: 'Formatted, optimised, published and checked. You get a link, not a to-do.',
+        icon: 'tabler:article',
+      },
+      {
+        title: '“We have a campaign next month. Can you make the landing page?”',
+        description: 'Typically live in 3–5 days, as long as feedback keeps pace.',
+        icon: 'tabler:rocket',
+      },
+      {
+        title: '“Here’s some raw content. Can you turn it into social posts?”',
+        description: 'Graphics, reels and posts created, published and promoted.',
+        icon: 'tabler:brand-instagram',
+      },
+      {
+        title: '“Our domain is expiring.”',
+        description: 'Hosting, domains, plugins and updates are ours to worry about, not yours.',
+        icon: 'tabler:shield-check',
+      },
+      {
+        title: '“What’s happening with our SEO?”',
+        description: 'A plain-language report in a spreadsheet you can actually read, and a call if you want one.',
+        icon: 'tabler:chart-line',
+      },
+      {
+        title: '“We need a website.”',
+        description: 'A WordPress site built in 10–14 days. About a month if it needs serious custom work.',
+        icon: 'tabler:world-www',
+      },
+    ]}
+  />
+
+  <!-- 4. THE FEELING, IN A REAL CLIENT'S WORDS ******************************** -->
+
+  <Quote
+    id="client"
+    quote="Over the last six years, Top League have exceeded my expectations and delighted me with their personalized service in maintaining my professional and other websites."
+    name="Prof. Uday Damodaran"
+    job="Faculty, IIM Udaipur · client for six years"
+    rating={5}
+  />
+
+  <!-- 5. HOW IT STARTS: speed and low risk ************************************ -->
+
+  <Steps2
+    id="how"
+    tagline="How it starts"
+    title="From first email to live, without the runaround."
+    subtitle="Talk to the person who will actually be building your work."
+    items={[
+      {
+        title: 'You tell us the business, the goal and the budget',
+        description: 'No giant proposal. We reply within hours and ask the questions that matter.',
+        icon: 'tabler:message-circle',
+      },
+      {
+        title: 'We shape a package that fits',
+        description: 'Only what you need now, with room to add more later.',
+        icon: 'tabler:package',
+      },
+      {
+        title: 'We build and publish quickly',
+        description: 'Most WordPress sites are live in 10–14 days. Content is usually ready in about a week.',
+        icon: 'tabler:bolt',
+      },
+      {
+        title: 'We stay and keep it moving',
+        description: 'Maintenance, publishing, SEO, social and reporting continue after launch.',
+        icon: 'tabler:refresh',
+      },
+    ]}
+  />
+
+  <!-- 6. CAPABILITY AS EVIDENCE, NOT AS THE HEADLINE ************************** -->
+
+  <Features
+    id="capabilities"
+    tagline="Behind the replies"
+    title="The skills that make “handled” true."
+    subtitle="You shouldn’t have to hire these separately. You can still ask for just one."
+    columns={4}
+    items={[
+      {
+        title: 'Websites',
+        description: 'Custom WordPress builds, fast and maintainable, with hosting and updates looked after.',
+        icon: 'tabler:layout-dashboard',
+      },
+      {
+        title: 'Content',
+        description: '1,000+ pieces written for websites across markets, edited by humans.',
+        icon: 'tabler:pencil',
+      },
+      {
+        title: 'SEO',
+        description:
+          'Years of seeing what worked, what stopped working and why. One site we helped went from page four back to page one in about two weeks.',
+        icon: 'tabler:search',
+      },
+      {
+        title: 'Social and reporting',
+        description: 'Campaigns on Facebook, Instagram and X, plus numbers explained in plain English.',
+        icon: 'tabler:chart-bar',
+      },
+    ]}
+  />
+
+  <!-- 7. FRAGMENTATION vs OWNERSHIP, without attacking big agencies *********** -->
+
+  <Comparison
+    id="difference"
+    mode="versus"
+    tagline="The difference"
+    title="Four vendors, or one team that answers?"
+    subtitle="Large agencies are right for large, complicated organisations. Most growing businesses just need one capable team that takes responsibility."
+    firstColumnLabel=""
+    columns={[
+      { title: 'Juggling separate vendors', subtitle: 'Developer, writer, SEO, social' },
+      { title: 'Top League', subtitle: 'One team, one owner', highlight: true },
+    ]}
+    rows={[
+      { label: 'Who do you call when something breaks?', values: ['Whoever you can find', 'One person who picks up'] },
+      { label: 'Who connects the website, content and SEO?', values: ['You do', 'We do'] },
+      { label: 'Who remembers the renewals and updates?', values: [false, true] },
+      { label: 'Do you understand what you’re paying for?', values: ['Often unclear', 'Plain-language reports'] },
+      { label: 'Does the person you spoke to do the work?', values: ['Rarely', 'The founder is involved'] },
+    ]}
+  />
+
+  <!-- 8. EXPERIENCE AS EVIDENCE, NOT AS A BRAGGING MANIFESTO ****************** -->
+
+  <Stats
+    id="experience"
+    tagline="Experience, in numbers"
+    title="Sixteen years of watching what works."
+    subtitle="Clients stay. That’s the most honest measure we have."
+    countUp
+    stats={[
+      { amount: '7 yrs', title: 'with our longest-serving client' },
+      { amount: '30+', title: 'websites built in the last couple of years' },
+      { amount: '~10', title: 'long-term client relationships' },
+      { amount: '1,000+', title: 'pieces of website content written' },
+    ]}
+  />
+
+  <!-- 9. OBJECTIONS, in the founder's own worries ***************************** -->
+
+  <FAQs
+    id="faqs"
+    tagline="Fair questions"
+    title="What a careful founder asks us first."
+    schema
+    defaultOpen={-1}
+    items={[
+      {
+        title: 'Will I have to chase you?',
+        description:
+          'No. Most emails get a reply within 4–8 hours, and you’ll deal directly with the people doing the work. If something needs your input, we’ll say so clearly.',
+      },
+      {
+        title: 'What if I only need a website?',
+        description:
+          'Then that’s what we’ll build. Many clients start with a website and add maintenance, content or SEO later. We’ll only propose what makes sense for your business.',
+      },
+      {
+        title: 'Do you disappear after launch?',
+        description:
+          'Staying is the point. We currently look after about 20 websites, and our longest client relationship is seven years old.',
+      },
+      {
+        title: 'How will I know if it’s working?',
+        description:
+          'You’ll get reports in plain language, in a spreadsheet you can open, weekly or monthly depending on the engagement. We’re also happy to talk it through on a call.',
+      },
+      {
+        title: 'Can you handle the technical side?',
+        description:
+          'Yes. Hosting, domains, plugins, updates and fixes are part of what we do. That’s the point of having one team.',
+      },
+      {
+        title: 'Are you a large agency?',
+        description:
+          'No, and we don’t pretend to be. You get experience and a direct line to the person leading your work. If a project isn’t the right fit for us, we’ll say so.',
+      },
+    ]}
+  />
+
+  <!-- 10. CALL TO ACTION ****************************************************** -->
+
+  <CallToAction
+    id="contact"
+    layout="banner"
+    title="Tell us what you need. We’ll tell you what makes sense."
+    subtitle="Start with your business, your goal and your budget. We’ll reply within a few hours, usually sooner."
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Start a conversation',
+        href: 'mailto:hello@topleaguetech.com',
+        icon: 'tabler:mail',
+      },
+    ]}
+  />
+</Layout>
