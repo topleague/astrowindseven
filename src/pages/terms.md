@@ -3,122 +3,110 @@ title: 'Terms and Conditions'
 layout: '~/layouts/MarkdownLayout.astro'
 ---
 
-_Last updated_: September 06, 2026
+_Last updated: November 18, 2026_
 
-> **Demo content.** These terms are placeholder text shipped with the AstroWind template. Replace them with terms written or reviewed for your own site before going live.
+Welcome to the website of **Top League Technologies Pvt Ltd**. These Terms and Conditions govern your access to and use of [https://topleaguetech.com](https://topleaguetech.com), including its content and information about our services.
 
-Please read these terms and conditions carefully before using Our Service.
+By accessing or using this website, you agree to these Terms. If you do not agree, please do not use the website.
 
-## Interpretation and Definitions
+## 1. About Us
 
-### Interpretation
+This website is operated by **Top League Technologies Pvt Ltd**, based in Bhubaneswar, Odisha, India. In these Terms, references to "Company", "we", "us" and "our" mean Top League Technologies Pvt Ltd.
 
-The words of which the initial letter is capitalized have meanings defined under the following conditions. The following definitions shall have the same meaning regardless of whether they appear in singular or in plural.
+## 2. Use of This Website
 
-### Definitions
+You agree to use this website only for lawful purposes and in a manner that does not infringe the rights of others or restrict their use of the website.
 
-For the purposes of these Terms and Conditions:
+You must not:
 
-- **Affiliate** means an entity that controls, is controlled by or is under common control with a party, where "control" means ownership of 50% or more of the shares, equity interest or other securities entitled to vote for election of directors or other managing authority.
+- Use this website in connection with unlawful, fraudulent or misleading activities.
+- Attempt to gain unauthorised access to the website, its server or related systems.
+- Introduce malicious software, harmful code or other material that may damage or disrupt the website.
+- Copy, reproduce, republish or commercially exploit website content without our prior written permission, except where permitted by law.
 
-- **Country** refers to: California, United States
+We reserve the right to restrict or suspend access to the website if we reasonably believe these Terms have been violated.
 
-- **Company** (referred to as either "the Company", "We", "Us" or "Our" in this Agreement) refers to [Company name], [Company address].
+## 3. Website Content and Intellectual Property
 
-- **Device** means any device that can access the Service such as a computer, a cellphone or a digital tablet.
+Unless otherwise stated, the text, graphics, branding, design and other content published on this website belong to Top League Technologies Pvt Ltd or are used with permission.
 
-- **Service** refers to the Website.
+You may view and share links to our publicly available pages for personal or legitimate business reference. You may not reproduce, republish, distribute or commercially use our content without prior written consent.
 
-- **Terms and Conditions** (also referred as "Terms") mean these Terms and Conditions that form the entire agreement between You and the Company regarding the use of the Service.
+Any trademarks, logos or other materials belonging to third parties remain the property of their respective owners.
 
-- **Third-party Social Media Service** means any services or content (including data, information, products or services) provided by a third-party that may be displayed, included or made available by the Service.
+## 4. Information About Our Services
 
-- **Website** refers to [Website name], accessible from [Website URL]
+This website provides information about our services, which may include SEO content writing, article writing, product description writing, website copywriting, website development and related digital services.
 
-- **You** means the individual accessing or using the Service, or the company, or other legal entity on behalf of which such individual is accessing or using the Service, as applicable.
+Descriptions, examples, prices and other information published on the website are provided for general information. They do not constitute a binding offer unless expressly stated.
 
-## Acknowledgment
+The scope, deliverables, fees, timelines, payment arrangements and other conditions for a particular client engagement will be agreed separately through a proposal, quotation, work order or service agreement.
 
-These are the Terms and Conditions governing the use of this Service and the agreement that operates between You and the Company. These Terms and Conditions set out the rights and obligations of all users regarding the use of the Service.
+Where a separate written agreement applies, its terms will govern the relevant client engagement in the event of a conflict with these website Terms.
 
-Your access to and use of the Service is conditioned on Your acceptance of and compliance with these Terms and Conditions. These Terms and Conditions apply to all visitors, users and others who access or use the Service.
+## 5. No Guarantee of Search Engine or Business Results
 
-By accessing or using the Service You agree to be bound by these Terms and Conditions. If You disagree with any part of these Terms and Conditions then You may not access the Service.
+SEO and digital marketing outcomes depend on several factors, including search engine algorithms, competition, website condition, implementation and market conditions.
 
-You represent that you are over the age of 18\. The Company does not permit those under 18 to use the Service.
+Unless expressly agreed in writing, we do not guarantee specific search engine rankings, traffic levels, leads, sales, conversions or other business results.
 
-Your access to and use of the Service is also conditioned on Your acceptance of and compliance with the Privacy Policy of the Company. Our Privacy Policy describes Our policies and procedures on the collection, use and disclosure of Your personal information when You use the Application or the Website and tells You about Your privacy rights and how the law protects You. Please read Our Privacy Policy carefully before using Our Service.
+Any examples, case studies or results shared on this website should not be understood as a guarantee that similar results will be achieved for every client.
 
-## Links to Other Websites
+## 6. Enquiries and Communications
 
-Our Service may contain links to third-party web sites or services that are not owned or controlled by the Company.
+When you contact us through this website or by email, you agree to provide information that is accurate to the best of your knowledge.
 
-The Company has no control over, and assumes no responsibility for, the content, privacy policies, or practices of any third party web sites or services. You further acknowledge and agree that the Company shall not be responsible or liable, directly or indirectly, for any damage or loss caused or alleged to be caused by or in connection with the use of or reliance on any such content, goods or services available on or through any such web sites or services.
+Submitting an enquiry does not automatically create a client relationship, service contract or obligation on either party to proceed with a project.
 
-We strongly advise You to read the terms and conditions and privacy policies of any third-party web sites or services that You visit.
+We may use the information you provide to respond to your enquiry and discuss our services, in accordance with our [Privacy Policy](/privacy/).
 
-## Termination
+## 7. Third-Party Websites and Services
 
-We may terminate or suspend Your access immediately, without prior notice or liability, for any reason whatsoever, including without limitation if You breach these Terms and Conditions.
+This website may contain links to websites, tools or services operated by third parties.
 
-Upon termination, Your right to use the Service will cease immediately.
+These links are provided for convenience or reference. We do not control and are not responsible for the content, availability, security or privacy practices of third-party websites.
 
-## Limitation of Liability
+Your use of third-party websites and services is subject to their own terms and policies.
 
-Notwithstanding any damages that You might incur, the entire liability of the Company and any of its suppliers under any provision of this Terms and Your exclusive remedy for all of the foregoing shall be limited to the amount actually paid by You through the Service or 100 USD if You haven't purchased anything through the Service.
+## 8. Disclaimer
 
-To the maximum extent permitted by applicable law, in no event shall the Company or its suppliers be liable for any special, incidental, indirect, or consequential damages whatsoever (including, but not limited to, damages for loss of profits, loss of data or other information, for business interruption, for personal injury, loss of privacy arising out of or in any way related to the use of or inability to use the Service, third-party software and/or third-party hardware used with the Service, or otherwise in connection with any provision of this Terms), even if the Company or any supplier has been advised of the possibility of such damages and even if the remedy fails of its essential purpose.
+We make reasonable efforts to keep the information on this website accurate and up to date. However, we do not warrant that all content will always be complete, accurate, current or free from errors.
 
-Some states do not allow the exclusion of implied warranties or limitation of liability for incidental or consequential damages, which means that some of the above limitations may not apply. In these states, each party's liability will be limited to the greatest extent permitted by law.
+The website and its content are provided on an "as is" and "as available" basis, to the extent permitted by applicable law.
 
-## "AS IS" and "AS AVAILABLE" Disclaimer
+Nothing in these Terms excludes any warranty, right or protection that cannot lawfully be excluded under applicable law.
 
-The Service is provided to You "AS IS" and "AS AVAILABLE" and with all faults and defects without warranty of any kind. To the maximum extent permitted under applicable law, the Company, on its own behalf and on behalf of its Affiliates and its and their respective licensors and service providers, expressly disclaims all warranties, whether express, implied, statutory or otherwise, with respect to the Service, including all implied warranties of merchantability, fitness for a particular purpose, title and non-infringement, and warranties that may arise out of course of dealing, course of performance, usage or trade practice. Without limitation to the foregoing, the Company provides no warranty or undertaking, and makes no representation of any kind that the Service will meet Your requirements, achieve any intended results, be compatible or work with any other software, applications, systems or services, operate without interruption, meet any performance or reliability standards or be error free or that any errors or defects can or will be corrected.
+## 9. Limitation of Liability
 
-Without limiting the foregoing, neither the Company nor any of the company's provider makes any representation or warranty of any kind, express or implied: (i) as to the operation or availability of the Service, or the information, content, and materials or products included thereon; (ii) that the Service will be uninterrupted or error-free; (iii) as to the accuracy, reliability, or currency of any information or content provided through the Service; or (iv) that the Service, its servers, the content, or e-mails sent from or on behalf of the Company are free of viruses, scripts, trojan horses, worms, malware, timebombs or other harmful components.
+To the extent permitted by applicable law, Top League Technologies Pvt Ltd will not be liable for indirect, incidental, special or consequential loss arising from or in connection with the use of this website, its unavailability or reliance on information published on it.
 
-Some jurisdictions do not allow the exclusion of certain types of warranties or limitations on applicable statutory rights of a consumer, so some or all of the above exclusions and limitations may not apply to You. But in such a case the exclusions and limitations set forth in this section shall be applied to the greatest extent enforceable under applicable law.
+This section does not exclude or limit liability where such exclusion or limitation is prohibited by law, including liability arising from fraud or wilful misconduct.
 
-## Governing Law
+Any liability relating to a specific paid service or client engagement will be governed by the applicable proposal, agreement or other contractual terms, subject to applicable law.
 
-The laws of the Country, excluding its conflicts of law rules, shall govern this Terms and Your use of the Service. Your use of the Application may also be subject to other local, state, national, or international laws.
+## 10. Indemnity
 
-## Disputes Resolution
+You agree to be responsible for losses or claims arising from your unlawful use of this website or your violation of these Terms, to the extent permitted by applicable law.
 
-If You have any concern or dispute about the Service, You agree to first try to resolve the dispute informally by contacting the Company.
+## 11. Changes to This Website and These Terms
 
-## For European Union (EU) Users
+We may update, modify or remove website content and features at any time.
 
-If You are a European Union consumer, you will benefit from any mandatory provisions of the law of the country in which you are resident in.
+We may also revise these Terms from time to time. The updated version will be published on this page with a revised "Last updated" date.
 
-## United States Legal Compliance
+Your continued use of the website after updated Terms are published constitutes acceptance of the revised Terms, to the extent permitted by applicable law.
 
-You represent and warrant that (i) You are not located in a country that is subject to the United States government embargo, or that has been designated by the United States government as a "terrorist supporting" country, and (ii) You are not listed on any United States government list of prohibited or restricted parties.
+## 12. Governing Law and Jurisdiction
 
-## Severability and Waiver
+These Terms are governed by the laws of India.
 
-### Severability
+Subject to applicable law, courts having jurisdiction in Bhubaneswar, Odisha, India, will have jurisdiction over disputes arising from the use of this website.
 
-If any provision of these Terms is held to be unenforceable or invalid, such provision will be changed and interpreted to accomplish the objectives of such provision to the greatest extent possible under applicable law and the remaining provisions will continue in full force and effect.
+## 13. Contact Us
 
-### Waiver
+If you have questions about these Terms and Conditions, please contact us:
 
-Except as provided herein, the failure to exercise a right or to require performance of an obligation under these Terms shall not effect a party's ability to exercise such right or require such performance at any time thereafter nor shall the waiver of a breach constitute a waiver of any subsequent breach.
-
-## Translation Interpretation
-
-These Terms and Conditions may have been translated if We have made them available to You on our Service. You agree that the original English text shall prevail in the case of a dispute.
-
-## Changes to These Terms and Conditions
-
-We reserve the right, at Our sole discretion, to modify or replace these Terms at any time. If a revision is material We will make reasonable efforts to provide at least 30 days' notice prior to any new terms taking effect. What constitutes a material change will be determined at Our sole discretion.
-
-By continuing to access or use Our Service after those revisions become effective, You agree to be bound by the revised terms. If You do not agree to the new terms, in whole or in part, please stop using the website and the Service.
-
-## Contact Us
-
-If you have any questions about these Terms and Conditions, You can contact us:
-
-- By email: [Contact email]
-- By phone: [Contact phone]
-- By mail: [Company address]
+**Top League Technologies Pvt Ltd**  
+Bhubaneswar, Odisha, India  
+Email: [hello@topleaguetech.com](mailto:hello@topleaguetech.com)  
+Website: [https://topleaguetech.com](https://topleaguetech.com)
