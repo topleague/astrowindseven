@@ -49,7 +49,10 @@ export default defineConfig({
   ],
 
   integrations: [
-    sitemap(),
+    sitemap({
+  filter: (page) =>
+    !/\/(tag|tags|categories|right)(\/|$)|\/blog\/\d+/.test(page),
+}),
     mdx(),
     icon({
       // Local SVG icons (used as <Icon name="file-name" />) live next to the other assets.
