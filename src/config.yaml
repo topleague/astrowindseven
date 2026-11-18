@@ -2,7 +2,7 @@ site:
   name: Top League Technologies
   site: 'https://astrowindy.pages.dev'
   base: '/'
-  trailingSlash: false
+  trailingSlash: true
 
   googleSiteVerificationId: orcPxI47GSa-cRvY11tUe6iGg2IO_RPvnA1q95iEM3M
 
