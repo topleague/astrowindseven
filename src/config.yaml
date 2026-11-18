@@ -9,9 +9,9 @@ site:
 # Default SEO metadata
 metadata:
   title:
-    default: SEO Content Writing Services
+    default: Website Development & SEO Services
     template: '%s | Top League Technologies'
-  description: "SEO content writing, article writing, product descriptions, website copywriting and digital services for businesses."
+  description: "Website development, SEO and content services to help businesses build a stronger online presence and attract more customers."
   robots:
     index: true
     follow: true
