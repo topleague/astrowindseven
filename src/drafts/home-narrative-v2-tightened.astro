@@ -1,0 +1,326 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import HeroText from '~/components/widgets/HeroText.astro';
+import SocialProof from '~/components/widgets/SocialProof.astro';
+import Content from '~/components/widgets/Content.astro';
+import Features from '~/components/widgets/Features.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import Note from '~/components/widgets/Note.astro';
+import Steps2 from '~/components/widgets/Steps2.astro';
+import Quote from '~/components/widgets/Quote.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import StructuredData from '~/components/common/StructuredData.astro';
+import { SITE, METADATA, I18N } from 'astrowind:config';
+import favIconSvg from '~/assets/favicons/favicon.svg';
+
+const metadata = {
+  title: 'Top League — Build Your Online Presence, Not Just Another Website',
+  ignoreTitleTemplate: true,
+  description:
+    'Before you buy a domain, a hosting plan or a theme, talk to Top League. A founder-led team that plans, builds and looks after your website, content, SEO and social, and replies within hours.',
+};
+
+const organizationId = `${SITE?.site}/#organization`;
+
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    '@id': `${SITE?.site}/#website`,
+    name: SITE?.name,
+    url: SITE?.site,
+    inLanguage: I18N?.language,
+    publisher: { '@id': organizationId },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    '@id': organizationId,
+    name: SITE?.name,
+    url: SITE?.site,
+    logo: new URL(favIconSvg.src, SITE?.site).toString(),
+    ...(METADATA?.twitter?.handle ? { sameAs: [`https://x.com/${METADATA.twitter.handle.replace(/^@/, '')}`] } : {}),
+  },
+];
+---
+
+<Layout metadata={metadata}>
+  <StructuredData slot="head" schema={structuredData} />
+
+  {/* 1. HERO: pattern interrupt + one differentiator. Your chosen line lives in the tagline. */}
+
+  <HeroText
+    tagline="Build your online presence, not just another website"
+    callToAction={{
+      variant: 'primary',
+      text: 'Tell us your idea',
+      href: '/contact',
+      icon: 'tabler:arrow-right',
+    }}
+    callToAction2={{ text: 'Read a real client story', href: '#story' }}
+  >
+    <Fragment slot="title">
+      Before you buy a domain, <span class="text-accent dark:text-white">talk to us.</span>
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      Your domain, hosting and website choices are the hardest to undo. We make them with you, then build and look after
+      your website, content, SEO and social. One team, led by the founder, that replies within hours.
+    </Fragment>
+  </HeroText>
+
+  {/* 2. QUIET PROOF */}
+
+  <SocialProof
+    id="proof"
+    items={[
+      { value: '16 yrs', label: 'in business, since 2010', icon: 'tabler:calendar-check', color: 'text-sky-500' },
+      { value: '10', label: 'countries our clients are in', icon: 'tabler:world', color: 'text-emerald-500' },
+      { value: '20', label: 'websites we look after today', icon: 'tabler:heart-handshake', color: 'text-amber-500' },
+      { value: '4–8 hrs', label: 'typical email reply time', icon: 'tabler:clock-bolt', color: 'text-violet-500' },
+    ]}
+  />
+
+  {/* 3. THE HOOK: the story comes first, while attention is highest */}
+
+  <Content
+    id="story"
+    tagline="A real client story"
+    title="The website was fine. The decisions around it weren't."
+    items={[
+      {
+        title: 'The domain and the logo were chosen first',
+        description: 'The website was then designed and launched around both.',
+      },
+      {
+        title: 'Then a trademark email arrived',
+        description: 'Another business in the same line of trade already operated under that name.',
+      },
+      {
+        title: 'The brand had to change',
+        description: 'The client gave up the domain and the logo, after already paying for the website.',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1600&q=80',
+      alt: 'Business discussion and planning',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        It was a mistake of order, not of effort.
+      </h3>
+      Some decisions deserve attention before a single page is designed. We have seen stories like this, and we know where
+      the traps are.
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  {/* 4. THE PATTERN: four decisions, kept short */}
+
+  <Features
+    id="why"
+    tagline="Why the website is the last decision, not the first"
+    title="Four things to get right before the first page is designed."
+    subtitle="Most agencies simply ask you to decide. We decide them with you."
+    columns={4}
+    items={[
+      {
+        title: 'Your domain',
+        description: 'Name, extension and trademark risk. A five-minute purchase that can follow your brand for years.',
+        icon: 'tabler:world-www',
+      },
+      {
+        title: 'Your hosting',
+        description: 'Plans are written for engineers. The wrong annual plan means wasted money and unexpected costs.',
+        icon: 'tabler:server',
+      },
+      {
+        title: 'Your theme and framework',
+        description: 'Standard or custom, CMS or static. A wrong choice costs money, and time you cannot get back.',
+        icon: 'tabler:layout-grid',
+      },
+      {
+        title: 'Your plan beyond launch',
+        description: 'Content, keywords and social should be mapped before the build, not bolted on after.',
+        icon: 'tabler:target-arrow',
+      },
+    ]}
+  />
+
+  {/* 5. THE SUCCESS PICTURE: what life looks like when someone owns it */}
+
+  <Features2
+    id="handled"
+    tagline="What changes when someone owns it"
+    title="After launch, “handled” looks like this."
+    subtitle="Clients describe it as “I don’t have to worry about anything anymore.” No tickets, no re-explaining, no chasing four different vendors. You send a message, and we take it from there."
+    columns={3}
+    items={[
+      {
+        title: '“Here’s our new blog post. Please publish it.”',
+        description: 'Formatted, optimised, published and checked. You get a link, not a to-do.',
+        icon: 'tabler:article',
+      },
+      {
+        title: '“We have a campaign next month. Can you make the landing page?”',
+        description: 'Typically live in 3–5 days, as long as feedback keeps pace.',
+        icon: 'tabler:rocket',
+      },
+      {
+        title: '“Here’s some raw content. Can you turn it into social posts?”',
+        description: 'Graphics, reels and posts created, published and promoted.',
+        icon: 'tabler:brand-instagram',
+      },
+      {
+        title: '“Our domain is expiring.”',
+        description: 'Domains, hosting, plugins and updates are ours to remember, not yours.',
+        icon: 'tabler:shield-check',
+      },
+      {
+        title: '“What’s happening with our SEO?”',
+        description: 'A plain-language report in a spreadsheet you can open, and a call if you want one.',
+        icon: 'tabler:chart-line',
+      },
+      {
+        title: '“We need a website.”',
+        description: 'A WordPress site in 10–14 days. About a month if it needs serious custom work.',
+        icon: 'tabler:world-www',
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Features2>
+
+  {/* 6. A RESULT, NOT A CLAIM */}
+
+  <Note
+    variant="success"
+    icon="tabler:trending-up"
+    title="A result:"
+    description="a client site that had slipped to the fourth page of Google was back on page one in about two weeks. We have also earned editorial links from reputable universities."
+  />
+
+  {/* 7. HOW IT STARTS: concrete, so it doesn't read like every other agency's process */}
+
+  <Steps2
+    id="how"
+    tagline="How it starts"
+    title="A plan you can read, before you spend."
+    subtitle="You talk to the people who will actually do the work."
+    callToAction={{ variant: 'primary', text: 'Tell us your idea', href: '/contact' }}
+    items={[
+      {
+        title: 'You tell us the business, the goal and the budget',
+        description: 'We reply within hours and ask the questions that matter. No giant proposal.',
+        icon: 'tabler:messages',
+      },
+      {
+        title: 'We give you a plan you can understand',
+        description: 'What should happen now, what can wait, and where your money goes and why.',
+        icon: 'tabler:route',
+      },
+      {
+        title: 'We build in days, not months',
+        description: 'Most WordPress sites go live in 10–14 days. Content is usually ready in about a week.',
+        icon: 'tabler:hammer',
+      },
+      {
+        title: 'We stay and keep it moving',
+        description: 'Publishing, maintenance, SEO and reporting continue after launch. You stay in control.',
+        icon: 'tabler:refresh',
+      },
+    ]}
+  />
+
+  {/* 8. A CLIENT'S OWN WORDS */}
+
+  <Quote
+    id="client"
+    quote="Over the last six years, Top League have exceeded my expectations and delighted me with their personalized service in maintaining my professional and other websites."
+    name="Prof. Uday Damodaran"
+    job="Faculty, IIM Udaipur · client for six years"
+    rating={5}
+  />
+
+  {
+    /*
+    NOT YET ON THE PAGE (add when you have real assets):
+    - Screenshots of 2-3 sites you built: use the Projects widget (items: title, description, image, tags, result).
+    - The founder's name and photo: use the Team widget, or a Content block with the founder's image.
+  */
+  }
+
+  {/* 9. FAQ: the careful buyer's worries */}
+
+  <FAQs
+    id="faqs"
+    tagline="Before you get started"
+    title="What careful business owners usually ask first."
+    schema
+    defaultOpen={-1}
+    items={[
+      {
+        title: 'Should I buy my domain and hosting before I talk to you?',
+        description:
+          'Please talk to us first. The right domain, hosting plan and technology depend on your brand and your plans, and they are the hardest decisions to undo once you have paid.',
+      },
+      {
+        title: 'Do I need all of these services?',
+        description:
+          'No. We start with what your business actually needs. Sometimes that is a website. Sometimes it is SEO, content or ongoing support around a website you already have.',
+      },
+      {
+        title: 'How long does it take?',
+        description:
+          'A typical WordPress website takes 10–14 days. A project with substantial custom requirements takes about a month. Landing pages usually take 3–5 days, provided feedback comes back promptly.',
+      },
+      {
+        title: 'What will it cost?',
+        description:
+          'It depends on what you need, so we start with your goals and budget and propose a package that fits. You will know what you are paying for, and why, before any work begins.',
+      },
+      {
+        title: 'Do you stay involved after the website launches?',
+        description:
+          'Yes. Many of our clients continue with us for maintenance, publishing, SEO, content, campaigns and reporting. Our longest client relationship is seven years old.',
+      },
+      {
+        title: 'Are you a large agency?',
+        description:
+          'No. We are a lean, experienced team based in Bhubaneswar, and the founder is directly involved in the work and in client relationships. You speak to the people doing it.',
+      },
+    ]}
+  />
+
+  {/* 10. CALL TO ACTION: a specific, low-friction ask built on your response time */}
+
+  <CallToAction
+    id="contact"
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Tell us your idea',
+        href: '/contact',
+        icon: 'tabler:arrow-right',
+      },
+    ]}
+  >
+    <Fragment slot="title">
+      Tell us your idea.<br />
+      <span class="sm:whitespace-nowrap">Get a straight answer within hours.</span>
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      Before you buy a domain, a hosting plan or a theme, tell us about your business. We typically reply within 4–8
+      hours.
+    </Fragment>
+  </CallToAction>
+</Layout>
