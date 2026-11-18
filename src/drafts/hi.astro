@@ -1,0 +1,212 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import { SITE, METADATA, I18N } from 'astrowind:config';
+import favIconSvg from '~/assets/favicons/favicon.svg';
+import StructuredData from '~/components/common/StructuredData.astro';
+
+const metadata = {
+  title: 'Website Development & Digital Services | Top League Technologies',
+  description: 'Business-focused website development backed by SEO, content and ongoing digital support. Plan the right website for your goals, audience and budget.',
+  ignoreTitleTemplate: true,
+};
+const organizationId = `${SITE?.site}/#organization`;
+const structuredData = [
+  { '@context': 'https://schema.org', '@type': 'WebSite', '@id': `${SITE?.site}/#website`, name: SITE?.name, url: SITE?.site, inLanguage: I18N?.language, publisher: { '@id': organizationId } },
+  { '@context': 'https://schema.org', '@type': 'Organization', '@id': organizationId, name: SITE?.name, url: SITE?.site, logo: new URL(favIconSvg.src, SITE?.site).toString(), ...(METADATA?.twitter?.handle ? { sameAs: [`https://x.com/${METADATA.twitter.handle.replace(/^@/, '')}`] } : {}) },
+];
+const comparison = [
+  ['Start with a list of pages and features.', 'Start with your business, audience and the outcome the website needs to support.'],
+  ['Choose a platform, domain and hosting by habit or lowest price.', 'Choose the foundations after understanding your requirements and future plans.'],
+  ['Design pages first and fit the content in later.', 'Plan page structure, search intent, messaging and content before the build.'],
+  ['Treat SEO as a checklist after the website is finished.', 'Build sound technical and content foundations into the website, then keep improving visibility.'],
+  ['Launch the website and leave everything else to the business.', 'Plan for maintenance, analytics, content, search and social activity after launch.'],
+];
+const services = [
+  ['01', 'Website development', 'Responsive websites shaped around your business, customers and goals.', 'mailto:hello@topleaguetech.com?subject=Website%20Development%20Enquiry', 'Discuss website development'],
+  ['02', 'SEO', 'Technical foundations, site structure and ongoing optimisation for search visibility.', '/seo-services/', 'Explore SEO services'],
+  ['03', 'SEO content writing', 'Useful, search-aware articles and website content written for people first.', '/articles/', 'Explore article writing'],
+  ['04', 'Website copywriting', 'Clear homepage, service-page and landing-page copy that helps visitors take the next step.', '/copy/', 'Explore website copy'],
+];
+const faqs = [
+  ['Do I need a new website to improve my online presence?', 'Not necessarily. Some businesses need a new website or a substantial rebuild; others need a focused audit, better content, technical fixes or a clearer structure. We first look at what you have and what you need.'],
+  ['Does SEO happen only before a website launches?', 'No. SEO should inform the website structure and content from the beginning, but search visibility also needs attention after launch through useful content, monitoring and ongoing optimisation.'],
+  ['Can you help with content as well as development?', 'Yes. Website development is supported by our experience in SEO content writing and website copywriting. That means content and the website can be planned together.'],
+  ['Can we start with a limited budget?', 'Yes. We discuss goals and budget early, then prioritise the work that matters most. The scope can be phased rather than forcing every feature into the first version.'],
+  ['Do you work with businesses outside India?', 'Yes. Top League has worked with clients in India and other countries. Projects can be handled remotely.'],
+];
+---
+
+<Layout metadata={metadata} pageClass="home-draft">
+  <StructuredData slot="head" schema={structuredData} />
+  <main class="home-draft">
+    <div class="hd-progress" aria-hidden="true"><span></span></div>
+
+    <section class="hd-hero">
+      <div class="hd-wrap hd-hero-grid">
+        <div>
+          <p class="hd-eyebrow"><span></span> Digital partner for small businesses</p>
+          <h1>Build your online presence.<em>Not just a website.</em></h1>
+          <p class="hd-lede">A good website starts with good decisions. We bring development, SEO and content together to create a digital presence built around your business.</p>
+          <div class="hd-actions">
+            <a class="hd-button hd-lime" href="mailto:hello@topleaguetech.com?subject=Website%20Enquiry">Talk about your website <span>↗</span></a>
+            <a class="hd-text-link" href="#approach">See how we work ↓</a>
+          </div>
+          <p class="hd-note">Business-first planning · SEO-aware development · Content expertise</p>
+        </div>
+        <div class="hd-art" aria-label="Website, search, content and growth connected around your business">
+          <div class="hd-orbit hd-orbit-a"></div><div class="hd-orbit hd-orbit-b"></div>
+          <div class="hd-core"><small>YOUR BUSINESS</small><strong>Online<br/>presence</strong><i></i><small>One connected plan</small></div>
+          <span class="hd-node hd-n1">01 / Website</span><span class="hd-node hd-n2">02 / Search</span><span class="hd-node hd-n3">03 / Content</span><span class="hd-node hd-n4">04 / Growth</span>
+        </div>
+      </div>
+      <div class="hd-hero-foot"><span>Strategy before screens</span><span>01 / 04</span></div>
+    </section>
+
+    <section class="hd-proof">
+      <div class="hd-wrap hd-proof-grid">
+        <div><strong>Since 2009</strong><span>In digital services</span></div>
+        <div><strong>300+</strong><span>Clients worked with</span></div>
+        <div><strong>10 countries</strong><span>Client reach</span></div>
+        <div><strong>Bhubaneswar</strong><span>Based in Odisha, India</span></div>
+      </div>
+    </section>
+
+    <section class="hd-section hd-reveal" id="why">
+      <div class="hd-wrap">
+        <div class="hd-intro-grid">
+          <div><p class="hd-kicker">01 — The bigger picture</p><h2>A website is the beginning of your online presence. <em>Not the whole story.</em></h2></div>
+          <div class="hd-copy"><p>Your website has to do more than look good. It needs the right foundations, a clear message and content that helps the right people find you and understand what you offer.</p><p>That is why we look beyond the design and development brief. We consider how your domain, platform, content, search visibility and ongoing digital activity fit together.</p></div>
+        </div>
+        <div class="hd-card-grid">
+          <article><small>A / FOUNDATIONS</small><b>⌘</b><h3>Make sound choices early</h3><p>Domain, hosting, platform and structure decisions can affect your brand and flexibility long after launch.</p></article>
+          <article><small>B / DISCOVERY</small><b>⌕</b><h3>Help people find you</h3><p>Search intent, useful content and a considered site structure help connect your business with the right audience.</p></article>
+          <article><small>C / CONTINUITY</small><b>↗</b><h3>Keep the site working</h3><p>Maintenance, fresh content, analytics and social activity help your online presence stay useful after launch.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="hd-story hd-reveal" id="reality">
+      <div class="hd-wrap hd-story-grid">
+        <div class="hd-story-visual">
+          <small>A REAL-WORLD LESSON</small><div class="hd-domain"><label>THE ORIGINAL PLAN</label><strong>Domain<br/>+ logo</strong><hr/><span>Chosen before the checks were complete</span></div>
+          <div class="hd-alert"><b>!</b><span><strong>Trademark conflict</strong><small>A costly change of direction</small></span></div>
+          <p>A decision made early can have consequences much later.</p>
+        </div>
+        <div><p class="hd-kicker">A lesson from a client project</p><h2>What an expensive mistake can look like.</h2><p>A client approached us with a domain name and logo already chosen. The website was ready when a trademark conflict forced a change of name, domain and logo.</p><p>The lesson was not about design or technology. It was about the order in which decisions are made. A little due diligence at the beginning could have avoided considerable rework later.</p><strong class="hd-takeaway">The right questions should come before the first design.</strong></div>
+      </div>
+    </section>
+
+    <section class="hd-section hd-reveal" id="approach">
+      <div class="hd-wrap">
+        <div class="hd-intro-grid"><div><p class="hd-kicker">02 — The Top League difference</p><h2>Better thinking.<br/><em>Better foundations.</em></h2></div><p class="hd-copy">We do not begin with a template or a feature list. We begin by understanding what your business needs the website to do.</p></div>
+        <div class="hd-compare"><div class="hd-compare-head"><span>The usual way</span><span>The Top League approach</span></div>
+          {comparison.map(([usual, better]) => <div class="hd-compare-row"><div><b>×</b><p>{usual}</p></div><div><b>✓</b><p>{better}</p></div></div>)}
+        </div>
+      </div>
+    </section>
+
+    <section class="hd-services hd-reveal" id="services">
+      <div class="hd-wrap">
+        <div class="hd-intro-grid"><div><p class="hd-kicker">03 — What we bring together</p><h2>Everything your website needs to <em>work harder.</em></h2></div><p class="hd-copy">Start with the service your business needs now. Bring in the others when they make sense.</p></div>
+        <div class="hd-service-grid">{services.map(([number,title,description,href,label]) => <article><small>{number}</small><h3>{title}</h3><p>{description}</p><a href={href}>{label} ↗</a></article>)}</div>
+      </div>
+    </section>
+
+    <section class="hd-process hd-reveal" id="process">
+      <div class="hd-wrap">
+        <div class="hd-intro-grid"><div><p class="hd-kicker">04 — How we work</p><h2>From business goals to <em>a connected presence.</em></h2></div><p class="hd-copy">The work is planned in stages, with the scope shaped around your priorities and budget.</p></div>
+        <div class="hd-steps"><article><small>01</small><h3>Understand</h3><p>Your business, audience, goals, current website and budget.</p></article><article><small>02</small><h3>Plan</h3><p>The right scope, platform, site structure, search direction and content needs.</p></article><article><small>03</small><h3>Build</h3><p>A responsive website with clear messaging and SEO-aware foundations.</p></article><article><small>04</small><h3>Improve</h3><p>Maintenance, content, analytics and optimisation as your business evolves.</p></article></div>
+      </div>
+    </section>
+
+    <section class="hd-section hd-reveal" id="proof">
+      <div class="hd-wrap">
+        <div class="hd-intro-grid"><div><p class="hd-kicker">Client feedback</p><h2>Good work is remembered. <em>And recommended.</em></h2></div><a class="hd-text-link" href="https://topleaguetech.com/about-us/">More about Top League ↗</a></div>
+        <div class="hd-quotes">
+          <blockquote><span>“</span><p>Top League have been excellent at presenting their work and work very hard to ensure that the quality of their work is always the best!</p><footer><b>Michael</b><small>Founder, Idea Bubble</small></footer></blockquote>
+          <blockquote><span>“</span><p>Top League over delivered on the articles we asked for. They were well written, concise and well optimized for search.</p><footer><b>Sean</b><small>Founder, Acquisition Engine</small></footer></blockquote>
+          <blockquote><span>“</span><p>The team did an excellent job on content creation for our appliance repair website. Everything was written very professionally.</p><footer><b>Alex Garayev</b><small>Founder, SD Appliances</small></footer></blockquote>
+        </div>
+      </div>
+    </section>
+
+    <section class="hd-faq hd-reveal" id="faqs">
+      <div class="hd-wrap hd-faq-grid"><div><p class="hd-kicker">A few useful answers</p><h2>Before we<br/><em>get started.</em></h2><p>Every business is different. The first conversation helps establish what is useful, what can wait and what it will take.</p></div>
+        <div>{faqs.map(([question,answer]) => <details><summary>{question}<span>+</span></summary><p>{answer}</p></details>)}</div>
+      </div>
+    </section>
+
+    <section class="hd-cta" id="contact"><div class="hd-wrap"><p class="hd-kicker">05 — Let's talk</p><h2>Start with the business.<br/><em>We’ll work out the digital plan.</em></h2><p>No giant proposal. No unnecessary package. Tell us what you are trying to achieve, and we can discuss the right next step.</p><a class="hd-button hd-lime" href="mailto:hello@topleaguetech.com?subject=Website%20Enquiry">Start a conversation ↗</a><div class="hd-cta-orbit"></div></div></section>
+  </main>
+</Layout>
+
+<style>
+.home-draft{--ink:#17242b;--lime:#d9ff43;--red:#b34a43;--green:#1f5f55;--paper:#f1f4f2;--muted:#68777b;color:var(--ink);background:#fff}
+.home-draft *{box-sizing:border-box}.home-draft .hd-wrap{width:min(1120px,calc(100% - 48px));margin:auto}
+.home-draft .hd-progress{position:fixed;inset:0 0 auto;height:3px;z-index:60;pointer-events:none}.home-draft .hd-progress span{display:block;height:100%;background:var(--lime);transform:scaleX(0);transform-origin:left}
+.home-draft .hd-hero{background:var(--ink);color:#fff;padding:105px 0 45px;overflow:hidden}.home-draft .hd-hero-grid{display:grid;grid-template-columns:1.08fr .92fr;align-items:center;gap:45px;min-height:470px}
+.home-draft .hd-eyebrow,.home-draft .hd-kicker{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}.home-draft .hd-eyebrow{color:#d1dbd8;margin:0 0 23px}.home-draft .hd-eyebrow span{display:inline-block;width:8px;height:8px;background:var(--lime);border-radius:50%;margin-right:10px}
+.home-draft h1{font-size:clamp(48px,6.2vw,82px);line-height:.98;letter-spacing:-.065em;font-weight:750;color:#fff;margin:0}.home-draft h1 em{display:block;font-style:normal;color:var(--lime)}
+.home-draft h2{font-size:clamp(36px,4.5vw,58px);line-height:1.02;letter-spacing:-.06em;font-weight:750;margin:0}.home-draft h2 em{font-style:normal;color:var(--green)}
+.home-draft .hd-lede{max-width:570px;color:#c1ccca;font-size:18px;line-height:1.65;margin:26px 0 0}.home-draft .hd-actions{display:flex;align-items:center;gap:25px;flex-wrap:wrap;margin-top:32px}
+.home-draft .hd-button{display:inline-flex;padding:15px 21px;border-radius:999px;font-size:13px;font-weight:800;text-decoration:none;transition:transform .2s}.home-draft .hd-button:hover{transform:translateY(-2px)}.home-draft .hd-lime{background:var(--lime);color:var(--ink)}
+.home-draft .hd-text-link{font-size:13px;font-weight:750;text-decoration:none;color:inherit}.home-draft .hd-hero .hd-text-link{color:#fff}.home-draft .hd-note{color:#94a4a3;font-size:11px;margin-top:24px}
+.home-draft .hd-art{position:relative;min-height:390px;display:grid;place-items:center}.home-draft .hd-orbit{position:absolute;border:1px solid #ffffff30;border-radius:50%}.home-draft .hd-orbit-a{width:350px;height:240px;transform:rotate(-25deg)}.home-draft .hd-orbit-b{width:260px;height:370px;transform:rotate(55deg)}
+.home-draft .hd-core{z-index:1;width:180px;height:180px;border-radius:50%;background:var(--lime);color:var(--ink);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;box-shadow:0 0 0 14px #d9ff4315}.home-draft .hd-core strong{font-size:29px;line-height:.95;letter-spacing:-.06em;margin:8px}.home-draft .hd-core small{font-size:8px;font-weight:900;letter-spacing:.15em}.home-draft .hd-core i{width:28px;height:2px;background:var(--red)}
+.home-draft .hd-node{position:absolute;padding:10px 13px;background:#20323a;border:1px solid #ffffff40;border-radius:5px;font-size:11px;font-weight:750;color:#fff}.home-draft .hd-n1{top:35px;left:10%}.home-draft .hd-n2{top:90px;right:0}.home-draft .hd-n3{bottom:75px;left:0}.home-draft .hd-n4{bottom:28px;right:10%}
+.home-draft .hd-hero-foot{width:min(1120px,calc(100% - 48px));margin:38px auto 0;padding-top:15px;border-top:1px solid #ffffff30;display:flex;justify-content:space-between;color:#91a09f;font-size:10px;letter-spacing:.12em;text-transform:uppercase}
+.home-draft .hd-proof{background:var(--lime);padding:24px 0}.home-draft .hd-proof-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}.home-draft .hd-proof-grid div{display:flex;flex-direction:column;gap:4px;border-right:1px solid #17242b30;padding-left:18px}.home-draft .hd-proof-grid div:first-child{padding-left:0}.home-draft .hd-proof-grid div:last-child{border:0}.home-draft .hd-proof strong{font-size:18px}.home-draft .hd-proof span{font-size:11px}
+.home-draft .hd-section,.home-draft .hd-process,.home-draft .hd-faq{padding:105px 0}.home-draft .hd-intro-grid{display:grid;grid-template-columns:1fr .72fr;gap:75px;align-items:end}.home-draft .hd-kicker{color:var(--red);margin:0 0 18px}.home-draft .hd-copy{font-size:14px;line-height:1.8;color:var(--muted)}.home-draft .hd-copy p{margin:0 0 14px}
+.home-draft .hd-card-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin-top:55px}.home-draft .hd-card-grid article{border:1px solid #dfe6e2;padding:25px;min-height:235px}.home-draft .hd-card-grid small,.home-draft .hd-service-grid small,.home-draft .hd-steps small{font-size:9px;font-weight:850;letter-spacing:.13em;color:var(--red)}.home-draft .hd-card-grid b{display:block;font-size:34px;color:var(--green);margin:27px 0 15px}.home-draft .hd-card-grid h3,.home-draft .hd-service-grid h3,.home-draft .hd-steps h3{font-size:19px;letter-spacing:-.04em;margin:0 0 9px}.home-draft .hd-card-grid p,.home-draft .hd-service-grid p,.home-draft .hd-steps p{font-size:13px;line-height:1.7;color:var(--muted);margin:0}
+.home-draft .hd-story{background:var(--paper);padding:95px 0}.home-draft .hd-story-grid{display:grid;grid-template-columns:.9fr 1fr;gap:85px;align-items:center}.home-draft .hd-story-grid>div:last-child>p:not(.hd-kicker){font-size:14px;line-height:1.8;color:var(--muted)}.home-draft .hd-story-visual{min-height:360px;background:#dce6df;position:relative;display:grid;place-items:center;overflow:hidden}.home-draft .hd-story-visual:before,.home-draft .hd-story-visual:after{content:"";position:absolute;border:1px solid #1f5f5535;border-radius:50%;width:330px;height:330px}.home-draft .hd-story-visual:after{width:430px;height:430px}.home-draft .hd-story-visual>small{position:absolute;top:20px;left:22px;font-size:9px;letter-spacing:.13em;font-weight:850;color:var(--green)}
+.home-draft .hd-domain{z-index:1;background:#fff;padding:24px;width:215px;box-shadow:0 18px 45px #17242b18;transform:rotate(-5deg)}.home-draft .hd-domain label{font-size:8px;letter-spacing:.14em;font-weight:850;color:var(--red)}.home-draft .hd-domain strong{display:block;font-size:38px;line-height:.95;letter-spacing:-.06em;margin:15px 0}.home-draft .hd-domain hr{border:0;border-top:1px solid #dfe6e2}.home-draft .hd-domain span{font-size:10px;color:var(--muted)}.home-draft .hd-alert{position:absolute;z-index:2;right:4%;bottom:22%;display:flex;gap:10px;align-items:center;background:var(--ink);color:#fff;padding:11px 14px}.home-draft .hd-alert>b{background:var(--red);border-radius:50%;width:24px;height:24px;display:grid;place-items:center}.home-draft .hd-alert strong,.home-draft .hd-alert small{display:block}.home-draft .hd-alert strong{font-size:11px}.home-draft .hd-alert small{font-size:9px;color:#b8c4c2}.home-draft .hd-story-visual>p{position:absolute;bottom:10px;left:22px;font-size:10px;color:#4d6259}.home-draft .hd-takeaway{display:block;border-left:3px solid var(--red);padding:4px 0 4px 15px;font-size:13px}
+.home-draft .hd-compare{margin-top:48px;border-top:1px solid #dfe6e2}.home-draft .hd-compare-head,.home-draft .hd-compare-row{display:grid;grid-template-columns:1fr 1fr}.home-draft .hd-compare-head span{padding:15px 20px;background:#f3f5f4;font-size:10px;font-weight:850;letter-spacing:.12em;text-transform:uppercase}.home-draft .hd-compare-head span+span{background:var(--ink);color:var(--lime)}.home-draft .hd-compare-row{border-bottom:1px solid #dfe6e2}.home-draft .hd-compare-row>div{display:flex;gap:13px;padding:18px 20px}.home-draft .hd-compare-row>div:first-child{background:#fafbfa;color:#788286}.home-draft .hd-compare-row>div+div{background:#f0f5f1}.home-draft .hd-compare-row b{font-size:17px;color:var(--red)}.home-draft .hd-compare-row>div+div b{color:var(--green)}.home-draft .hd-compare-row p{font-size:13px;line-height:1.65;margin:0}
+.home-draft .hd-services,.home-draft .hd-cta{background:var(--ink);color:#fff;padding:105px 0;position:relative;overflow:hidden}.home-draft .hd-services .hd-kicker,.home-draft .hd-cta .hd-kicker{color:var(--lime)}.home-draft .hd-services h2,.home-draft .hd-cta h2{color:#fff}.home-draft .hd-services h2 em,.home-draft .hd-cta h2 em{color:var(--lime)}.home-draft .hd-services .hd-copy{color:#b5c1bf}.home-draft .hd-service-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:48px}.home-draft .hd-service-grid article{padding:23px 19px;border:1px solid #ffffff35;min-height:240px;display:flex;flex-direction:column}.home-draft .hd-service-grid small{color:var(--lime)}.home-draft .hd-service-grid h3{margin-top:40px;color:#fff}.home-draft .hd-service-grid p{color:#b5c1bf}.home-draft .hd-service-grid a{margin-top:auto;padding-top:20px;color:var(--lime);font-size:11px;font-weight:800;text-decoration:none}
+.home-draft .hd-process{background:var(--paper)}.home-draft .hd-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:55px}.home-draft .hd-steps article{border-top:1px solid #aebbb5;padding-top:16px}.home-draft .hd-steps h3{margin-top:30px}
+.home-draft .hd-quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:48px}.home-draft blockquote{margin:0;padding:24px;border:1px solid #dfe6e2;min-height:225px;display:flex;flex-direction:column}.home-draft blockquote>span{font:42px Georgia;color:var(--green)}.home-draft blockquote p{font-size:13px;line-height:1.75;color:#435258}.home-draft blockquote footer{margin-top:auto;display:flex;flex-direction:column;gap:4px}.home-draft blockquote b{font-size:12px}.home-draft blockquote small{font-size:10px;color:var(--muted)}
+.home-draft .hd-faq{background:var(--paper)}.home-draft .hd-faq-grid{display:grid;grid-template-columns:.7fr 1.3fr;gap:80px}.home-draft .hd-faq-grid>div:first-child>p:last-child{font-size:13px;line-height:1.8;color:var(--muted);margin-top:20px}.home-draft .hd-faq details{border-bottom:1px solid #cbd5cf;padding:18px 0}.home-draft .hd-faq details:first-child{border-top:1px solid #cbd5cf}.home-draft .hd-faq summary{display:flex;justify-content:space-between;gap:18px;cursor:pointer;list-style:none;font-size:14px;font-weight:750}.home-draft .hd-faq summary::-webkit-details-marker{display:none}.home-draft .hd-faq summary span{font-size:20px;color:var(--green)}.home-draft .hd-faq details p{font-size:13px;line-height:1.8;color:var(--muted);max-width:650px;margin:12px 25px 0 0}
+.home-draft .hd-cta h2{max-width:850px}.home-draft .hd-cta .hd-wrap{position:relative;z-index:1}.home-draft .hd-cta .hd-wrap>p:not(.hd-kicker){max-width:600px;color:#b5c1bf;font-size:15px;line-height:1.8;margin:23px 0 28px}.home-draft .hd-cta-orbit{position:absolute;z-index:-1;right:-40px;top:-130px;width:400px;height:400px;border:1px solid #ffffff25;border-radius:50%;box-shadow:0 0 0 60px #ffffff08,0 0 0 120px #ffffff05}
+.home-draft .hd-reveal{opacity:1;transform:none}.home-draft.hd-js .hd-reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}.home-draft.hd-js .hd-reveal.is-in{opacity:1;transform:none}
+.dark .home-draft{background:#111c20;color:#e9efec}.dark .home-draft .hd-section,.dark .home-draft .hd-quotes blockquote{background:#111c20}.dark .home-draft .hd-copy,.dark .home-draft .hd-card-grid p,.dark .home-draft .hd-story-grid>div:last-child>p:not(.hd-kicker),.dark .home-draft .hd-steps p,.dark .home-draft .hd-faq-grid>div:first-child>p:last-child{color:#aab8b4}.dark .home-draft .hd-card-grid article,.dark .home-draft blockquote{background:#17272c;border-color:#34464a}.dark .home-draft .hd-card-grid h3,.dark .home-draft blockquote p,.dark .home-draft blockquote b{color:#edf2ef}.dark .home-draft .hd-story,.dark .home-draft .hd-process,.dark .home-draft .hd-faq{background:#1b302f}.dark .home-draft .hd-story-visual{background:#263f3a}.dark .home-draft .hd-domain{background:#17242b;color:#fff}.dark .home-draft .hd-story-visual>p{color:#c0d0c8}.dark .home-draft .hd-takeaway{color:#fff}.dark .home-draft .hd-compare{border-color:#34464a}.dark .home-draft .hd-compare-head span{background:#26363a;color:#dce5e1}.dark .home-draft .hd-compare-head span+span{background:var(--lime);color:var(--ink)}.dark .home-draft .hd-compare-row{border-color:#34464a}.dark .home-draft .hd-compare-row>div:first-child{background:#17242b;color:#aab8b4}.dark .home-draft .hd-compare-row>div+div{background:#1c3833}.dark .home-draft .hd-steps article{border-color:#52635e}.dark .home-draft .hd-faq details{border-color:#52635e}.dark .home-draft .hd-faq summary{color:#edf2ef}.dark .home-draft .hd-faq details p{color:#b5c1bf}
+@media(max-width:900px){.home-draft .hd-hero-grid{grid-template-columns:1fr;gap:15px}.home-draft .hd-art{min-height:330px}.home-draft .hd-intro-grid,.home-draft .hd-story-grid,.home-draft .hd-faq-grid{grid-template-columns:1fr;gap:28px}.home-draft .hd-story-grid{gap:40px}.home-draft .hd-service-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:640px){.home-draft .hd-wrap,.home-draft .hd-hero-foot{width:calc(100% - 36px)}.home-draft .hd-hero{padding:78px 0 38px}.home-draft h1{font-size:clamp(43px,12vw,62px)}.home-draft .hd-lede{font-size:16px}.home-draft .hd-actions{align-items:flex-start;flex-direction:column;gap:17px}.home-draft .hd-art{min-height:280px;transform:scale(.88);margin:-8px -25px}.home-draft .hd-core{width:155px;height:155px}.home-draft .hd-core strong{font-size:25px}.home-draft .hd-proof-grid{grid-template-columns:repeat(2,1fr);gap:17px}.home-draft .hd-proof-grid div{padding-left:10px}.home-draft .hd-proof-grid div:nth-child(odd){padding-left:0}.home-draft .hd-proof-grid div:nth-child(2){border:0}.home-draft .hd-section,.home-draft .hd-process,.home-draft .hd-faq,.home-draft .hd-services,.home-draft .hd-cta,.home-draft .hd-story{padding:72px 0}.home-draft h2{font-size:clamp(35px,10vw,48px)}.home-draft .hd-card-grid,.home-draft .hd-quotes{grid-template-columns:1fr;margin-top:35px}.home-draft .hd-card-grid article{min-height:0}.home-draft .hd-card-grid b{margin:20px 0 12px}.home-draft .hd-story-visual{min-height:310px}.home-draft .hd-compare{margin-top:35px}.home-draft .hd-compare-head span{padding:12px 9px;font-size:8px}.home-draft .hd-compare-row>div{padding:14px 9px;gap:8px}.home-draft .hd-compare-row p{font-size:11px}.home-draft .hd-service-grid,.home-draft .hd-steps{grid-template-columns:1fr 1fr;gap:10px;margin-top:35px}.home-draft .hd-service-grid article{padding:17px 13px;min-height:230px}.home-draft .hd-service-grid h3{font-size:16px;margin-top:28px}.home-draft .hd-steps{row-gap:25px}.home-draft .hd-steps h3{margin-top:20px}.home-draft .hd-faq-grid{gap:35px}.home-draft .hd-faq summary{font-size:13px}.home-draft .hd-cta-orbit{right:-280px}}
+@media(prefers-reduced-motion:reduce){.home-draft .hd-reveal,.home-draft .hd-button{transition:none!important}.home-draft.hd-js .hd-reveal{opacity:1;transform:none}}
+</style>
+
+<script>
+  const initHomeDraft = () => {
+    const root = document.querySelector('.home-draft');
+    if (!root || root.dataset.hdReady) return;
+    root.dataset.hdReady = 'true';
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches && 'IntersectionObserver' in window) {
+      root.classList.add('hd-js');
+      const observer = new IntersectionObserver((entries, current) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-in');
+            current.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.16, rootMargin: '0px 0px -5% 0px' });
+      root.querySelectorAll('.hd-reveal').forEach((element) => observer.observe(element));
+    }
+    const progress = root.querySelector('.hd-progress span');
+    let ticking = false;
+    const update = () => {
+      if (progress) {
+        const max = document.documentElement.scrollHeight - window.innerHeight;
+        progress.style.transform = `scaleX(${max > 0 ? window.scrollY / max : 0})`;
+      }
+      ticking = false;
+    };
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        window.requestAnimationFrame(update);
+        ticking = true;
+      }
+    }, { passive: true });
+    update();
+  };
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initHomeDraft, { once: true });
+  else initHomeDraft();
+</script>
