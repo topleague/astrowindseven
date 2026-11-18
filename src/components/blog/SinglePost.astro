@@ -65,11 +65,11 @@ const updated = updateDate && updateDate.getTime() !== post.publishDate.getTime(
       <div class="sx-wrap sx-art-cover">
         <Image
           src={post.image}
-          widths={[400, 900]}
-          sizes="(max-width: 900px) 400px, 900px"
+          widths={[600, 980, 1400, 1800]}
+          sizes="(max-width: 980px) 100vw, 980px"
           alt={post.imageAlt || ''}
-          width={900}
-          height={506}
+          width={1800}
+          height={1013}
           format="webp"
           loading="eager"
           decoding="async"
