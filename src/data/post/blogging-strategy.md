@@ -1,6 +1,8 @@
 ---
 title: "Blogging strategy for small businesses"
 excerpt: "How to plan a business blog that lasts: set a purpose, know your audience, build a content calendar, find topics, write faster and measure what works."
+image: "~/assets/images/blog/blogging-strategy.webp"
+imageAlt: "Cover graphic for the article \"Blogging strategy for small businesses\", in the Content Marketing category"
 publishDate: 2014-07-31T00:00:00+05:30
 updateDate: 2026-11-17T00:00:00+05:30
 category: "Content Marketing"

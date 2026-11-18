@@ -1,6 +1,8 @@
 ---
 title: "Copywriting that converts: headlines, clichés and sales copy"
 excerpt: "How to write headlines and sales copy that persuade: skip the empty buzzwords, be specific, speak to the reader's problem and end with a clear next step."
+image: "~/assets/images/blog/copywriting-cliches-kill-your-conversion-rate.webp"
+imageAlt: "Cover graphic for the article \"Copywriting that converts: headlines, clichés and sales copy\", in the Copywriting category"
 publishDate: 2015-12-16T00:00:00+05:30
 updateDate: 2026-11-17T00:00:00+05:30
 category: "Copywriting"

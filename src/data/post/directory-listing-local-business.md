@@ -1,6 +1,8 @@
 ---
 title: "Local SEO and Google Business Profile for small businesses"
 excerpt: "A practical guide to local SEO: set up your Google Business Profile, keep your name, address and phone consistent, and pick directories worth your time."
+image: "~/assets/images/blog/directory-listing-local-business.webp"
+imageAlt: "Cover graphic for the article \"Local SEO and Google Business Profile for small businesses\", in the SEO category"
 publishDate: 2013-11-19T00:00:00+05:30
 updateDate: 2026-11-17T00:00:00+05:30
 category: "SEO"

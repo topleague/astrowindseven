@@ -1,6 +1,8 @@
 ---
 title: "Starting a website, part 1: how to buy a domain name"
 excerpt: "Part 1 of our beginner series on starting a website: how to pick a domain name, choose an extension, avoid common traps and register it safely."
+image: "~/assets/images/blog/how-to-buy-a-domain-name.webp"
+imageAlt: "Cover graphic for the article \"Starting a website, part 1: how to buy a domain name\", in the Website category"
 publishDate: 2016-07-20T00:00:00+05:30
 updateDate: 2026-11-17T00:00:00+05:30
 category: "Website"

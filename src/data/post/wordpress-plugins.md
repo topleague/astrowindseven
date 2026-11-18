@@ -1,6 +1,8 @@
 ---
 title: "WordPress plugins worth using (updated)"
 excerpt: "How to choose WordPress plugins wisely, and the kinds of plugins most business sites actually need: security, backups, SEO, speed, forms and more."
+image: "~/assets/images/blog/wordpress-plugins.webp"
+imageAlt: "Cover graphic for the article \"WordPress plugins worth using (updated)\", in the WordPress category"
 publishDate: 2014-07-29T00:00:00+05:30
 updateDate: 2026-11-17T00:00:00+05:30
 category: "WordPress"

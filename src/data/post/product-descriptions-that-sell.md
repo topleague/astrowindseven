@@ -1,6 +1,8 @@
 ---
 title: "How to write product descriptions that sell"
 excerpt: "Practical rules for product descriptions that inform and persuade: the details to include, benefits over features, plain language and original text."
+image: "~/assets/images/blog/product-descriptions-that-sell.webp"
+imageAlt: "Cover graphic for the article \"How to write product descriptions that sell\", in the Copywriting category"
 publishDate: 2015-12-14T00:00:00+05:30
 updateDate: 2026-11-17T00:00:00+05:30
 category: "Copywriting"

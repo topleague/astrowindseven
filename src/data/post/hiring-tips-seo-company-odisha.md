@@ -1,6 +1,8 @@
 ---
 title: "How to choose an SEO company"
 excerpt: "How to choose an SEO company: questions to ask, red flags such as guaranteed rankings and link schemes, and what good reporting and ownership look like."
+image: "~/assets/images/blog/hiring-tips-seo-company-odisha.webp"
+imageAlt: "Cover graphic for the article \"How to choose an SEO company\", in the SEO category"
 publishDate: 2016-03-15T00:00:00+05:30
 updateDate: 2026-11-17T00:00:00+05:30
 category: "SEO"

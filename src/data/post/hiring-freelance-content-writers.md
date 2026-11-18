@@ -1,6 +1,8 @@
 ---
 title: "How to hire a content writer (and what to avoid)"
 excerpt: "A practical checklist for hiring a freelance content writer or agency: what to ask for, how to test, which red flags matter, and when to part ways."
+image: "~/assets/images/blog/hiring-freelance-content-writers.webp"
+imageAlt: "Cover graphic for the article \"How to hire a content writer (and what to avoid)\", in the Content Writing category"
 publishDate: 2010-05-15T00:00:00+05:30
 updateDate: 2026-11-17T00:00:00+05:30
 category: "Content Writing"

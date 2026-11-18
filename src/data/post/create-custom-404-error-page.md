@@ -1,6 +1,8 @@
 ---
 title: "How to create a custom 404 page"
 excerpt: "A good 404 page helps lost visitors find what they wanted. Learn what to include, what to avoid, and how to build one in WordPress, including block themes."
+image: "~/assets/images/blog/create-custom-404-error-page.webp"
+imageAlt: "Cover graphic for the article \"How to create a custom 404 page\", in the Website category"
 publishDate: 2016-08-05T00:00:00+05:30
 updateDate: 2026-11-17T00:00:00+05:30
 category: "Website"

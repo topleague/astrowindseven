@@ -1,6 +1,8 @@
 ---
 title: "How to get your website on Google"
 excerpt: "Being on Google takes three things: pages Google can find, content that matches what people search for, and trust from other sites. Here is how it works."
+image: "~/assets/images/blog/how-to-get-your-website-listed-on-googles-first-page.webp"
+imageAlt: "Cover graphic for the article \"How to get your website on Google\", in the SEO category"
 publishDate: 2014-04-13T00:00:00+05:30
 updateDate: 2026-11-17T00:00:00+05:30
 category: "SEO"

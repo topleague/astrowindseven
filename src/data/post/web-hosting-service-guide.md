@@ -1,6 +1,8 @@
 ---
 title: "Starting a website, part 2: how to choose web hosting"
 excerpt: "Part 2 of our beginner series: what web hosting is, the types available, and the support, backup, speed and exit questions to ask before you sign up."
+image: "~/assets/images/blog/web-hosting-service-guide.webp"
+imageAlt: "Cover graphic for the article \"Starting a website, part 2: how to choose web hosting\", in the Website category"
 publishDate: 2016-07-21T00:00:00+05:30
 updateDate: 2026-11-17T00:00:00+05:30
 category: "Website"

@@ -1,6 +1,8 @@
 ---
 title: "Landing page elements that convert"
 excerpt: "A landing page has one job: get the visitor to take one action. These are the elements that matter, and the common mistakes that cost you enquiries."
+image: "~/assets/images/blog/conversion-critical-elements-of-landing-pages.webp"
+imageAlt: "Cover graphic for the article \"Landing page elements that convert\", in the Website category"
 publishDate: 2014-10-28T00:00:00+05:30
 updateDate: 2026-11-17T00:00:00+05:30
 category: "Website"

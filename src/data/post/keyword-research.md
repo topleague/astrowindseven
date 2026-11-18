@@ -1,6 +1,8 @@
 ---
 title: "Keyword research for small businesses"
 excerpt: "A practical way to find the search terms your customers use, judge search intent, and choose keywords your small business can realistically rank for."
+image: "~/assets/images/blog/keyword-research.webp"
+imageAlt: "Cover graphic for the article \"Keyword research for small businesses\", in the SEO category"
 publishDate: 2013-07-24T00:00:00+05:30
 updateDate: 2026-11-17T00:00:00+05:30
 category: "SEO"

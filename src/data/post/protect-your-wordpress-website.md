@@ -1,6 +1,8 @@
 ---
 title: "How to protect your WordPress website from hackers"
 excerpt: "Practical steps to keep a WordPress site safe: strong logins, updates, trusted plugins, backups, and what to do if your site has already been hacked."
+image: "~/assets/images/blog/protect-your-wordpress-website.webp"
+imageAlt: "Cover graphic for the article \"How to protect your WordPress website from hackers\", in the WordPress category"
 publishDate: 2014-12-03T00:00:00+05:30
 updateDate: 2026-11-17T00:00:00+05:30
 category: "WordPress"

@@ -1,6 +1,8 @@
 ---
 title: "Schema markup for small business sites"
 excerpt: "What schema markup is, which types a small business site actually needs, how to add and test it, and why accurate markup beats more markup."
+image: "~/assets/images/blog/schema-markup-best-practices.webp"
+imageAlt: "Cover graphic for the article \"Schema markup for small business sites\", in the SEO category"
 publishDate: 2014-07-24T00:00:00+05:30
 updateDate: 2026-11-17T00:00:00+05:30
 category: "SEO"

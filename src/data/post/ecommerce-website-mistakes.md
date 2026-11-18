@@ -1,6 +1,8 @@
 ---
 title: "Ecommerce website mistakes to avoid"
 excerpt: "Six ecommerce mistakes that cost small online shops sales: weak product pages, slow mobile pages, poor support, clumsy checkout and unmonitored payments."
+image: "~/assets/images/blog/ecommerce-website-mistakes.webp"
+imageAlt: "Cover graphic for the article \"Ecommerce website mistakes to avoid\", in the Website category"
 publishDate: 2014-10-27T00:00:00+05:30
 updateDate: 2026-11-17T00:00:00+05:30
 category: "Website"

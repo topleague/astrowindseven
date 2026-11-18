@@ -1,6 +1,8 @@
 ---
 title: "Should you noindex archives in WordPress?"
 excerpt: "Tag, author and date archives rarely deserve a place in Google. Here is which WordPress archives to noindex, which to keep, and how to do it safely."
+image: "~/assets/images/blog/noindex-archives-wordpress.webp"
+imageAlt: "Cover graphic for the article \"Should you noindex archives in WordPress?\", in the SEO category"
 publishDate: 2014-08-11T00:00:00+05:30
 updateDate: 2026-11-17T00:00:00+05:30
 category: "SEO"

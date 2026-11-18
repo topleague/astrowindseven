@@ -1,6 +1,8 @@
 ---
 title: "Capitalization rules for headlines and subheadings"
 excerpt: "Title case or sentence case? A plain guide to capitalizing headlines and subheadings, why style guides differ, and how to keep your site consistent."
+image: "~/assets/images/blog/capitalization-style-guide-rules-content-writing.webp"
+imageAlt: "Cover graphic for the article \"Capitalization rules for headlines and subheadings\", in the Content Writing category"
 publishDate: 2015-01-06T00:00:00+05:30
 updateDate: 2026-11-17T00:00:00+05:30
 category: "Content Writing"

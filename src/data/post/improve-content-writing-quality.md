@@ -1,6 +1,8 @@
 ---
 title: "How to write quality content that people read"
 excerpt: "A step-by-step process for writing useful web content: audience and intent, outlines, research, clear writing, editing and keeping your standards high."
+image: "~/assets/images/blog/improve-content-writing-quality.webp"
+imageAlt: "Cover graphic for the article \"How to write quality content that people read\", in the Content Writing category"
 publishDate: 2020-12-11T00:00:00+05:30
 updateDate: 2026-11-17T00:00:00+05:30
 category: "Content Writing"

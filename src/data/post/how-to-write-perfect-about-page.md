@@ -1,6 +1,8 @@
 ---
 title: "How to write a perfect About page"
 excerpt: "Your About page is among the most visited on your site. Learn how to write one that builds trust, answers visitor doubts and leads to the next step."
+image: "~/assets/images/blog/how-to-write-perfect-about-page.webp"
+imageAlt: "Cover graphic for the article \"How to write a perfect About page\", in the Website category"
 publishDate: 2015-02-13T00:00:00+05:30
 updateDate: 2026-11-17T00:00:00+05:30
 category: "Website"

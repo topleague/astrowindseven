@@ -1,6 +1,8 @@
 ---
 title: "How to use custom fonts on your website"
 excerpt: "How to choose web fonts, self-host Google Fonts for speed and privacy, understand premium font licences, and add fonts in WordPress block themes."
+image: "~/assets/images/blog/google-fonts-guide.webp"
+imageAlt: "Cover graphic for the article \"How to use custom fonts on your website\", in the Website category"
 publishDate: 2015-02-12T00:00:00+05:30
 updateDate: 2026-11-17T00:00:00+05:30
 category: "Website"

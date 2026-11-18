@@ -1,6 +1,8 @@
 ---
 title: "Internal linking and anchor text, explained"
 excerpt: "How to link between your own pages in a way that helps visitors and search engines, how to choose anchor text, and what to do about nofollow links."
+image: "~/assets/images/blog/internal-linking-anchor-text.webp"
+imageAlt: "Cover graphic for the article \"Internal linking and anchor text, explained\", in the SEO category"
 publishDate: 2014-11-03T00:00:00+05:30
 updateDate: 2026-11-17T00:00:00+05:30
 category: "SEO"

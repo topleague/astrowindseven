@@ -1,6 +1,8 @@
 ---
 title: "Starting a website, part 3: how to choose a CMS"
 excerpt: "Part 3 of our beginner series: what a CMS is, how WordPress, Drupal and Joomla compare, and why most small businesses start with WordPress."
+image: "~/assets/images/blog/cms-wordpress-joomla-drupal.webp"
+imageAlt: "Cover graphic for the article \"Starting a website, part 3: how to choose a CMS\", in the Website category"
 publishDate: 2016-07-23T00:00:00+05:30
 updateDate: 2026-11-17T00:00:00+05:30
 category: "Website"
