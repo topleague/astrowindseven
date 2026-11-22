@@ -9,7 +9,7 @@ import { Icon } from 'astro-icon/components';
 const metadata = {
   title: 'Website Design & Development in Bhubaneswar | Top League',
   description:
-    'Website design and development in Bhubaneswar, planned around your business, goals and budget. Content, SEO and care included. Serving clients across India and worldwide.',
+    'Website design and development in Bhubaneswar, planned around your goals and budget, with content, SEO and maintenance. Clients across India and worldwide.',
   ignoreTitleTemplate: true,
 };
 
@@ -43,13 +43,8 @@ const contactLink = '/contact/';
 // Search this file for "[" or "TODO" and replace before launch.
 // ---------------------------------------------------------------------------
 const P = {
-  fromPrice: '[from-price, e.g. $500]',          // TODO confirm currency + amount (website-development page uses $500 / $750 / $1000)
-  timeline: '[typical timeline, e.g. 3 to 6 weeks]', // TODO
-  careIncludes: '[what the care plan includes, e.g. updates, backups, security, small edits]', // TODO
   phone: '[phone / WhatsApp number]',            // TODO
   city: 'Bhubaneswar, Odisha, India',            // confirm wording
-  workResultA: '[Result: one measurable outcome, e.g. load time or enquiries]', // TODO
-  workResultB: '[Result: one measurable outcome]',                              // TODO
 };
 
 const stats = [
@@ -61,10 +56,10 @@ const stats = [
 
 // What we do: outcome-led, each card links to a real page.
 const services = [
-  { icon: 'tabler:layout-dashboard', t: 'Websites', d: 'Fast, mobile-friendly WordPress sites built around your brand, with on-page SEO set up from day one.', links: [{ l: 'Website development', h: '/website-development/' }] },
-  { icon: 'tabler:pencil', t: 'Content', d: 'Articles, page copy and product descriptions written for your customers and for search, in your voice.', links: [{ l: 'Article writing', h: '/seo-article-writing/' }, { l: 'Copywriting', h: '/seo-copywriting/' }, { l: 'Product descriptions', h: '/product-description-writing/' }] },
-  { icon: 'tabler:chart-line', t: 'SEO + Social', d: 'Search visibility and social activity that point the right people to the site you already have.', links: [{ l: 'SEO services', h: '/seo-services/' }] },
-  { icon: 'tabler:shield-check', t: 'Care + Data', d: 'Updates, security, analytics and reporting after launch, so the site stays useful.', links: [{ l: 'Ask about care plans', h: '/contact/' }] },
+  { icon: 'tabler:layout-dashboard', t: 'Website design & development', d: 'Fast, mobile-friendly WordPress sites built around your brand, with on-page SEO set up from day one.', links: [{ l: 'Website development', h: '/website-development/' }] },
+  { icon: 'tabler:pencil', t: 'Content writing', d: 'Articles, page copy and product descriptions written for your customers and for search, in your voice.', links: [{ l: 'Article writing', h: '/seo-article-writing/' }, { l: 'Copywriting', h: '/seo-copywriting/' }, { l: 'Product descriptions', h: '/product-description-writing/' }] },
+  { icon: 'tabler:chart-line', t: 'SEO & social media', d: 'Search visibility and social activity that point the right people to the site you already have.', links: [{ l: 'SEO services', h: '/seo-services/' }] },
+  { icon: 'tabler:shield-check', t: 'Website maintenance', d: 'Updates, backups, security checks and support after launch, so the site stays safe, current and working.', links: [{ l: 'Ask about maintenance', h: '/contact/' }] },
 ];
 
 // Journey: planning first, no invented durations.
@@ -72,21 +67,36 @@ const journey = [
   { dot: '1', k: 'PLAN', t: 'Understand the business', d: 'Audience, goals, budget, domain and the pages you actually need.' },
   { dot: '2', k: 'BUILD', t: 'Design, write, build', d: 'Content and SEO are mapped before pages are assembled, so nothing is squeezed in at the end.' },
   { dot: '3', k: 'LAUNCH', t: 'Test and go live', d: 'Speed, mobile and basic security are checked before the site is public.' },
-  { dot: '4', k: 'CARE', t: 'Keep it working', d: 'Updates, analytics and new content, so the site keeps earning its place.' },
+  { dot: '4', k: 'MAINTAIN', t: 'Keep it working', d: 'Updates, security checks and new content, so the site keeps earning its place.' },
 ];
 
-// Recent work: descriptions are from the website-development page.
-const work = [
-  { t: 'Purbaghat Masala', k: 'Custom WordPress child theme', d: 'The client wanted a unique online presence, not a generic template. We built a custom child theme and worked page by page on imagery and colour palette to match the brand.', r: P.workResultA },
-  { t: 'Decyphr', k: 'IT consultancy website', d: 'After a requirements analysis, we built a site focused on speed and performance, and we look after the whole digital presence.', r: P.workResultB },
-];
-
-const faqs = [
-  { q: 'How much does a website cost?', a: `Websites start from ${P.fromPrice}. The price depends on the number of pages, the design and how much content we write. Tell us your budget in the first conversation and we will plan around it.` },
-  { q: 'How long does a website take?', a: `Typically ${P.timeline}, depending on the number of pages and how ready your content is. We agree a timeline with you before we start.` },
-  { q: 'Will I own my website and domain?', a: 'Yes. [TODO confirm ownership terms: domain registered in your name, hosting access, files handed over.]' },
-  { q: 'Are you just a website design company?', a: 'No. Websites are where we start, but we also write the content, set up SEO and look after the site afterwards, because a website on its own rarely brings customers.' },
-  { q: 'Do you work with clients outside Bhubaneswar?', a: 'Yes. We are based in Bhubaneswar and have served clients in 10 countries. Everything can be done remotely by email and video call.' },
+// Client work: website clients. Wording is exactly as supplied; do not edit.
+// "pull" is an exact excerpt of the review, shown large; "text" is the full review.
+const clientWork = [
+  {
+    tab: 'Purbaghat Masala',
+    pull: 'They were affordable, professional, and delivered exactly what I needed.',
+    project: 'Custom WordPress child theme',
+    blurb: 'We built a custom child theme and worked page by page on imagery and colour palette to match the brand.',
+    text: `I've been incredibly impressed with Top League’s website development services. They were affordable, professional, and delivered exactly what I needed. Their team took the time to understand my requirements and then created a website that is both beautiful and functional. They also provided excellent support throughout the entire process, and I continue to rely on them for ongoing maintenance. I highly recommend Top League to anyone looking for a reliable and affordable WordPress development company.`,
+    name: 'Arup Nayak', job: 'Founder, Purbaghat Masala',
+  },
+  {
+    tab: 'Decyphr',
+    pull: 'Their web development services are exceptional…',
+    project: 'IT consultancy website',
+    blurb: 'After a requirements analysis, we built a site focused on speed and performance, and we look after the whole digital presence.',
+    text: `Collaborating with Top League has been an enjoyable experience. Their web development services are exceptional, providing a smooth and aesthetically impressive website that surpassed our expectations. What distinguishes them is their rapid support – any inquiries or challenges we encountered were promptly resolved, keeping our project on schedule. We wholeheartedly recommend Top League to anyone seeking to enhance their online presence with a skilled and attentive team!`,
+    name: 'Dipan Rout', job: 'Founder, Decyphr Pvt Ltd',
+  },
+  {
+    tab: 'Prof. Uday Damodaran',
+    pull: 'Over the last six years, Top League have exceeded my expectations…',
+    project: 'Website maintenance',
+    blurb: 'Professional and personal websites, looked after by Top League over six years.',
+    text: `Over the last six years, Top League have exceeded my expectations and delighted me with their personalized service in maintaining my professional and other websites.`,
+    name: 'Prof. Uday Damodaran', job: 'Faculty, IIM Udaipur',
+  },
 ];
 
 const usualWay = [
@@ -113,20 +123,15 @@ const mistake = [
   { t: 'Domain + logo abandoned', d: 'A change of name, domain and logo.' },
 ];
 
-const quotes = [
-  { t: 'Very Professional!', q: 'Top League is the only company I use for my article writing needs. They are very professional and work with you throughout the project with constant updates. I recommend their services to anyone considering outsourcing their content writing.', name: 'Daniel', job: 'Founder / Future Success' },
-  { t: 'Readily Available!', q: 'Top League did a great job writing content for our website. They followed our direction very closely and were readily available for every stage of the project. I would highly recommend their writing skills and will be utilizing their services again. Great Job!', name: 'Jason Hamblin', job: 'Sr. Executive / L2T Media' },
-  { t: 'Always the Best!', q: 'Top League have been excellent at presenting their work and work very hard to ensure that the quality of their work is always the best! Thank you Top League! I look forward to continuing our business together.', name: 'Michael', job: 'Founder / Idea Bubble' },
-];
 const initials = (name) => name.trim().split(/\s+/).map((w) => w[0]).slice(0, 2).join('').toUpperCase();
 
 // Orbit: five layers around the website
-const orbit = ['Domain', 'Content', 'SEO', 'Social', 'Care'].map((label, i) => {
+const orbit = ['Domain', 'Content', 'SEO', 'Social', 'Support'].map((label, i) => {
   const a = (-90 + i * 72) * Math.PI / 180;
   return { label, i, x: Math.round(270 + 165 * Math.cos(a)), y: Math.round(230 + 165 * Math.sin(a)) };
 });
 
-const marquee = ['Business', 'Website', 'Content', 'SEO', 'Social', 'Care'].join(' ✦ ') + ' ✦ ';
+const marquee = ['Business', 'Website', 'Content', 'SEO', 'Social', 'Maintenance'].join(' ✦ ') + ' ✦ ';
 ---
 
 <Layout metadata={metadata} pageClass="product-description-page">
@@ -147,16 +152,16 @@ const marquee = ['Business', 'Website', 'Content', 'SEO', 'Social', 'Care'].join
             <span>Not Just a Website.</span>
           </h1>
           <p>
-            Based in Bhubaneswar, working with small businesses across India and worldwide. We start with your business, goal and budget, then plan the website, content, SEO and care around them.
+            Based in Bhubaneswar, working with small businesses across India and worldwide. We start with your business, goal and budget, then plan the website, content, SEO and maintenance around them.
           </p>
           <div class="sx-actions">
             <a class="sx-btn sx-btn-primary" href="#contact">Free consultation <i>↗</i></a>
-            <a class="sx-btn sx-btn-ghost" href="#difference">See how we work <i>↓</i></a>
+            <a class="sx-btn sx-btn-ghost" href="#plans">See plans and prices <i>↓</i></a>
           </div>
-          <div class="sx-note">Websites · Content · SEO + Social · Care + Data</div>
+          <div class="sx-note">Website design · Content writing · SEO &amp; social media · Maintenance</div>
         </div>
 
-        <div class="sx-stage" role="img" aria-label="Illustration: a website at the centre, connected to the domain, content, SEO, social presence and ongoing care around it.">
+        <div class="sx-stage" role="img" aria-label="Illustration: a website at the centre, connected to the domain, content, SEO, social presence and ongoing support around it.">
           <svg viewBox="0 0 540 460" aria-hidden="true">
             <circle class="sx-rip" cx="270" cy="230" r="215" style="--d:0s" />
             <circle class="sx-rip" cx="270" cy="230" r="215" style="--d:2s" />
@@ -177,7 +182,7 @@ const marquee = ['Business', 'Website', 'Content', 'SEO', 'Social', 'Care'].join
           </svg>
           <span class="sx-pin" style="left:0;top:6%"><b>1</b> Domain &amp; brand</span>
           <span class="sx-pin" style="right:0;top:48%"><b>2</b> Content &amp; search</span>
-          <span class="sx-pin" style="left:4%;bottom:4%"><b>3</b> Care after launch</span>
+          <span class="sx-pin" style="left:4%;bottom:4%"><b>3</b> Maintenance after launch</span>
         </div>
       </div>
     </section>
@@ -202,7 +207,7 @@ const marquee = ['Business', 'Website', 'Content', 'SEO', 'Social', 'Care'].join
       <div class="sx-wrap">
         <div class="sx-head">
           <div class="sx-kicker sx-reveal">What we do</div>
-          <h2 class="sx-h2 sx-reveal">One team for your website, content, SEO and care.</h2>
+          <h2 class="sx-h2 sx-reveal">Website design, content, SEO and maintenance from one team.</h2>
           <p class="sx-lead sx-reveal">A website works best when the domain, content, search and social presence are planned together. Pick the part you need, or all of it.</p>
         </div>
         <div class="sx-bento">
@@ -220,7 +225,44 @@ const marquee = ['Business', 'Website', 'Content', 'SEO', 'Social', 'Care'].join
       </div>
     </section>
 
-    <!-- 4. REAL CLIENT STORY -->
+    <!-- 4. CLIENT WORK AND WEBSITE TESTIMONIALS -->
+    <section class="sx-section sx-alt" id="proof">
+      <div class="sx-wrap">
+        <div class="sx-head">
+          <div class="sx-kicker sx-reveal">Client work</div>
+          <h2 class="sx-h2 sx-reveal">Websites we’ve built, and look after.</h2>
+        </div>
+        <!-- TODO: a strip of 4 to 6 more projects (name, one line, link or screenshot) can sit under this block. -->
+        <div data-sx-tabs>
+          <div class="sx-tabs" role="tablist" aria-label="Client reviews">
+            {clientWork.map((c, i) => (
+              <button class="sx-tab" role="tab" type="button" aria-selected={i === 0 ? 'true' : 'false'}>{c.tab}</button>
+            ))}
+          </div>
+          {clientWork.map((c) => (
+            <div class="sx-panel" role="tabpanel">
+              <div class="proof-layout">
+                <div class="proof-intro">
+                  <div class="sx-card-k" style="margin:0 0 14px">{c.project}</div>
+                  <h3 class="sx-h2 proof-pull">“{c.pull}”</h3>
+                  <p class="sx-lead">{c.blurb}</p>
+                </div>
+                <article class="testimonial-card">
+                  <span class="quote-mark" aria-hidden="true">“</span>
+                  <blockquote>{c.text}</blockquote>
+                  <div class="quote-person">
+                    <span class="quote-initial" aria-hidden="true">{initials(c.name.replace(/^Prof\.\s*/, ''))}</span>
+                    <span><strong>{c.name}</strong><small>{c.job}</small></span>
+                  </div>
+                </article>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. REAL CLIENT STORY -->
     <section class="sx-section sx-night" id="reality">
       <div class="sx-wrap sx-story-grid">
         <div class="sx-sticky">
@@ -245,7 +287,7 @@ const marquee = ['Business', 'Website', 'Content', 'SEO', 'Social', 'Care'].join
       </div>
     </section>
 
-    <!-- 5. THE DIFFERENCE (tabs) -->
+    <!-- 6. THE DIFFERENCE (tabs) -->
     <section class="sx-section sx-alt" id="difference">
       <div class="sx-wrap">
         <div class="sx-head">
@@ -282,7 +324,7 @@ const marquee = ['Business', 'Website', 'Content', 'SEO', 'Social', 'Care'].join
       </div>
     </section>
 
-    <!-- 6. JOURNEY -->
+    <!-- 7. JOURNEY -->
     <section class="sx-section" id="howdy">
       <div class="sx-wrap">
         <div class="sx-head">
@@ -302,97 +344,153 @@ const marquee = ['Business', 'Website', 'Content', 'SEO', 'Social', 'Care'].join
       </div>
     </section>
 
-    <!-- 7. RECENT WORK -->
-    <section class="sx-section sx-alt" id="work">
+    <!-- 8. PLANS -->
+    <section class="sx-section sx-alt" id="plans">
       <div class="sx-wrap">
         <div class="sx-head">
-          <div class="sx-kicker sx-reveal">Recent work</div>
-          <h2 class="sx-h2 sx-reveal">Websites we’ve built for real businesses.</h2>
+          <div class="sx-kicker sx-reveal">Plans</div>
+          <h2 class="sx-h2 sx-reveal">Start with a website. Grow into a full online presence.</h2>
+          <p class="sx-lead sx-reveal">Pick the plan that matches where your business is today. Each one includes a properly built website that you own.</p>
         </div>
-        <div class="sx-quotes is-two">
-          {work.map((w, i) => (
-            <article class="sx-quote sx-reveal" style={`--d:${i * 0.08}s`}>
-              <div class="sx-card-k" style="margin:0">{w.k}</div>
-              <div class="sx-quote-t">{w.t}</div>
-              <p>{w.d}</p>
-              <p style="margin-top:10px;font-weight:700">{w.r}</p>
-            </article>
-          ))}
-        </div>
-        <!-- TODO: add a website-client testimonial here when you have one (all three quotes below are from content clients). -->
-      </div>
-    </section>
 
-    <!-- 8. CLIENT WORDS -->
-    <section class="sx-section sx-night" id="proof">
-      <div class="sx-wrap">
-        <div class="sx-head">
-          <div class="sx-kicker sx-reveal">Content clients</div>
-          <h2 class="sx-h2 sx-reveal">What clients say about working with us.</h2>
+        <div class="sx-reveal" style="border:1px solid var(--line);background:var(--card);border-radius:16px;padding:18px 22px;margin-bottom:34px">
+          <div class="sx-card-k" style="margin:0 0 10px">In every plan</div>
+          <div style="display:flex;flex-wrap:wrap;gap:8px 26px;font-size:15px;color:var(--ink)">
+            <span>✓ Domain and hosting guidance</span>
+            <span>✓ Responsive WordPress website</span>
+            <span>✓ Basic security setup</span>
+            <span>✓ Pre-launch testing</span>
+            <span>✓ Full handover: you own the site</span>
+            <span>✓ Basic training</span>
+          </div>
         </div>
-        <div class="sx-quotes">
-          {quotes.map((q, i) => (
-            <article class="sx-quote sx-reveal" style={`--d:${i * 0.08}s`}>
-              <div class="sx-stars" role="img" aria-label="5 out of 5 stars">★★★★★</div>
-              <div class="sx-quote-t">{q.t}</div>
-              <p>“{q.q}”</p>
-              <div class="sx-person">
-                <span class="sx-av" aria-hidden="true">{initials(q.name)}</span>
-                <div class="sx-who">
-                  <b>{q.name}</b>
-                  <span>{q.job}</span>
-                </div>
-              </div>
-            </article>
-          ))}
-        </div>
-      </div>
-    </section>
 
-    <!-- 9. PRICING -->
-    <section class="sx-section" id="pricing">
-      <div class="sx-wrap">
-        <div class="sx-head">
-          <div class="sx-kicker sx-reveal">Pricing</div>
-          <h2 class="sx-h2 sx-reveal">Plan around your budget, not ours.</h2>
-        </div>
-        <div class="sx-bento">
-          <article class="sx-card sx-glow sx-reveal sx-b7">
-            <h3>Websites from {P.fromPrice}</h3>
-            <p>Budget is part of the first conversation, so the plan is practical rather than padded. Packages, scope and support periods are set out on the website development page, and bigger projects get a custom quote.</p>
-            <p style="margin-top:14px"><a class="sx-btn sx-btn-dark" href="/website-development/">See website packages <i>↗</i></a></p>
+        <div class="sx-paths">
+
+          <!-- No Frills -->
+          <article class="sx-path sx-glow sx-reveal">
+            <div class="sx-card-k">No Frills</div>
+            <h3>I need a website.</h3>
+            <p>A one-time project to get your business online, with the essentials set up properly.</p>
+            <div class="sx-price">₹30,000</div>
+            <div class="sx-per">One-time · [GST note TBC]</div>
+            <ul>
+              <li><span class="sx-tick">✓</span>Standard design with your logo and colours</li>
+              <li><span class="sx-tick">✓</span>Content written for up to 3 pages</li>
+              <li><span class="sx-tick">✓</span>Basic keyword research and on-page SEO</li>
+              <li><span class="sx-tick">✓</span>Google Analytics, Search Console and Business Profile set up</li>
+              <li><span class="sx-tick">✓</span>Facebook, Instagram, X and LinkedIn profiles set up</li>
+              <li><span class="sx-tick">✓</span>1 SEO blog article</li>
+              <li><span class="sx-tick">✓</span>A report showing which pages were submitted to Google</li>
+            </ul>
+            <div class="sx-card-k" style="margin:0 0 8px">After launch</div>
+            <p style="margin:0 0 22px;font-size:15px">No ongoing services. Maintenance can be added any time. [confirm]</p>
+            <a class="sx-btn sx-btn-dark" href={contactLink}>Start with No Frills <i>↗</i></a>
           </article>
-          <article class="sx-card sx-glow sx-reveal sx-b5" style="--d:.08s">
-            <div class="sx-card-k" style="margin-top:0">After launch</div>
-            <h3>Care plans</h3>
-            <p>{P.careIncludes}</p>
+
+          <!-- Growth -->
+          <article class="sx-path sx-glow sx-reveal is-feat" style="--d:.1s">
+            <span class="sx-badge">Recommended</span>
+            <div class="sx-card-k">Growth</div>
+            <h3>I need a website that attracts customers.</h3>
+            <p>Built on research, with content and SEO behind it, then three months of us working on it with you.</p>
+            <div class="sx-price">₹50,000</div>
+            <div class="sx-per">Includes 3 months of work after launch · [GST note TBC]</div>
+            <ul>
+              <li><span class="sx-tick">✓</span><b>Everything in No Frills, plus:</b></li>
+              <li><span class="sx-tick">✓</span>Design tailored to your business, with a second mockup using your real content</li>
+              <li><span class="sx-tick">✓</span>In-depth keyword and competitor research</li>
+              <li><span class="sx-tick">✓</span>Comprehensive SEO, built into every page</li>
+              <li><span class="sx-tick">✓</span>Content written for up to 4 pages</li>
+            </ul>
+            <div class="sx-card-k" style="margin:0 0 10px">For 3 months after launch</div>
+            <ul style="border-top:0;padding-top:0;margin-bottom:28px">
+              <li><span class="sx-tick">✓</span>5 blog articles in total</li>
+              <li><span class="sx-tick">✓</span>6 social posts a month on 3 platforms</li>
+              <li><span class="sx-tick">✓</span>Monthly website maintenance and SEO tune-up</li>
+              <li><span class="sx-tick">✓</span>A monthly report</li>
+            </ul>
+            <a class="sx-btn sx-btn-primary" href={contactLink}>Choose Growth <i>↗</i></a>
+          </article>
+
+          <!-- Growth Plus -->
+          <article class="sx-path sx-glow sx-reveal" style="--d:.2s">
+            <div class="sx-card-k">Growth Plus</div>
+            <h3>I need someone to build and manage my online presence.</h3>
+            <p>Everything in Growth, a design built around your brand, and six months of us running it with you.</p>
+            <div class="sx-price">₹65,000</div>
+            <div class="sx-per">Includes 6 months of work after launch · [GST note TBC]</div>
+            <ul>
+              <li><span class="sx-tick">✓</span><b>Everything in Growth, plus:</b></li>
+              <li><span class="sx-tick">✓</span>Custom design built around your brand</li>
+              <li><span class="sx-tick">✓</span>Content written for up to 5 pages</li>
+            </ul>
+            <div class="sx-card-k" style="margin:0 0 10px">For 6 months after launch</div>
+            <ul style="border-top:0;padding-top:0;margin-bottom:28px">
+              <li><span class="sx-tick">✓</span>7 blog articles in total</li>
+              <li><span class="sx-tick">✓</span>10 social posts a month across 5 platforms</li>
+              <li><span class="sx-tick">✓</span>Monthly website maintenance and SEO tune-up</li>
+              <li><span class="sx-tick">✓</span>A monthly report</li>
+            </ul>
+            <a class="sx-btn sx-btn-dark" href={contactLink}>Talk to us <i>↗</i></a>
           </article>
         </div>
+
+        <div class="sx-reveal" style="display:flex;flex-wrap:wrap;gap:18px 40px;justify-content:space-between;align-items:center;margin-top:40px">
+          <p style="margin:0;max-width:64ch;font-size:16px;line-height:1.6">
+            <b style="color:var(--ink)">When the included period ends,</b> you keep the website. If you'd like us to carry on, we'll agree a plan with you. There is no automatic renewal. [confirm]
+          </p>
+          <div style="display:flex;flex-wrap:wrap;gap:12px">
+            <a class="sx-btn sx-btn-ghost" href="#compare" style="color:var(--ink);border-color:var(--ink)">Compare every detail <i>→</i></a>
+            <a class="sx-btn sx-btn-ghost" href={contactLink} style="color:var(--ink);border-color:var(--ink)">Need something different? <i>↗</i></a>
+          </div>
+        </div>
+        <p class="sx-reveal" style="margin:26px 0 0;font-size:13px;color:var(--muted);max-width:80ch">We do the work described. We can't promise rankings, indexing by Google or visibility in AI answers, because those are decided by others.</p>
       </div>
     </section>
 
-    <!-- 10. FAQ -->
-    <section class="sx-section sx-alt" id="faq">
+    <!-- 9. PLAN COMPARISON -->
+    <section class="sx-section" id="compare">
       <div class="sx-wrap">
         <div class="sx-head">
-          <div class="sx-kicker sx-reveal">Questions</div>
-          <h2 class="sx-h2 sx-reveal">Common questions.</h2>
+          <div class="sx-kicker sx-reveal">Compare</div>
+          <h2 class="sx-h2 sx-reveal">Everything in each plan.</h2>
         </div>
-        <ul class="sx-problems">
-          {faqs.map((f) => (
-            <li class="sx-reveal">
-              <span class="sx-ico" aria-hidden="true">?</span>
-              <details style="flex:1">
-                <summary class="sx-p-t" style="cursor:pointer;margin:0">{f.q}</summary>
-                <div class="sx-p-d" style="margin-top:10px">{f.a}</div>
-              </details>
-            </li>
-          ))}
-        </ul>
+        <div style="overflow-x:auto" class="sx-reveal">
+          <table style="width:100%;min-width:640px;border-collapse:collapse;font-size:15px;color:var(--ink)">
+            <thead>
+              <tr style="text-align:left">
+                <th style="padding:14px 12px;border-bottom:2px solid var(--ink)"></th>
+                <th style="padding:14px 12px;border-bottom:2px solid var(--ink)">No Frills<br><span style="font-weight:400;color:var(--muted)">₹30,000</span></th>
+                <th style="padding:14px 12px;border-bottom:2px solid var(--ink);background:var(--alt)">Growth<br><span style="font-weight:400;color:var(--muted)">₹50,000</span></th>
+                <th style="padding:14px 12px;border-bottom:2px solid var(--ink)">Growth Plus<br><span style="font-weight:400;color:var(--muted)">₹65,000</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><th colspan="4" style="text-align:left;padding:22px 12px 8px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--red)">Your website</th></tr>
+              <tr><td style="padding:12px;border-bottom:1px solid var(--line)">Design</td><td style="padding:12px;border-bottom:1px solid var(--line)">Standard</td><td style="padding:12px;border-bottom:1px solid var(--line);background:var(--alt)">Tailored</td><td style="padding:12px;border-bottom:1px solid var(--line)">Custom</td></tr>
+              <tr><td style="padding:12px;border-bottom:1px solid var(--line)">Second mockup with your real content</td><td style="padding:12px;border-bottom:1px solid var(--line)">–</td><td style="padding:12px;border-bottom:1px solid var(--line);background:var(--alt)">✓</td><td style="padding:12px;border-bottom:1px solid var(--line)">✓</td></tr>
+              <tr><td style="padding:12px;border-bottom:1px solid var(--line)">Pages with content written for you</td><td style="padding:12px;border-bottom:1px solid var(--line)">3</td><td style="padding:12px;border-bottom:1px solid var(--line);background:var(--alt)">4</td><td style="padding:12px;border-bottom:1px solid var(--line)">5</td></tr>
+              <tr><th colspan="4" style="text-align:left;padding:22px 12px 8px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--red)">Being found</th></tr>
+              <tr><td style="padding:12px;border-bottom:1px solid var(--line)">Keyword and competitor research</td><td style="padding:12px;border-bottom:1px solid var(--line)">Basic</td><td style="padding:12px;border-bottom:1px solid var(--line);background:var(--alt)">In-depth</td><td style="padding:12px;border-bottom:1px solid var(--line)">In-depth</td></tr>
+              <tr><td style="padding:12px;border-bottom:1px solid var(--line)">On-page SEO</td><td style="padding:12px;border-bottom:1px solid var(--line)">Basic</td><td style="padding:12px;border-bottom:1px solid var(--line);background:var(--alt)">Comprehensive</td><td style="padding:12px;border-bottom:1px solid var(--line)">Comprehensive</td></tr>
+              <tr><td style="padding:12px;border-bottom:1px solid var(--line)">Google Analytics, Search Console, Business Profile</td><td style="padding:12px;border-bottom:1px solid var(--line)">✓</td><td style="padding:12px;border-bottom:1px solid var(--line);background:var(--alt)">✓</td><td style="padding:12px;border-bottom:1px solid var(--line)">✓</td></tr>
+              <tr><td style="padding:12px;border-bottom:1px solid var(--line)">Report on pages submitted to Google</td><td style="padding:12px;border-bottom:1px solid var(--line)">✓</td><td style="padding:12px;border-bottom:1px solid var(--line);background:var(--alt)">✓</td><td style="padding:12px;border-bottom:1px solid var(--line)">✓</td></tr>
+              <tr><th colspan="4" style="text-align:left;padding:22px 12px 8px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--red)">Content and social</th></tr>
+              <tr><td style="padding:12px;border-bottom:1px solid var(--line)">Social profiles set up (Facebook, Instagram, X, LinkedIn)</td><td style="padding:12px;border-bottom:1px solid var(--line)">✓</td><td style="padding:12px;border-bottom:1px solid var(--line);background:var(--alt)">✓</td><td style="padding:12px;border-bottom:1px solid var(--line)">✓</td></tr>
+              <tr><td style="padding:12px;border-bottom:1px solid var(--line)">Blog articles (about 1,000 words)</td><td style="padding:12px;border-bottom:1px solid var(--line)">1</td><td style="padding:12px;border-bottom:1px solid var(--line);background:var(--alt)">5 in total</td><td style="padding:12px;border-bottom:1px solid var(--line)">7 in total</td></tr>
+              <tr><td style="padding:12px;border-bottom:1px solid var(--line)">Social posts each month</td><td style="padding:12px;border-bottom:1px solid var(--line)">–</td><td style="padding:12px;border-bottom:1px solid var(--line);background:var(--alt)">6 (3 platforms)</td><td style="padding:12px;border-bottom:1px solid var(--line)">10 (5 platforms)</td></tr>
+              <tr><th colspan="4" style="text-align:left;padding:22px 12px 8px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--red)">After launch</th></tr>
+              <tr><td style="padding:12px;border-bottom:1px solid var(--line)">Included period</td><td style="padding:12px;border-bottom:1px solid var(--line)">–</td><td style="padding:12px;border-bottom:1px solid var(--line);background:var(--alt)">3 months</td><td style="padding:12px;border-bottom:1px solid var(--line)">6 months</td></tr>
+              <tr><td style="padding:12px;border-bottom:1px solid var(--line)">Website maintenance and SEO tune-up</td><td style="padding:12px;border-bottom:1px solid var(--line)">–</td><td style="padding:12px;border-bottom:1px solid var(--line);background:var(--alt)">Monthly</td><td style="padding:12px;border-bottom:1px solid var(--line)">Monthly</td></tr>
+              <tr><td style="padding:12px;border-bottom:1px solid var(--line)">Monthly report</td><td style="padding:12px;border-bottom:1px solid var(--line)">–</td><td style="padding:12px;border-bottom:1px solid var(--line);background:var(--alt)">✓</td><td style="padding:12px;border-bottom:1px solid var(--line)">✓</td></tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </section>
 
-    <!-- 11. MARQUEE -->
+    <!-- 10. MARQUEE -->
     <div class="sx-marquee" aria-hidden="true">
       <div class="sx-marquee-track">
         <span>{marquee}</span>
@@ -402,7 +500,7 @@ const marquee = ['Business', 'Website', 'Content', 'SEO', 'Social', 'Care'].join
       </div>
     </div>
 
-    <!-- 12. CTA -->
+    <!-- 11. CTA -->
     <section class="sx-cta" id="contact">
       <div class="sx-wrap">
         <div class="sx-cta-card sx-reveal">
@@ -418,3 +516,18 @@ const marquee = ['Business', 'Website', 'Content', 'SEO', 'Social', 'Care'].join
     </section>
   </div>
 </Layout>
+
+<style>
+  /* Testimonial layout, taken from /right/. Scoped to this page. */
+  .proof-layout { display: grid; grid-template-columns: .85fr 1.15fr; gap: clamp(35px, 7vw, 90px); align-items: center; }
+  .proof-pull { max-width: none; font-size: clamp(28px, 3.6vw, 46px); margin-bottom: 20px; }
+  .testimonial-card { position: relative; overflow: hidden; padding: clamp(28px, 4vw, 42px); border: 1px solid var(--line); border-radius: 22px; background: var(--card); }
+  .quote-mark { position: absolute; right: 20px; top: 4px; font-family: Georgia, serif; font-size: 100px; line-height: 1; color: var(--green); opacity: .12; }
+  .testimonial-card blockquote { position: relative; margin: 0 0 30px; font-size: 17px; line-height: 1.75; color: var(--ink); }
+  .quote-person { display: flex; align-items: center; gap: 12px; border-top: 1px solid var(--line); padding-top: 18px; }
+  .quote-initial { width: 38px; height: 38px; display: grid; place-items: center; border-radius: 50%; background: var(--night); color: var(--lime); font-weight: 850; }
+  .quote-person strong, .quote-person small { display: block; }
+  .quote-person strong { font-size: 13px; color: var(--ink); }
+  .quote-person small { font-size: 11px; color: var(--muted); margin-top: 3px; }
+  @media (max-width: 980px) { .proof-layout { grid-template-columns: 1fr; } }
+</style>
