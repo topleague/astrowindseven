@@ -717,9 +717,11 @@ color: #fff;
 .sx-page .sx-path.is-feat .sx-tick { background: var(--lime); color: #17242b; }
 .sx-page .sx-badge { align-self: flex-start; margin-bottom: 14px; font-size: 11px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; padding: 6px 11px; border-radius: 999px; background: var(--lime); color: #17242b; }
 /* ---------- Marquee ---------- */
-.sx-page .sx-marquee { background: var(--lime); color: #17242b; overflow: hidden; border-block: 1px solid rgba(23, 36, 43, .2); padding: 18px 0; white-space: nowrap; }
+/* .sx-page .sx-marquee { background: var(--lime); color: #17242b; overflow: hidden; border-block: 1px solid rgba(23, 36, 43, .2); padding: 18px 0; white-space: nowrap; } */
+/* .sx-page .sx-marquee span { font-family: 'Mona Bold Pro Max', 'Mona Bold', sans-serif; font-size: clamp(36px, 6vw, 76px); line-height: 1; letter-spacing: -.04em; text-transform: uppercase; padding-right: .4em; } */
+.sx-page .sx-marquee { background: var(--alt); color: var(--muted); overflow: hidden; border-block: 1px solid var(--line); padding: 9px 0; white-space: nowrap; }
 .sx-page .sx-marquee-track { display: inline-flex; animation: sx-marquee 34s linear infinite; }
-.sx-page .sx-marquee span { font-family: 'Mona Bold Pro Max', 'Mona Bold', sans-serif; font-size: clamp(36px, 6vw, 76px); line-height: 1; letter-spacing: -.04em; text-transform: uppercase; padding-right: .4em; }
+.sx-page .sx-marquee span { font-family: inherit; font-size: 12px; font-weight: 700; letter-spacing: .22em; line-height: 1.2; text-transform: uppercase; padding-right: 1.2em; }
 .sx-page .sx-marquee:hover .sx-marquee-track { animation-play-state: paused; }
 /* ---------- CTA ---------- */
 .sx-page .sx-cta { background: var(--night); padding: clamp(60px, 8vw, 110px) 0; }
