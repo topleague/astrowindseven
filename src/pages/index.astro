@@ -87,7 +87,11 @@ const clientWork = [
     pull: 'They were affordable, professional, and delivered exactly what I needed.',
     project: 'Custom WordPress child theme',
     blurb: 'We built a custom child theme and worked page by page on imagery and colour palette to match the brand.',
-    text: `I've been incredibly impressed with Top League’s website development services. They were affordable, professional, and delivered exactly what I needed. Their team took the time to understand my requirements and then created a website that is both beautiful and functional. They also provided excellent support throughout the entire process, and I continue to rely on them for ongoing maintenance. I highly recommend Top League to anyone looking for a reliable and affordable WordPress development company.`,
+    paras: [
+  `I've been incredibly impressed with Top League’s website development services. They were affordable, professional, and delivered exactly what I needed.`,
+  `Their team took the time to understand my requirements and then created a website that is both beautiful and functional. They also provided excellent support throughout the entire process, and I continue to rely on them for ongoing maintenance.`,
+  `I highly recommend Top League to anyone looking for a reliable and affordable WordPress development company.`,
+    ],
     name: 'Arup Nayak', job: 'Founder, Purbaghat Masala',
   },
   {
@@ -95,7 +99,10 @@ const clientWork = [
     pull: 'Their web development services are exceptional…',
     project: 'IT consultancy website',
     blurb: 'After a requirements analysis, we built a site focused on speed and performance, and we look after the whole digital presence.',
-    text: `Collaborating with Top League has been an enjoyable experience. Their web development services are exceptional, providing a smooth and aesthetically impressive website that surpassed our expectations. What distinguishes them is their rapid support – any inquiries or challenges we encountered were promptly resolved, keeping our project on schedule. We wholeheartedly recommend Top League to anyone seeking to enhance their online presence with a skilled and attentive team!`,
+    paras: [
+  `Collaborating with Top League has been an enjoyable experience. Their web development services are exceptional, providing a smooth and aesthetically impressive website that surpassed our expectations.`,
+  `What distinguishes them is their rapid support – any inquiries or challenges we encountered were promptly resolved, keeping our project on schedule. We wholeheartedly recommend Top League to anyone seeking to enhance their online presence with a skilled and attentive team!`,
+    ],
     name: 'Dipan Rout', job: 'Founder, Decyphr Pvt Ltd',
   },
   {
@@ -103,7 +110,7 @@ const clientWork = [
     pull: 'Over the last six years, Top League have exceeded my expectations…',
     project: 'Website maintenance',
     blurb: 'Professional and personal websites, looked after by Top League over six years.',
-    text: `Over the last six years, Top League have exceeded my expectations and delighted me with their personalized service in maintaining my professional and other websites.`,
+    paras: [`Over the last six years, Top League have exceeded my expectations and delighted me with their personalized service in maintaining my professional and other websites.`],
     name: 'Prof. Uday Damodaran', job: 'Faculty, IIM Udaipur',
   },
 ];
@@ -496,7 +503,7 @@ const marquee = ['Business', 'Website', 'Content', 'SEO', 'Social', 'Maintenance
                 </div>
                 <article class="testimonial-card">
                   <span class="quote-mark" aria-hidden="true">“</span>
-                  <blockquote>{c.text}</blockquote>
+                  <blockquote>{c.paras.map((p) => <p>{p}</p>)}</blockquote>
                   <div class="quote-person">
                     <span class="quote-initial" aria-hidden="true">{initials(c.name.replace(/^Prof\.\s*/, ''))}</span>
                     <span><strong>{c.name}</strong><small>{c.job}</small></span>
@@ -547,6 +554,8 @@ const marquee = ['Business', 'Website', 'Content', 'SEO', 'Social', 'Maintenance
   .quote-person strong, .quote-person small { display: block; }
   .quote-person strong { font-size: 13px; color: var(--ink); }
   .quote-person small { font-size: 11px; color: var(--muted); margin-top: 3px; }
+  .testimonial-card blockquote p { margin: 0 0 14px; color: var(--ink); }
+  .testimonial-card blockquote p:last-child { margin-bottom: 0; }
   @media (max-width: 980px) { .proof-layout { grid-template-columns: 1fr; } }
 
 
