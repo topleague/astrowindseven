@@ -73,7 +73,9 @@ export const headerData = {
 };
 
 export const footerData = {
-  links: [],
+  links: [
+    { text: 'Chat on WhatsApp', href: '/whatsapp/' },
+  ],
 
   secondaryLinks: [
     { text: 'Terms', href: getPermalink('/terms') },
@@ -82,6 +84,7 @@ export const footerData = {
 
   socialLinks: [
   { ariaLabel: 'RSS', icon: 'tabler:rss', href: getAsset('/rss.xml') },
+  { ariaLabel: 'WhatsApp', icon: 'tabler:brand-whatsapp', href: '/whatsapp/' },
   ],
 
   footNote: `
