@@ -53,3 +53,6 @@
 # Old WordPress category/tag/author archives (optional, uncomment if you want them to land on the blog)
 # /category/* /blog/ 301
 # /tag/* /blog/ 301
+
+/whatsapp/ https://wa.me/917978912869?text=Hi%20Top%20League%2C%20I%27d%20like%20to%20talk%20about%20a%20website. 302
+/whatsapp  https://wa.me/917978912869?text=Hi%20Top%20League%2C%20I%27d%20like%20to%20talk%20about%20a%20website. 302
