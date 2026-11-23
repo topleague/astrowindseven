@@ -556,6 +556,15 @@ color: #fff;
 .sx-page .sx-stat { border-left: 1px solid rgba(255, 255, 255, .16); padding-left: 18px; }
 .sx-page .sx-num { font-family: 'Mona Bold Pro Max', 'Mona Bold', sans-serif; font-size: clamp(38px, 4.4vw, 58px); line-height: 1; color: var(--lime); letter-spacing: -.04em; }
 .sx-page .sx-stat-l { margin-top: 10px; font-size: 13px; line-height: 1.4; color: rgba(255, 255, 255, .65); }
+
+/* ---------- "Based in Bhubaneswar" strip ---------- */
+.sx-page .sx-proof { padding: 28px 0; }
+.sx-page .sx-proof .sx-proof-grid { gap: 24px; }
+.sx-page .sx-proof .sx-proof-lead { font-size: clamp(16px, 1.6vw, 20px); }
+.sx-page .sx-proof .sx-num { font-size: clamp(24px, 2.6vw, 34px); }
+.sx-page .sx-proof .sx-stat { padding-left: 14px; }
+.sx-page .sx-proof .sx-stat-l { margin-top: 4px; font-size: 12px; }
+.sx-page .sx-proof .sx-stats { row-gap: 16px; }
 /* ---------- Ceiling ---------- */
 .sx-page .sx-problems { list-style: none; margin: 36px 0 0; padding: 0; display: grid; gap: 14px; }
 .sx-page .sx-problems li { display: flex; gap: 16px; align-items: flex-start; padding: 18px 20px; border: 1px solid var(--line); border-radius: 16px; background: var(--card); transition: transform .3s ease, box-shadow .3s ease; }
