@@ -1,27 +1,28 @@
 ---
-/**
- * HOMEPAGE MOCKUP v2: story-first, light, calm.
- *
- * Upload as src/pages/index-new.astro and open /index-new/ to compare with the live page.
- * Self-contained: it does NOT use the sx-* kit or SxEffects, no JavaScript, no scroll-reveal.
- * All styles are scoped under .nh and driven by the tokens at the top of the <style> block,
- * so changing the accent colour is a one-line edit.
- *
- * Search this file for TODO before launch.
- */
 import Layout from '~/layouts/PageLayout.astro';
+import SxEffects from '~/components/sx/SxEffects.astro';
 import StructuredData from '~/components/common/StructuredData.astro';
 import { SITE, METADATA, I18N } from 'astrowind:config';
 import favIconSvg from '~/assets/favicons/favicon.svg';
+import { Icon } from 'astro-icon/components';
+
+import { Image } from 'astro:assets';
+import purbaghatShot from '~/assets/images/work/purbaghat-masala.webp';
+import decyphrShot from '~/assets/images/work/decyphr.webp';
+
+const projects = [
+  { name: 'Purbaghat Masala', kind: 'Custom WordPress child theme', url: 'https://asnagrofoods.com/', shot: purbaghatShot, alt: 'Purbaghat Masala website home page' },
+  { name: 'Decyphr', kind: 'IT consultancy website', url: 'https://decyphr.com/', shot: decyphrShot, alt: 'Decyphr website home page' },
+];
 
 const metadata = {
   title: 'Website Design & Development in Bhubaneswar | Top League',
   description:
     'Website design and development in Bhubaneswar, planned around your goals and budget, with content, SEO and maintenance. Clients across India and worldwide.',
   ignoreTitleTemplate: true,
-  robots: { index: false, follow: false }, // mockup only: remove when this replaces index.astro
 };
 
+// Structured data for the site and its publisher (unchanged from the original page).
 const organizationId = `${SITE?.site}/#organization`;
 const structuredData = [
   {
@@ -45,268 +46,190 @@ const structuredData = [
 ];
 
 const contactLink = '/contact/';
-const whatsappLink = '/whatsapp/'; // redirect from public/_redirects (given earlier)
 
 // ---------------------------------------------------------------------------
-// HERO: the checklist card on the right replaces the animated orbit.
+// PLACEHOLDERS: every value in [square brackets] below is NOT real yet.
+// Search this file for "[" or "TODO" and replace before launch.
 // ---------------------------------------------------------------------------
-const heroChecklist = [
-  { t: 'A domain and website that fit your business', s: 'Planned before anything is built' },
-  { t: 'Content written for your customers', s: 'And for search' },
-  { t: 'SEO set up from day one', s: 'Not added at the end' },
-  { t: 'Social profiles that match the site', s: 'Ready to use' },
-  { t: 'Someone to look after it', s: 'Updates, security and support' },
+const P = {
+  phone: '[phone / WhatsApp number]',            // TODO
+  city: 'Bhubaneswar, Odisha, India',            // confirm wording
+};
+
+const stats = [
+  { n: 16, l: 'years running Top League' },          // TODO confirm: company since 2010, kept separate from the founder's own experience
+  { n: 30, s: '+', l: 'websites built recently' },
+  { n: 20, l: 'websites currently maintained' },
+  { n: 10, l: 'countries with clients served' },
 ];
 
-const proof = [
-  { n: '16', l: 'years running Top League' }, // TODO confirm 2009 vs 2010
-  { n: '30+', l: 'websites built recently' },
-  { n: '20', l: 'websites we maintain today' },
-  { n: '10', l: 'countries with clients' },
-];
-
-// ---------------------------------------------------------------------------
-// THE VILLAIN: a website that looks finished but brings nothing.
-// ---------------------------------------------------------------------------
-const villains = [
-  { n: '01', t: 'Built before it was planned', d: 'The first question is “what should it look like?”. Who it is for, what it should do and what you can spend come later, if at all.' },
-  { n: '02', t: 'Finished, but nobody finds it', d: 'Pages are designed first and written last. Search and structure are an afterthought, so the site looks good and brings no one in.' },
-  { n: '03', t: 'Launched, then left alone', d: 'Updates, security, new content and social presence become nobody’s job. The site slowly goes stale.' },
-];
-
-const mistake = [
-  { t: 'Domain and logo chosen', d: 'Before the website was planned.' },
-  { t: 'Website built', d: 'Design and pages completed.' },
-  { t: 'Trademark conflict', d: 'Found only after the website was ready.' },
-  { t: 'Start again', d: 'A new name, domain and logo.' },
-];
-
-// ---------------------------------------------------------------------------
-// THE GUIDE: three static contrasts (replaces the six tabs).
-// ---------------------------------------------------------------------------
-const contrasts = [
-  {
-    k: 'Where we start',
-    usual: 'With the website. A list of pages and features becomes the plan, and the business comes second.',
-    ours: 'With your business. Your audience, your goal and what success means to you decide which pages and features earn a place.',
-  },
-  {
-    k: 'How we handle budget',
-    usual: 'A quote follows the feature list. The real budget surfaces later, usually as a compromise.',
-    ours: 'Budget is part of the first conversation, so the plan is practical rather than padded.',
-  },
-  {
-    k: 'What happens after launch',
-    usual: 'Launch and move on. Speed, security, social and fresh content become somebody else’s problem.',
-    ours: 'We build for speed and security from the start, and stay on for updates, analytics and new content.',
-  },
-];
-
-// ---------------------------------------------------------------------------
-// WHAT WE DO
-// ---------------------------------------------------------------------------
+// What we do: outcome-led, each card links to a real page.
 const services = [
-  { t: 'Website design & development', d: 'Fast, mobile-friendly WordPress sites built around your brand, with on-page SEO set up from day one.', links: [{ l: 'Website development', h: '/website-development/' }] },
-  { t: 'Content writing', d: 'Articles, page copy and product descriptions written for your customers and for search, in your voice.', links: [{ l: 'Articles', h: '/seo-article-writing/' }, { l: 'Copywriting', h: '/seo-copywriting/' }, { l: 'Product descriptions', h: '/product-description-writing/' }] },
-  { t: 'SEO & social media', d: 'Search visibility and social activity that point the right people to the site you already have.', links: [{ l: 'SEO services', h: '/seo-services/' }] },
-  { t: 'Website maintenance', d: 'Updates, backups, security checks and support after launch, so the site stays safe, current and working.', links: [{ l: 'Ask about maintenance', h: '/contact/' }] },
+  { icon: 'tabler:layout-dashboard', t: 'Website design & development', d: 'Fast, mobile-friendly WordPress sites built around your brand, with on-page SEO set up from day one.', links: [{ l: 'Website development', h: '/website-development/' }] },
+  { icon: 'tabler:pencil', t: 'Content writing', d: 'Articles, page copy and product descriptions written for your customers and for search, in your voice.', links: [{ l: 'Article writing', h: '/seo-article-writing/' }, { l: 'Copywriting', h: '/seo-copywriting/' }, { l: 'Product descriptions', h: '/product-description-writing/' }] },
+  { icon: 'tabler:chart-line', t: 'SEO & social media', d: 'Search visibility and social activity that point the right people to the site you already have.', links: [{ l: 'SEO services', h: '/seo-services/' }] },
+  { icon: 'tabler:shield-check', t: 'Website maintenance', d: 'Updates, backups, security checks and support after launch, so the site stays safe, current and working.', links: [{ l: 'Ask about maintenance', h: '/contact/' }] },
 ];
 
-// ---------------------------------------------------------------------------
-// THE PLAN (how we work): four steps, details live on /how-we-work/ (TODO: create page).
-// ---------------------------------------------------------------------------
-const steps = [
-  { k: '1', t: 'Plan', d: 'Audience, goals, budget, domain and the pages you actually need.' },
-  { k: '2', t: 'Build', d: 'Content and SEO are mapped before pages are assembled.' },
-  { k: '3', t: 'Launch', d: 'Speed, mobile and basic security are checked before the site goes public.' },
-  { k: '4', t: 'Maintain', d: 'Updates, security checks and new content, so the site keeps earning its place.' },
+// Journey: planning first, no invented durations.
+const journey = [
+  { dot: '1', k: 'PLAN', t: 'Understand the business', d: 'Audience, goals, budget, domain and the pages you actually need.' },
+  { dot: '2', k: 'BUILD', t: 'Design, write, build', d: 'Content and SEO are mapped before pages are assembled, so nothing is squeezed in at the end.' },
+  { dot: '3', k: 'LAUNCH', t: 'Test and go live', d: 'Speed, mobile and basic security are checked before the site is public.' },
+  { dot: '4', k: 'MAINTAIN', t: 'Keep it working', d: 'Updates, security checks and new content, so the site keeps earning its place.' },
 ];
 
-// ---------------------------------------------------------------------------
-// PLANS. Names are working names (Essential / Momentum / Partnership), not final.
-// Full comparison moves to /packages/ (TODO: create page).
-// ---------------------------------------------------------------------------
-const plans = [
+// Client work: website clients. Wording is exactly as supplied; do not edit.
+// "pull" is an exact excerpt of the review, shown large; "text" is the full review.
+const clientWork = [
   {
-    name: 'Essential',
-    need: 'I need a website.',
-    price: '₹30,000',
-    note: 'One-time, no ongoing services',
-    items: ['Standard design with your logo and colours', 'Content for up to 3 pages', 'Basic keyword research and on-page SEO', 'Analytics, Search Console and Business Profile set up'],
-  },
-  {
-    name: 'Momentum',
-    need: 'I need a website that attracts customers.',
-    price: '₹50,000',
-    note: 'Website plus 3 months after launch',
-    featured: true,
-    items: ['Tailored design with a second mockup using real content', 'Content for up to 4 pages, comprehensive SEO', '5 blog articles and 6 social posts a month on 3 platforms', 'Monthly maintenance, SEO tune-up and report'],
-  },
-  {
-    name: 'Partnership',
-    need: 'I need someone to build and manage my online presence.',
-    price: '₹65,000',
-    note: 'Website plus 6 months after launch',
-    items: ['Custom design', 'Content for up to 5 pages, comprehensive SEO', '7 blog articles and 10 social posts a month on 5 platforms', 'Monthly maintenance, SEO tune-up and report'],
-  },
-];
-
-// ---------------------------------------------------------------------------
-// CLIENT WORDS. Wording is exactly as supplied; do not edit.
-// "pull" is an exact excerpt of the review; "text" is the full review.
-// ---------------------------------------------------------------------------
-const reviews = [
-  {
+    tab: 'Purbaghat Masala',
     pull: 'They were affordable, professional, and delivered exactly what I needed.',
-    text: `I've been incredibly impressed with Top League’s website development services. They were affordable, professional, and delivered exactly what I needed. Their team took the time to understand my requirements and then created a website that is both beautiful and functional. They also provided excellent support throughout the entire process, and I continue to rely on them for ongoing maintenance. I highly recommend Top League to anyone looking for a reliable and affordable WordPress development company.`,
+    project: 'Custom WordPress child theme',
+    blurb: 'We built a custom child theme and worked page by page on imagery and colour palette to match the brand.',
+    paras: [
+  `I've been incredibly impressed with Top League’s website development services. They were affordable, professional, and delivered exactly what I needed.`,
+  `Their team took the time to understand my requirements and then created a website that is both beautiful and functional. They also provided excellent support throughout the entire process, and I continue to rely on them for ongoing maintenance.`,
+  `I highly recommend Top League to anyone looking for a reliable and affordable WordPress development company.`,
+    ],
     name: 'Arup Nayak', job: 'Founder, Purbaghat Masala',
   },
   {
+    tab: 'Decyphr',
     pull: 'Their web development services are exceptional…',
-    text: `Collaborating with Top League has been an enjoyable experience. Their web development services are exceptional, providing a smooth and aesthetically impressive website that surpassed our expectations. What distinguishes them is their rapid support – any inquiries or challenges we encountered were promptly resolved, keeping our project on schedule. We wholeheartedly recommend Top League to anyone seeking to enhance their online presence with a skilled and attentive team!`,
+    project: 'IT consultancy website',
+    blurb: 'After a requirements analysis, we built a site focused on speed and performance, and we look after the whole digital presence.',
+    paras: [
+  `Collaborating with Top League has been an enjoyable experience. Their web development services are exceptional, providing a smooth and aesthetically impressive website that surpassed our expectations.`,
+  `What distinguishes them is their rapid support – any inquiries or challenges we encountered were promptly resolved, keeping our project on schedule. We wholeheartedly recommend Top League to anyone seeking to enhance their online presence with a skilled and attentive team!`,
+    ],
     name: 'Dipan Rout', job: 'Founder, Decyphr Pvt Ltd',
   },
   {
+    tab: 'Prof. Uday Damodaran',
     pull: 'Over the last six years, Top League have exceeded my expectations…',
-    text: `Over the last six years, Top League have exceeded my expectations and delighted me with their personalized service in maintaining my professional and other websites.`,
+    project: 'Website maintenance',
+    blurb: 'Professional and personal websites, looked after by Top League over six years.',
+    paras: [`Over the last six years, Top League have exceeded my expectations and delighted me with their personalized service in maintaining my professional and other websites.`],
     name: 'Prof. Uday Damodaran', job: 'Faculty, IIM Udaipur',
   },
 ];
 
-const initials = (name) => name.replace(/^Prof\.\s*/, '').trim().split(/\s+/).map((w) => w[0]).slice(0, 2).join('').toUpperCase();
+const usualWay = [
+  { title: 'Start with the website', description: 'The first question is “What kind of website do you want?”. A list of pages and features becomes the plan, and the business comes second.' },
+  { title: 'Treat requirements as the strategy', description: 'A quote follows the feature list. The real budget surfaces later, usually as a compromise.' },
+  { title: 'Choose what is familiar', description: 'Domain, hosting and platform are picked by habit, convenience or the lowest price.' },
+  { title: 'Build first, think about SEO later', description: 'Pages are designed and written first. Search intent and site structure are considered afterwards.' },
+  { title: 'Fill the pages at the end', description: 'Copy and images arrive late and get squeezed into whatever space the design left.' },
+  { title: 'Launch and move on', description: 'Speed, security, social presence and fresh content become somebody else’s problem.' },
+];
+const topLeagueWay = [
+  { title: 'Start with the business', description: 'We begin with your audience, your goals and what success means to you. Only then do we decide which pages and features earn a place.' },
+  { title: 'Plan around the real budget', description: 'Budget is part of the first conversation, so the plan is practical rather than padded.' },
+  { title: 'Choose foundations deliberately', description: 'Domain, hosting and CMS, platform or framework follow your requirements, not whatever we happen to use.' },
+  { title: 'Map SEO before building pages', description: 'Search intent, keywords, structure and the pages you need to compete are decided before the build begins.' },
+  { title: 'Create content around the plan', description: 'Content and visuals are prepared with your audience and search goals in mind, before the pages are assembled.' },
+  { title: 'Plan for life after launch', description: 'We build for speed and security from the start, keep social aligned with the site, and stay on for updates, analytics and new content.' },
+];
+const tabNames = ['Starting point', 'Budget', 'Foundations', 'SEO', 'Content', 'After launch'];
+
+const mistake = [
+  { t: 'Domain + logo', d: 'Chosen before the website was planned.' },
+  { t: 'Trademark conflict', d: 'Discovered after the website was ready.' },
+  { t: 'Domain + logo abandoned', d: 'A change of name, domain and logo.' },
+];
+
+const initials = (name) => name.trim().split(/\s+/).map((w) => w[0]).slice(0, 2).join('').toUpperCase();
+
+// Orbit: five layers around the website
+const orbit = ['Domain', 'Content', 'SEO', 'Social', 'Support'].map((label, i) => {
+  const a = (-90 + i * 72) * Math.PI / 180;
+  return { label, i, x: Math.round(270 + 165 * Math.cos(a)), y: Math.round(230 + 165 * Math.sin(a)) };
+});
+
 ---
 
-<Layout metadata={metadata}>
+<Layout metadata={metadata} pageClass="product-description-page">
   <StructuredData slot="head" schema={structuredData} />
-  <link slot="head" rel="preconnect" href="https://fonts.googleapis.com" />
-  <link slot="head" rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    slot="head"
-    rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700&family=Inter:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap"
-  />
 
-  <div class="nh">
-    <!-- 1. HERO: the visitor, their goal, one clear next step -->
-    <section class="nh-hero">
-      <div class="nh-wrap nh-hero-grid">
-        <div>
-          <p class="nh-pill">Website design &amp; development in Bhubaneswar</p>
-          <h1>Build Your Online Presence, <em>Not Just a Website.</em></h1>
-          <p class="nh-lead">
-            You don’t need a website that only looks good. You need one that brings in customers. We plan it around your business, your goal and your budget, then build, write, optimise and look after it.
+  <SxEffects />
+
+  <div class="sx-page sx-calm">
+    <div class="sx-progress" aria-hidden="true"><span></span></div>
+
+    <!-- 1. HERO SECTION -->
+    <section class="sx-hero">
+      <div class="sx-wrap sx-hero-grid">
+        <div class="sx-hero-copy">
+          <div class="sx-pill"><span class="sx-dot"></span> Website design &amp; development in Bhubaneswar</div>
+          <h1>
+            Build Your Online Presence,
+            <span>Not Just a Website.</span>
+          </h1>
+          <p>
+            Based in Bhubaneswar, working with small businesses across India and worldwide. We start with your business, goal and budget, then plan the website, content, SEO and maintenance around them.
           </p>
-          <div class="nh-actions">
-            <a class="nh-btn nh-btn-primary" href={contactLink}>Free consultation <span aria-hidden="true">→</span></a>
-            <a class="nh-btn nh-btn-ghost" href="#plans">See plans and prices</a>
+          <div class="sx-actions">
+            <a class="sx-btn sx-btn-primary" href="#contact">Free consultation <i>↗</i></a>
+            <a class="sx-btn sx-btn-ghost" href="#plans">See plans and prices <i>↓</i></a>
           </div>
-          <p class="nh-small">Based in Bhubaneswar. Working with small businesses across India and worldwide.</p>
+          <div class="sx-note">Website design · Content writing · SEO &amp; social media · Maintenance</div>
         </div>
 
-        <aside class="nh-checklist" aria-label="What your online presence includes">
-          <p class="nh-checklist-h">Your online presence, planned as one thing</p>
-          <ul>
-            {heroChecklist.map((c) => (
-              <li>
-                <span class="nh-tick" aria-hidden="true">✓</span>
-                <span><strong>{c.t}</strong><small>{c.s}</small></span>
-              </li>
+        <div class="sx-stage" role="img" aria-label="Illustration: a website at the centre, connected to the domain, content, SEO, social presence and ongoing support around it.">
+          <svg viewBox="0 0 540 460" aria-hidden="true">
+            <circle class="sx-ring2" cx="270" cy="230" r="165" />
+            {orbit.map((o) => <line class="sx-spoke" x1="270" y1="230" x2={o.x} y2={o.y} />)}
+            {orbit.map((o) => (
+              <g class="sx-sat" style={`--i:${o.i}`}>
+                <circle cx={o.x} cy={o.y} r="40" />
+                <text x={o.x} y={o.y + 5}>{o.label}</text>
+              </g>
             ))}
-          </ul>
-        </aside>
-      </div>
-
-      <div class="nh-wrap">
-        <dl class="nh-proof">
-          {proof.map((p) => (
-            <div>
-              <dt>{p.n}</dt>
-              <dd>{p.l}</dd>
-            </div>
-          ))}
-        </dl>
-      </div>
-    </section>
-
-    <!-- 2. THE VILLAIN: a website that looks finished and brings nothing -->
-    <section class="nh-section nh-alt" id="problem">
-      <div class="nh-wrap">
-        <div class="nh-head">
-          <p class="nh-kicker">The problem</p>
-          <h2>A website can look finished and still bring you <em>nothing.</em></h2>
-          <p class="nh-lead">It usually goes wrong long before the first page is designed.</p>
-        </div>
-
-        <div class="nh-grid3">
-          {villains.map((v) => (
-            <article class="nh-card">
-              <span class="nh-num">{v.n}</span>
-              <h3>{v.t}</h3>
-              <p>{v.d}</p>
-            </article>
-          ))}
-        </div>
-
-        <div class="nh-story">
-          <div>
-            <p class="nh-kicker">Based on a real client story</p>
-            <h3>What an expensive mistake looks like</h3>
-            <p>
-              A client came to us with a domain and logo already chosen. After the website was ready, a trademark conflict forced a change of name, domain and logo.
-            </p>
-          </div>
-          <ol class="nh-flow">
-            {mistake.map((m, i) => (
-              <li class={i === 2 ? 'is-bad' : ''}>
-                <span>{i + 1}</span>
-                <p><strong>{m.t}</strong>{m.d}</p>
-              </li>
-            ))}
-          </ol>
+            <g class="sx-core">
+              <circle class="sx-halo" cx="270" cy="230" r="62" />
+              <circle cx="270" cy="230" r="44" />
+            </g>
+            <text class="sx-svgt" x="270" y="235">Website</text>
+          </svg>
+          <span class="sx-pin" style="left:0;top:6%"><b>1</b> Domain &amp; brand</span>
+          <span class="sx-pin" style="right:0;top:48%"><b>2</b> Content &amp; search</span>
+          <span class="sx-pin" style="left:4%;bottom:4%"><b>3</b> Maintenance after launch</span>
         </div>
       </div>
     </section>
 
-    <!-- 3. THE GUIDE: we start with the business -->
-    <section class="nh-section" id="approach">
-      <div class="nh-wrap">
-        <div class="nh-head">
-          <p class="nh-kicker">A different way to start</p>
-          <h2>We start with your business, <em>not the page list.</em></h2>
-          <p class="nh-lead">After 16 years and many websites, we have seen what works. The plan comes first, and the website follows it.</p>
-        </div>
-
-        <div class="nh-contrast" role="table" aria-label="The usual way compared with the Top League way">
-          <div class="nh-contrast-h" role="row">
-            <span role="columnheader"></span>
-            <span role="columnheader">The usual way</span>
-            <span role="columnheader" class="is-ours">The Top League way</span>
-          </div>
-          {contrasts.map((c) => (
-            <div class="nh-contrast-r" role="row">
-              <strong role="rowheader">{c.k}</strong>
-              <p role="cell" class="is-usual">{c.usual}</p>
-              <p role="cell" class="is-ours">{c.ours}</p>
+    <!-- 2. NUMBERS -->
+    <section class="sx-proof">
+      <div class="sx-wrap sx-proof-grid">
+        <div class="sx-proof-lead sx-reveal">Based in Bhubaneswar.<br />Clients in 10 countries.</div>
+        <div class="sx-stats">
+          {stats.map((s, i) => (
+            <div class="sx-stat sx-reveal" style={`--d:${i * 0.08}s`}>
+              <div class="sx-num">{s.n}{s.s}</div>
+              <div class="sx-stat-l">{s.l}</div>
             </div>
           ))}
         </div>
       </div>
     </section>
 
-    <!-- 4. WHAT WE DO -->
-    <section class="nh-section nh-alt" id="services">
-      <div class="nh-wrap">
-        <div class="nh-head">
-          <p class="nh-kicker">What we do</p>
-          <h2>Everything your online presence needs, <em>in one place.</em></h2>
+    <!-- 3. WHAT WE DO -->
+    <section class="sx-section" id="services">
+      <div class="sx-wrap">
+        <div class="sx-head">
+          <div class="sx-kicker sx-reveal">What we do</div>
+          <h2 class="sx-h2 sx-reveal">Website design, content, SEO and maintenance from one team.</h2>
+          <p class="sx-lead sx-reveal">A website works best when the domain, content, search and social presence are planned together. Pick the part you need, or all of it.</p>
         </div>
-        <div class="nh-grid4">
-          {services.map((s) => (
-            <article class="nh-card">
+        <div class="sx-bento">
+          {services.map((s, i) => (
+            <article class="sx-card sx-glow sx-reveal sx-b6" style={`--d:${i * 0.08}s`}>
+              <span class="sx-ico" style="margin:6px 0 18px"><Icon name={s.icon} class="h-5 w-5" /></span>
               <h3>{s.t}</h3>
               <p>{s.d}</p>
-              <p class="nh-links">
-                {s.links.map((l) => <a href={l.h}>{l.l} →</a>)}
+              <p style="margin-top:14px;display:flex;flex-wrap:wrap;gap:6px 18px">
+                {s.links.map((l) => (<a href={l.h} style="font-weight:700;color:var(--ink);text-decoration:underline;text-underline-offset:3px">{l.l}</a>))}
               </p>
             </article>
           ))}
@@ -314,287 +237,369 @@ const initials = (name) => name.replace(/^Prof\.\s*/, '').trim().split(/\s+/).ma
       </div>
     </section>
 
-    <!-- 5. THE PLAN: four steps, details on their own page -->
-    <section class="nh-section" id="process">
-      <div class="nh-wrap">
-        <div class="nh-head">
-          <p class="nh-kicker">How we work</p>
-          <h2>Four steps, <em>planning first.</em></h2>
+    <!-- 4. REAL CLIENT STORY -->
+    <section class="sx-section sx-night" id="reality">
+      <div class="sx-wrap sx-story-grid">
+        <div class="sx-sticky">
+          <div class="sx-kicker sx-reveal">Based on a real client story</div>
+          <h2 class="sx-h2 sx-reveal" style="max-width:none">What an expensive mistake looks like!</h2>
+          <blockquote class="sx-bigq sx-reveal">A trademark conflict forced a change of name, domain and logo. Bummer.</blockquote>
+          <div class="sx-copy">
+            <p class="sx-reveal">A client came to us with a domain and logo already chosen. After the website was ready, a trademark conflict forced a change of name, domain and logo.</p>
+          </div>
         </div>
-        <ol class="nh-steps">
-          {steps.map((s) => (
+        <ol class="sx-steps">
+          {mistake.map((m, i) => (
+            <li class="sx-reveal" style={`--d:${i * 0.1}s`}>
+              <span>{i + 1}</span>
+              <div>
+                <div class="sx-p-t">{m.t}</div>
+                <div class="sx-p-d">{m.d}</div>
+              </div>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
+
+    <!-- 5. THE DIFFERENCE (tabs) -->
+    <section class="sx-section sx-alt" id="difference">
+      <div class="sx-wrap">
+        <div class="sx-head">
+          <div class="sx-kicker sx-reveal">The Top League difference</div>
+          <h2 class="sx-h2 sx-reveal">A website is only as good as the thinking behind it.</h2>
+          <p class="sx-lead sx-reveal">Your domain, brand, content and search visibility all shape what happens after launch. Here’s what we do differently before we build, while we build, and after we launch.</p>
+        </div>
+
+        <div data-sx-tabs>
+          <div class="sx-tabs" role="tablist" aria-label="Where we do things differently">
+            {tabNames.map((n, i) => (
+              <button class="sx-tab" role="tab" type="button" aria-selected={i === 0 ? 'true' : 'false'}>{n}</button>
+            ))}
+          </div>
+          {tabNames.map((n, i) => (
+            <div class="sx-panel" role="tabpanel">
+              <div class="sx-panel-t">{n}</div>
+              <div class="sx-vs">
+                <article class="sx-vs-card sx-vs-old">
+                  <div class="sx-vs-k"><span class="sx-x">×</span> The usual way</div>
+                  <h3>{usualWay[i].title}</h3>
+                  <p>{usualWay[i].description}</p>
+                </article>
+                <div class="sx-vs-badge" aria-hidden="true">VS</div>
+                <article class="sx-vs-card sx-vs-new">
+                  <div class="sx-vs-k"><span class="sx-tick">✓</span> The Top League approach</div>
+                  <h3>{topLeagueWay[i].title}</h3>
+                  <p>{topLeagueWay[i].description}</p>
+                </article>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. JOURNEY -->
+    <section class="sx-section" id="howdy">
+      <div class="sx-wrap">
+        <div class="sx-head">
+          <div class="sx-kicker sx-reveal">How we work</div>
+          <h2 class="sx-h2 sx-reveal">From first conversation to a site that keeps working.</h2>
+        </div>
+        <ol class="sx-tl sx-watch" style={`--n:${journey.length}`}>
+          {journey.map((s) => (
             <li>
-              <span class="nh-step-n">{s.k}</span>
+              <span class="sx-tl-dot">{s.dot}</span>
+              <div class="sx-tl-k">{s.k}</div>
               <h3>{s.t}</h3>
               <p>{s.d}</p>
             </li>
           ))}
         </ol>
-        <p class="nh-more"><a href="/how-we-work/">See how we work in detail →</a></p>
       </div>
     </section>
 
-    <!-- 6. PLANS: three short cards, full comparison on /packages/ -->
-    <section class="nh-section nh-alt" id="plans">
-      <div class="nh-wrap">
-        <div class="nh-head">
-          <p class="nh-kicker">Plans and prices</p>
-          <h2>Start with the plan that <em>fits where you are.</em></h2>
-          <p class="nh-lead">Each plan is a complete website. The longer plans add months of work after launch, so the site keeps earning its place.</p>
+    <!-- 7. PLANS -->
+    <section class="sx-section sx-alt" id="plans">
+      <div class="sx-wrap">
+        <div class="sx-head">
+          <div class="sx-kicker sx-reveal">Plans</div>
+          <h2 class="sx-h2 sx-reveal">Start with a website. Grow into a full online presence.</h2>
+          <p class="sx-lead sx-reveal">Pick the plan that matches where your business is today. Each one includes a properly built website that you own.</p>
         </div>
 
-        <div class="nh-grid3 nh-plans">
-          {plans.map((p) => (
-            <article class={`nh-plan ${p.featured ? 'is-feat' : ''}`}>
-              {p.featured && <span class="nh-badge">Most chosen</span>}
-              <p class="nh-need">{p.need}</p>
-              <h3>{p.name}</h3>
-              <p class="nh-price">{p.price}</p>
-              <p class="nh-note">{p.note}</p>
-              <ul>
-                {p.items.map((i) => (
-                  <li><span class="nh-tick" aria-hidden="true">✓</span>{i}</li>
-                ))}
-              </ul>
-              <a class={`nh-btn ${p.featured ? 'nh-btn-primary' : 'nh-btn-ghost'}`} href={`${contactLink}?plan=${p.name.toLowerCase()}`}>Talk about {p.name}</a>
-            </article>
+        <div class="sx-reveal" style="border:1px solid var(--line);background:var(--card);border-radius:16px;padding:18px 22px;margin-bottom:34px">
+          <div class="sx-card-k" style="margin:0 0 10px">In every plan</div>
+          <div style="display:flex;flex-wrap:wrap;gap:8px 26px;font-size:15px;color:var(--ink)">
+            <span>✓ Domain and hosting guidance</span>
+            <span>✓ Responsive WordPress website</span>
+            <span>✓ Basic security setup</span>
+            <span>✓ Pre-launch testing</span>
+            <span>✓ Full handover: you own the site</span>
+            <span>✓ Basic training</span>
+          </div>
+        </div>
+
+        <div class="sx-paths">
+
+          <!-- No Frills -->
+          <article class="sx-path sx-glow sx-reveal">
+            <div class="sx-card-k">Starter</div>
+            <h3>I need a website.</h3>
+            <p>A one-time project to get your business online, with the essentials set up properly.</p>
+            <div class="sx-price">₹30,000</div>
+            <ul>
+              <li><span class="sx-tick">✓</span>Standard design with your logo and colours</li>
+              <li><span class="sx-tick">✓</span>Content written for up to 3 pages</li>
+              <li><span class="sx-tick">✓</span>Basic keyword research and on-page SEO</li>
+              <li><span class="sx-tick">✓</span>Google Analytics, Search Console and Business Profile set up</li>
+              <li><span class="sx-tick">✓</span>Facebook, Instagram, X and LinkedIn profiles set up</li>
+              <li><span class="sx-tick">✓</span>1 SEO blog article</li>
+              <li><span class="sx-tick">✓</span>A report showing which pages were submitted to Google</li>
+            </ul>
+            <div class="sx-card-k" style="margin:0 0 8px">After launch</div>
+            <p style="margin:0 0 22px;font-size:15px">No ongoing services. Maintenance can be added any time. </p>
+            <a class="sx-btn sx-btn-dark" href={contactLink}>Get Starter<i>↗</i></a>
+          </article>
+
+          <!-- Growth -->
+          <article class="sx-path sx-glow sx-reveal is-feat" style="--d:.1s">
+            <span class="sx-badge">Recommended</span>
+            <div class="sx-card-k">Growth</div>
+            <h3>I need a website that attracts customers.</h3>
+            <p>Built on research, with content and SEO behind it, then three months of us working on it with you.</p>
+            <div class="sx-price">₹50,000</div>
+            <ul>
+              <li><span class="sx-tick">✓</span><b>Everything in Starter, plus:</b></li>
+              <li><span class="sx-tick">✓</span>Design tailored to your business, with a second mockup using your real content</li>
+              <li><span class="sx-tick">✓</span>In-depth keyword and competitor research</li>
+              <li><span class="sx-tick">✓</span>Comprehensive SEO, built into every page</li>
+              <li><span class="sx-tick">✓</span>Content written for up to 4 pages</li>
+            </ul>
+            <div class="sx-card-k" style="margin:0 0 10px">For 3 months after launch</div>
+            <ul style="border-top:0;padding-top:0;margin-bottom:28px">
+              <li><span class="sx-tick">✓</span>5 blog articles in total</li>
+              <li><span class="sx-tick">✓</span>6 social posts a month on 3 platforms</li>
+              <li><span class="sx-tick">✓</span>Monthly website maintenance and SEO tune-up</li>
+              <li><span class="sx-tick">✓</span>A monthly report</li>
+            </ul>
+            <a class="sx-btn sx-btn-primary" href={contactLink}>Choose Growth <i>↗</i></a>
+          </article>
+
+          <!-- Growth Plus -->
+          <article class="sx-path sx-glow sx-reveal" style="--d:.2s">
+            <div class="sx-card-k">Prime</div>
+            <h3>I need someone to build and manage my online presence.</h3>
+            <p>Everything in Growth, a design built around your brand, and six months of us running it with you.</p>
+            <div class="sx-price">₹65,000</div>
+            <ul>
+              <li><span class="sx-tick">✓</span><b>Everything in Growth, plus:</b></li>
+              <li><span class="sx-tick">✓</span>Custom design built around your brand</li>
+              <li><span class="sx-tick">✓</span>Content written for up to 5 pages</li>
+            </ul>
+            <div class="sx-card-k" style="margin:0 0 10px">For 6 months after launch</div>
+            <ul style="border-top:0;padding-top:0;margin-bottom:28px">
+              <li><span class="sx-tick">✓</span>7 blog articles in total</li>
+              <li><span class="sx-tick">✓</span>10 social posts a month across 5 platforms</li>
+              <li><span class="sx-tick">✓</span>Monthly website maintenance and SEO tune-up</li>
+              <li><span class="sx-tick">✓</span>A monthly report</li>
+            </ul>
+            <a class="sx-btn sx-btn-dark" href={contactLink}>Talk to us <i>↗</i></a>
+          </article>
+        </div>
+
+        <div class="sx-reveal" style="display:flex;flex-wrap:wrap;gap:18px 40px;justify-content:space-between;align-items:center;margin-top:40px">
+          <p style="margin:0;max-width:64ch;font-size:16px;line-height:1.6">
+            <b style="color:var(--ink)">When the included period ends,</b> you keep the website. If you'd like us to carry on, we'll agree a plan with you. There is no automatic renewal. 
+          </p>
+          <div style="display:flex;flex-wrap:wrap;gap:12px">
+            <a class="sx-btn sx-btn-ghost" href="#compare" style="color:var(--ink);border-color:var(--ink)">Compare every detail <i>→</i></a>
+            <a class="sx-btn sx-btn-ghost" href={contactLink} style="color:var(--ink);border-color:var(--ink)">Need something different? <i>↗</i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. PLAN COMPARISON -->
+    <section class="sx-section" id="compare">
+      <div class="sx-wrap">
+        <div class="sx-head">
+          <div class="sx-kicker sx-reveal">Compare</div>
+          <h2 class="sx-h2 sx-reveal">Everything in each plan.</h2>
+        </div>
+        <div style="overflow-x:auto" class="sx-reveal">
+          <table style="width:100%;min-width:640px;border-collapse:collapse;font-size:15px;color:var(--ink)">
+            <thead>
+              <tr style="text-align:left">
+                <th style="padding:14px 12px;border-bottom:2px solid var(--ink)"></th>
+                <th style="padding:14px 12px;border-bottom:2px solid var(--ink)">Starter<br><span style="font-weight:400;color:var(--muted)">₹30,000</span></th>
+                <th style="padding:14px 12px;border-bottom:2px solid var(--ink);background:var(--alt)">Growth<br><span style="font-weight:400;color:var(--muted)">₹50,000</span></th>
+                <th style="padding:14px 12px;border-bottom:2px solid var(--ink)">Prime<br><span style="font-weight:400;color:var(--muted)">₹65,000</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><th colspan="4" style="text-align:left;padding:22px 12px 8px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--red)">Your website</th></tr>
+              <tr><td style="padding:12px;border-bottom:1px solid var(--line)">Design</td><td style="padding:12px;border-bottom:1px solid var(--line)">Standard</td><td style="padding:12px;border-bottom:1px solid var(--line);background:var(--alt)">Tailored</td><td style="padding:12px;border-bottom:1px solid var(--line)">Custom</td></tr>
+              <tr><td style="padding:12px;border-bottom:1px solid var(--line)">Second mockup with your real content</td><td style="padding:12px;border-bottom:1px solid var(--line)">–</td><td style="padding:12px;border-bottom:1px solid var(--line);background:var(--alt)">✓</td><td style="padding:12px;border-bottom:1px solid var(--line)">✓</td></tr>
+              <tr><td style="padding:12px;border-bottom:1px solid var(--line)">Pages with content written for you</td><td style="padding:12px;border-bottom:1px solid var(--line)">3</td><td style="padding:12px;border-bottom:1px solid var(--line);background:var(--alt)">4</td><td style="padding:12px;border-bottom:1px solid var(--line)">5</td></tr>
+              <tr><th colspan="4" style="text-align:left;padding:22px 12px 8px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--red)">Being found</th></tr>
+              <tr><td style="padding:12px;border-bottom:1px solid var(--line)">Keyword and competitor research</td><td style="padding:12px;border-bottom:1px solid var(--line)">Basic</td><td style="padding:12px;border-bottom:1px solid var(--line);background:var(--alt)">In-depth</td><td style="padding:12px;border-bottom:1px solid var(--line)">In-depth</td></tr>
+              <tr><td style="padding:12px;border-bottom:1px solid var(--line)">On-page SEO</td><td style="padding:12px;border-bottom:1px solid var(--line)">Basic</td><td style="padding:12px;border-bottom:1px solid var(--line);background:var(--alt)">Comprehensive</td><td style="padding:12px;border-bottom:1px solid var(--line)">Comprehensive</td></tr>
+              <tr><td style="padding:12px;border-bottom:1px solid var(--line)">Google Analytics, Search Console, Business Profile</td><td style="padding:12px;border-bottom:1px solid var(--line)">✓</td><td style="padding:12px;border-bottom:1px solid var(--line);background:var(--alt)">✓</td><td style="padding:12px;border-bottom:1px solid var(--line)">✓</td></tr>
+              <tr><td style="padding:12px;border-bottom:1px solid var(--line)">Report on pages submitted to Google</td><td style="padding:12px;border-bottom:1px solid var(--line)">✓</td><td style="padding:12px;border-bottom:1px solid var(--line);background:var(--alt)">✓</td><td style="padding:12px;border-bottom:1px solid var(--line)">✓</td></tr>
+              <tr><th colspan="4" style="text-align:left;padding:22px 12px 8px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--red)">Content and social</th></tr>
+              <tr><td style="padding:12px;border-bottom:1px solid var(--line)">Social profiles set up (Facebook, Instagram, X, LinkedIn)</td><td style="padding:12px;border-bottom:1px solid var(--line)">✓</td><td style="padding:12px;border-bottom:1px solid var(--line);background:var(--alt)">✓</td><td style="padding:12px;border-bottom:1px solid var(--line)">✓</td></tr>
+              <tr><td style="padding:12px;border-bottom:1px solid var(--line)">Blog articles (about 1,000 words)</td><td style="padding:12px;border-bottom:1px solid var(--line)">1</td><td style="padding:12px;border-bottom:1px solid var(--line);background:var(--alt)">5 in total</td><td style="padding:12px;border-bottom:1px solid var(--line)">7 in total</td></tr>
+              <tr><td style="padding:12px;border-bottom:1px solid var(--line)">Social posts each month</td><td style="padding:12px;border-bottom:1px solid var(--line)">–</td><td style="padding:12px;border-bottom:1px solid var(--line);background:var(--alt)">6 (3 platforms)</td><td style="padding:12px;border-bottom:1px solid var(--line)">10 (5 platforms)</td></tr>
+              <tr><th colspan="4" style="text-align:left;padding:22px 12px 8px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--red)">After launch</th></tr>
+              <tr><td style="padding:12px;border-bottom:1px solid var(--line)">Included period</td><td style="padding:12px;border-bottom:1px solid var(--line)">–</td><td style="padding:12px;border-bottom:1px solid var(--line);background:var(--alt)">3 months</td><td style="padding:12px;border-bottom:1px solid var(--line)">6 months</td></tr>
+              <tr><td style="padding:12px;border-bottom:1px solid var(--line)">Website maintenance and SEO tune-up</td><td style="padding:12px;border-bottom:1px solid var(--line)">–</td><td style="padding:12px;border-bottom:1px solid var(--line);background:var(--alt)">Monthly</td><td style="padding:12px;border-bottom:1px solid var(--line)">Monthly</td></tr>
+              <tr><td style="padding:12px;border-bottom:1px solid var(--line)">Monthly report</td><td style="padding:12px;border-bottom:1px solid var(--line)">–</td><td style="padding:12px;border-bottom:1px solid var(--line);background:var(--alt)">✓</td><td style="padding:12px;border-bottom:1px solid var(--line)">✓</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+ <!-- 9. CLIENT WORK AND WEBSITE TESTIMONIALS -->
+    <section class="sx-section sx-alt" id="proof">
+      <div class="sx-wrap">
+        <div class="sx-head">
+          <div class="sx-kicker sx-reveal">Client work</div>
+          <h2 class="sx-h2 sx-reveal">Websites we’ve built, and look after.</h2>
+        </div>
+        <!-- TODO: a strip of 4 to 6 more projects (name, one line, link or screenshot) can sit under this block. -->
+<div class="work-grid">
+  {projects.map((p) => (
+    <a class="work-card" href={p.url} target="_blank" rel="noopener">
+      <div class="work-frame">
+        <div class="work-bar" aria-hidden="true"><i></i><i></i><i></i></div>
+        <Image src={p.shot} alt={p.alt} loading="lazy" />
+      </div>
+      <div class="work-meta">
+        <div><b>{p.name}</b><span>{p.kind}</span></div>
+        <span class="work-go">Visit site ↗</span>
+      </div>
+    </a>
+  ))}
+</div>
+        <div data-sx-tabs>
+          <div class="sx-tabs" role="tablist" aria-label="Client reviews">
+            {clientWork.map((c, i) => (
+              <button class="sx-tab" role="tab" type="button" aria-selected={i === 0 ? 'true' : 'false'}>{c.tab}</button>
+            ))}
+          </div>
+          {clientWork.map((c) => (
+            <div class="sx-panel" role="tabpanel">
+              <div class="proof-layout">
+                <div class="proof-intro">
+                  <div class="sx-card-k" style="margin:0 0 14px">{c.project}</div>
+                  <h3 class="sx-h2 proof-pull">“{c.pull}”</h3>
+                  <p class="sx-lead">{c.blurb}</p>
+                </div>
+                <article class="testimonial-card">
+                  <span class="quote-mark" aria-hidden="true">“</span>
+                  <blockquote>{c.paras.map((p) => <p>{p}</p>)}</blockquote>
+                  <div class="quote-person">
+                    <span class="quote-initial" aria-hidden="true">{initials(c.name.replace(/^Prof\.\s*/, ''))}</span>
+                    <span><strong>{c.name}</strong><small>{c.job}</small></span>
+                  </div>
+                </article>
+              </div>
+            </div>
           ))}
         </div>
-
-        <p class="nh-more">
-          <a href="/packages/">Compare every detail →</a>
-          <span class="nh-fine">Rankings and indexing by Google cannot be promised. Need something different? <a href={contactLink}>Ask for a custom plan</a>.</span>
-        </p>
       </div>
     </section>
 
-    <!-- 7. CLIENT WORDS -->
-    <section class="nh-section" id="reviews">
-      <div class="nh-wrap">
-        <div class="nh-head">
-          <p class="nh-kicker">In their words</p>
-          <h2>What website clients <em>say about us.</em></h2>
-        </div>
-        <div class="nh-grid3">
-          {reviews.map((r) => (
-            <figure class="nh-review">
-              <blockquote>“{r.pull}”</blockquote>
-              <details>
-                <summary>Read the full review</summary>
-                <p>{r.text}</p>
-              </details>
-              <figcaption>
-                <span class="nh-av" aria-hidden="true">{initials(r.name)}</span>
-                <span><strong>{r.name}</strong><small>{r.job}</small></span>
-              </figcaption>
-            </figure>
-          ))}
-        </div>
-      </div>
-    </section>
-
-    <!-- 8. CALL TO ACTION: the only dark band on the page -->
-    <section class="nh-cta" id="contact">
-      <div class="nh-wrap">
-        <h2>Tell us about your business. <em>We’ll tell you what it needs.</em></h2>
-        <p>A free consultation to talk through your goal and budget, with no obligation.</p>
-        <div class="nh-actions nh-actions-c">
-          <a class="nh-btn nh-btn-light" href={contactLink}>Book a free consultation <span aria-hidden="true">→</span></a>
-          <a class="nh-btn nh-btn-line" href={whatsappLink}>Message us on WhatsApp</a>
+    <!-- 11. CTA -->
+    <section class="sx-cta" id="contact">
+      <div class="sx-wrap">
+        <div class="sx-cta-card sx-reveal">
+          <div>
+            <div class="sx-kicker sx-kicker-lime">Let's talk</div>
+            <h2>Planning a website for your business?</h2>
+            <p>No giant proposal. No unnecessary package. Start with the business, the goal and the budget, and we'll work out the plan from there.</p>
+            <p><a href="/whatsapp/" rel="nofollow noopener" style="color:var(--lime);font-weight:700;text-decoration:underline;text-underline-offset:3px">Prefer WhatsApp? Message us</a></p>
+          </div>
+          <a class="sx-btn sx-btn-primary sx-btn-lg" href={contactLink}>Get a free consultation <i>↗</i></a>
         </div>
       </div>
     </section>
   </div>
 </Layout>
 
+<style>
+  /* Testimonial layout, taken from /right/. Scoped to this page. */
+  .proof-layout { display: grid; grid-template-columns: .85fr 1.15fr; gap: clamp(35px, 7vw, 90px); align-items: center; }
+  .proof-pull { max-width: none; font-size: clamp(28px, 3.6vw, 46px); margin-bottom: 20px; }
+  .testimonial-card { position: relative; overflow: hidden; padding: clamp(28px, 4vw, 42px); border: 1px solid var(--line); border-radius: 22px; background: var(--card); }
+  .quote-mark { position: absolute; right: 20px; top: 4px; font-family: Georgia, serif; font-size: 100px; line-height: 1; color: var(--green); opacity: .12; }
+  .testimonial-card blockquote { position: relative; margin: 0 0 30px; font-size: 17px; line-height: 1.75; color: var(--ink); }
+  .quote-person { display: flex; align-items: center; gap: 12px; border-top: 1px solid var(--line); padding-top: 18px; }
+  .quote-initial { width: 38px; height: 38px; display: grid; place-items: center; border-radius: 50%; background: var(--night); color: var(--lime); font-weight: 850; }
+  .quote-person strong, .quote-person small { display: block; }
+  .quote-person strong { font-size: 13px; color: var(--ink); }
+  .quote-person small { font-size: 11px; color: var(--muted); margin-top: 3px; }
+  .testimonial-card blockquote p { margin: 0 0 14px; color: var(--ink); }
+  .testimonial-card blockquote p:last-child { margin-bottom: 0; }
+  @media (max-width: 980px) { .proof-layout { grid-template-columns: 1fr; } }
+
+
+.work-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin-bottom: 56px; }
+.work-card { display: block; text-decoration: none; color: inherit; }
+.work-frame { border: 1px solid var(--line); border-radius: 16px; overflow: hidden; background: var(--card); box-shadow: 0 30px 60px -40px rgba(23,36,43,.55); transition: transform .35s ease; }
+.work-card:hover .work-frame { transform: translateY(-4px); }
+.work-bar { display: flex; gap: 6px; padding: 10px 14px; background: var(--alt); border-bottom: 1px solid var(--line); }
+.work-bar i { width: 9px; height: 9px; border-radius: 50%; background: var(--line); }
+.work-frame img { display: block; width: 100%; height: auto; }
+.work-meta { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 16px 4px 0; }
+.work-meta b { display: block; color: var(--ink); font-size: 17px; }
+.work-meta span { font-size: 13px; color: var(--muted); }
+.work-meta .work-go { font-weight: 700; color: var(--ink); white-space: nowrap; }
+@media (max-width: 700px) { .work-grid { grid-template-columns: 1fr; } }
+</style>
+
 <style is:global>
-  /* All rules are scoped under .nh. Change the tokens here to restyle the whole page. */
-  .nh {
-    --ink: #0a0f1e;
-    --text: #3d4658; /* 9:1 on white */
-    --muted: #525b6e; /* 6.9:1 on white */
-    --line: #e5e7ec;
-    --bg: #ffffff;
-    --alt: #f6f5f1;
-    --accent: #3355ff; /* the one accent: change here */
-    --accent-dark: #2240e0;
-    --accent-soft: #ecf0ff;
-    --ok: #0b7a53;
-    --ok-soft: #e7f7ef;
-    --bad: #b42318;
-    --radius: 24px;
-    --head: 'Inter Tight', 'Inter', system-ui, sans-serif;
-    --body: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
-    --serif: 'Instrument Serif', Georgia, serif;
+  /* ==========================================================================
+     CALM PASS (home page only). Modelled on /about-us/: same kit, fewer loud parts.
+     To go back to the old look, delete the word "sx-calm" from the <div class="sx-page sx-calm"> wrapper.
+     Dark blocks are now: hero, the real-client story, and the closing call to action.
+     ========================================================================== */
 
-    background: var(--bg);
-    color: var(--text);
-    font-family: var(--body);
-    font-size: 17px;
-    line-height: 1.65;
-  }
-  .nh *,
-  .nh *::before,
-  .nh *::after { box-sizing: border-box; }
-  :where(.nh) :where(h1, h2, h3, p, ul, ol, dl, dd, figure, blockquote) { margin: 0; padding: 0; }
-  :where(.nh) :where(ul, ol) { list-style: none; }
-  :where(.nh) a { color: inherit; }
-  .nh section[id] { scroll-margin-top: 84px; }
+  /* 1. Hero graphic: one still diagram, no ripples, no pulsing labels, no lime pins */
+  .sx-page.sx-calm .sx-stage::before { opacity: .35; }
+  .sx-page.sx-calm .sx-spoke { animation: none; }
+  .sx-page.sx-calm .sx-sat,
+  .sx-page.sx-calm .sx-sat circle { animation: none; }
+  .sx-page.sx-calm .sx-pin b { background: rgba(255, 255, 255, .16); color: #fff; }
 
-  .nh-wrap { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
-  .nh-section { padding: clamp(64px, 8vw, 104px) 0; }
-  .nh-alt { background: var(--alt); }
+  /* 2. Numbers strip: a quiet light band instead of a second dark block */
+  .sx-page.sx-calm .sx-proof { background: var(--alt); color: var(--ink); border-block: 1px solid var(--line); }
+  .sx-page.sx-calm .sx-proof .sx-proof-lead { color: var(--ink); }
+  .sx-page.sx-calm .sx-proof .sx-num { color: var(--ink); }
+  .sx-page.sx-calm .sx-proof .sx-stat { border-left-color: var(--line); }
+  .sx-page.sx-calm .sx-proof .sx-stat-l { color: var(--muted); }
 
-  /* type */
-  .nh h1, .nh h2, .nh h3 { font-family: var(--head); color: var(--ink); letter-spacing: -0.02em; }
-  .nh h1 { font-size: clamp(2.5rem, 1.5rem + 3.6vw, 4.1rem); line-height: 1.04; font-weight: 600; }
-  .nh h2 { font-size: clamp(2rem, 1.3rem + 2.2vw, 3.1rem); line-height: 1.1; font-weight: 600; }
-  .nh h3 { font-size: 1.25rem; line-height: 1.3; font-weight: 600; }
-  .nh em { font-family: var(--serif); font-style: italic; font-weight: 400; color: var(--accent); letter-spacing: 0; }
-  .nh h1 em, .nh h2 em { display: inline; font-size: 1.08em; }
-  .nh-lead { font-size: 1.1875rem; color: var(--text); max-width: 60ch; }
-  .nh-kicker { font-size: 13px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent-dark); margin-bottom: 14px; }
-  .nh-head { max-width: 760px; margin-bottom: 44px; }
-  .nh-head h2 { margin-bottom: 16px; }
-  .nh-small { margin-top: 22px; font-size: 15px; color: var(--muted); }
+  /* 3. "The Top League approach" card: light, with a green edge, instead of a dark panel */
+  .sx-page.sx-calm .sx-vs-new { background: var(--card); color: var(--ink); border: 1px solid var(--green); box-shadow: none; }
+  .sx-page.sx-calm .sx-vs-new::after { display: none; }
+  .sx-page.sx-calm .sx-vs-new .sx-vs-k { color: var(--green); }
+  .sx-page.sx-calm .sx-vs-new h3 { color: var(--ink); }
+  .sx-page.sx-calm .sx-vs-new p { color: var(--muted); }
+  .sx-page.sx-calm .sx-vs-badge { box-shadow: none; }
+  .sx-page.sx-calm .sx-tab[aria-selected="true"] { color: #fff; }
 
-  /* buttons */
-  .nh-btn { display: inline-flex; align-items: center; gap: 8px; min-height: 48px; padding: 0 24px; border-radius: 999px; font: 600 15px/1 var(--body); text-decoration: none; border: 1.5px solid transparent; transition: background-color 0.2s, border-color 0.2s, transform 0.2s; }
-  .nh-btn-primary { background: var(--accent); color: #fff; }
-  .nh-btn-primary:hover { background: var(--accent-dark); }
-  .nh-btn-ghost { background: #fff; color: var(--ink); border-color: var(--line); }
-  .nh-btn-ghost:hover { border-color: var(--ink); }
-  .nh-btn-light { background: #fff; color: var(--ink); }
-  .nh-btn-light:hover { background: var(--accent-soft); }
-  .nh-btn-line { color: #fff; border-color: rgba(255, 255, 255, 0.4); }
-  .nh-btn-line:hover { border-color: #fff; }
-  .nh-btn:focus-visible, .nh a:focus-visible, .nh summary:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
-  .nh-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
-  .nh-actions-c { justify-content: center; }
-
-  /* hero */
-  .nh-hero { padding: clamp(48px, 7vw, 88px) 0 0; background: linear-gradient(180deg, var(--accent-soft) 0%, #fff 70%); }
-  .nh-hero-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 56px; align-items: center; }
-  .nh-pill { display: inline-block; padding: 7px 14px; border-radius: 999px; background: #fff; border: 1px solid var(--line); font-size: 14px; font-weight: 500; color: var(--ink); margin-bottom: 22px; }
-  .nh-hero h1 { margin-bottom: 22px; }
-  .nh-checklist { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 28px; box-shadow: 0 18px 50px -24px rgba(10, 15, 30, 0.22); }
-  .nh-checklist-h { font: 600 13px/1.3 var(--body); letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 18px; }
-  .nh-checklist li { display: flex; gap: 14px; align-items: flex-start; padding: 13px 0; border-top: 1px solid var(--line); }
-  .nh-checklist li:first-child { border-top: 0; padding-top: 0; }
-  .nh-checklist strong { display: block; color: var(--ink); font-weight: 600; line-height: 1.35; }
-  .nh-checklist small { display: block; font-size: 14px; color: var(--muted); }
-  .nh-tick { flex: none; display: inline-grid; place-items: center; width: 22px; height: 22px; margin-top: 1px; border-radius: 50%; background: var(--ok-soft); color: var(--ok); font-size: 12px; font-weight: 700; }
-
-  .nh-proof { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: clamp(40px, 6vw, 64px); padding: 26px 0 30px; border-top: 1px solid var(--line); }
-  .nh-proof dt { font: 600 clamp(1.6rem, 1.2rem + 1.4vw, 2.2rem)/1.1 var(--head); color: var(--ink); letter-spacing: -0.02em; }
-  .nh-proof dd { font-size: 14px; color: var(--muted); margin-top: 4px; }
-
-  /* cards */
-  .nh-grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-  .nh-grid4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
-  .nh-card { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 28px; }
-  .nh-card h3 { margin-bottom: 10px; }
-  .nh-card p { color: var(--text); font-size: 16px; }
-  .nh-num { display: block; font: 500 1.9rem/1 var(--serif); font-style: italic; color: var(--bad); margin-bottom: 18px; }
-  .nh-links { margin-top: 16px; display: flex; flex-wrap: wrap; gap: 6px 16px; }
-  .nh-links a { font-size: 15px; font-weight: 600; color: var(--accent-dark); text-decoration: none; }
-  .nh-links a:hover { text-decoration: underline; }
-
-  /* real story */
-  .nh-story { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 40px; align-items: center; margin-top: 28px; padding: 36px; background: #fff; border: 1px solid var(--line); border-radius: var(--radius); }
-  .nh-story h3 { font-size: 1.6rem; margin-bottom: 12px; }
-  .nh-story p { font-size: 16px; }
-  .nh-flow { display: grid; gap: 10px; }
-  .nh-flow li { display: flex; gap: 14px; align-items: flex-start; padding: 12px 16px; border-radius: 16px; background: var(--alt); }
-  .nh-flow li.is-bad { background: #fdeceb; }
-  .nh-flow li > span { flex: none; display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; background: var(--ink); color: #fff; font: 600 13px/1 var(--body); }
-  .nh-flow li.is-bad > span { background: var(--bad); }
-  .nh-flow strong { display: block; color: var(--ink); font-weight: 600; }
-  .nh-flow p { font-size: 15px; color: var(--text); }
-
-  /* three contrasts */
-  .nh-contrast { border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; background: #fff; }
-  .nh-contrast-h, .nh-contrast-r { display: grid; grid-template-columns: 0.7fr 1fr 1.15fr; }
-  .nh-contrast-h span { padding: 16px 28px; font: 600 13px/1.3 var(--body); letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); background: var(--alt); }
-  .nh-contrast-h .is-ours { color: var(--accent-dark); background: var(--accent-soft); }
-  .nh-contrast-r { border-top: 1px solid var(--line); }
-  .nh-contrast-r > * { padding: 26px 28px; }
-  .nh-contrast-r strong { font: 600 1.1rem/1.35 var(--head); color: var(--ink); }
-  .nh-contrast-r p { font-size: 16px; }
-  .nh-contrast-r .is-usual { color: var(--muted); }
-  .nh-contrast-r .is-ours { color: var(--ink); background: rgba(236, 240, 255, 0.45); }
-
-  /* steps */
-  .nh-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; counter-reset: s; }
-  .nh-steps li { position: relative; padding-top: 22px; border-top: 2px solid var(--ink); }
-  .nh-step-n { display: block; font: 500 1.9rem/1 var(--serif); font-style: italic; color: var(--accent); margin-bottom: 12px; }
-  .nh-steps h3 { margin-bottom: 8px; }
-  .nh-steps p { font-size: 16px; }
-  .nh-more { margin-top: 32px; font-weight: 600; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 28px; }
-  .nh-more a { color: var(--accent-dark); text-decoration: none; }
-  .nh-more a:hover { text-decoration: underline; }
-  .nh-fine { font-weight: 400; font-size: 14px; color: var(--muted); }
-  .nh-fine a { text-decoration: underline; }
-
-  /* plans */
-  .nh-plans { align-items: stretch; }
-  .nh-plan { position: relative; display: flex; flex-direction: column; background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 32px 28px 28px; }
-  .nh-plan.is-feat { border: 2px solid var(--accent); box-shadow: 0 24px 60px -30px rgba(51, 85, 255, 0.45); }
-  .nh-badge { position: absolute; top: -13px; left: 28px; padding: 4px 12px; border-radius: 999px; background: var(--accent); color: #fff; font: 600 12px/1.4 var(--body); letter-spacing: 0.04em; }
-  .nh-need { font: 500 1.35rem/1.25 var(--serif); font-style: italic; color: var(--ink); min-height: 3.4em; margin-bottom: 14px; }
-  .nh-plan h3 { font-size: 1.5rem; }
-  .nh-price { font: 600 2.4rem/1.1 var(--head); letter-spacing: -0.02em; color: var(--ink); margin-top: 8px; }
-  .nh-note { font-size: 14px; color: var(--muted); margin-bottom: 20px; }
-  .nh-plan ul { display: grid; gap: 12px; margin-bottom: 28px; flex: 1; border-top: 1px solid var(--line); padding-top: 20px; }
-  .nh-plan li { display: flex; gap: 10px; align-items: flex-start; font-size: 15.5px; line-height: 1.5; }
-  .nh-plan .nh-btn { justify-content: center; width: 100%; }
-
-  /* reviews */
-  .nh-review { display: flex; flex-direction: column; background: var(--alt); border-radius: var(--radius); padding: 30px 28px 26px; }
-  .nh-review blockquote { font: 500 1.4rem/1.3 var(--head); letter-spacing: -0.01em; color: var(--ink); margin-bottom: 18px; }
-  .nh-review details { font-size: 15.5px; margin-bottom: 22px; flex: 1; }
-  .nh-review summary { cursor: pointer; font-weight: 600; color: var(--accent-dark); list-style: none; }
-  .nh-review summary::-webkit-details-marker { display: none; }
-  .nh-review summary::after { content: ' +'; }
-  .nh-review details[open] summary::after { content: ' −'; }
-  .nh-review details p { margin-top: 12px; }
-  .nh-review figcaption { display: flex; gap: 12px; align-items: center; }
-  .nh-av { flex: none; display: grid; place-items: center; width: 42px; height: 42px; border-radius: 50%; background: var(--ink); color: #fff; font: 600 14px/1 var(--body); }
-  .nh-review strong { display: block; color: var(--ink); font-weight: 600; line-height: 1.3; }
-  .nh-review small { display: block; font-size: 14px; color: var(--muted); }
-
-  /* CTA: the only dark band */
-  .nh-cta { background: #0a0f1e; color: #b9c2d6; text-align: center; padding: clamp(72px, 9vw, 112px) 0; }
-  .nh-cta h2 { color: #fff; max-width: 18ch; margin: 0 auto 18px; font-size: clamp(2.1rem, 1.3rem + 2.6vw, 3.4rem); }
-  .nh-cta h2 em { color: #9db1ff; }
-  .nh-cta p { max-width: 52ch; margin: 0 auto; font-size: 1.1875rem; }
-
-  /* responsive */
-  @media (max-width: 1000px) {
-    .nh-hero-grid { grid-template-columns: 1fr; gap: 40px; }
-    .nh-grid4 { grid-template-columns: repeat(2, 1fr); }
-    .nh-steps { grid-template-columns: repeat(2, 1fr); gap: 32px 20px; }
-    .nh-story { grid-template-columns: 1fr; padding: 28px; gap: 24px; }
-  }
-  @media (max-width: 860px) {
-    .nh-grid3 { grid-template-columns: 1fr; }
-    .nh-need { min-height: 0; }
-    .nh-contrast-h { display: none; }
-    .nh-contrast-r { grid-template-columns: 1fr; }
-    .nh-contrast-r > * { padding: 14px 22px; }
-    .nh-contrast-r strong { padding-top: 22px; }
-    .nh-contrast-r .is-usual::before, .nh-contrast-r .is-ours::before { display: block; font: 600 12px/1.4 var(--body); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 4px; }
-    .nh-contrast-r .is-usual::before { content: 'The usual way'; color: var(--muted); }
-    .nh-contrast-r .is-ours::before { content: 'The Top League way'; color: var(--accent-dark); }
-    .nh-contrast-r .is-ours { padding-bottom: 24px; }
-  }
-  @media (max-width: 560px) {
-    .nh { font-size: 16px; }
-    .nh-wrap { padding: 0 20px; }
-    .nh-proof { grid-template-columns: repeat(2, 1fr); }
-    .nh-grid4, .nh-steps { grid-template-columns: 1fr; }
-    .nh-btn { width: 100%; justify-content: center; }
-    .nh-actions { flex-direction: column; }
-    .nh-checklist, .nh-card, .nh-plan, .nh-review { padding-left: 22px; padding-right: 22px; }
-  }
+  /* 4. Plans: the recommended plan is marked by a green outline, not a dark card that floats higher */
+  .sx-page.sx-calm .sx-path.is-feat { background: var(--card); border: 2px solid var(--green); box-shadow: none; transform: none; }
+  .sx-page.sx-calm .sx-path.is-feat:hover { transform: translateY(-6px); }
+  .sx-page.sx-calm .sx-path.is-feat h3,
+  .sx-page.sx-calm .sx-path.is-feat li,
+  .sx-page.sx-calm .sx-path.is-feat .sx-price { color: var(--ink); }
+  .sx-page.sx-calm .sx-path.is-feat p { color: var(--muted); }
+  .sx-page.sx-calm .sx-path.is-feat .sx-card-k { color: var(--red); }
+  .sx-page.sx-calm .sx-path.is-feat ul { border-color: var(--line); }
+  .sx-page.sx-calm .sx-path.is-feat .sx-tick { background: var(--green); color: #fff; }
+  .sx-page.sx-calm .sx-badge { background: var(--green); color: #fff; }
+  .sx-page.sx-calm .sx-path .sx-btn-primary { background: var(--green); color: #fff; box-shadow: none; }
 </style>
