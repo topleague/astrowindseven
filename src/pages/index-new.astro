@@ -499,6 +499,286 @@ const orbit = ['Domain', 'Content', 'SEO', 'Social', 'Support'].map((label, i) =
   </div>
 </section>
 
+<!-- 4. FOURTH HERO: layers (presence = website + content/SEO + care) -->
+<section class="sx-hero sx-hero-refined">
+  <div class="sx-wrap sx-hero-grid">
+    <div class="sx-hero-copy">
+      <div class="sx-pill sx-hero-eyebrow">
+        <span class="sx-dot"></span>
+        Website design
+      </div>
+
+      <h1>
+        Build Your Online Presence,
+        <span class="sx-hero-aside">Not Just a<br />Website.</span>
+      </h1>
+
+      <p>
+        Based in Bhubaneswar, working with small businesses across India and worldwide.
+      </p>
+
+      <div class="sx-actions">
+        <a class="sx-btn sx-btn-primary" href="#contact">
+          Free consultation <i>↗</i>
+        </a>
+        <a class="sx-btn sx-btn-ghost" href="#plans">
+          See plans and prices <i>↓</i>
+        </a>
+      </div>
+
+      <div class="sx-note">
+        Website design · Content writing · SEO &amp; social media · Maintenance
+      </div>
+    </div>
+
+    <!-- Layers illustration -->
+    <figure
+      class="hl-fig sx-reveal"
+      role="img"
+      aria-label="Illustration: a website is the front layer of a stack. Behind it sit two more layers, content and search, and maintenance."
+    >
+      <div class="hl-stack">
+        <div class="hl-sheet hl-s3">
+          <span class="hl-tag"><b>3</b> Maintenance &amp; care</span>
+        </div>
+
+        <div class="hl-sheet hl-s2">
+          <span class="hl-tag"><b>2</b> Content &amp; search</span>
+        </div>
+
+        <div class="hl-sheet hl-s1">
+          <div class="hl-bar">
+            <i></i><i></i><i></i>
+            <span>yourbusiness.com</span>
+            <em class="hl-tag"><b>1</b> Website</em>
+          </div>
+
+          <div class="hl-body">
+            <div class="hl-row">
+              <span class="hl-img"></span>
+              <div class="hl-col">
+                <span class="hl-h"></span>
+                <span class="hl-l w70"></span>
+                <span class="hl-l w85"></span>
+                <span class="hl-btn"></span>
+              </div>
+            </div>
+
+            <div class="hl-cards">
+              <div><span class="hl-k"></span><span class="hl-l w90"></span><span class="hl-l w60"></span></div>
+              <div><span class="hl-k"></span><span class="hl-l w90"></span><span class="hl-l w60"></span></div>
+              <div><span class="hl-k"></span><span class="hl-l w90"></span><span class="hl-l w60"></span></div>
+            </div>
+
+            <div class="hl-foot">
+              <span class="hl-l w90"></span>
+              <span class="hl-l w70"></span>
+              <span class="hl-l w85"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <figcaption>Your website is the front layer. Content, search and care sit behind it.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<style is:global>
+  /* ---------- Hero option 4: layers (monochrome, static, square) ---------- */
+  .sx-page .hl-fig {
+    /* One accent only. To use the muted lime instead, set: --hl-accent: rgba(217, 255, 68, .86); */
+    --hl-accent: rgba(241, 244, 230, .62);
+    --hl-ink: rgba(241, 244, 230, .86);
+    --hl-line: rgba(241, 244, 230, .15);
+    width: 100%; max-width: 480px; margin: 0 auto;
+  }
+  .sx-page .hl-stack { position: relative; aspect-ratio: 1 / 1; }
+  .sx-page .hl-sheet {
+    position: absolute; width: 76%; height: 70%; overflow: hidden; border-radius: 18px;
+    border: 1px solid rgba(241, 244, 230, .12); transition: transform .5s ease;
+  }
+  .sx-page .hl-s3 { left: 24%; top: 24%; z-index: 1; background: #0f1a1f; border-color: rgba(241, 244, 230, .08); }
+  .sx-page .hl-s2 { left: 12%; top: 12%; z-index: 2; background: #131f25; border-color: rgba(241, 244, 230, .10); }
+  .sx-page .hl-s1 {
+    left: 0; top: 0; z-index: 3; border-color: rgba(241, 244, 230, .18);
+    background: linear-gradient(150deg, #16232b, #1b2b33); box-shadow: 0 30px 60px -30px rgba(0, 0, 0, .7);
+  }
+  .sx-page .hl-fig:hover .hl-s2 { transform: translate(6px, 6px); }
+  .sx-page .hl-fig:hover .hl-s3 { transform: translate(12px, 12px); }
+
+  .sx-page .hl-bar { display: flex; align-items: center; gap: 7px; padding: 12px 16px; border-bottom: 1px solid rgba(241, 244, 230, .1); }
+  .sx-page .hl-bar i { display: block; flex: none; width: 9px; height: 9px; border-radius: 50%; background: rgba(241, 244, 230, .2); }
+  .sx-page .hl-bar span {
+    flex: 1; min-width: 0; margin-left: 8px; padding: 4px 12px; border-radius: 999px; font-size: 12px;
+    color: rgba(241, 244, 230, .6); background: rgba(241, 244, 230, .06); overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  }
+  .sx-page .hl-body { display: grid; gap: 14px; padding: 18px; }
+  .sx-page .hl-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; align-items: start; }
+  .sx-page .hl-col { display: grid; gap: 9px; align-content: start; }
+  .sx-page .hl-img { display: block; height: 96px; border-radius: 12px; background: linear-gradient(135deg, rgba(241, 244, 230, .14), rgba(241, 244, 230, .04)); }
+  .sx-page .hl-h { display: block; width: 90%; height: 16px; border-radius: 6px; background: rgba(241, 244, 230, .8); }
+  .sx-page .hl-l { display: block; height: 8px; border-radius: 5px; background: rgba(241, 244, 230, .15); }
+  .sx-page .hl-btn { display: block; width: 92px; height: 24px; margin-top: 4px; border-radius: 999px; background: var(--hl-accent); }
+  .sx-page .hl-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .sx-page .hl-cards > div { display: grid; gap: 7px; align-content: start; padding: 11px; border: 1px solid rgba(241, 244, 230, .1); border-radius: 10px; background: rgba(241, 244, 230, .035); }
+  .sx-page .hl-foot { display: grid; gap: 8px; }
+  .sx-page .hl-k { display: block; width: 46%; height: 8px; border-radius: 5px; background: rgba(241, 244, 230, .4); }
+  .sx-page .hl-fig .w60 { width: 60%; } .sx-page .hl-fig .w70 { width: 70%; } .sx-page .hl-fig .w85 { width: 85%; } .sx-page .hl-fig .w90 { width: 90%; }
+
+  .sx-page .hl-tag {
+    position: absolute; left: 18px; bottom: 15px; display: inline-flex; align-items: center; gap: 8px;
+    font-size: 12.5px; font-weight: 600; font-style: normal; line-height: 1; color: var(--hl-ink); white-space: nowrap;
+  }
+  .sx-page .hl-bar .hl-tag { position: static; flex: none; margin-left: 6px; }
+  .sx-page .hl-tag b {
+    display: grid; place-items: center; width: 20px; height: 20px; border-radius: 50%; font-size: 11px; font-weight: 600;
+    color: var(--hl-ink); border: 1px solid rgba(241, 244, 230, .28); background: rgba(241, 244, 230, .08);
+  }
+  .sx-page .hl-fig figcaption { margin-top: 18px; font-size: 14px; line-height: 1.5; color: rgba(241, 244, 230, .62); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .sx-page .hl-sheet { transition: none; }
+    .sx-page .hl-fig:hover .hl-s2, .sx-page .hl-fig:hover .hl-s3 { transform: none; }
+  }
+</style>
+
+<!-- 5. FIFTH HERO: one business, found in three places (search, website, social) -->
+<section class="sx-hero sx-hero-refined">
+  <div class="sx-wrap sx-hero-grid">
+    <div class="sx-hero-copy">
+      <div class="sx-pill sx-hero-eyebrow">
+        <span class="sx-dot"></span>
+        Website design
+      </div>
+
+      <h1>
+        Build Your Online Presence,
+        <span class="sx-hero-aside">Not Just a<br />Website.</span>
+      </h1>
+
+      <p>
+        Based in Bhubaneswar, working with small businesses across India and worldwide.
+      </p>
+
+      <div class="sx-actions">
+        <a class="sx-btn sx-btn-primary" href="#contact">
+          Free consultation <i>↗</i>
+        </a>
+        <a class="sx-btn sx-btn-ghost" href="#plans">
+          See plans and prices <i>↓</i>
+        </a>
+      </div>
+
+      <div class="sx-note">
+        Website design · Content writing · SEO &amp; social media · Maintenance
+      </div>
+    </div>
+
+    <!-- "Where customers look" illustration -->
+    <figure
+      class="hf-fig sx-reveal"
+      role="img"
+      aria-label="Illustration: the same business shown in the three places a customer checks: a search result, its website and its social profile."
+    >
+      <div class="hf-grid">
+        <!-- 1. Search -->
+        <div class="hf-card hf-search">
+          <span class="hf-tag"><b>1</b> Customers search</span>
+          <div class="hf-sbar">
+            <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true">
+              <circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="2" />
+              <path d="M16 16l4.5 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            </svg>
+            <span>your business name</span>
+          </div>
+          <div class="hf-result">
+            <span class="hf-url">yourbusiness.com</span>
+            <span class="hf-title">Your Business: what you do, and where</span>
+            <span class="hf-l w90"></span>
+            <span class="hf-l w60"></span>
+          </div>
+        </div>
+
+        <!-- 2. Website -->
+        <div class="hf-card hf-site">
+          <span class="hf-tag"><b>2</b> Land on your website</span>
+          <div class="hf-win">
+            <div class="hf-wbar"><i></i><i></i><i></i></div>
+            <div class="hf-wbody">
+              <span class="hf-h"></span>
+              <span class="hf-l w80"></span>
+              <span class="hf-l w60"></span>
+              <span class="hf-btn"></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Social -->
+        <div class="hf-card hf-social">
+          <span class="hf-tag"><b>3</b> Check your social</span>
+          <div class="hf-prof">
+            <span class="hf-av"></span>
+            <div><span class="hf-n"></span><span class="hf-l w70"></span></div>
+          </div>
+          <div class="hf-tiles"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        </div>
+      </div>
+
+      <figcaption>A presence is every place a customer checks, not just the website.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<style is:global>
+  /* ---------- Hero option 5: found in three places (monochrome, static, square grid) ---------- */
+  .sx-page .hf-fig {
+    /* One accent only. To use the muted lime instead, set: --hf-accent: rgba(217, 255, 68, .86); */
+    --hf-accent: rgba(241, 244, 230, .62);
+    --hf-ink: rgba(241, 244, 230, .86);
+    width: 100%; max-width: 480px; margin: 0 auto;
+  }
+  .sx-page .hf-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .sx-page .hf-card {
+    display: grid; gap: 14px; align-content: start; padding: 16px; border-radius: 18px;
+    border: 1px solid rgba(241, 244, 230, .14); background: rgba(241, 244, 230, .045);
+  }
+  .sx-page .hf-search { grid-column: 1 / -1; background: linear-gradient(150deg, #16232b, #1b2b33); border-color: rgba(241, 244, 230, .18); box-shadow: 0 30px 60px -34px rgba(0, 0, 0, .7); }
+  .sx-page .hf-tag { display: inline-flex; align-items: center; gap: 8px; font-size: 12.5px; font-weight: 600; line-height: 1; color: var(--hf-ink); }
+  .sx-page .hf-tag b {
+    display: grid; place-items: center; width: 20px; height: 20px; border-radius: 50%; font-size: 11px; font-weight: 600;
+    color: var(--hf-ink); border: 1px solid rgba(241, 244, 230, .28); background: rgba(241, 244, 230, .08);
+  }
+
+  /* search result */
+  .sx-page .hf-sbar { display: flex; align-items: center; gap: 10px; padding: 9px 14px; border-radius: 999px; font-size: 13px; color: rgba(241, 244, 230, .62); background: rgba(241, 244, 230, .07); border: 1px solid rgba(241, 244, 230, .1); }
+  .sx-page .hf-result { display: grid; gap: 7px; }
+  .sx-page .hf-url { font-size: 12px; color: rgba(241, 244, 230, .55); }
+  .sx-page .hf-title { font-size: 16px; font-weight: 600; line-height: 1.3; color: rgba(241, 244, 230, .92); }
+
+  /* shared skeleton bits */
+  .sx-page .hf-l { display: block; height: 8px; border-radius: 5px; background: rgba(241, 244, 230, .15); }
+  .sx-page .hf-h { display: block; width: 85%; height: 14px; border-radius: 6px; background: rgba(241, 244, 230, .8); }
+  .sx-page .hf-btn { display: block; width: 84px; height: 22px; margin-top: 4px; border-radius: 999px; background: var(--hf-accent); }
+  .sx-page .hf-fig .w60 { width: 60%; } .sx-page .hf-fig .w70 { width: 70%; } .sx-page .hf-fig .w80 { width: 80%; } .sx-page .hf-fig .w90 { width: 90%; }
+
+  /* website */
+  .sx-page .hf-win { overflow: hidden; border-radius: 12px; border: 1px solid rgba(241, 244, 230, .12); background: rgba(15, 26, 31, .6); }
+  .sx-page .hf-wbar { display: flex; gap: 6px; padding: 9px 12px; border-bottom: 1px solid rgba(241, 244, 230, .1); }
+  .sx-page .hf-wbar i { display: block; width: 8px; height: 8px; border-radius: 50%; background: rgba(241, 244, 230, .2); }
+  .sx-page .hf-wbody { display: grid; gap: 8px; align-content: start; padding: 14px 12px 16px; }
+
+  /* social */
+  .sx-page .hf-prof { display: flex; align-items: center; gap: 10px; }
+  .sx-page .hf-prof > div { display: grid; gap: 7px; flex: 1; }
+  .sx-page .hf-av { flex: none; width: 34px; height: 34px; border-radius: 50%; background: rgba(241, 244, 230, .22); }
+  .sx-page .hf-n { display: block; width: 55%; height: 10px; border-radius: 5px; background: rgba(241, 244, 230, .6); }
+  .sx-page .hf-tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
+  .sx-page .hf-tiles i { display: block; aspect-ratio: 1; border-radius: 8px; background: linear-gradient(135deg, rgba(241, 244, 230, .14), rgba(241, 244, 230, .05)); }
+
+  .sx-page .hf-fig figcaption { margin-top: 18px; font-size: 14px; line-height: 1.5; color: rgba(241, 244, 230, .62); }
+</style>
+
     <!-- 2. NUMBERS -->
     <section class="sx-proof">
       <div class="sx-wrap sx-proof-grid">
