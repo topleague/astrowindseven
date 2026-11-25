@@ -246,6 +246,136 @@ const orbit = ['Domain', 'Content', 'SEO', 'Social', 'Support'].map((label, i) =
     </div>
   </div>
 </section>
+    <!-- 2. SECOND HERO -->
+<!-- 1. HERO SECTION -->
+<section class="sx-hero sx-hero-refined">
+  <div class="sx-wrap sx-hero-grid">
+    <div class="sx-hero-copy">
+      <div class="sx-pill sx-hero-eyebrow">
+        <span class="sx-dot"></span>
+        Website design
+      </div>
+
+      <h1>
+        Build Your Online Presence,
+        <span class="sx-hero-aside">Not Just a<br />Website.</span>
+      </h1>
+
+      <p>
+        Based in Bhubaneswar, working with small businesses across India and worldwide.
+      </p>
+
+      <div class="sx-actions">
+        <a class="sx-btn sx-btn-primary" href="#contact">
+          Free consultation <i>↗</i>
+        </a>
+        <a class="sx-btn sx-btn-ghost" href="#plans">
+          See plans and prices <i>↓</i>
+        </a>
+      </div>
+
+      <div class="sx-note">
+        Website design · Content writing · SEO &amp; social media · Maintenance
+      </div>
+    </div>
+
+    <!-- Growth illustration -->
+    <figure
+      class="sx-growth-visual sx-hero-stage sx-reveal sx-watch"
+      role="img"
+      aria-label="Conceptual illustration: a website can limit business growth, while a website built to support SEO and the business can help growth continue."
+    >
+      <svg viewBox="0 0 560 340" aria-hidden="true">
+        <defs>
+          <linearGradient
+            id="sx-growth-fill"
+            x1="0"
+            y1="0"
+            x2="0"
+            y2="1"
+          >
+            <stop
+              offset="0%"
+              stop-color="var(--sx-growth-line)"
+              stop-opacity=".16"
+            />
+            <stop
+              offset="100%"
+              stop-color="var(--sx-growth-line)"
+              stop-opacity="0"
+            />
+          </linearGradient>
+        </defs>
+
+        <!-- Subtle chart grid -->
+        <g class="sx-growth-grid">
+          <path d="M40 60H520 M40 120H520 M40 180H520 M40 240H520 M40 300H520" />
+          <path d="M40 30V300 M160 30V300 M280 30V300 M400 30V300 M520 30V300" />
+        </g>
+
+        <!-- Growth area -->
+        <path
+          class="sx-growth-area"
+          d="M40 300
+             C145 286 205 235 275 170
+             S425 65 520 35
+             L520 300Z"
+          fill="url(#sx-growth-fill)"
+        />
+
+        <!-- Website growth ceiling -->
+        <path
+          class="sx-growth-ceiling"
+          d="M40 300
+             C145 286 205 235 275 170
+             S390 145 520 145"
+        />
+
+        <!-- Growth supported by a stronger website -->
+        <path
+          class="sx-growth-curve"
+          d="M40 300
+             C145 286 205 235 275 170
+             S425 65 520 35"
+        />
+
+        <!-- End points -->
+        <circle
+          class="sx-growth-end-muted"
+          cx="520"
+          cy="145"
+          r="5"
+        />
+        <circle
+          class="sx-growth-end"
+          cx="520"
+          cy="35"
+          r="6"
+        />
+
+        <!-- Ceiling label -->
+        <g class="sx-growth-label">
+          <rect x="40" y="125" width="145" height="30" rx="15" />
+          <text x="112.5" y="144" text-anchor="middle">
+            Website growth ceiling
+          </text>
+        </g>
+
+        <!-- Growth label -->
+        <g class="sx-growth-label sx-growth-label-main">
+          <rect x="335" y="12" width="185" height="30" rx="15" />
+          <text x="427.5" y="31" text-anchor="middle">
+            Room to keep growing
+          </text>
+        </g>
+      </svg>
+
+      <figcaption>
+        A website should support your growth—not hold it back.
+      </figcaption>
+    </figure>
+  </div>
+</section>
 
     <!-- 2. NUMBERS -->
     <section class="sx-proof">
@@ -678,4 +808,104 @@ const orbit = ['Domain', 'Content', 'SEO', 'Social', 'Support'].map((label, i) =
   background: rgba(241, 244, 230, .18);
   color: #f1f4e6;
 }
+
+/* MORE CSS for HERO illustraions */
+
+.sx-growth-visual {
+  --growth-line: #347b6d;
+  --growth-ceiling: rgba(35, 50, 55, .32);
+  --growth-grid: rgba(35, 50, 55, .09);
+  --growth-text: rgba(35, 50, 55, .65);
+  --growth-label-bg: rgba(35, 50, 55, .045);
+  --growth-label-border: rgba(35, 50, 55, .12);
+  --growth-fill-top: rgba(52, 123, 109, .18);
+  --growth-fill-bottom: rgba(52, 123, 109, 0);
+
+  width: 100%;
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+.sx-growth-visual svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.sx-growth-grid {
+  fill: none;
+  stroke: var(--growth-grid);
+  stroke-width: 1;
+}
+
+.sx-growth-ceiling {
+  fill: none;
+  stroke: var(--growth-ceiling);
+  stroke-width: 2;
+  stroke-dasharray: 5 6;
+}
+
+.sx-growth-curve {
+  fill: none;
+  stroke: var(--growth-line);
+  stroke-width: 4;
+  stroke-linecap: round;
+}
+
+.sx-growth-end {
+  fill: var(--growth-line);
+}
+
+.sx-growth-end-muted {
+  fill: var(--growth-ceiling);
+}
+
+.sx-growth-fill-top {
+  stop-color: var(--growth-line);
+  stop-opacity: .22;
+}
+
+.sx-growth-fill-bottom {
+  stop-color: var(--growth-line);
+  stop-opacity: 0;
+}
+
+.sx-growth-label rect {
+  fill: var(--growth-label-bg);
+  stroke: var(--growth-label-border);
+  stroke-width: 1;
+}
+
+.sx-growth-label text {
+  fill: var(--growth-text);
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.sx-growth-label-main text {
+  fill: var(--growth-line);
+}
+
+.sx-growth-visual figcaption {
+  margin-top: 12px;
+  text-align: center;
+  color: var(--growth-text);
+  font-size: 12px;
+}
+
+/* Dark mode */
+html[data-theme="dark"] .sx-growth-visual,
+html.dark .sx-growth-visual,
+body.dark .sx-growth-visual {
+  --growth-line: rgba(217, 255, 68, .62);
+  --growth-ceiling: rgba(241, 244, 230, .30);
+  --growth-grid: rgba(241, 244, 230, .07);
+  --growth-text: rgba(241, 244, 230, .62);
+  --growth-label-bg: rgba(241, 244, 230, .035);
+  --growth-label-border: rgba(241, 244, 230, .12);
+  --growth-fill-top: rgba(217, 255, 68, .12);
+  --growth-fill-bottom: rgba(217, 255, 68, 0);
+}
+
 </style>
