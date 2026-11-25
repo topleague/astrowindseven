@@ -235,7 +235,7 @@
 
 /* Boogy FONT*/
 @font-face {
-  font-family: ‘Boogy;
+  font-family: ‘Boogy';
   src: url('/fonts/boogy.woff2') format('woff2');
   font-weight: 400; font-style: normal;font-display: swap;
 }
