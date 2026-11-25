@@ -1,0 +1,600 @@
+---
+/**
+ * HOMEPAGE MOCKUP v2: story-first, light, calm.
+ *
+ * Upload as src/pages/index-new.astro and open /index-new/ to compare with the live page.
+ * Self-contained: it does NOT use the sx-* kit or SxEffects, no JavaScript, no scroll-reveal.
+ * All styles are scoped under .nh and driven by the tokens at the top of the <style> block,
+ * so changing the accent colour is a one-line edit.
+ *
+ * Search this file for TODO before launch.
+ */
+import Layout from '~/layouts/PageLayout.astro';
+import StructuredData from '~/components/common/StructuredData.astro';
+import { SITE, METADATA, I18N } from 'astrowind:config';
+import favIconSvg from '~/assets/favicons/favicon.svg';
+
+const metadata = {
+  title: 'Website Design & Development in Bhubaneswar | Top League',
+  description:
+    'Website design and development in Bhubaneswar, planned around your goals and budget, with content, SEO and maintenance. Clients across India and worldwide.',
+  ignoreTitleTemplate: true,
+  robots: { index: false, follow: false }, // mockup only: remove when this replaces index.astro
+};
+
+const organizationId = `${SITE?.site}/#organization`;
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    '@id': `${SITE?.site}/#website`,
+    name: SITE?.name,
+    url: SITE?.site,
+    inLanguage: I18N?.language,
+    publisher: { '@id': organizationId },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    '@id': organizationId,
+    name: SITE?.name,
+    url: SITE?.site,
+    logo: new URL(favIconSvg.src, SITE?.site).toString(),
+    ...(METADATA?.twitter?.handle ? { sameAs: [`https://x.com/${METADATA.twitter.handle.replace(/^@/, '')}`] } : {}),
+  },
+];
+
+const contactLink = '/contact/';
+const whatsappLink = '/whatsapp/'; // redirect from public/_redirects (given earlier)
+
+// ---------------------------------------------------------------------------
+// HERO: the checklist card on the right replaces the animated orbit.
+// ---------------------------------------------------------------------------
+const heroChecklist = [
+  { t: 'A domain and website that fit your business', s: 'Planned before anything is built' },
+  { t: 'Content written for your customers', s: 'And for search' },
+  { t: 'SEO set up from day one', s: 'Not added at the end' },
+  { t: 'Social profiles that match the site', s: 'Ready to use' },
+  { t: 'Someone to look after it', s: 'Updates, security and support' },
+];
+
+const proof = [
+  { n: '16', l: 'years running Top League' }, // TODO confirm 2009 vs 2010
+  { n: '30+', l: 'websites built recently' },
+  { n: '20', l: 'websites we maintain today' },
+  { n: '10', l: 'countries with clients' },
+];
+
+// ---------------------------------------------------------------------------
+// THE VILLAIN: a website that looks finished but brings nothing.
+// ---------------------------------------------------------------------------
+const villains = [
+  { n: '01', t: 'Built before it was planned', d: 'The first question is “what should it look like?”. Who it is for, what it should do and what you can spend come later, if at all.' },
+  { n: '02', t: 'Finished, but nobody finds it', d: 'Pages are designed first and written last. Search and structure are an afterthought, so the site looks good and brings no one in.' },
+  { n: '03', t: 'Launched, then left alone', d: 'Updates, security, new content and social presence become nobody’s job. The site slowly goes stale.' },
+];
+
+const mistake = [
+  { t: 'Domain and logo chosen', d: 'Before the website was planned.' },
+  { t: 'Website built', d: 'Design and pages completed.' },
+  { t: 'Trademark conflict', d: 'Found only after the website was ready.' },
+  { t: 'Start again', d: 'A new name, domain and logo.' },
+];
+
+// ---------------------------------------------------------------------------
+// THE GUIDE: three static contrasts (replaces the six tabs).
+// ---------------------------------------------------------------------------
+const contrasts = [
+  {
+    k: 'Where we start',
+    usual: 'With the website. A list of pages and features becomes the plan, and the business comes second.',
+    ours: 'With your business. Your audience, your goal and what success means to you decide which pages and features earn a place.',
+  },
+  {
+    k: 'How we handle budget',
+    usual: 'A quote follows the feature list. The real budget surfaces later, usually as a compromise.',
+    ours: 'Budget is part of the first conversation, so the plan is practical rather than padded.',
+  },
+  {
+    k: 'What happens after launch',
+    usual: 'Launch and move on. Speed, security, social and fresh content become somebody else’s problem.',
+    ours: 'We build for speed and security from the start, and stay on for updates, analytics and new content.',
+  },
+];
+
+// ---------------------------------------------------------------------------
+// WHAT WE DO
+// ---------------------------------------------------------------------------
+const services = [
+  { t: 'Website design & development', d: 'Fast, mobile-friendly WordPress sites built around your brand, with on-page SEO set up from day one.', links: [{ l: 'Website development', h: '/website-development/' }] },
+  { t: 'Content writing', d: 'Articles, page copy and product descriptions written for your customers and for search, in your voice.', links: [{ l: 'Articles', h: '/seo-article-writing/' }, { l: 'Copywriting', h: '/seo-copywriting/' }, { l: 'Product descriptions', h: '/product-description-writing/' }] },
+  { t: 'SEO & social media', d: 'Search visibility and social activity that point the right people to the site you already have.', links: [{ l: 'SEO services', h: '/seo-services/' }] },
+  { t: 'Website maintenance', d: 'Updates, backups, security checks and support after launch, so the site stays safe, current and working.', links: [{ l: 'Ask about maintenance', h: '/contact/' }] },
+];
+
+// ---------------------------------------------------------------------------
+// THE PLAN (how we work): four steps, details live on /how-we-work/ (TODO: create page).
+// ---------------------------------------------------------------------------
+const steps = [
+  { k: '1', t: 'Plan', d: 'Audience, goals, budget, domain and the pages you actually need.' },
+  { k: '2', t: 'Build', d: 'Content and SEO are mapped before pages are assembled.' },
+  { k: '3', t: 'Launch', d: 'Speed, mobile and basic security are checked before the site goes public.' },
+  { k: '4', t: 'Maintain', d: 'Updates, security checks and new content, so the site keeps earning its place.' },
+];
+
+// ---------------------------------------------------------------------------
+// PLANS. Names are working names (Essential / Momentum / Partnership), not final.
+// Full comparison moves to /packages/ (TODO: create page).
+// ---------------------------------------------------------------------------
+const plans = [
+  {
+    name: 'Essential',
+    need: 'I need a website.',
+    price: '₹30,000',
+    note: 'One-time, no ongoing services',
+    items: ['Standard design with your logo and colours', 'Content for up to 3 pages', 'Basic keyword research and on-page SEO', 'Analytics, Search Console and Business Profile set up'],
+  },
+  {
+    name: 'Momentum',
+    need: 'I need a website that attracts customers.',
+    price: '₹50,000',
+    note: 'Website plus 3 months after launch',
+    featured: true,
+    items: ['Tailored design with a second mockup using real content', 'Content for up to 4 pages, comprehensive SEO', '5 blog articles and 6 social posts a month on 3 platforms', 'Monthly maintenance, SEO tune-up and report'],
+  },
+  {
+    name: 'Partnership',
+    need: 'I need someone to build and manage my online presence.',
+    price: '₹65,000',
+    note: 'Website plus 6 months after launch',
+    items: ['Custom design', 'Content for up to 5 pages, comprehensive SEO', '7 blog articles and 10 social posts a month on 5 platforms', 'Monthly maintenance, SEO tune-up and report'],
+  },
+];
+
+// ---------------------------------------------------------------------------
+// CLIENT WORDS. Wording is exactly as supplied; do not edit.
+// "pull" is an exact excerpt of the review; "text" is the full review.
+// ---------------------------------------------------------------------------
+const reviews = [
+  {
+    pull: 'They were affordable, professional, and delivered exactly what I needed.',
+    text: `I've been incredibly impressed with Top League’s website development services. They were affordable, professional, and delivered exactly what I needed. Their team took the time to understand my requirements and then created a website that is both beautiful and functional. They also provided excellent support throughout the entire process, and I continue to rely on them for ongoing maintenance. I highly recommend Top League to anyone looking for a reliable and affordable WordPress development company.`,
+    name: 'Arup Nayak', job: 'Founder, Purbaghat Masala',
+  },
+  {
+    pull: 'Their web development services are exceptional…',
+    text: `Collaborating with Top League has been an enjoyable experience. Their web development services are exceptional, providing a smooth and aesthetically impressive website that surpassed our expectations. What distinguishes them is their rapid support – any inquiries or challenges we encountered were promptly resolved, keeping our project on schedule. We wholeheartedly recommend Top League to anyone seeking to enhance their online presence with a skilled and attentive team!`,
+    name: 'Dipan Rout', job: 'Founder, Decyphr Pvt Ltd',
+  },
+  {
+    pull: 'Over the last six years, Top League have exceeded my expectations…',
+    text: `Over the last six years, Top League have exceeded my expectations and delighted me with their personalized service in maintaining my professional and other websites.`,
+    name: 'Prof. Uday Damodaran', job: 'Faculty, IIM Udaipur',
+  },
+];
+
+const initials = (name) => name.replace(/^Prof\.\s*/, '').trim().split(/\s+/).map((w) => w[0]).slice(0, 2).join('').toUpperCase();
+---
+
+<Layout metadata={metadata}>
+  <StructuredData slot="head" schema={structuredData} />
+  <link slot="head" rel="preconnect" href="https://fonts.googleapis.com" />
+  <link slot="head" rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    slot="head"
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700&family=Inter:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap"
+  />
+
+  <div class="nh">
+    <!-- 1. HERO: the visitor, their goal, one clear next step -->
+    <section class="nh-hero">
+      <div class="nh-wrap nh-hero-grid">
+        <div>
+          <p class="nh-pill">Website design &amp; development in Bhubaneswar</p>
+          <h1>Build Your Online Presence, <em>Not Just a Website.</em></h1>
+          <p class="nh-lead">
+            You don’t need a website that only looks good. You need one that brings in customers. We plan it around your business, your goal and your budget, then build, write, optimise and look after it.
+          </p>
+          <div class="nh-actions">
+            <a class="nh-btn nh-btn-primary" href={contactLink}>Free consultation <span aria-hidden="true">→</span></a>
+            <a class="nh-btn nh-btn-ghost" href="#plans">See plans and prices</a>
+          </div>
+          <p class="nh-small">Based in Bhubaneswar. Working with small businesses across India and worldwide.</p>
+        </div>
+
+        <aside class="nh-checklist" aria-label="What your online presence includes">
+          <p class="nh-checklist-h">Your online presence, planned as one thing</p>
+          <ul>
+            {heroChecklist.map((c) => (
+              <li>
+                <span class="nh-tick" aria-hidden="true">✓</span>
+                <span><strong>{c.t}</strong><small>{c.s}</small></span>
+              </li>
+            ))}
+          </ul>
+        </aside>
+      </div>
+
+      <div class="nh-wrap">
+        <dl class="nh-proof">
+          {proof.map((p) => (
+            <div>
+              <dt>{p.n}</dt>
+              <dd>{p.l}</dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+    </section>
+
+    <!-- 2. THE VILLAIN: a website that looks finished and brings nothing -->
+    <section class="nh-section nh-alt" id="problem">
+      <div class="nh-wrap">
+        <div class="nh-head">
+          <p class="nh-kicker">The problem</p>
+          <h2>A website can look finished and still bring you <em>nothing.</em></h2>
+          <p class="nh-lead">It usually goes wrong long before the first page is designed.</p>
+        </div>
+
+        <div class="nh-grid3">
+          {villains.map((v) => (
+            <article class="nh-card">
+              <span class="nh-num">{v.n}</span>
+              <h3>{v.t}</h3>
+              <p>{v.d}</p>
+            </article>
+          ))}
+        </div>
+
+        <div class="nh-story">
+          <div>
+            <p class="nh-kicker">Based on a real client story</p>
+            <h3>What an expensive mistake looks like</h3>
+            <p>
+              A client came to us with a domain and logo already chosen. After the website was ready, a trademark conflict forced a change of name, domain and logo.
+            </p>
+          </div>
+          <ol class="nh-flow">
+            {mistake.map((m, i) => (
+              <li class={i === 2 ? 'is-bad' : ''}>
+                <span>{i + 1}</span>
+                <p><strong>{m.t}</strong>{m.d}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. THE GUIDE: we start with the business -->
+    <section class="nh-section" id="approach">
+      <div class="nh-wrap">
+        <div class="nh-head">
+          <p class="nh-kicker">A different way to start</p>
+          <h2>We start with your business, <em>not the page list.</em></h2>
+          <p class="nh-lead">After 16 years and many websites, we have seen what works. The plan comes first, and the website follows it.</p>
+        </div>
+
+        <div class="nh-contrast" role="table" aria-label="The usual way compared with the Top League way">
+          <div class="nh-contrast-h" role="row">
+            <span role="columnheader"></span>
+            <span role="columnheader">The usual way</span>
+            <span role="columnheader" class="is-ours">The Top League way</span>
+          </div>
+          {contrasts.map((c) => (
+            <div class="nh-contrast-r" role="row">
+              <strong role="rowheader">{c.k}</strong>
+              <p role="cell" class="is-usual">{c.usual}</p>
+              <p role="cell" class="is-ours">{c.ours}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. WHAT WE DO -->
+    <section class="nh-section nh-alt" id="services">
+      <div class="nh-wrap">
+        <div class="nh-head">
+          <p class="nh-kicker">What we do</p>
+          <h2>Everything your online presence needs, <em>in one place.</em></h2>
+        </div>
+        <div class="nh-grid4">
+          {services.map((s) => (
+            <article class="nh-card">
+              <h3>{s.t}</h3>
+              <p>{s.d}</p>
+              <p class="nh-links">
+                {s.links.map((l) => <a href={l.h}>{l.l} →</a>)}
+              </p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. THE PLAN: four steps, details on their own page -->
+    <section class="nh-section" id="process">
+      <div class="nh-wrap">
+        <div class="nh-head">
+          <p class="nh-kicker">How we work</p>
+          <h2>Four steps, <em>planning first.</em></h2>
+        </div>
+        <ol class="nh-steps">
+          {steps.map((s) => (
+            <li>
+              <span class="nh-step-n">{s.k}</span>
+              <h3>{s.t}</h3>
+              <p>{s.d}</p>
+            </li>
+          ))}
+        </ol>
+        <p class="nh-more"><a href="/how-we-work/">See how we work in detail →</a></p>
+      </div>
+    </section>
+
+    <!-- 6. PLANS: three short cards, full comparison on /packages/ -->
+    <section class="nh-section nh-alt" id="plans">
+      <div class="nh-wrap">
+        <div class="nh-head">
+          <p class="nh-kicker">Plans and prices</p>
+          <h2>Start with the plan that <em>fits where you are.</em></h2>
+          <p class="nh-lead">Each plan is a complete website. The longer plans add months of work after launch, so the site keeps earning its place.</p>
+        </div>
+
+        <div class="nh-grid3 nh-plans">
+          {plans.map((p) => (
+            <article class={`nh-plan ${p.featured ? 'is-feat' : ''}`}>
+              {p.featured && <span class="nh-badge">Most chosen</span>}
+              <p class="nh-need">{p.need}</p>
+              <h3>{p.name}</h3>
+              <p class="nh-price">{p.price}</p>
+              <p class="nh-note">{p.note}</p>
+              <ul>
+                {p.items.map((i) => (
+                  <li><span class="nh-tick" aria-hidden="true">✓</span>{i}</li>
+                ))}
+              </ul>
+              <a class={`nh-btn ${p.featured ? 'nh-btn-primary' : 'nh-btn-ghost'}`} href={`${contactLink}?plan=${p.name.toLowerCase()}`}>Talk about {p.name}</a>
+            </article>
+          ))}
+        </div>
+
+        <p class="nh-more">
+          <a href="/packages/">Compare every detail →</a>
+          <span class="nh-fine">Rankings and indexing by Google cannot be promised. Need something different? <a href={contactLink}>Ask for a custom plan</a>.</span>
+        </p>
+      </div>
+    </section>
+
+    <!-- 7. CLIENT WORDS -->
+    <section class="nh-section" id="reviews">
+      <div class="nh-wrap">
+        <div class="nh-head">
+          <p class="nh-kicker">In their words</p>
+          <h2>What website clients <em>say about us.</em></h2>
+        </div>
+        <div class="nh-grid3">
+          {reviews.map((r) => (
+            <figure class="nh-review">
+              <blockquote>“{r.pull}”</blockquote>
+              <details>
+                <summary>Read the full review</summary>
+                <p>{r.text}</p>
+              </details>
+              <figcaption>
+                <span class="nh-av" aria-hidden="true">{initials(r.name)}</span>
+                <span><strong>{r.name}</strong><small>{r.job}</small></span>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. CALL TO ACTION: the only dark band on the page -->
+    <section class="nh-cta" id="contact">
+      <div class="nh-wrap">
+        <h2>Tell us about your business. <em>We’ll tell you what it needs.</em></h2>
+        <p>A free consultation to talk through your goal and budget, with no obligation.</p>
+        <div class="nh-actions nh-actions-c">
+          <a class="nh-btn nh-btn-light" href={contactLink}>Book a free consultation <span aria-hidden="true">→</span></a>
+          <a class="nh-btn nh-btn-line" href={whatsappLink}>Message us on WhatsApp</a>
+        </div>
+      </div>
+    </section>
+  </div>
+</Layout>
+
+<style is:global>
+  /* All rules are scoped under .nh. Change the tokens here to restyle the whole page. */
+  .nh {
+    --ink: #0a0f1e;
+    --text: #3d4658; /* 9:1 on white */
+    --muted: #525b6e; /* 6.9:1 on white */
+    --line: #e5e7ec;
+    --bg: #ffffff;
+    --alt: #f6f5f1;
+    --accent: #3355ff; /* the one accent: change here */
+    --accent-dark: #2240e0;
+    --accent-soft: #ecf0ff;
+    --ok: #0b7a53;
+    --ok-soft: #e7f7ef;
+    --bad: #b42318;
+    --radius: 24px;
+    --head: 'Inter Tight', 'Inter', system-ui, sans-serif;
+    --body: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+    --serif: 'Instrument Serif', Georgia, serif;
+
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--body);
+    font-size: 17px;
+    line-height: 1.65;
+  }
+  .nh *,
+  .nh *::before,
+  .nh *::after { box-sizing: border-box; }
+  :where(.nh) :where(h1, h2, h3, p, ul, ol, dl, dd, figure, blockquote) { margin: 0; padding: 0; }
+  :where(.nh) :where(ul, ol) { list-style: none; }
+  :where(.nh) a { color: inherit; }
+  .nh section[id] { scroll-margin-top: 84px; }
+
+  .nh-wrap { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+  .nh-section { padding: clamp(64px, 8vw, 104px) 0; }
+  .nh-alt { background: var(--alt); }
+
+  /* type */
+  .nh h1, .nh h2, .nh h3 { font-family: var(--head); color: var(--ink); letter-spacing: -0.02em; }
+  .nh h1 { font-size: clamp(2.5rem, 1.5rem + 3.6vw, 4.1rem); line-height: 1.04; font-weight: 600; }
+  .nh h2 { font-size: clamp(2rem, 1.3rem + 2.2vw, 3.1rem); line-height: 1.1; font-weight: 600; }
+  .nh h3 { font-size: 1.25rem; line-height: 1.3; font-weight: 600; }
+  .nh em { font-family: var(--serif); font-style: italic; font-weight: 400; color: var(--accent); letter-spacing: 0; }
+  .nh h1 em, .nh h2 em { display: inline; font-size: 1.08em; }
+  .nh-lead { font-size: 1.1875rem; color: var(--text); max-width: 60ch; }
+  .nh-kicker { font-size: 13px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent-dark); margin-bottom: 14px; }
+  .nh-head { max-width: 760px; margin-bottom: 44px; }
+  .nh-head h2 { margin-bottom: 16px; }
+  .nh-small { margin-top: 22px; font-size: 15px; color: var(--muted); }
+
+  /* buttons */
+  .nh-btn { display: inline-flex; align-items: center; gap: 8px; min-height: 48px; padding: 0 24px; border-radius: 999px; font: 600 15px/1 var(--body); text-decoration: none; border: 1.5px solid transparent; transition: background-color 0.2s, border-color 0.2s, transform 0.2s; }
+  .nh-btn-primary { background: var(--accent); color: #fff; }
+  .nh-btn-primary:hover { background: var(--accent-dark); }
+  .nh-btn-ghost { background: #fff; color: var(--ink); border-color: var(--line); }
+  .nh-btn-ghost:hover { border-color: var(--ink); }
+  .nh-btn-light { background: #fff; color: var(--ink); }
+  .nh-btn-light:hover { background: var(--accent-soft); }
+  .nh-btn-line { color: #fff; border-color: rgba(255, 255, 255, 0.4); }
+  .nh-btn-line:hover { border-color: #fff; }
+  .nh-btn:focus-visible, .nh a:focus-visible, .nh summary:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+  .nh-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+  .nh-actions-c { justify-content: center; }
+
+  /* hero */
+  .nh-hero { padding: clamp(48px, 7vw, 88px) 0 0; background: linear-gradient(180deg, var(--accent-soft) 0%, #fff 70%); }
+  .nh-hero-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 56px; align-items: center; }
+  .nh-pill { display: inline-block; padding: 7px 14px; border-radius: 999px; background: #fff; border: 1px solid var(--line); font-size: 14px; font-weight: 500; color: var(--ink); margin-bottom: 22px; }
+  .nh-hero h1 { margin-bottom: 22px; }
+  .nh-checklist { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 28px; box-shadow: 0 18px 50px -24px rgba(10, 15, 30, 0.22); }
+  .nh-checklist-h { font: 600 13px/1.3 var(--body); letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 18px; }
+  .nh-checklist li { display: flex; gap: 14px; align-items: flex-start; padding: 13px 0; border-top: 1px solid var(--line); }
+  .nh-checklist li:first-child { border-top: 0; padding-top: 0; }
+  .nh-checklist strong { display: block; color: var(--ink); font-weight: 600; line-height: 1.35; }
+  .nh-checklist small { display: block; font-size: 14px; color: var(--muted); }
+  .nh-tick { flex: none; display: inline-grid; place-items: center; width: 22px; height: 22px; margin-top: 1px; border-radius: 50%; background: var(--ok-soft); color: var(--ok); font-size: 12px; font-weight: 700; }
+
+  .nh-proof { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: clamp(40px, 6vw, 64px); padding: 26px 0 30px; border-top: 1px solid var(--line); }
+  .nh-proof dt { font: 600 clamp(1.6rem, 1.2rem + 1.4vw, 2.2rem)/1.1 var(--head); color: var(--ink); letter-spacing: -0.02em; }
+  .nh-proof dd { font-size: 14px; color: var(--muted); margin-top: 4px; }
+
+  /* cards */
+  .nh-grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .nh-grid4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  .nh-card { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 28px; }
+  .nh-card h3 { margin-bottom: 10px; }
+  .nh-card p { color: var(--text); font-size: 16px; }
+  .nh-num { display: block; font: 500 1.9rem/1 var(--serif); font-style: italic; color: var(--bad); margin-bottom: 18px; }
+  .nh-links { margin-top: 16px; display: flex; flex-wrap: wrap; gap: 6px 16px; }
+  .nh-links a { font-size: 15px; font-weight: 600; color: var(--accent-dark); text-decoration: none; }
+  .nh-links a:hover { text-decoration: underline; }
+
+  /* real story */
+  .nh-story { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 40px; align-items: center; margin-top: 28px; padding: 36px; background: #fff; border: 1px solid var(--line); border-radius: var(--radius); }
+  .nh-story h3 { font-size: 1.6rem; margin-bottom: 12px; }
+  .nh-story p { font-size: 16px; }
+  .nh-flow { display: grid; gap: 10px; }
+  .nh-flow li { display: flex; gap: 14px; align-items: flex-start; padding: 12px 16px; border-radius: 16px; background: var(--alt); }
+  .nh-flow li.is-bad { background: #fdeceb; }
+  .nh-flow li > span { flex: none; display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; background: var(--ink); color: #fff; font: 600 13px/1 var(--body); }
+  .nh-flow li.is-bad > span { background: var(--bad); }
+  .nh-flow strong { display: block; color: var(--ink); font-weight: 600; }
+  .nh-flow p { font-size: 15px; color: var(--text); }
+
+  /* three contrasts */
+  .nh-contrast { border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; background: #fff; }
+  .nh-contrast-h, .nh-contrast-r { display: grid; grid-template-columns: 0.7fr 1fr 1.15fr; }
+  .nh-contrast-h span { padding: 16px 28px; font: 600 13px/1.3 var(--body); letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); background: var(--alt); }
+  .nh-contrast-h .is-ours { color: var(--accent-dark); background: var(--accent-soft); }
+  .nh-contrast-r { border-top: 1px solid var(--line); }
+  .nh-contrast-r > * { padding: 26px 28px; }
+  .nh-contrast-r strong { font: 600 1.1rem/1.35 var(--head); color: var(--ink); }
+  .nh-contrast-r p { font-size: 16px; }
+  .nh-contrast-r .is-usual { color: var(--muted); }
+  .nh-contrast-r .is-ours { color: var(--ink); background: rgba(236, 240, 255, 0.45); }
+
+  /* steps */
+  .nh-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; counter-reset: s; }
+  .nh-steps li { position: relative; padding-top: 22px; border-top: 2px solid var(--ink); }
+  .nh-step-n { display: block; font: 500 1.9rem/1 var(--serif); font-style: italic; color: var(--accent); margin-bottom: 12px; }
+  .nh-steps h3 { margin-bottom: 8px; }
+  .nh-steps p { font-size: 16px; }
+  .nh-more { margin-top: 32px; font-weight: 600; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 28px; }
+  .nh-more a { color: var(--accent-dark); text-decoration: none; }
+  .nh-more a:hover { text-decoration: underline; }
+  .nh-fine { font-weight: 400; font-size: 14px; color: var(--muted); }
+  .nh-fine a { text-decoration: underline; }
+
+  /* plans */
+  .nh-plans { align-items: stretch; }
+  .nh-plan { position: relative; display: flex; flex-direction: column; background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 32px 28px 28px; }
+  .nh-plan.is-feat { border: 2px solid var(--accent); box-shadow: 0 24px 60px -30px rgba(51, 85, 255, 0.45); }
+  .nh-badge { position: absolute; top: -13px; left: 28px; padding: 4px 12px; border-radius: 999px; background: var(--accent); color: #fff; font: 600 12px/1.4 var(--body); letter-spacing: 0.04em; }
+  .nh-need { font: 500 1.35rem/1.25 var(--serif); font-style: italic; color: var(--ink); min-height: 3.4em; margin-bottom: 14px; }
+  .nh-plan h3 { font-size: 1.5rem; }
+  .nh-price { font: 600 2.4rem/1.1 var(--head); letter-spacing: -0.02em; color: var(--ink); margin-top: 8px; }
+  .nh-note { font-size: 14px; color: var(--muted); margin-bottom: 20px; }
+  .nh-plan ul { display: grid; gap: 12px; margin-bottom: 28px; flex: 1; border-top: 1px solid var(--line); padding-top: 20px; }
+  .nh-plan li { display: flex; gap: 10px; align-items: flex-start; font-size: 15.5px; line-height: 1.5; }
+  .nh-plan .nh-btn { justify-content: center; width: 100%; }
+
+  /* reviews */
+  .nh-review { display: flex; flex-direction: column; background: var(--alt); border-radius: var(--radius); padding: 30px 28px 26px; }
+  .nh-review blockquote { font: 500 1.4rem/1.3 var(--head); letter-spacing: -0.01em; color: var(--ink); margin-bottom: 18px; }
+  .nh-review details { font-size: 15.5px; margin-bottom: 22px; flex: 1; }
+  .nh-review summary { cursor: pointer; font-weight: 600; color: var(--accent-dark); list-style: none; }
+  .nh-review summary::-webkit-details-marker { display: none; }
+  .nh-review summary::after { content: ' +'; }
+  .nh-review details[open] summary::after { content: ' −'; }
+  .nh-review details p { margin-top: 12px; }
+  .nh-review figcaption { display: flex; gap: 12px; align-items: center; }
+  .nh-av { flex: none; display: grid; place-items: center; width: 42px; height: 42px; border-radius: 50%; background: var(--ink); color: #fff; font: 600 14px/1 var(--body); }
+  .nh-review strong { display: block; color: var(--ink); font-weight: 600; line-height: 1.3; }
+  .nh-review small { display: block; font-size: 14px; color: var(--muted); }
+
+  /* CTA: the only dark band */
+  .nh-cta { background: #0a0f1e; color: #b9c2d6; text-align: center; padding: clamp(72px, 9vw, 112px) 0; }
+  .nh-cta h2 { color: #fff; max-width: 18ch; margin: 0 auto 18px; font-size: clamp(2.1rem, 1.3rem + 2.6vw, 3.4rem); }
+  .nh-cta h2 em { color: #9db1ff; }
+  .nh-cta p { max-width: 52ch; margin: 0 auto; font-size: 1.1875rem; }
+
+  /* responsive */
+  @media (max-width: 1000px) {
+    .nh-hero-grid { grid-template-columns: 1fr; gap: 40px; }
+    .nh-grid4 { grid-template-columns: repeat(2, 1fr); }
+    .nh-steps { grid-template-columns: repeat(2, 1fr); gap: 32px 20px; }
+    .nh-story { grid-template-columns: 1fr; padding: 28px; gap: 24px; }
+  }
+  @media (max-width: 860px) {
+    .nh-grid3 { grid-template-columns: 1fr; }
+    .nh-need { min-height: 0; }
+    .nh-contrast-h { display: none; }
+    .nh-contrast-r { grid-template-columns: 1fr; }
+    .nh-contrast-r > * { padding: 14px 22px; }
+    .nh-contrast-r strong { padding-top: 22px; }
+    .nh-contrast-r .is-usual::before, .nh-contrast-r .is-ours::before { display: block; font: 600 12px/1.4 var(--body); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 4px; }
+    .nh-contrast-r .is-usual::before { content: 'The usual way'; color: var(--muted); }
+    .nh-contrast-r .is-ours::before { content: 'The Top League way'; color: var(--accent-dark); }
+    .nh-contrast-r .is-ours { padding-bottom: 24px; }
+  }
+  @media (max-width: 560px) {
+    .nh { font-size: 16px; }
+    .nh-wrap { padding: 0 20px; }
+    .nh-proof { grid-template-columns: repeat(2, 1fr); }
+    .nh-grid4, .nh-steps { grid-template-columns: 1fr; }
+    .nh-btn { width: 100%; justify-content: center; }
+    .nh-actions { flex-direction: column; }
+    .nh-checklist, .nh-card, .nh-plan, .nh-review { padding-left: 22px; padding-right: 22px; }
+  }
+</style>
