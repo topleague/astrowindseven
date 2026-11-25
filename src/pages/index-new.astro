@@ -158,46 +158,96 @@ const orbit = ['Domain', 'Content', 'SEO', 'Social', 'Support'].map((label, i) =
     <div class="sx-progress" aria-hidden="true"><span></span></div>
 
     <!-- 1. HERO SECTION -->
-    <section class="sx-hero">
-      <div class="sx-wrap sx-hero-grid">
-        <div class="sx-hero-copy">
-          <div class="sx-pill"><span class="sx-dot"></span> Website design &amp; development in Bhubaneswar</div>
-          <h1>
-            Build Your Online Presence,
-            <span>Not Just a Website.</span>
-          </h1>
-          <p>
-            Based in Bhubaneswar, working with small businesses across India and worldwide. We start with your business, goal and budget, then plan the website, content, SEO and maintenance around them.
-          </p>
-          <div class="sx-actions">
-            <a class="sx-btn sx-btn-primary" href="#contact">Free consultation <i>↗</i></a>
-            <a class="sx-btn sx-btn-ghost" href="#plans">See plans and prices <i>↓</i></a>
-          </div>
-          <div class="sx-note">Website design · Content writing · SEO &amp; social media · Maintenance</div>
+ <!-- 1. HERO SECTION -->
+<section class="sx-hero sx-hero-refined">
+  <div class="sx-wrap sx-hero-grid">
+    <div class="sx-hero-copy">
+      <div class="sx-pill sx-hero-eyebrow">
+        <span class="sx-dot"></span>
+        Website design
+      </div>
+
+      <h1>
+        <span class="sx-hero-main">Build Your<br />Online Presence,</span>
+        <span class="sx-hero-aside">Not Just a<br />Website.</span>
+      </h1>
+
+      <p>
+        Based in Bhubaneswar, working with small businesses across India and worldwide.
+        We start with your business, goal and budget, then plan the website, content,
+        SEO and maintenance around them.
+      </p>
+
+      <div class="sx-actions">
+        <a class="sx-btn sx-btn-primary" href="#contact">
+          Free consultation <i>↗</i>
+        </a>
+        <a class="sx-btn sx-btn-ghost" href="#plans">
+          See plans and prices <i>↓</i>
+        </a>
+      </div>
+
+      <div class="sx-note">
+        Website design · Content writing · SEO &amp; social media · Maintenance
+      </div>
+    </div>
+
+    <div
+      class="sx-stage sx-hero-stage"
+      role="img"
+      aria-label="Illustration of a business website showing its design, mobile layout and search-friendly structure."
+    >
+      <div class="sx-win">
+        <div class="sx-win-bar">
+          <i></i><i></i><i></i>
+          <span>yourbusiness.com</span>
         </div>
 
-        <div class="sx-stage" role="img" aria-label="Illustration: a website at the centre, connected to the domain, content, SEO, social presence and ongoing support around it.">
-          <svg viewBox="0 0 540 460" aria-hidden="true">
-            <circle class="sx-ring2" cx="270" cy="230" r="165" />
-            {orbit.map((o) => <line class="sx-spoke" x1="270" y1="230" x2={o.x} y2={o.y} />)}
-            {orbit.map((o) => (
-              <g class="sx-sat" style={`--i:${o.i}`}>
-                <circle cx={o.x} cy={o.y} r="40" />
-                <text x={o.x} y={o.y + 5}>{o.label}</text>
-              </g>
-            ))}
-            <g class="sx-core">
-              <circle class="sx-halo" cx="270" cy="230" r="62" />
-              <circle cx="270" cy="230" r="44" />
-            </g>
-            <text class="sx-svgt" x="270" y="235">Website</text>
-          </svg>
-          <span class="sx-pin" style="left:0;top:6%"><b>1</b> Domain &amp; brand</span>
-          <span class="sx-pin" style="right:0;top:48%"><b>2</b> Content &amp; search</span>
-          <span class="sx-pin" style="left:4%;bottom:4%"><b>3</b> Maintenance after launch</span>
+        <div class="sx-win-body">
+          <div class="sx-cols" style="--c:2">
+            <span class="sx-sk is-img" style="height:150px"></span>
+            <div style="display:grid;gap:10px;align-content:start">
+              <span class="sx-sk w90 is-h"></span>
+              <span class="sx-sk w70"></span>
+              <span class="sx-sk w80"></span>
+              <span class="sx-sk is-btn" style="width:130px;margin-top:6px"></span>
+            </div>
+          </div>
+
+          <div class="sx-cols" style="--c:3">
+            <div class="sx-box">
+              <span class="sx-sk is-hot w50"></span>
+              <span class="sx-sk w90"></span>
+              <span class="sx-sk w70"></span>
+            </div>
+
+            <div class="sx-box sx-hl" style="--hd:3s">
+              <span class="sx-sk is-hot w50"></span>
+              <span class="sx-sk w90"></span>
+              <span class="sx-sk w70"></span>
+            </div>
+
+            <div class="sx-box">
+              <span class="sx-sk is-hot w50"></span>
+              <span class="sx-sk w90"></span>
+              <span class="sx-sk w70"></span>
+            </div>
+          </div>
         </div>
       </div>
-    </section>
+
+      <span class="sx-pin" style="right:-2%;top:6%">
+        <b>1</b> Looks like your brand
+      </span>
+      <span class="sx-pin" style="left:-2%;top:58%">
+        <b>2</b> Fast on any device
+      </span>
+      <span class="sx-pin" style="right:-2%;bottom:5%">
+        <b>3</b> SEO from day one
+      </span>
+    </div>
+  </div>
+</section>
 
     <!-- 2. NUMBERS -->
     <section class="sx-proof">
@@ -602,4 +652,129 @@ const orbit = ['Domain', 'Content', 'SEO', 'Social', 'Support'].map((label, i) =
   .sx-page.sx-calm .sx-path.is-feat .sx-tick { background: var(--green); color: #fff; }
   .sx-page.sx-calm .sx-badge { background: var(--green); color: #fff; }
   .sx-page.sx-calm .sx-path .sx-btn-primary { background: var(--green); color: #fff; box-shadow: none; }
+
+
+/* REVISED CSS */
+/* Refined homepage hero */
+.sx-page.sx-calm .sx-hero-refined h1 {
+  font-size: clamp(42px, 4.2vw, 58px);
+  line-height: 1.02;
+  font-weight: 500;
+  letter-spacing: -.045em;
+  margin-bottom: 24px;
+}
+
+.sx-page.sx-calm .sx-hero-refined .sx-hero-main,
+.sx-page.sx-calm .sx-hero-refined .sx-hero-aside {
+  display: block;
+}
+
+.sx-page.sx-calm .sx-hero-refined .sx-hero-aside {
+  color: rgba(241, 244, 230, .68);
+  font-style: italic;
+  font-weight: 400;
+}
+
+.sx-page.sx-calm .sx-hero-refined .sx-hero-eyebrow {
+  font-size: 10px;
+  letter-spacing: .12em;
+  opacity: .75;
+  margin-bottom: 20px;
+}
+
+.sx-page.sx-calm .sx-hero-refined .sx-dot {
+  background: rgba(217, 255, 68, .86);
+}
+
+.sx-page.sx-calm .sx-hero-refined .sx-btn-primary {
+  background: rgba(217, 255, 68, .86);
+  color: #17242b;
+  box-shadow: none;
+}
+
+.sx-page.sx-calm .sx-hero-refined .sx-btn-primary:hover {
+  background: #d9ff44;
+}
+
+.sx-page.sx-calm .sx-hero-refined .sx-note {
+  opacity: .65;
+}
+
+/* Square website illustration: muted, monochromatic treatment */
+.sx-page.sx-calm .sx-hero-stage::before {
+  opacity: .12;
+}
+
+.sx-page.sx-calm .sx-hero-stage .sx-win {
+  border-color: rgba(241, 244, 230, .13);
+  background: rgba(241, 244, 230, .035);
+  box-shadow: none;
+}
+
+.sx-page.sx-calm .sx-hero-stage .sx-win-bar {
+  background: rgba(241, 244, 230, .045);
+  border-bottom-color: rgba(241, 244, 230, .10);
+}
+
+.sx-page.sx-calm .sx-hero-stage .sx-win-bar span {
+  color: rgba(241, 244, 230, .52);
+}
+
+.sx-page.sx-calm .sx-hero-stage .sx-win-bar i {
+  background: rgba(241, 244, 230, .22);
+}
+
+.sx-page.sx-calm .sx-hero-stage .sx-sk {
+  background: rgba(241, 244, 230, .14);
+}
+
+.sx-page.sx-calm .sx-hero-stage .sx-sk.is-img {
+  background: rgba(241, 244, 230, .09);
+}
+
+.sx-page.sx-calm .sx-hero-stage .sx-sk.is-h {
+  background: rgba(241, 244, 230, .72);
+}
+
+.sx-page.sx-calm .sx-hero-stage .sx-sk.is-btn,
+.sx-page.sx-calm .sx-hero-stage .sx-sk.is-hot {
+  background: rgba(217, 255, 68, .65);
+}
+
+.sx-page.sx-calm .sx-hero-stage .sx-box {
+  background: rgba(241, 244, 230, .035);
+  border-color: rgba(241, 244, 230, .10);
+}
+
+.sx-page.sx-calm .sx-hero-stage .sx-hl {
+  box-shadow: none;
+}
+
+.sx-page.sx-calm .sx-hero-stage .sx-pin {
+  background: rgba(19, 29, 34, .88);
+  border-color: rgba(241, 244, 230, .14);
+  color: rgba(241, 244, 230, .82);
+  box-shadow: none;
+}
+
+.sx-page.sx-calm .sx-hero-stage .sx-pin b {
+  background: rgba(217, 255, 68, .86);
+  color: #17242b;
+}
+
+/* Keep the numbers visually secondary */
+.sx-page.sx-calm .sx-proof .sx-num {
+  color: rgba(241, 244, 230, .86);
+  font-weight: 600;
+}
+
+@media (max-width: 767px) {
+  .sx-page.sx-calm .sx-hero-refined h1 {
+    font-size: clamp(39px, 10vw, 48px);
+  }
+
+  .sx-page.sx-calm .sx-hero-stage {
+    margin-top: 24px;
+  }
+}
 </style>
