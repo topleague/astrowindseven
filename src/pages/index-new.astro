@@ -159,34 +159,17 @@ const orbit = ['Domain', 'Content', 'SEO', 'Social', 'Support'].map((label, i) =
 
 <!-- 0.  HERO /*___________________________________🟢 ¯\_(ツ)_/¯ 🟢 ___________________________________*/-->
 <!-- HERO SECTION -->
-<section class="sx-hero sx-hero-centered">
-  <!-- Subtle background illustration -->
-  <div class="sx-hero-backdrop" aria-hidden="true">
-    <div class="sx-hero-glow"></div>
+<section class="sx-hero sx-hero-centered-v2">
+  <div class="sx-hero-centered-v2-inner">
 
-    <svg viewBox="0 0 1440 600" preserveAspectRatio="none">
-      <g class="sx-hero-bg-grid">
-        <path d="M0 100H1440 M0 200H1440 M0 300H1440 M0 400H1440 M0 500H1440" />
-        <path d="M180 0V600 M360 0V600 M540 0V600 M720 0V600 M900 0V600 M1080 0V600 M1260 0V600" />
-      </g>
-
-      <path
-        class="sx-hero-bg-curve"
-        d="M-40 510 C250 490 390 420 570 350 S950 180 1480 90"
-      />
-
-      <path
-        class="sx-hero-bg-curve sx-hero-bg-curve-secondary"
-        d="M-40 560 C300 530 520 470 720 390 S1120 260 1480 220"
-      />
-    </svg>
-  </div>
-
-  <div class="sx-hero-centered-inner">
-    <div class="sx-hero-centered-copy">
+    <div class="sx-hero-centered-v2-copy">
       <h1>
-        <span>Build Your Online Presence,</span>
-        <span class="sx-hero-aside">Not Just a Website.</span>
+        <span class="sx-hero-v2-title-line">
+          Build Your Online Presence,
+        </span>
+        <span class="sx-hero-v2-title-line sx-hero-v2-title-muted">
+          Not Just a Website.
+        </span>
       </h1>
 
       <p>
@@ -194,40 +177,13 @@ const orbit = ['Domain', 'Content', 'SEO', 'Social', 'Support'].map((label, i) =
         can find you, trust you and take the next step.
       </p>
 
-      <div class="sx-hero-centered-action">
+      <div class="sx-hero-v2-action">
         <a class="sx-btn sx-btn-primary" href="#contact">
           Free consultation <i>↗</i>
         </a>
       </div>
     </div>
 
-    <!-- Compact trust strip -->
-    <div class="sx-hero-proof">
-      <div class="sx-hero-proof-intro">
-        Based in Bhubaneswar.<br />
-        Working with businesses across India and worldwide.
-      </div>
-
-      <div class="sx-hero-proof-item">
-        <strong>16</strong>
-        <span>Years running TLT</span>
-      </div>
-
-      <div class="sx-hero-proof-item">
-        <strong>30+</strong>
-        <span>Websites built recently</span>
-      </div>
-
-      <div class="sx-hero-proof-item">
-        <strong>20</strong>
-        <span>Websites maintained</span>
-      </div>
-
-      <div class="sx-hero-proof-item">
-        <strong>10</strong>
-        <span>Countries served</span>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -1385,270 +1341,141 @@ body.dark .sx-growth-visual {
   --growth-fill-bottom: rgba(217, 255, 68, 0);
 }
 
+/*___________________________________🟢 ¯\_(ツ)_/¯ 🟢 ___________________________________*/ 
 /* CENTER HERO */
+/* Centered hero — fifth variant */
 
-/* Centered, full-width homepage hero */
-.sx-hero-centered {
+.sx-hero-centered-v2 {
   position: relative;
   isolation: isolate;
   overflow: hidden;
-  padding: clamp(76px, 9vw, 130px) 24px 52px;
-
-  background: #f3f5f1;
-  color: #17242b;
+  min-height: 680px;
+  display: grid;
+  align-items: center;
+  padding: clamp(5rem, 8vw, 7rem) 24px;
+  background:
+    linear-gradient(
+      115deg,
+      #101b20 0%,
+      #14252a 52%,
+      #1a3036 100%
+    );
 }
 
-/* Background illustration */
-.sx-hero-backdrop {
+/* Soft ambient light — no decorative illustration */
+
+.sx-hero-centered-v2::before {
+  content: "";
   position: absolute;
-  inset: 0;
   z-index: -1;
+  inset: 0;
   pointer-events: none;
-  overflow: hidden;
+  background:
+    radial-gradient(
+      ellipse 48% 65% at 78% 18%,
+      rgba(137, 180, 91, 0.13),
+      transparent 72%
+    ),
+    radial-gradient(
+      ellipse 42% 55% at 5% 100%,
+      rgba(119, 75, 72, 0.12),
+      transparent 72%
+    );
 }
 
-.sx-hero-glow {
+/* Gentle edge shading */
+
+.sx-hero-centered-v2::after {
+  content: "";
   position: absolute;
-  width: 70%;
-  height: 100%;
-  top: -20%;
-  right: -10%;
-  background: radial-gradient(
-    ellipse,
-    rgba(217, 255, 68, .10) 0%,
-    rgba(217, 255, 68, 0) 68%
-  );
+  z-index: -1;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.04),
+      transparent 30%,
+      rgba(0, 0, 0, 0.12)
+    );
 }
 
-.sx-hero-backdrop svg {
+.sx-hero-centered-v2-inner {
   width: 100%;
-  height: 100%;
-  display: block;
-}
-
-.sx-hero-bg-grid {
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 1;
-  opacity: .035;
-}
-
-.sx-hero-bg-curve {
-  fill: none;
-  stroke: rgba(90, 110, 105, .16);
-  stroke-width: 1.5;
-}
-
-.sx-hero-bg-curve-secondary {
-  stroke: rgba(90, 110, 105, .09);
-}
-
-/* Main content */
-.sx-hero-centered-inner {
-  position: relative;
-  width: 100%;
-  max-width: 1240px;
+  max-width: 1200px;
   margin-inline: auto;
 }
 
-.sx-hero-centered-copy {
-  max-width: 1000px;
+.sx-hero-centered-v2-copy {
+  max-width: 1100px;
   margin-inline: auto;
   text-align: center;
 }
 
-.sx-hero-centered h1 {
-  max-width: 1000px;
-  margin: 0 auto 26px;
-
-  font-family: "Mona", "Mona Bold", sans-serif;
-  font-size: clamp(46px, 6.4vw, 88px);
-  font-weight: 700;
-  line-height: 1.04;
-  letter-spacing: -.045em;
-  color: #17242b;
+.sx-hero-centered-v2 h1 {
+  margin: 0;
+  font-size: clamp(3.5rem, 6.2vw, 6.2rem);
+  line-height: 0.98;
+  letter-spacing: -0.045em;
+  color: #f4f5f4;
 }
 
-.sx-hero-centered h1 span {
+.sx-hero-v2-title-line {
   display: block;
 }
 
-.sx-hero-centered h1 .sx-hero-aside {
-  color: rgba(23, 36, 43, .62);
+.sx-hero-v2-title-muted {
+  color: #a0acb0;
   font-style: italic;
-  font-weight: 500;
 }
 
-.sx-hero-centered-copy p {
-  max-width: 740px;
-  margin: 0 auto;
-
-  font-size: clamp(17px, 1.5vw, 21px);
+.sx-hero-centered-v2-copy > p {
+  max-width: 720px;
+  margin: 32px auto 0;
+  color: #d0d6d7;
+  font-size: 1.15rem;
   line-height: 1.65;
-  color: rgba(23, 36, 43, .72);
 }
 
-.sx-hero-centered-action {
+.sx-hero-v2-action {
   margin-top: 32px;
 }
 
-.sx-hero-centered .sx-btn-primary {
-  background: rgba(217, 255, 68, .86);
-  color: #17242b;
-  box-shadow: none;
-}
-
-.sx-hero-centered .sx-btn-primary:hover {
-  background: #d9ff44;
-}
-
-/* Trust strip */
-.sx-hero-proof {
-  display: grid;
-  grid-template-columns: 1.6fr repeat(4, 1fr);
-  align-items: center;
-
-  max-width: 1060px;
-  margin: 64px auto 0;
-  padding-top: 24px;
-
-  border-top: 1px solid rgba(23, 36, 43, .10);
-}
-
-.sx-hero-proof-intro {
-  padding-right: 24px;
-  font-size: 14px;
-  line-height: 1.5;
-  font-weight: 600;
-  color: rgba(23, 36, 43, .75);
-}
-
-.sx-hero-proof-item {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-
-  min-height: 48px;
-  padding: 0 18px;
-
-  border-left: 1px solid rgba(23, 36, 43, .10);
-}
-
-.sx-hero-proof-item strong {
-  font-size: 28px;
-  line-height: 1;
-  font-weight: 700;
-  letter-spacing: -.04em;
-  color: rgba(23, 36, 43, .82);
-}
-
-.sx-hero-proof-item span {
-  font-size: 11px;
-  line-height: 1.4;
-  color: rgba(23, 36, 43, .58);
-}
-
-/* Dark mode */
-:global(html.dark) .sx-hero-centered,
-:global(html[data-theme="dark"]) .sx-hero-centered,
-:global(body.dark) .sx-hero-centered {
-  background: #142329;
-  color: #f1f4e6;
-}
-
-:global(html.dark) .sx-hero-centered h1,
-:global(html[data-theme="dark"]) .sx-hero-centered h1,
-:global(body.dark) .sx-hero-centered h1 {
-  color: #f1f4e6;
-}
-
-:global(html.dark) .sx-hero-centered h1 .sx-hero-aside,
-:global(html[data-theme="dark"]) .sx-hero-centered h1 .sx-hero-aside,
-:global(body.dark) .sx-hero-centered h1 .sx-hero-aside {
-  color: rgba(241, 244, 230, .66);
-}
-
-:global(html.dark) .sx-hero-centered-copy p,
-:global(html[data-theme="dark"]) .sx-hero-centered-copy p,
-:global(body.dark) .sx-hero-centered-copy p {
-  color: rgba(241, 244, 230, .72);
-}
-
-:global(html.dark) .sx-hero-proof,
-:global(html[data-theme="dark"]) .sx-hero-proof,
-:global(body.dark) .sx-hero-proof {
-  border-top-color: rgba(241, 244, 230, .12);
-}
-
-:global(html.dark) .sx-hero-proof-intro,
-:global(html[data-theme="dark"]) .sx-hero-proof-intro,
-:global(body.dark) .sx-hero-proof-intro {
-  color: rgba(241, 244, 230, .72);
-}
-
-:global(html.dark) .sx-hero-proof-item,
-:global(html[data-theme="dark"]) .sx-hero-proof-item,
-:global(body.dark) .sx-hero-proof-item {
-  border-left-color: rgba(241, 244, 230, .12);
-}
-
-:global(html.dark) .sx-hero-proof-item strong,
-:global(html[data-theme="dark"]) .sx-hero-proof-item strong,
-:global(body.dark) .sx-hero-proof-item strong {
-  color: rgba(241, 244, 230, .86);
-}
-
-:global(html.dark) .sx-hero-proof-item span,
-:global(html[data-theme="dark"]) .sx-hero-proof-item span,
-:global(body.dark) .sx-hero-proof-item span {
-  color: rgba(241, 244, 230, .55);
-}
-
-:global(html.dark) .sx-hero-bg-curve,
-:global(html[data-theme="dark"]) .sx-hero-bg-curve,
-:global(body.dark) .sx-hero-bg-curve {
-  stroke: rgba(241, 244, 230, .12);
-}
-
-:global(html.dark) .sx-hero-bg-curve-secondary,
-:global(html[data-theme="dark"]) .sx-hero-bg-curve-secondary,
-:global(body.dark) .sx-hero-bg-curve-secondary {
-  stroke: rgba(241, 244, 230, .07);
-}
-
 /* Responsive */
-@media (max-width: 767px) {
-  .sx-hero-centered {
-    padding: 76px 20px 36px;
+
+@media (max-width: 768px) {
+  .sx-hero-centered-v2 {
+    min-height: 580px;
+    padding-block: 5rem;
   }
 
-  .sx-hero-centered h1 {
-    font-size: clamp(40px, 10vw, 58px);
-    line-height: 1.06;
+  .sx-hero-centered-v2 h1 {
+    font-size: clamp(2.8rem, 9vw, 4.5rem);
+    line-height: 1;
   }
 
-  .sx-hero-centered-copy p {
-    font-size: 17px;
+  .sx-hero-centered-v2-copy > p {
+    margin-top: 24px;
+    font-size: 1rem;
   }
 
-  .sx-hero-proof {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 22px 0;
-    margin-top: 44px;
+  .sx-hero-v2-title-line {
+    display: inline;
   }
 
-  .sx-hero-proof-intro {
-    grid-column: 1 / -1;
-    padding: 0 0 18px;
+  .sx-hero-v2-title-muted {
+    margin-left: 0.12em;
+  }
+}
+
+@media (max-width: 479px) {
+  .sx-hero-centered-v2 {
+    min-height: 540px;
+    padding-inline: 20px;
   }
 
-  .sx-hero-proof-item {
-    padding: 0 14px;
-  }
-
-  .sx-hero-proof-item:nth-child(2),
-  .sx-hero-proof-item:nth-child(4) {
-    border-left: 0;
+  .sx-hero-centered-v2 h1 {
+    font-size: clamp(2.5rem, 11vw, 3.5rem);
   }
 }
 
