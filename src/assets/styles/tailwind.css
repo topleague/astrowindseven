@@ -1105,3 +1105,12 @@ color: #fff;
 @media (max-width: 980px) {
   .sx-page .sx-art-cover { display: none !important; }
 }
+
+/*___________________________________🟢 ¯\_(ツ)_/¯ 🟢 ___________________________________*/
+.work-frame[data-astro-cid-lcdefpme] {border: 1px solid #54664f;}
+.work-grid > :first-child img {border-top: 1px solid;}
+.work-bar[data-astro-cid-lcdefpme] i[data-astro-cid-lcdefpme] {
+  &:nth-child(1) { background: #ED6A5E; }
+  &:nth-child(2) { background: #F4BF4F; }
+  &:nth-child(3) { background: #61C554; }
+}
