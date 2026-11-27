@@ -707,129 +707,12 @@ const initials = (name) => name.trim().split(/\s+/).map((w) => w[0]).slice(0, 2)
   </div>
 </section>
 
+<!-- LAYOUT // LAYOUT  /*___________________________________🟢 ¯\_(ツ)_/¯ 🟢 ___________________________________*/ LAYOUT // LAYOUT  -->
 </Layout>
 
-<!-- LAYOUT // LAYOUT  /*___________________________________🟢 ¯\_(ツ)_/¯ 🟢 ___________________________________*/ LAYOUT // LAYOUT  -->
+
 
 <style>
-
-<!-- EXPERIMENT /*___________________________________🟢 ¯\_(ツ)_/¯ 🟢 ___________________________________*/ EXPERIMENT  -->
-  /* ==========================================================================
-     PLANS. One block, no other plan CSS needed (the old .sx-path rules are no longer used).
-     Alignment: the three cards are subgrid items over seven shared rows, so the label, heading, intro, price,
-     feature list, after-launch block and button each start at the same height in every card.
-     Borders are 1px on every card; the recommended card gets its second pixel from a box-shadow,
-     so nothing shifts. Text: body 18px, labels and buttons 16px and up.
-     ========================================================================== */
-  .sx-page .pl-sec {
-    --pl-inset: 27px;            /* card border (1px) + padding (26px); the strip below uses the same inset */
-    --pl-gap: 20px;
-  }
-
-  /* grid of cards */
-  .sx-page .pl-sec .pl-grid {
-    display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
-    column-gap: var(--pl-gap); row-gap: 0;
-  }
-  .sx-page .pl-sec .pl-card {
-    position: relative; display: grid; grid-row: span 7; grid-template-rows: subgrid; row-gap: 0;
-    padding: 34px calc(var(--pl-inset) - 1px) 32px; border: 1px solid var(--line); border-radius: 22px; background: var(--card);
-    transition: border-color .2s ease;
-  }
-  .sx-page .pl-sec .pl-card:hover { border-color: rgba(31, 95, 85, .45); }
-  .sx-page .pl-sec .pl-feat { border-color: var(--green); box-shadow: 0 0 0 1px var(--green); }
-  .sx-page .pl-sec .pl-feat:hover { border-color: var(--green); }
-
-  /* recommended badge: hangs on the top border, so it adds nothing to the layout */
-  .sx-page .pl-sec .pl-badge {
-    position: absolute; top: -16px; left: calc(var(--pl-inset) - 1px);
-    padding: 5px 14px; border-radius: 999px; background: var(--green); color: #fff;
-    font-size: 16px; font-weight: 600; line-height: 1.3;
-  }
-
-  /* row 1: label */
-  .sx-page .pl-sec .pl-k {
-    margin: 0 0 14px; font-size: 16px; font-weight: 700; line-height: 1.3; letter-spacing: .08em; text-transform: uppercase; color: var(--red);
-  }
-  /* row 2: heading */
-  .sx-page .pl-sec .pl-h {
-    margin: 0 0 14px; font-size: 28px; line-height: 1.14; color: var(--ink);
-  }
-  /* row 3: intro */
-  .sx-page .pl-sec .pl-p {
-    margin: 0 0 26px; font-size: 18px; line-height: 1.55; color: var(--muted);
-  }
-  .sx-page .pl-sec .pl-p-sm { margin: 0; }
-  /* row 4: price (smaller and quieter, but still 5:1 contrast) */
-  .sx-page .pl-sec .pl-price {
-    margin: 0; padding-bottom: 24px; border-bottom: 1px solid var(--line);
-    font-size: 34px; font-weight: 600; line-height: 1.1; letter-spacing: -.01em; color: var(--muted);
-    font-variant-numeric: lining-nums tabular-nums;
-  }
-  /* row 5: features */
-  .sx-page .pl-sec .pl-list {
-    list-style: none; margin: 0; padding: 24px 0 28px; display: grid; gap: 14px; align-content: start;
-  }
-  .sx-page .pl-sec .pl-list li {
-    display: flex; gap: 12px; align-items: flex-start; margin: 0; font-size: 18px; line-height: 1.45; color: var(--ink);
-  }
-  .sx-page .pl-sec .pl-list li b { font-weight: 700; }
-  .sx-page .pl-sec .sx-tick { width: 24px; height: 24px; margin-top: 0; font-size: 14px; background: var(--green); color: #fff; }
-  /* row 6: after launch (same divider line in every card) */
-  .sx-page .pl-sec .pl-after { align-self: stretch; padding-top: 26px; border-top: 1px solid var(--line); }
-  .sx-page .pl-sec .pl-list-tight { padding: 0; }
-  .sx-page .pl-sec .pl-after .pl-list { margin-bottom: 0; padding-bottom: 28px; }
-  .sx-page .pl-sec .pl-after > .pl-p-sm { padding-bottom: 28px; }
-  /* row 7: button */
-  .sx-page .pl-sec .pl-btn {
-    align-self: end; justify-self: start; display: inline-flex; align-items: center; gap: 10px;
-    box-sizing: border-box; padding: 15px 28px; border-radius: 999px; background: #17242b; color: #fff;
-    font-size: 17px; font-weight: 600; line-height: 1.2; text-decoration: none; transition: background-color .2s ease;
-  }
-  .sx-page .pl-sec .pl-btn:hover { background: #22343d; }
-  .sx-page .pl-sec .pl-btn i { font-style: normal; }
-  .sx-page .pl-sec .pl-btn-feat { background: var(--green); }
-  .sx-page .pl-sec .pl-btn-feat:hover { background: #276f64; }
-  .sx-page .pl-sec .pl-btn:focus-visible,
-  .sx-page .pl-sec .pl-every-link:focus-visible { outline: 3px solid var(--green); outline-offset: 4px; }
-
-  /* "In every plan": columns sit exactly under the three cards' text.
-     column gap = 2 x inset + card gap, so column 2 and 3 start where card 2 and 3 text starts. */
-  .sx-page .pl-sec .pl-every {
-    margin-top: 28px; padding: 30px calc(var(--pl-inset) - 1px) 30px; border: 1px solid var(--line); border-radius: 22px; background: var(--card);
-  }
-  .sx-page .pl-sec .pl-every-k { margin: 0 0 22px; font-size: 16px; font-weight: 700; line-height: 1.3; letter-spacing: .08em; text-transform: uppercase; color: var(--red); }
-  .sx-page .pl-sec .pl-every-list {
-    list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
-    column-gap: calc(2 * var(--pl-inset) + var(--pl-gap) - 2px); row-gap: 16px;
-  }
-  .sx-page .pl-sec .pl-every-list li { display: flex; gap: 12px; align-items: flex-start; margin: 0; font-size: 18px; line-height: 1.45; color: var(--ink); }
-  .sx-page .pl-sec .pl-every-foot {
-    display: flex; flex-wrap: wrap; gap: 14px 40px; justify-content: space-between; align-items: center;
-    margin-top: 26px; padding-top: 24px; border-top: 1px solid var(--line);
-  }
-  .sx-page .pl-sec .pl-every-foot p { margin: 0; max-width: 62ch; font-size: 18px; line-height: 1.55; color: var(--muted); }
-  .sx-page .pl-sec .pl-every-foot p b { color: var(--ink); font-weight: 700; }
-  .sx-page .pl-sec .pl-every-link {
-    font-size: 17px; font-weight: 600; color: var(--ink); text-decoration: underline; text-underline-offset: 5px; text-decoration-color: rgba(22, 32, 42, .35); white-space: nowrap;
-  }
-  .sx-page .pl-sec .pl-every-link:hover { text-decoration-color: var(--ink); }
-
-  /* below 1080px: one card per row, stacked normally (no shared rows needed) */
-  @media (max-width: 1080px) {
-    .sx-page .pl-sec .pl-grid { grid-template-columns: minmax(0, 1fr); row-gap: 34px; }
-    .sx-page .pl-sec .pl-card { display: flex; flex-direction: column; grid-row: auto; }
-    .sx-page .pl-sec .pl-btn { margin-top: auto; align-self: flex-start; }
-    .sx-page .pl-sec .pl-every-list { grid-template-columns: minmax(0, 1fr); }
-  }
-  @media (min-width: 700px) and (max-width: 1080px) {
-    .sx-page .pl-sec .pl-every-list { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 40px; }
-  }
-  @media (max-width: 560px) {
-    .sx-page .pl-sec .pl-btn { width: 100%; box-sizing: border-box; justify-content: center; }
-    .sx-page .pl-sec .pl-every-link { white-space: normal; }
-  }
-<!-- EXPERIMENT /*___________________________________🟢 ¯\_(ツ)_/¯ 🟢 ___________________________________*/ EXPERIMENT  -->
 
   /* Testimonial layout, taken from /right/. Scoped to this page. */
   .proof-layout { display: grid; grid-template-columns: .85fr 1.15fr; gap: clamp(35px, 7vw, 90px); align-items: center; }
@@ -891,10 +774,11 @@ const initials = (name) => name.trim().split(/\s+/).map((w) => w[0]).slice(0, 2)
   .sx-page.sx-calm .sx-path .sx-btn-primary { background: var(--green); color: #fff; box-shadow: none; }
 </style>
 
-<!-- EXPERIMENT /*___________________________________🟢 ¯\_(ツ)_/¯ 🟢 ___________________________________*/ EXPERIMENT  -->
+/*___________________________________🟢 ¯\_(ツ)_/¯ 🟢 ___________________________________*/ 
 
 <style is:global>
-<!-- EXPERIMENT /*___________________________________🟢 ¯\_(ツ)_/¯ 🟢 ___________________________________*/ EXPERIMENT  -->
+
+/*___________________________________🟢 ¯\_(ツ)_/¯ 🟢 ___________________________________*/ 
   /* ==========================================================================
      PLANS. One block, no other plan CSS needed (the old .sx-path rules are no longer used).
      Alignment: the three cards are subgrid items over seven shared rows, so the label, heading, intro, price,
@@ -1010,8 +894,7 @@ const initials = (name) => name.trim().split(/\s+/).map((w) => w[0]).slice(0, 2)
     .sx-page .pl-sec .pl-btn { width: 100%; box-sizing: border-box; justify-content: center; }
     .sx-page .pl-sec .pl-every-link { white-space: normal; }
   }
-<!-- EXPERIMENT /*___________________________________🟢 ¯\_(ツ)_/¯ 🟢 ___________________________________*/ EXPERIMENT  -->
+
+/*___________________________________🟢 ¯\_(ツ)_/¯ 🟢 ___________________________________*/
+
 </style>
-
-
-<!-- EXPERIMENT /*___________________________________🟢 ¯\_(ツ)_/¯ 🟢 ___________________________________*/ EXPERIMENT  -->
