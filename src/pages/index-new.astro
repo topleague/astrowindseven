@@ -712,69 +712,8 @@ const initials = (name) => name.trim().split(/\s+/).map((w) => w[0]).slice(0, 2)
 <!-- LAYOUT // LAYOUT  /*___________________________________🟢 ¯\_(ツ)_/¯ 🟢 ___________________________________*/ LAYOUT // LAYOUT  -->
 
 <style>
-  /* Testimonial layout, taken from /right/. Scoped to this page. */
-  .proof-layout { display: grid; grid-template-columns: .85fr 1.15fr; gap: clamp(35px, 7vw, 90px); align-items: center; }
-  .proof-pull { max-width: none; font-size: clamp(28px, 3.6vw, 46px); margin-bottom: 20px; }
-  .testimonial-card { position: relative; overflow: hidden; padding: clamp(28px, 4vw, 42px); border: 1px solid var(--line); border-radius: 22px; background: var(--card); }
-  .quote-mark { position: absolute; right: 20px; top: 4px; font-family: Georgia, serif; font-size: 100px; line-height: 1; color: var(--green); opacity: .12; }
-  .testimonial-card blockquote { position: relative; margin: 0 0 30px; font-size: 17px; line-height: 1.75; color: var(--ink); }
-  .quote-person { display: flex; align-items: center; gap: 12px; border-top: 1px solid var(--line); padding-top: 18px; }
-  .quote-initial { width: 38px; height: 38px; display: grid; place-items: center; border-radius: 50%; background: var(--night); color: var(--lime); font-weight: 850; }
-  .quote-person strong, .quote-person small { display: block; }
-  .quote-person strong { font-size: 13px; color: var(--ink); }
-  .quote-person small { font-size: 11px; color: var(--muted); margin-top: 3px; }
-  .testimonial-card blockquote p { margin: 0 0 14px; color: var(--ink); }
-  .testimonial-card blockquote p:last-child { margin-bottom: 0; }
-  @media (max-width: 980px) { .proof-layout { grid-template-columns: 1fr; } }
-
-
-.work-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin-bottom: 56px; }
-.work-card { display: block; text-decoration: none; color: inherit; }
-.work-frame { border: 1px solid var(--line); border-radius: 16px; overflow: hidden; background: var(--card); box-shadow: 0 30px 60px -40px rgba(23,36,43,.55); transition: transform .35s ease; }
-.work-card:hover .work-frame { transform: translateY(-4px); }
-.work-bar { display: flex; gap: 6px; padding: 10px 14px; background: var(--alt); border-bottom: 1px solid var(--line); }
-.work-bar i { width: 9px; height: 9px; border-radius: 50%; background: var(--line); }
-.work-frame img { display: block; width: 100%; height: auto; }
-.work-meta { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 16px 4px 0; }
-.work-meta b { display: block; color: var(--ink); font-size: 17px; }
-.work-meta span { font-size: 13px; color: var(--muted); }
-.work-meta .work-go { font-weight: 700; color: var(--ink); white-space: nowrap; }
-@media (max-width: 700px) { .work-grid { grid-template-columns: 1fr; } }
-</style>
-
-<style is:global>
-  /* ==========================================================================
-     CALM PASS (home page only). Modelled on /about-us/: same kit, fewer loud parts.
-     To go back to the old look, delete the word "sx-calm" from the <div class="sx-page sx-calm"> wrapper.
-     Dark blocks are now: hero, the real-client story, and the closing call to action.
-     ========================================================================== */
-
-  /* 1. "The Top League approach" card: light, with a green edge, instead of a dark panel */
-  .sx-page.sx-calm .sx-vs-new { background: var(--card); color: var(--ink); border: 1px solid var(--green); box-shadow: none; }
-  .sx-page.sx-calm .sx-vs-new::after { display: none; }
-  .sx-page.sx-calm .sx-vs-new .sx-vs-k { color: var(--green); }
-  .sx-page.sx-calm .sx-vs-new h3 { color: var(--ink); }
-  .sx-page.sx-calm .sx-vs-new p { color: var(--muted); }
-  .sx-page.sx-calm .sx-vs-badge { box-shadow: none; }
-  .sx-page.sx-calm .sx-tab[aria-selected="true"] { color: #fff; }
-
-  /* 2. Plans: the recommended plan is marked by a green outline, not a dark card that floats higher */
-  .sx-page.sx-calm .sx-path.is-feat { background: var(--card); border: 2px solid var(--green); box-shadow: none; transform: none; }
-  .sx-page.sx-calm .sx-path.is-feat:hover { transform: translateY(-6px); }
-  .sx-page.sx-calm .sx-path.is-feat h3,
-  .sx-page.sx-calm .sx-path.is-feat li,
-  .sx-page.sx-calm .sx-path.is-feat .sx-price { color: var(--ink); }
-  .sx-page.sx-calm .sx-path.is-feat p { color: var(--muted); }
-  .sx-page.sx-calm .sx-path.is-feat .sx-card-k { color: var(--red); }
-  .sx-page.sx-calm .sx-path.is-feat ul { border-color: var(--line); }
-  .sx-page.sx-calm .sx-path.is-feat .sx-tick { background: var(--green); color: #fff; }
-  .sx-page.sx-calm .sx-badge { background: var(--green); color: #fff; }
-  .sx-page.sx-calm .sx-path .sx-btn-primary { background: var(--green); color: #fff; box-shadow: none; }
-</style>
 
 <!-- EXPERIMENT /*___________________________________🟢 ¯\_(ツ)_/¯ 🟢 ___________________________________*/ EXPERIMENT  -->
-
-<style is:global>
   /* ==========================================================================
      PLANS. One block, no other plan CSS needed (the old .sx-path rules are no longer used).
      Alignment: the three cards are subgrid items over seven shared rows, so the label, heading, intro, price,
@@ -890,6 +829,188 @@ const initials = (name) => name.trim().split(/\s+/).map((w) => w[0]).slice(0, 2)
     .sx-page .pl-sec .pl-btn { width: 100%; box-sizing: border-box; justify-content: center; }
     .sx-page .pl-sec .pl-every-link { white-space: normal; }
   }
+<!-- EXPERIMENT /*___________________________________🟢 ¯\_(ツ)_/¯ 🟢 ___________________________________*/ EXPERIMENT  -->
+
+  /* Testimonial layout, taken from /right/. Scoped to this page. */
+  .proof-layout { display: grid; grid-template-columns: .85fr 1.15fr; gap: clamp(35px, 7vw, 90px); align-items: center; }
+  .proof-pull { max-width: none; font-size: clamp(28px, 3.6vw, 46px); margin-bottom: 20px; }
+  .testimonial-card { position: relative; overflow: hidden; padding: clamp(28px, 4vw, 42px); border: 1px solid var(--line); border-radius: 22px; background: var(--card); }
+  .quote-mark { position: absolute; right: 20px; top: 4px; font-family: Georgia, serif; font-size: 100px; line-height: 1; color: var(--green); opacity: .12; }
+  .testimonial-card blockquote { position: relative; margin: 0 0 30px; font-size: 17px; line-height: 1.75; color: var(--ink); }
+  .quote-person { display: flex; align-items: center; gap: 12px; border-top: 1px solid var(--line); padding-top: 18px; }
+  .quote-initial { width: 38px; height: 38px; display: grid; place-items: center; border-radius: 50%; background: var(--night); color: var(--lime); font-weight: 850; }
+  .quote-person strong, .quote-person small { display: block; }
+  .quote-person strong { font-size: 13px; color: var(--ink); }
+  .quote-person small { font-size: 11px; color: var(--muted); margin-top: 3px; }
+  .testimonial-card blockquote p { margin: 0 0 14px; color: var(--ink); }
+  .testimonial-card blockquote p:last-child { margin-bottom: 0; }
+  @media (max-width: 980px) { .proof-layout { grid-template-columns: 1fr; } }
+
+
+.work-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin-bottom: 56px; }
+.work-card { display: block; text-decoration: none; color: inherit; }
+.work-frame { border: 1px solid var(--line); border-radius: 16px; overflow: hidden; background: var(--card); box-shadow: 0 30px 60px -40px rgba(23,36,43,.55); transition: transform .35s ease; }
+.work-card:hover .work-frame { transform: translateY(-4px); }
+.work-bar { display: flex; gap: 6px; padding: 10px 14px; background: var(--alt); border-bottom: 1px solid var(--line); }
+.work-bar i { width: 9px; height: 9px; border-radius: 50%; background: var(--line); }
+.work-frame img { display: block; width: 100%; height: auto; }
+.work-meta { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 16px 4px 0; }
+.work-meta b { display: block; color: var(--ink); font-size: 17px; }
+.work-meta span { font-size: 13px; color: var(--muted); }
+.work-meta .work-go { font-weight: 700; color: var(--ink); white-space: nowrap; }
+@media (max-width: 700px) { .work-grid { grid-template-columns: 1fr; } }
+</style>
+
+<style is:global>
+  /* ==========================================================================
+     CALM PASS (home page only). Modelled on /about-us/: same kit, fewer loud parts.
+     To go back to the old look, delete the word "sx-calm" from the <div class="sx-page sx-calm"> wrapper.
+     Dark blocks are now: hero, the real-client story, and the closing call to action.
+     ========================================================================== */
+
+  /* 1. "The Top League approach" card: light, with a green edge, instead of a dark panel */
+  .sx-page.sx-calm .sx-vs-new { background: var(--card); color: var(--ink); border: 1px solid var(--green); box-shadow: none; }
+  .sx-page.sx-calm .sx-vs-new::after { display: none; }
+  .sx-page.sx-calm .sx-vs-new .sx-vs-k { color: var(--green); }
+  .sx-page.sx-calm .sx-vs-new h3 { color: var(--ink); }
+  .sx-page.sx-calm .sx-vs-new p { color: var(--muted); }
+  .sx-page.sx-calm .sx-vs-badge { box-shadow: none; }
+  .sx-page.sx-calm .sx-tab[aria-selected="true"] { color: #fff; }
+
+  /* 2. Plans: the recommended plan is marked by a green outline, not a dark card that floats higher */
+  .sx-page.sx-calm .sx-path.is-feat { background: var(--card); border: 2px solid var(--green); box-shadow: none; transform: none; }
+  .sx-page.sx-calm .sx-path.is-feat:hover { transform: translateY(-6px); }
+  .sx-page.sx-calm .sx-path.is-feat h3,
+  .sx-page.sx-calm .sx-path.is-feat li,
+  .sx-page.sx-calm .sx-path.is-feat .sx-price { color: var(--ink); }
+  .sx-page.sx-calm .sx-path.is-feat p { color: var(--muted); }
+  .sx-page.sx-calm .sx-path.is-feat .sx-card-k { color: var(--red); }
+  .sx-page.sx-calm .sx-path.is-feat ul { border-color: var(--line); }
+  .sx-page.sx-calm .sx-path.is-feat .sx-tick { background: var(--green); color: #fff; }
+  .sx-page.sx-calm .sx-badge { background: var(--green); color: #fff; }
+  .sx-page.sx-calm .sx-path .sx-btn-primary { background: var(--green); color: #fff; box-shadow: none; }
+</style>
+
+<!-- EXPERIMENT /*___________________________________🟢 ¯\_(ツ)_/¯ 🟢 ___________________________________*/ EXPERIMENT  -->
+
+<style is:global>
+<!-- EXPERIMENT /*___________________________________🟢 ¯\_(ツ)_/¯ 🟢 ___________________________________*/ EXPERIMENT  -->
+  /* ==========================================================================
+     PLANS. One block, no other plan CSS needed (the old .sx-path rules are no longer used).
+     Alignment: the three cards are subgrid items over seven shared rows, so the label, heading, intro, price,
+     feature list, after-launch block and button each start at the same height in every card.
+     Borders are 1px on every card; the recommended card gets its second pixel from a box-shadow,
+     so nothing shifts. Text: body 18px, labels and buttons 16px and up.
+     ========================================================================== */
+  .sx-page .pl-sec {
+    --pl-inset: 27px;            /* card border (1px) + padding (26px); the strip below uses the same inset */
+    --pl-gap: 20px;
+  }
+
+  /* grid of cards */
+  .sx-page .pl-sec .pl-grid {
+    display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+    column-gap: var(--pl-gap); row-gap: 0;
+  }
+  .sx-page .pl-sec .pl-card {
+    position: relative; display: grid; grid-row: span 7; grid-template-rows: subgrid; row-gap: 0;
+    padding: 34px calc(var(--pl-inset) - 1px) 32px; border: 1px solid var(--line); border-radius: 22px; background: var(--card);
+    transition: border-color .2s ease;
+  }
+  .sx-page .pl-sec .pl-card:hover { border-color: rgba(31, 95, 85, .45); }
+  .sx-page .pl-sec .pl-feat { border-color: var(--green); box-shadow: 0 0 0 1px var(--green); }
+  .sx-page .pl-sec .pl-feat:hover { border-color: var(--green); }
+
+  /* recommended badge: hangs on the top border, so it adds nothing to the layout */
+  .sx-page .pl-sec .pl-badge {
+    position: absolute; top: -16px; left: calc(var(--pl-inset) - 1px);
+    padding: 5px 14px; border-radius: 999px; background: var(--green); color: #fff;
+    font-size: 16px; font-weight: 600; line-height: 1.3;
+  }
+
+  /* row 1: label */
+  .sx-page .pl-sec .pl-k {
+    margin: 0 0 14px; font-size: 16px; font-weight: 700; line-height: 1.3; letter-spacing: .08em; text-transform: uppercase; color: var(--red);
+  }
+  /* row 2: heading */
+  .sx-page .pl-sec .pl-h {
+    margin: 0 0 14px; font-size: 28px; line-height: 1.14; color: var(--ink);
+  }
+  /* row 3: intro */
+  .sx-page .pl-sec .pl-p {
+    margin: 0 0 26px; font-size: 18px; line-height: 1.55; color: var(--muted);
+  }
+  .sx-page .pl-sec .pl-p-sm { margin: 0; }
+  /* row 4: price (smaller and quieter, but still 5:1 contrast) */
+  .sx-page .pl-sec .pl-price {
+    margin: 0; padding-bottom: 24px; border-bottom: 1px solid var(--line);
+    font-size: 34px; font-weight: 600; line-height: 1.1; letter-spacing: -.01em; color: var(--muted);
+    font-variant-numeric: lining-nums tabular-nums;
+  }
+  /* row 5: features */
+  .sx-page .pl-sec .pl-list {
+    list-style: none; margin: 0; padding: 24px 0 28px; display: grid; gap: 14px; align-content: start;
+  }
+  .sx-page .pl-sec .pl-list li {
+    display: flex; gap: 12px; align-items: flex-start; margin: 0; font-size: 18px; line-height: 1.45; color: var(--ink);
+  }
+  .sx-page .pl-sec .pl-list li b { font-weight: 700; }
+  .sx-page .pl-sec .sx-tick { width: 24px; height: 24px; margin-top: 0; font-size: 14px; background: var(--green); color: #fff; }
+  /* row 6: after launch (same divider line in every card) */
+  .sx-page .pl-sec .pl-after { align-self: stretch; padding-top: 26px; border-top: 1px solid var(--line); }
+  .sx-page .pl-sec .pl-list-tight { padding: 0; }
+  .sx-page .pl-sec .pl-after .pl-list { margin-bottom: 0; padding-bottom: 28px; }
+  .sx-page .pl-sec .pl-after > .pl-p-sm { padding-bottom: 28px; }
+  /* row 7: button */
+  .sx-page .pl-sec .pl-btn {
+    align-self: end; justify-self: start; display: inline-flex; align-items: center; gap: 10px;
+    box-sizing: border-box; padding: 15px 28px; border-radius: 999px; background: #17242b; color: #fff;
+    font-size: 17px; font-weight: 600; line-height: 1.2; text-decoration: none; transition: background-color .2s ease;
+  }
+  .sx-page .pl-sec .pl-btn:hover { background: #22343d; }
+  .sx-page .pl-sec .pl-btn i { font-style: normal; }
+  .sx-page .pl-sec .pl-btn-feat { background: var(--green); }
+  .sx-page .pl-sec .pl-btn-feat:hover { background: #276f64; }
+  .sx-page .pl-sec .pl-btn:focus-visible,
+  .sx-page .pl-sec .pl-every-link:focus-visible { outline: 3px solid var(--green); outline-offset: 4px; }
+
+  /* "In every plan": columns sit exactly under the three cards' text.
+     column gap = 2 x inset + card gap, so column 2 and 3 start where card 2 and 3 text starts. */
+  .sx-page .pl-sec .pl-every {
+    margin-top: 28px; padding: 30px calc(var(--pl-inset) - 1px) 30px; border: 1px solid var(--line); border-radius: 22px; background: var(--card);
+  }
+  .sx-page .pl-sec .pl-every-k { margin: 0 0 22px; font-size: 16px; font-weight: 700; line-height: 1.3; letter-spacing: .08em; text-transform: uppercase; color: var(--red); }
+  .sx-page .pl-sec .pl-every-list {
+    list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+    column-gap: calc(2 * var(--pl-inset) + var(--pl-gap) - 2px); row-gap: 16px;
+  }
+  .sx-page .pl-sec .pl-every-list li { display: flex; gap: 12px; align-items: flex-start; margin: 0; font-size: 18px; line-height: 1.45; color: var(--ink); }
+  .sx-page .pl-sec .pl-every-foot {
+    display: flex; flex-wrap: wrap; gap: 14px 40px; justify-content: space-between; align-items: center;
+    margin-top: 26px; padding-top: 24px; border-top: 1px solid var(--line);
+  }
+  .sx-page .pl-sec .pl-every-foot p { margin: 0; max-width: 62ch; font-size: 18px; line-height: 1.55; color: var(--muted); }
+  .sx-page .pl-sec .pl-every-foot p b { color: var(--ink); font-weight: 700; }
+  .sx-page .pl-sec .pl-every-link {
+    font-size: 17px; font-weight: 600; color: var(--ink); text-decoration: underline; text-underline-offset: 5px; text-decoration-color: rgba(22, 32, 42, .35); white-space: nowrap;
+  }
+  .sx-page .pl-sec .pl-every-link:hover { text-decoration-color: var(--ink); }
+
+  /* below 1080px: one card per row, stacked normally (no shared rows needed) */
+  @media (max-width: 1080px) {
+    .sx-page .pl-sec .pl-grid { grid-template-columns: minmax(0, 1fr); row-gap: 34px; }
+    .sx-page .pl-sec .pl-card { display: flex; flex-direction: column; grid-row: auto; }
+    .sx-page .pl-sec .pl-btn { margin-top: auto; align-self: flex-start; }
+    .sx-page .pl-sec .pl-every-list { grid-template-columns: minmax(0, 1fr); }
+  }
+  @media (min-width: 700px) and (max-width: 1080px) {
+    .sx-page .pl-sec .pl-every-list { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 40px; }
+  }
+  @media (max-width: 560px) {
+    .sx-page .pl-sec .pl-btn { width: 100%; box-sizing: border-box; justify-content: center; }
+    .sx-page .pl-sec .pl-every-link { white-space: normal; }
+  }
+<!-- EXPERIMENT /*___________________________________🟢 ¯\_(ツ)_/¯ 🟢 ___________________________________*/ EXPERIMENT  -->
 </style>
 
 
