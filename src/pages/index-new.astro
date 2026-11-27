@@ -134,6 +134,7 @@ const initials = (name) => name.trim().split(/\s+/).map((w) => w[0]).slice(0, 2)
 
 ---
 
+<!-- LAYOUT // LAYOUT  /*___________________________________🟢 ¯\_(ツ)_/¯ 🟢 ___________________________________*/ LAYOUT // LAYOUT  -->
 <Layout metadata={metadata} pageClass="product-description-page">
   <StructuredData slot="head" schema={structuredData} />
 
@@ -598,75 +599,11 @@ const initials = (name) => name.trim().split(/\s+/).map((w) => w[0]).slice(0, 2)
       </div>
     </section>
   </div>
-</Layout>
+<!-- EXPERIMENT /*___________________________________🟢 ¯\_(ツ)_/¯ 🟢 ___________________________________*/ EXPERIMENT  -->
 
-<style>
-  /* Testimonial layout, taken from /right/. Scoped to this page. */
-  .proof-layout { display: grid; grid-template-columns: .85fr 1.15fr; gap: clamp(35px, 7vw, 90px); align-items: center; }
-  .proof-pull { max-width: none; font-size: clamp(28px, 3.6vw, 46px); margin-bottom: 20px; }
-  .testimonial-card { position: relative; overflow: hidden; padding: clamp(28px, 4vw, 42px); border: 1px solid var(--line); border-radius: 22px; background: var(--card); }
-  .quote-mark { position: absolute; right: 20px; top: 4px; font-family: Georgia, serif; font-size: 100px; line-height: 1; color: var(--green); opacity: .12; }
-  .testimonial-card blockquote { position: relative; margin: 0 0 30px; font-size: 17px; line-height: 1.75; color: var(--ink); }
-  .quote-person { display: flex; align-items: center; gap: 12px; border-top: 1px solid var(--line); padding-top: 18px; }
-  .quote-initial { width: 38px; height: 38px; display: grid; place-items: center; border-radius: 50%; background: var(--night); color: var(--lime); font-weight: 850; }
-  .quote-person strong, .quote-person small { display: block; }
-  .quote-person strong { font-size: 13px; color: var(--ink); }
-  .quote-person small { font-size: 11px; color: var(--muted); margin-top: 3px; }
-  .testimonial-card blockquote p { margin: 0 0 14px; color: var(--ink); }
-  .testimonial-card blockquote p:last-child { margin-bottom: 0; }
-  @media (max-width: 980px) { .proof-layout { grid-template-columns: 1fr; } }
+<!-- 7. PLANS Replaces the whole <section id="plans"> ... </section>, AND the next section is untouched (#compare stays). Needs `contactLink` from the frontmatter (already there). -->
+<!-- The "info section" below the plans is gone; its useful sentence (no automatic renewal) now lives in the "In every plan" strip. -->
 
-
-.work-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin-bottom: 56px; }
-.work-card { display: block; text-decoration: none; color: inherit; }
-.work-frame { border: 1px solid var(--line); border-radius: 16px; overflow: hidden; background: var(--card); box-shadow: 0 30px 60px -40px rgba(23,36,43,.55); transition: transform .35s ease; }
-.work-card:hover .work-frame { transform: translateY(-4px); }
-.work-bar { display: flex; gap: 6px; padding: 10px 14px; background: var(--alt); border-bottom: 1px solid var(--line); }
-.work-bar i { width: 9px; height: 9px; border-radius: 50%; background: var(--line); }
-.work-frame img { display: block; width: 100%; height: auto; }
-.work-meta { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 16px 4px 0; }
-.work-meta b { display: block; color: var(--ink); font-size: 17px; }
-.work-meta span { font-size: 13px; color: var(--muted); }
-.work-meta .work-go { font-weight: 700; color: var(--ink); white-space: nowrap; }
-@media (max-width: 700px) { .work-grid { grid-template-columns: 1fr; } }
-</style>
-
-<style is:global>
-  /* ==========================================================================
-     CALM PASS (home page only). Modelled on /about-us/: same kit, fewer loud parts.
-     To go back to the old look, delete the word "sx-calm" from the <div class="sx-page sx-calm"> wrapper.
-     Dark blocks are now: hero, the real-client story, and the closing call to action.
-     ========================================================================== */
-
-  /* 1. "The Top League approach" card: light, with a green edge, instead of a dark panel */
-  .sx-page.sx-calm .sx-vs-new { background: var(--card); color: var(--ink); border: 1px solid var(--green); box-shadow: none; }
-  .sx-page.sx-calm .sx-vs-new::after { display: none; }
-  .sx-page.sx-calm .sx-vs-new .sx-vs-k { color: var(--green); }
-  .sx-page.sx-calm .sx-vs-new h3 { color: var(--ink); }
-  .sx-page.sx-calm .sx-vs-new p { color: var(--muted); }
-  .sx-page.sx-calm .sx-vs-badge { box-shadow: none; }
-  .sx-page.sx-calm .sx-tab[aria-selected="true"] { color: #fff; }
-
-  /* 2. Plans: the recommended plan is marked by a green outline, not a dark card that floats higher */
-  .sx-page.sx-calm .sx-path.is-feat { background: var(--card); border: 2px solid var(--green); box-shadow: none; transform: none; }
-  .sx-page.sx-calm .sx-path.is-feat:hover { transform: translateY(-6px); }
-  .sx-page.sx-calm .sx-path.is-feat h3,
-  .sx-page.sx-calm .sx-path.is-feat li,
-  .sx-page.sx-calm .sx-path.is-feat .sx-price { color: var(--ink); }
-  .sx-page.sx-calm .sx-path.is-feat p { color: var(--muted); }
-  .sx-page.sx-calm .sx-path.is-feat .sx-card-k { color: var(--red); }
-  .sx-page.sx-calm .sx-path.is-feat ul { border-color: var(--line); }
-  .sx-page.sx-calm .sx-path.is-feat .sx-tick { background: var(--green); color: #fff; }
-  .sx-page.sx-calm .sx-badge { background: var(--green); color: #fff; }
-  .sx-page.sx-calm .sx-path .sx-btn-primary { background: var(--green); color: #fff; box-shadow: none; }
-</style>
-
-
-<!-- 0.  PLANS /*___________________________________🟢 ¯\_(ツ)_/¯ 🟢 ___________________________________*/-->
-<!-- 7. PLANS
-     Replaces the whole <section id="plans"> ... </section>, AND the next section is untouched (#compare stays).
-     Needs `contactLink` from the frontmatter (already there).
-     The "info section" below the plans is gone; its useful sentence (no automatic renewal) now lives in the "In every plan" strip. -->
 <section class="sx-section sx-alt pl-sec" id="plans">
   <div class="sx-wrap">
     <div class="sx-head">
@@ -886,4 +823,69 @@ const initials = (name) => name.trim().split(/\s+/).map((w) => w[0]).slice(0, 2)
     .sx-page .pl-sec .pl-btn { width: 100%; box-sizing: border-box; justify-content: center; }
     .sx-page .pl-sec .pl-every-link { white-space: normal; }
   }
+</style>
+
+</Layout>
+
+<!-- LAYOUT // LAYOUT  /*___________________________________🟢 ¯\_(ツ)_/¯ 🟢 ___________________________________*/ LAYOUT // LAYOUT  -->
+
+<style>
+  /* Testimonial layout, taken from /right/. Scoped to this page. */
+  .proof-layout { display: grid; grid-template-columns: .85fr 1.15fr; gap: clamp(35px, 7vw, 90px); align-items: center; }
+  .proof-pull { max-width: none; font-size: clamp(28px, 3.6vw, 46px); margin-bottom: 20px; }
+  .testimonial-card { position: relative; overflow: hidden; padding: clamp(28px, 4vw, 42px); border: 1px solid var(--line); border-radius: 22px; background: var(--card); }
+  .quote-mark { position: absolute; right: 20px; top: 4px; font-family: Georgia, serif; font-size: 100px; line-height: 1; color: var(--green); opacity: .12; }
+  .testimonial-card blockquote { position: relative; margin: 0 0 30px; font-size: 17px; line-height: 1.75; color: var(--ink); }
+  .quote-person { display: flex; align-items: center; gap: 12px; border-top: 1px solid var(--line); padding-top: 18px; }
+  .quote-initial { width: 38px; height: 38px; display: grid; place-items: center; border-radius: 50%; background: var(--night); color: var(--lime); font-weight: 850; }
+  .quote-person strong, .quote-person small { display: block; }
+  .quote-person strong { font-size: 13px; color: var(--ink); }
+  .quote-person small { font-size: 11px; color: var(--muted); margin-top: 3px; }
+  .testimonial-card blockquote p { margin: 0 0 14px; color: var(--ink); }
+  .testimonial-card blockquote p:last-child { margin-bottom: 0; }
+  @media (max-width: 980px) { .proof-layout { grid-template-columns: 1fr; } }
+
+
+.work-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin-bottom: 56px; }
+.work-card { display: block; text-decoration: none; color: inherit; }
+.work-frame { border: 1px solid var(--line); border-radius: 16px; overflow: hidden; background: var(--card); box-shadow: 0 30px 60px -40px rgba(23,36,43,.55); transition: transform .35s ease; }
+.work-card:hover .work-frame { transform: translateY(-4px); }
+.work-bar { display: flex; gap: 6px; padding: 10px 14px; background: var(--alt); border-bottom: 1px solid var(--line); }
+.work-bar i { width: 9px; height: 9px; border-radius: 50%; background: var(--line); }
+.work-frame img { display: block; width: 100%; height: auto; }
+.work-meta { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 16px 4px 0; }
+.work-meta b { display: block; color: var(--ink); font-size: 17px; }
+.work-meta span { font-size: 13px; color: var(--muted); }
+.work-meta .work-go { font-weight: 700; color: var(--ink); white-space: nowrap; }
+@media (max-width: 700px) { .work-grid { grid-template-columns: 1fr; } }
+</style>
+
+<style is:global>
+  /* ==========================================================================
+     CALM PASS (home page only). Modelled on /about-us/: same kit, fewer loud parts.
+     To go back to the old look, delete the word "sx-calm" from the <div class="sx-page sx-calm"> wrapper.
+     Dark blocks are now: hero, the real-client story, and the closing call to action.
+     ========================================================================== */
+
+  /* 1. "The Top League approach" card: light, with a green edge, instead of a dark panel */
+  .sx-page.sx-calm .sx-vs-new { background: var(--card); color: var(--ink); border: 1px solid var(--green); box-shadow: none; }
+  .sx-page.sx-calm .sx-vs-new::after { display: none; }
+  .sx-page.sx-calm .sx-vs-new .sx-vs-k { color: var(--green); }
+  .sx-page.sx-calm .sx-vs-new h3 { color: var(--ink); }
+  .sx-page.sx-calm .sx-vs-new p { color: var(--muted); }
+  .sx-page.sx-calm .sx-vs-badge { box-shadow: none; }
+  .sx-page.sx-calm .sx-tab[aria-selected="true"] { color: #fff; }
+
+  /* 2. Plans: the recommended plan is marked by a green outline, not a dark card that floats higher */
+  .sx-page.sx-calm .sx-path.is-feat { background: var(--card); border: 2px solid var(--green); box-shadow: none; transform: none; }
+  .sx-page.sx-calm .sx-path.is-feat:hover { transform: translateY(-6px); }
+  .sx-page.sx-calm .sx-path.is-feat h3,
+  .sx-page.sx-calm .sx-path.is-feat li,
+  .sx-page.sx-calm .sx-path.is-feat .sx-price { color: var(--ink); }
+  .sx-page.sx-calm .sx-path.is-feat p { color: var(--muted); }
+  .sx-page.sx-calm .sx-path.is-feat .sx-card-k { color: var(--red); }
+  .sx-page.sx-calm .sx-path.is-feat ul { border-color: var(--line); }
+  .sx-page.sx-calm .sx-path.is-feat .sx-tick { background: var(--green); color: #fff; }
+  .sx-page.sx-calm .sx-badge { background: var(--green); color: #fff; }
+  .sx-page.sx-calm .sx-path .sx-btn-primary { background: var(--green); color: #fff; box-shadow: none; }
 </style>
