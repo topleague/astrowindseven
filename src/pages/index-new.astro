@@ -134,7 +134,7 @@ const initials = (name) => name.trim().split(/\s+/).map((w) => w[0]).slice(0, 2)
 
 ---
 
-<!-- LAYOUT // LAYOUT  /*___________________________________🟢 ¯\_(ツ)_/¯ 🟢 ___________________________________*/ LAYOUT // LAYOUT  -->
+<!-- LAYOUT // LAYOUT  /*___________________________________ 🔴 ¯\_(ツ)_/¯ 🔴 ___________________________________*/ LAYOUT // LAYOUT  -->
 <Layout metadata={metadata} pageClass="product-description-page">
   <StructuredData slot="head" schema={structuredData} />
 
@@ -143,7 +143,7 @@ const initials = (name) => name.trim().split(/\s+/).map((w) => w[0]).slice(0, 2)
   <div class="sx-page sx-calm">
     <div class="sx-progress" aria-hidden="true"><span></span></div>
 
-<!-- 0.  HERO /*___________________________________🟢 ¯\_(ツ)_/¯ 🟢 ___________________________________*/-->
+<!-- 0.  HERO /*___________________________________ 🔴 ¯\_(ツ)_/¯ 🔴 ___________________________________*/-->
 <section class="sx-hero hc" id="top">
   <!-- Quiet background: presence spreading outward from your business. Decorative, static. -->
   <svg class="hc-art" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
@@ -533,74 +533,7 @@ const initials = (name) => name.trim().split(/\s+/).map((w) => w[0]).slice(0, 2)
       </div>
     </section>
 
- <!-- 9. CLIENT WORK AND WEBSITE TESTIMONIALS -->
-    <section class="sx-section sx-alt" id="proof">
-      <div class="sx-wrap">
-        <div class="sx-head">
-          <div class="sx-kicker sx-reveal">Client work</div>
-          <h2 class="sx-h2 sx-reveal">Websites we’ve built, and look after.</h2>
-        </div>
-        <!-- TODO: a strip of 4 to 6 more projects (name, one line, link or screenshot) can sit under this block. -->
-<div class="work-grid">
-  {projects.map((p) => (
-    <a class="work-card" href={p.url} target="_blank" rel="noopener">
-      <div class="work-frame">
-        <div class="work-bar" aria-hidden="true"><i></i><i></i><i></i></div>
-        <Image src={p.shot} alt={p.alt} loading="lazy" />
-      </div>
-      <div class="work-meta">
-        <div><b>{p.name}</b><span>{p.kind}</span></div>
-        <span class="work-go">Visit site ↗</span>
-      </div>
-    </a>
-  ))}
-</div>
-        <div data-sx-tabs>
-          <div class="sx-tabs" role="tablist" aria-label="Client reviews">
-            {clientWork.map((c, i) => (
-              <button class="sx-tab" role="tab" type="button" aria-selected={i === 0 ? 'true' : 'false'}>{c.tab}</button>
-            ))}
-          </div>
-          {clientWork.map((c) => (
-            <div class="sx-panel" role="tabpanel">
-              <div class="proof-layout">
-                <div class="proof-intro">
-                  <div class="sx-card-k" style="margin:0 0 14px">{c.project}</div>
-                  <h3 class="sx-h2 proof-pull">“{c.pull}”</h3>
-                  <p class="sx-lead">{c.blurb}</p>
-                </div>
-                <article class="testimonial-card">
-                  <span class="quote-mark" aria-hidden="true">“</span>
-                  <blockquote>{c.paras.map((p) => <p>{p}</p>)}</blockquote>
-                  <div class="quote-person">
-                    <span class="quote-initial" aria-hidden="true">{initials(c.name.replace(/^Prof\.\s*/, ''))}</span>
-                    <span><strong>{c.name}</strong><small>{c.job}</small></span>
-                  </div>
-                </article>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-
-    <!-- 11. CTA -->
-    <section class="sx-cta" id="contact">
-      <div class="sx-wrap">
-        <div class="sx-cta-card sx-reveal">
-          <div>
-            <div class="sx-kicker sx-kicker-lime">Let's talk</div>
-            <h2>Planning a website for your business?</h2>
-            <p>No giant proposal. No unnecessary package. Start with the business, the goal and the budget, and we'll work out the plan from there.</p>
-            <p><a href="/whatsapp/" rel="nofollow noopener" style="color:var(--lime);font-weight:700;text-decoration:underline;text-underline-offset:3px">Prefer WhatsApp? Message us</a></p>
-          </div>
-          <a class="sx-btn sx-btn-primary sx-btn-lg" href={contactLink}>Get a free consultation <i>↗</i></a>
-        </div>
-      </div>
-    </section>
-  </div>
-<!-- EXPERIMENT /*___________________________________🟢 ¯\_(ツ)_/¯ 🟢 ___________________________________*/ EXPERIMENT  -->
-
+<!-- HTML EXPERIMENT /*___________________________________🔴 ¯\_(ツ)_/¯ 🔴 ___________________________________*/ HTML EXPERIMENT  -->
 <!-- 7. PLANS Replaces the whole <section id="plans"> ... </section>, AND the next section is untouched (#compare stays). Needs `contactLink` from the frontmatter (already there). -->
 <!-- The "info section" below the plans is gone; its useful sentence (no automatic renewal) now lives in the "In every plan" strip. -->
 
@@ -707,7 +640,75 @@ const initials = (name) => name.trim().split(/\s+/).map((w) => w[0]).slice(0, 2)
   </div>
 </section>
 
-<!-- LAYOUT // LAYOUT  /*___________________________________🟢 ¯\_(ツ)_/¯ 🟢 ___________________________________*/ LAYOUT // LAYOUT  -->
+
+ <!-- 9. CLIENT WORK AND WEBSITE TESTIMONIALS -->
+    <section class="sx-section sx-alt" id="proof">
+      <div class="sx-wrap">
+        <div class="sx-head">
+          <div class="sx-kicker sx-reveal">Client work</div>
+          <h2 class="sx-h2 sx-reveal">Websites we’ve built, and look after.</h2>
+        </div>
+        <!-- TODO: a strip of 4 to 6 more projects (name, one line, link or screenshot) can sit under this block. -->
+<div class="work-grid">
+  {projects.map((p) => (
+    <a class="work-card" href={p.url} target="_blank" rel="noopener">
+      <div class="work-frame">
+        <div class="work-bar" aria-hidden="true"><i></i><i></i><i></i></div>
+        <Image src={p.shot} alt={p.alt} loading="lazy" />
+      </div>
+      <div class="work-meta">
+        <div><b>{p.name}</b><span>{p.kind}</span></div>
+        <span class="work-go">Visit site ↗</span>
+      </div>
+    </a>
+  ))}
+</div>
+        <div data-sx-tabs>
+          <div class="sx-tabs" role="tablist" aria-label="Client reviews">
+            {clientWork.map((c, i) => (
+              <button class="sx-tab" role="tab" type="button" aria-selected={i === 0 ? 'true' : 'false'}>{c.tab}</button>
+            ))}
+          </div>
+          {clientWork.map((c) => (
+            <div class="sx-panel" role="tabpanel">
+              <div class="proof-layout">
+                <div class="proof-intro">
+                  <div class="sx-card-k" style="margin:0 0 14px">{c.project}</div>
+                  <h3 class="sx-h2 proof-pull">“{c.pull}”</h3>
+                  <p class="sx-lead">{c.blurb}</p>
+                </div>
+                <article class="testimonial-card">
+                  <span class="quote-mark" aria-hidden="true">“</span>
+                  <blockquote>{c.paras.map((p) => <p>{p}</p>)}</blockquote>
+                  <div class="quote-person">
+                    <span class="quote-initial" aria-hidden="true">{initials(c.name.replace(/^Prof\.\s*/, ''))}</span>
+                    <span><strong>{c.name}</strong><small>{c.job}</small></span>
+                  </div>
+                </article>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- 11. CTA -->
+    <section class="sx-cta" id="contact">
+      <div class="sx-wrap">
+        <div class="sx-cta-card sx-reveal">
+          <div>
+            <div class="sx-kicker sx-kicker-lime">Let's talk</div>
+            <h2>Planning a website for your business?</h2>
+            <p>No giant proposal. No unnecessary package. Start with the business, the goal and the budget, and we'll work out the plan from there.</p>
+            <p><a href="/whatsapp/" rel="nofollow noopener" style="color:var(--lime);font-weight:700;text-decoration:underline;text-underline-offset:3px">Prefer WhatsApp? Message us</a></p>
+          </div>
+          <a class="sx-btn sx-btn-primary sx-btn-lg" href={contactLink}>Get a free consultation <i>↗</i></a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+<!-- LAYOUT // LAYOUT  /*___________________________________🔴 ¯\_(ツ)_/¯ 🔴 ___________________________________*/ LAYOUT // LAYOUT  -->
 </Layout>
 
 
@@ -776,9 +777,8 @@ const initials = (name) => name.trim().split(/\s+/).map((w) => w[0]).slice(0, 2)
 
 /*___________________________________🟢 ¯\_(ツ)_/¯ 🟢 ___________________________________*/ 
 
-<style is:global>
-
 /*___________________________________🟢 ¯\_(ツ)_/¯ 🟢 ___________________________________*/ 
+<style is:global>
   /* ==========================================================================
      PLANS. One block, no other plan CSS needed (the old .sx-path rules are no longer used).
      Alignment: the three cards are subgrid items over seven shared rows, so the label, heading, intro, price,
@@ -894,7 +894,5 @@ const initials = (name) => name.trim().split(/\s+/).map((w) => w[0]).slice(0, 2)
     .sx-page .pl-sec .pl-btn { width: 100%; box-sizing: border-box; justify-content: center; }
     .sx-page .pl-sec .pl-every-link { white-space: normal; }
   }
-
-/*___________________________________🟢 ¯\_(ツ)_/¯ 🟢 ___________________________________*/
-
 </style>
+/*___________________________________🟢 ¯\_(ツ)_/¯ 🟢 ___________________________________*/
