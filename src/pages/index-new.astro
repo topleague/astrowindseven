@@ -535,11 +535,11 @@ const initials = (name) => name.trim().split(/\s+/).map((w) => w[0]).slice(0, 2)
 
 <!-- HTML EXPERIMENT /*___________________________________🔴 ¯\_(ツ)_/¯ 🔴 ___________________________________*/ HTML EXPERIMENT  -->
 
-<!-- 7. PLANS (v2)
-     Replaces the whole <section id="plans"> ... </section>. Leave #compare as it is.
+<!-- 7. PLANS (v3)
+     Replaces the whole <section id="plans"> ... </section>. Leave #compare as it is for now.
      Needs `contactLink` from the frontmatter (already there).
-     Pattern: plan header (name, one line, price, button), then the same attribute rows in every card.
-     No bullet lists. Everything that is identical in all three plans moves to the "In every plan" strip. -->
+     Rules this follows: everything on one line, no line breaks; CTA right under the price; short rows in small caps;
+     plain tick / cross icons in text colour, no filled circles; the detail lives on the future pricing page. -->
 <section class="sx-section sx-alt pl-sec" id="plans">
   <div class="sx-wrap">
     <div class="sx-head">
@@ -548,88 +548,84 @@ const initials = (name) => name.trim().split(/\s+/).map((w) => w[0]).slice(0, 2)
       <p class="sx-lead sx-reveal">Pick the plan that matches where your business is today. Each one includes a properly built website that you own.</p>
     </div>
  
-    <!-- Each card is a subgrid over 13 shared rows: label, intro, price, button, then 9 attribute rows.
-         Every row (and every hairline) lines up across the three cards. -->
+    <!-- Each card shares 12 rows with its neighbours (subgrid): name, heading, caption, price, button, 7 detail rows.
+         Every row and every hairline lines up across the three cards. -->
     <div class="pl-grid">
  
       <!-- Starter -->
       <article class="pl-card sx-reveal">
         <div class="pl-k">Starter</div>
-        <div class="pl-top">
-          <h3 class="pl-h">I need a website.</h3>
-          <p class="pl-p">A one-time project to get your business online, with the essentials set up properly.</p>
-        </div>
+        <h3 class="pl-h">I need a website.</h3>
+        <p class="pl-cap">One-time project, done right.</p>
         <div class="pl-price">₹30,000</div>
         <a class="pl-btn" href={contactLink}>Get Starter <i aria-hidden="true">↗</i></a>
  
         <div class="pl-row"><span class="pl-l">Design</span><span class="pl-v">Standard</span></div>
-        <div class="pl-row"><span class="pl-l">Second mockup with your real content</span><span class="pl-v pl-no" role="img" aria-label="Not included">–</span></div>
-        <div class="pl-row"><span class="pl-l">Pages written for you</span><span class="pl-v">3</span></div>
-        <div class="pl-row"><span class="pl-l">Keyword and competitor research</span><span class="pl-v">Basic</span></div>
-        <div class="pl-row"><span class="pl-l">On-page SEO</span><span class="pl-v">Basic</span></div>
+        <div class="pl-row"><span class="pl-l">Second mockup</span><span class="pl-v"><span class="pl-no" role="img" aria-label="Not included"></span></span></div>
+        <div class="pl-row"><span class="pl-l">Pages written</span><span class="pl-v">3</span></div>
+        <div class="pl-row"><span class="pl-l">SEO</span><span class="pl-v">Basic</span></div>
         <div class="pl-row"><span class="pl-l">Blog articles</span><span class="pl-v">1</span></div>
-        <div class="pl-row"><span class="pl-l">Social posts each month</span><span class="pl-v pl-no" role="img" aria-label="Not included">–</span></div>
-        <div class="pl-row"><span class="pl-l">Support after launch</span><span class="pl-v">None</span></div>
-        <div class="pl-row"><span class="pl-l">Monthly maintenance, SEO tune-up and report</span><span class="pl-v pl-no" role="img" aria-label="Not included">–</span></div>
+        <div class="pl-row"><span class="pl-l">Social posts</span><span class="pl-v"><span class="pl-no" role="img" aria-label="Not included"></span></span></div>
+        <div class="pl-row"><span class="pl-l">Support period</span><span class="pl-v"><span class="pl-no" role="img" aria-label="Not included"></span></span></div>
       </article>
  
       <!-- Growth -->
       <article class="pl-card pl-feat sx-reveal" style="--d:.1s">
-        <span class="pl-badge">Recommended</span>
-        <div class="pl-k">Growth</div>
-        <div class="pl-top">
-          <h3 class="pl-h">I need a website that attracts customers.</h3>
-          <p class="pl-p">Built on research, with content and SEO behind it, then three months of us working on it with you.</p>
-        </div>
+        <div class="pl-k">Growth <span class="pl-tag">Recommended</span></div>
+        <h3 class="pl-h">I need customers.</h3>
+        <p class="pl-cap">Research first, then support.</p>
         <div class="pl-price">₹50,000</div>
         <a class="pl-btn pl-btn-feat" href={contactLink}>Choose Growth <i aria-hidden="true">↗</i></a>
  
         <div class="pl-row"><span class="pl-l">Design</span><span class="pl-v">Tailored</span></div>
-        <div class="pl-row"><span class="pl-l">Second mockup with your real content</span><span class="pl-v"><span class="sx-tick" role="img" aria-label="Included">✓</span></span></div>
-        <div class="pl-row"><span class="pl-l">Pages written for you</span><span class="pl-v">4</span></div>
-        <div class="pl-row"><span class="pl-l">Keyword and competitor research</span><span class="pl-v">In-depth</span></div>
-        <div class="pl-row"><span class="pl-l">On-page SEO</span><span class="pl-v">Comprehensive</span></div>
-        <div class="pl-row"><span class="pl-l">Blog articles</span><span class="pl-v">5 in total</span></div>
-        <div class="pl-row"><span class="pl-l">Social posts each month</span><span class="pl-v">6, on 3 platforms</span></div>
-        <div class="pl-row"><span class="pl-l">Support after launch</span><span class="pl-v">3 months</span></div>
-        <div class="pl-row"><span class="pl-l">Monthly maintenance, SEO tune-up and report</span><span class="pl-v"><span class="sx-tick" role="img" aria-label="Included">✓</span></span></div>
+        <div class="pl-row"><span class="pl-l">Second mockup</span><span class="pl-v"><span class="pl-yes" role="img" aria-label="Included"></span></span></div>
+        <div class="pl-row"><span class="pl-l">Pages written</span><span class="pl-v">4</span></div>
+        <div class="pl-row"><span class="pl-l">SEO</span><span class="pl-v">Comprehensive</span></div>
+        <div class="pl-row"><span class="pl-l">Blog articles</span><span class="pl-v">5</span></div>
+        <div class="pl-row"><span class="pl-l">Social posts</span><span class="pl-v">6 a month</span></div>
+        <div class="pl-row"><span class="pl-l">Support period</span><span class="pl-v">3 months</span></div>
       </article>
  
       <!-- Prime -->
       <article class="pl-card sx-reveal" style="--d:.2s">
         <div class="pl-k">Prime</div>
-        <div class="pl-top">
-          <h3 class="pl-h">I need someone to build and manage my online presence.</h3>
-          <p class="pl-p">Everything in Growth, a design built around your brand, and six months of us running it with you.</p>
-        </div>
+        <h3 class="pl-h">Run it all for me.</h3>
+        <p class="pl-cap">Six months of us running it.</p>
         <div class="pl-price">₹65,000</div>
         <a class="pl-btn" href={contactLink}>Talk to us <i aria-hidden="true">↗</i></a>
  
         <div class="pl-row"><span class="pl-l">Design</span><span class="pl-v">Custom</span></div>
-        <div class="pl-row"><span class="pl-l">Second mockup with your real content</span><span class="pl-v"><span class="sx-tick" role="img" aria-label="Included">✓</span></span></div>
-        <div class="pl-row"><span class="pl-l">Pages written for you</span><span class="pl-v">5</span></div>
-        <div class="pl-row"><span class="pl-l">Keyword and competitor research</span><span class="pl-v">In-depth</span></div>
-        <div class="pl-row"><span class="pl-l">On-page SEO</span><span class="pl-v">Comprehensive</span></div>
-        <div class="pl-row"><span class="pl-l">Blog articles</span><span class="pl-v">7 in total</span></div>
-        <div class="pl-row"><span class="pl-l">Social posts each month</span><span class="pl-v">10, on 5 platforms</span></div>
-        <div class="pl-row"><span class="pl-l">Support after launch</span><span class="pl-v">6 months</span></div>
-        <div class="pl-row"><span class="pl-l">Monthly maintenance, SEO tune-up and report</span><span class="pl-v"><span class="sx-tick" role="img" aria-label="Included">✓</span></span></div>
+        <div class="pl-row"><span class="pl-l">Second mockup</span><span class="pl-v"><span class="pl-yes" role="img" aria-label="Included"></span></span></div>
+        <div class="pl-row"><span class="pl-l">Pages written</span><span class="pl-v">5</span></div>
+        <div class="pl-row"><span class="pl-l">SEO</span><span class="pl-v">Comprehensive</span></div>
+        <div class="pl-row"><span class="pl-l">Blog articles</span><span class="pl-v">7</span></div>
+        <div class="pl-row"><span class="pl-l">Social posts</span><span class="pl-v">10 a month</span></div>
+        <div class="pl-row"><span class="pl-l">Support period</span><span class="pl-v">6 months</span></div>
       </article>
+    </div>
+ 
+    <!-- The free consultation: the reason to get in touch when there is no free trial. -->
+    <div class="pl-consult sx-reveal">
+      <div class="pl-consult-text">
+        <p class="pl-consult-h">Not sure which plan fits?</p>
+        <p class="pl-consult-p">Get 30 minutes of honest advice, free.</p>
+      </div>
+      <a class="pl-btn pl-btn-feat pl-consult-btn" href={contactLink}>Book your free consultation <i aria-hidden="true">↗</i></a>
     </div>
  
     <!-- In every plan: three columns, each starting exactly under the text of the card above it. -->
     <div class="pl-every sx-reveal">
       <div class="pl-every-k">In every plan</div>
       <ul class="pl-every-list">
-        <li><span class="sx-tick">✓</span>Domain and hosting guidance</li>
-        <li><span class="sx-tick">✓</span>Responsive WordPress website</li>
-        <li><span class="sx-tick">✓</span>Basic security setup</li>
-        <li><span class="sx-tick">✓</span>Pre-launch testing</li>
-        <li><span class="sx-tick">✓</span>Full handover: you own the site</li>
-        <li><span class="sx-tick">✓</span>Basic training</li>
-        <li><span class="sx-tick">✓</span>Google Analytics, Search Console and Business Profile set up</li>
-        <li><span class="sx-tick">✓</span>Facebook, Instagram, X and LinkedIn profiles set up</li>
-        <li><span class="sx-tick">✓</span>A report showing which pages were submitted to Google</li>
+        <li><span class="pl-yes" aria-hidden="true"></span>Domain and hosting guidance</li>
+        <li><span class="pl-yes" aria-hidden="true"></span>Responsive WordPress website</li>
+        <li><span class="pl-yes" aria-hidden="true"></span>Basic security setup</li>
+        <li><span class="pl-yes" aria-hidden="true"></span>Pre-launch testing</li>
+        <li><span class="pl-yes" aria-hidden="true"></span>Full handover: you own it</li>
+        <li><span class="pl-yes" aria-hidden="true"></span>Basic training</li>
+        <li><span class="pl-yes" aria-hidden="true"></span>Google tools set up</li>
+        <li><span class="pl-yes" aria-hidden="true"></span>Social profiles set up</li>
+        <li><span class="pl-yes" aria-hidden="true"></span>Report of pages sent to Google</li>
       </ul>
       <div class="pl-every-foot">
         <p><b>When the included period ends,</b> you keep the website. If you’d like us to carry on, we’ll agree a plan with you. There is no automatic renewal. Maintenance can be added any time.</p>
@@ -778,83 +774,104 @@ const initials = (name) => name.trim().split(/\s+/).map((w) => w[0]).slice(0, 2)
 /*___________________________________🟢 ¯\_(ツ)_/¯ 🟢 ___________________________________*/ 
 <style is:global>
   /* ==========================================================================
-     PLANS (v2). One block; no other plan CSS needed.
-     Body text 18px, labels and buttons 16px and up. Row heights, hairlines and buttons align across the cards
-     because the cards share their rows (subgrid). Borders are 1px on every card; the recommended card
-     gets its second pixel from a box-shadow, so nothing shifts.
+     PLANS (v3). One block; no other plan CSS needed.
+     Everything in the cards is one line (white-space: nowrap), so nothing breaks.
+     Heading 24px, caption and rows 16-17px, tag 14px. Icons are plain, in text colour; the cross is light red.
      ========================================================================== */
-  .sx-page .pl-sec { --pl-inset: 27px; --pl-gap: 20px; }   /* inset = card border 1px + padding 26px */
- 
-  .sx-page .pl-sec .pl-grid {
-    display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: var(--pl-gap); row-gap: 0;
+  .sx-page .pl-sec {
+    --pl-inset: 27px; --pl-gap: 20px;                 /* inset = card border 1px + padding 26px */
+    --pl-soft: rgba(22, 32, 42, .62);                 /* softer text */
+    --pl-no: #d4635a;                                 /* light red for "not included" */
+    --pl-tag-bg: #fbf1c7; --pl-tag-fg: #6f5a0c;       /* light yellow tag */
+    --pl-yes-ic: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M4 10.5l4 4 8-9' fill='none' stroke='black' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    --pl-no-ic: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5 5l10 10M15 5L5 15' fill='none' stroke='black' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E");
   }
+  .dark .sx-page .pl-sec { --pl-soft: rgba(248, 250, 252, .66); --pl-no: #e8837b; --pl-tag-bg: rgba(251, 241, 199, .16); --pl-tag-fg: #f3dc8a; }
+ 
+  .sx-page .pl-sec .pl-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: var(--pl-gap); row-gap: 0; }
   .sx-page .pl-sec .pl-card {
-    position: relative; display: grid; grid-row: span 13; grid-template-rows: subgrid; row-gap: 0;
-    padding: 32px calc(var(--pl-inset) - 1px) 20px; border: 1px solid var(--line); border-radius: 22px; background: var(--card);
+    position: relative; display: grid; grid-row: span 12; grid-template-rows: subgrid; row-gap: 0;
+    padding: 30px calc(var(--pl-inset) - 1px) 14px; border: 1px solid var(--line); border-radius: 22px; background: var(--card);
   }
   .sx-page .pl-sec .pl-feat { border-color: var(--green); box-shadow: 0 0 0 1px var(--green); }
  
-  .sx-page .pl-sec .pl-badge {
-    position: absolute; top: -16px; left: calc(var(--pl-inset) - 1px);
-    padding: 5px 14px; border-radius: 999px; background: var(--green); color: #fff;
-    font-size: 16px; font-weight: 600; line-height: 1.3;
-  }
- 
-  /* header: label, one-line intro, price, button */
+  /* name + small tag */
   .sx-page .pl-sec .pl-k {
-    margin: 0 0 12px; font-size: 16px; font-weight: 700; line-height: 1.3; letter-spacing: .08em; text-transform: uppercase; color: var(--red);
+    display: flex; align-items: center; gap: 10px; margin: 0 0 12px;
+    font-size: 16px; font-weight: 700; line-height: 1.3; letter-spacing: .08em; text-transform: uppercase; color: var(--red); white-space: nowrap;
   }
-  .sx-page .pl-sec .pl-h { margin: 0 0 10px; font-size: 26px; line-height: 1.15; color: var(--ink); }
-  .sx-page .pl-sec .pl-p { margin: 0 0 22px; font-size: 18px; line-height: 1.5; color: var(--muted); }
+  .sx-page .pl-sec .pl-tag {
+    padding: 3px 10px; border-radius: 999px; background: var(--pl-tag-bg); color: var(--pl-tag-fg);
+    font-size: 14px; font-weight: 700; letter-spacing: .06em; line-height: 1.35;
+  }
+  /* heading and caption: one line each */
+  .sx-page .pl-sec .pl-h { margin: 0 0 8px; font-size: 26px; line-height: 1.15; color: var(--ink); white-space: nowrap; }
+  .sx-page .pl-sec .pl-cap { margin: 0 0 28px; font-size: 17px; line-height: 1.4; color: var(--pl-soft); white-space: nowrap; }
+  /* price: medium weight, soft colour, with room before the button */
   .sx-page .pl-sec .pl-price {
-    margin: 0 0 18px; font-size: 34px; font-weight: 600; line-height: 1.1; letter-spacing: -.01em; color: var(--muted);
+    margin: 0 0 26px; font-size: 38px; font-weight: 500; line-height: 1.1; letter-spacing: -.02em; color: var(--pl-soft);
     font-variant-numeric: lining-nums tabular-nums;
   }
+  /* button: sized to sit under the price, not fight it */
   .sx-page .pl-sec .pl-btn {
     box-sizing: border-box; display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; margin: 0 0 24px;
-    padding: 15px 20px; border-radius: 999px; border: 1.5px solid var(--ink); background: transparent; color: var(--ink);
-    font-size: 17px; font-weight: 600; line-height: 1.2; text-decoration: none; transition: background-color .2s ease, color .2s ease;
+    padding: 12px 20px; border-radius: 999px; border: 1.5px solid var(--ink); background: transparent; color: var(--ink);
+    font-size: 16px; font-weight: 600; line-height: 1.3; text-decoration: none; white-space: nowrap; transition: background-color .2s ease, color .2s ease;
   }
   .sx-page .pl-sec .pl-btn:hover { background: var(--ink); color: var(--card); }
   .sx-page .pl-sec .pl-btn i { font-style: normal; }
   .sx-page .pl-sec .pl-btn-feat { background: var(--green); border-color: var(--green); color: #fff; }
   .sx-page .pl-sec .pl-btn-feat:hover { background: #276f64; border-color: #276f64; color: #fff; }
-  .sx-page .pl-sec .pl-btn:focus-visible,
-  .sx-page .pl-sec .pl-every-link:focus-visible { outline: 3px solid var(--green); outline-offset: 4px; }
+  .sx-page .pl-sec .pl-btn:focus-visible { outline: 3px solid var(--green); outline-offset: 4px; }
  
-  /* attribute rows: label left, value right, hairline between rows */
+  /* detail rows: small caps label left, bold value right, one line, hairline between */
   .sx-page .pl-sec .pl-row {
     display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: 16px; align-items: center;
-    padding: 13px 0; border-top: 1px solid var(--line); font-size: 18px; line-height: 1.35;
+    padding: 14px 0; border-top: 1px solid var(--line); white-space: nowrap;
   }
-  .sx-page .pl-sec .pl-l { color: var(--muted); }
-  .sx-page .pl-sec .pl-v { text-align: right; font-weight: 600; color: var(--ink); }
-  .sx-page .pl-sec .pl-no { font-weight: 400; color: var(--muted); }
-  .sx-page .pl-sec .sx-tick { width: 24px; height: 24px; margin: 0; font-size: 14px; background: var(--green); color: #fff; }
+  .sx-page .pl-sec .pl-l { font-size: 16px; line-height: 1.3; letter-spacing: .05em; text-transform: uppercase; color: var(--pl-soft); }
+  .sx-page .pl-sec .pl-v { display: flex; justify-content: flex-end; align-items: center; min-height: 22px; font-size: 17px; font-weight: 600; line-height: 1.3; color: var(--ink); }
  
-  /* "In every plan": the three columns start where the three cards' text starts */
-  .sx-page .pl-sec .pl-every {
-    margin-top: 28px; padding: 30px calc(var(--pl-inset) - 1px); border: 1px solid var(--line); border-radius: 22px; background: var(--card);
+  /* plain icons, no background: tick in text colour, cross in light red */
+  .sx-page .pl-sec .pl-yes,
+  .sx-page .pl-sec .pl-no { display: inline-block; flex: none; width: 18px; height: 18px; background: currentColor; -webkit-mask: center / contain no-repeat; mask: center / contain no-repeat; }
+  .sx-page .pl-sec .pl-yes { color: var(--ink); -webkit-mask-image: var(--pl-yes-ic); mask-image: var(--pl-yes-ic); }
+  .sx-page .pl-sec .pl-no { color: var(--pl-no); -webkit-mask-image: var(--pl-no-ic); mask-image: var(--pl-no-ic); }
+ 
+  /* free consultation band */
+  .sx-page .pl-sec .pl-consult {
+    display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 18px 32px;
+    margin-top: 28px; padding: 26px calc(var(--pl-inset) - 1px); border: 1px solid #ecdfa6; border-radius: 22px; background: #fdf8e3;
   }
+  .dark .sx-page .pl-sec .pl-consult { border-color: rgba(243, 220, 138, .28); background: rgba(251, 241, 199, .07); }
+  .sx-page .pl-sec .pl-consult-text p { margin: 0; }
+  .sx-page .pl-sec .pl-consult-h { font-size: 24px; line-height: 1.2; font-weight: 600; color: var(--ink); }
+  .sx-page .pl-sec .pl-consult-p { margin-top: 6px !important; font-size: 18px; line-height: 1.4; color: var(--pl-soft); }
+  .sx-page .pl-sec .pl-consult-btn { width: auto; margin: 0; padding: 15px 30px; font-size: 17px; }
+ 
+  /* "In every plan": columns start exactly under the three cards' text */
+  .sx-page .pl-sec .pl-every { margin-top: 28px; padding: 30px calc(var(--pl-inset) - 1px); border: 1px solid var(--line); border-radius: 22px; background: var(--card); }
   .sx-page .pl-sec .pl-every-k { margin: 0 0 22px; font-size: 16px; font-weight: 700; line-height: 1.3; letter-spacing: .08em; text-transform: uppercase; color: var(--red); }
   .sx-page .pl-sec .pl-every-list {
     list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
     column-gap: calc(2 * var(--pl-inset) + var(--pl-gap) - 2px); row-gap: 16px;
   }
-  .sx-page .pl-sec .pl-every-list li { display: flex; gap: 12px; align-items: flex-start; margin: 0; font-size: 18px; line-height: 1.45; color: var(--ink); }
+  .sx-page .pl-sec .pl-every-list li { display: flex; gap: 12px; align-items: center; margin: 0; font-size: 17px; line-height: 1.4; color: var(--ink); white-space: nowrap; }
   .sx-page .pl-sec .pl-every-foot { margin-top: 26px; padding-top: 24px; border-top: 1px solid var(--line); }
-  .sx-page .pl-sec .pl-every-foot p { margin: 0; max-width: 70ch; font-size: 18px; line-height: 1.55; color: var(--muted); }
+  .sx-page .pl-sec .pl-every-foot p { margin: 0; max-width: 92ch; font-size: 18px; line-height: 1.55; color: var(--muted); }
   .sx-page .pl-sec .pl-every-foot p b { color: var(--ink); font-weight: 700; }
  
-  /* below 1080px: one card per row; the cards are capped so rows do not stretch across the screen */
-  @media (max-width: 1080px) {
-    .sx-page .pl-sec .pl-grid { grid-template-columns: minmax(0, 1fr); row-gap: 40px; max-width: 620px; }
+  /* below 1120px the three columns get too tight for one-line text: stack the cards */
+  @media (max-width: 1120px) {
+    .sx-page .pl-sec .pl-grid { grid-template-columns: minmax(0, 1fr); row-gap: 32px; max-width: 560px; }
     .sx-page .pl-sec .pl-card { display: flex; flex-direction: column; grid-row: auto; }
-    .sx-page .pl-sec .pl-row { flex: none; }
     .sx-page .pl-sec .pl-every-list { grid-template-columns: minmax(0, 1fr); }
   }
-  @media (min-width: 700px) and (max-width: 1080px) {
+  @media (min-width: 700px) and (max-width: 1120px) {
     .sx-page .pl-sec .pl-every-list { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 40px; }
+  }
+  @media (max-width: 560px) {
+    .sx-page .pl-sec .pl-consult-btn { width: 100%; }
   }
 </style>
 /*___________________________________🟢 ¯\_(ツ)_/¯ 🟢 ___________________________________*/
