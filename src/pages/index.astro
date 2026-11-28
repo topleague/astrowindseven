@@ -159,64 +159,65 @@ const marquee = ['Business', 'Website', 'Content', 'SEO', 'Social', 'Maintenance
     <div class="sx-progress" aria-hidden="true"><span></span></div>
 
     <!-- 1. HERO SECTION -->
-    <section class="sx-hero">
-      <div class="sx-wrap sx-hero-grid">
-        <div class="sx-hero-copy">
-          <div class="sx-pill"><span class="sx-dot"></span> Website design &amp; development in Bhubaneswar</div>
-          <h1>
-            Build Your Online Presence,
-            <span>Not Just a Website.</span>
-          </h1>
-          <p>
-            Based in Bhubaneswar, working with small businesses across India and worldwide. We start with your business, goal and budget, then plan the website, content, SEO and maintenance around them.
-          </p>
-          <div class="sx-actions">
-            <a class="sx-btn sx-btn-primary" href="#contact">Free consultation <i>↗</i></a>
-            <a class="sx-btn sx-btn-ghost" href="#plans">See plans and prices <i>↓</i></a>
-          </div>
-          <div class="sx-note">Website design · Content writing · SEO &amp; social media · Maintenance</div>
+   <!-- HERO (centered, full-width, no split). Replaces the whole hero <section>.
+     Also DELETE the separate numbers section (<section class="sx-proof">): the numbers now live inside this hero.
+     Needs the existing `stats` array from the page's frontmatter. -->
+<section class="sx-hero hc" id="top">
+  <!-- Quiet background: presence spreading outward from your business. Decorative, static. -->
+  <svg class="hc-art" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+    <g class="hc-rings">
+          <circle cx="800" cy="450" r="200" />
+          <circle cx="800" cy="450" r="330" />
+          <circle cx="800" cy="450" r="460" />
+          <circle cx="800" cy="450" r="590" />
+          <circle cx="800" cy="450" r="720" />
+          <circle cx="800" cy="450" r="850" />
+    </g>
+    <g>
+          <circle class="hc-node" cx="509" cy="295" r="3.5" />
+          <circle class="hc-node" cx="1060" cy="653" r="3.5" />
+          <circle class="hc-node" cx="1206" cy="234" r="3.5" />
+          <circle class="hc-node" cx="394" cy="666" r="3.5" />
+          <circle class="hc-node-halo" cx="147" cy="146" r="13" />
+          <circle class="hc-node hc-node-accent" cx="147" cy="146" r="5" />
+          <circle class="hc-node" cx="523" cy="971" r="3.5" />
+          <circle class="hc-node" cx="1499" cy="276" r="3.5" />
+          <circle class="hc-node" cx="101" cy="624" r="3.5" />
+          <circle class="hc-node" cx="231" cy="-182" r="3.5" />
+          <circle class="hc-node" cx="1323" cy="1120" r="3.5" />
+    </g>
+  </svg>
+ 
+  <div class="hc-inner">
+    <h1>
+      Build Your Online Presence,
+      <span class="hc-aside">Not Just a Website.</span>
+    </h1>
+ 
+    <p class="hc-sub">
+      Tired of promises that never turn into customers? We tell you what is realistic for your budget,
+      and what isn’t, before you spend a rupee.
+    </p>
+ 
+    <div class="hc-actions">
+      <a class="hc-cta" href="#contact">Free consultation <span aria-hidden="true">→</span></a>
+      <a class="hc-link" href="#plans">See plans and prices</a>
+    </div>
+ 
+    <p class="hc-fit">Not the right fit? We’ll tell you that too.</p>
+  </div>
+ 
+  <div class="hc-trust">
+    <dl class="hc-stats">
+      {stats.map((s) => (
+        <div>
+          <dt>{s.n}{s.s}</dt>
+          <dd>{s.l}</dd>
         </div>
-
-        <div class="sx-stage" role="img" aria-label="Illustration: a website at the centre, connected to the domain, content, SEO, social presence and ongoing support around it.">
-          <svg viewBox="0 0 540 460" aria-hidden="true">
-            <circle class="sx-rip" cx="270" cy="230" r="215" style="--d:0s" />
-            <circle class="sx-rip" cx="270" cy="230" r="215" style="--d:2s" />
-            <circle class="sx-rip" cx="270" cy="230" r="215" style="--d:4s" />
-            <circle class="sx-ring2" cx="270" cy="230" r="165" />
-            {orbit.map((o) => <line class="sx-spoke" x1="270" y1="230" x2={o.x} y2={o.y} />)}
-            {orbit.map((o) => (
-              <g class="sx-sat" style={`--i:${o.i}`}>
-                <circle cx={o.x} cy={o.y} r="40" />
-                <text x={o.x} y={o.y + 5}>{o.label}</text>
-              </g>
-            ))}
-            <g class="sx-core">
-              <circle class="sx-halo" cx="270" cy="230" r="62" />
-              <circle cx="270" cy="230" r="44" />
-            </g>
-            <text class="sx-svgt" x="270" y="235">Website</text>
-          </svg>
-          <span class="sx-pin" style="left:0;top:6%"><b>1</b> Domain &amp; brand</span>
-          <span class="sx-pin" style="right:0;top:48%"><b>2</b> Content &amp; search</span>
-          <span class="sx-pin" style="left:4%;bottom:4%"><b>3</b> Maintenance after launch</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- 2. NUMBERS -->
-    <section class="sx-proof">
-      <div class="sx-wrap sx-proof-grid">
-        <div class="sx-proof-lead sx-reveal">Based in Bhubaneswar.<br />Clients in 10 countries.</div>
-        <div class="sx-stats">
-          {stats.map((s, i) => (
-            <div class="sx-stat sx-reveal" style={`--d:${i * 0.08}s`}>
-              <div class="sx-num"><span data-sx-count={s.n}>{s.n}</span>{s.s}</div>
-              <div class="sx-stat-l">{s.l}</div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
+      ))}
+    </dl>
+  </div>
+</section>
 
     <!-- 3. WHAT WE DO -->
     <section class="sx-section" id="services">
